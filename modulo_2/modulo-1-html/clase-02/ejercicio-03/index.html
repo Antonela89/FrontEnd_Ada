@@ -33,12 +33,93 @@ Crear la estructura HTML de una página personal (sin estilos) usando etiquetas 
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing</title>
 </head>
+
 <body>
-    
+  <header class="header">
+    <nav class="navegacion">
+      <ul class="lista-items">
+        <li class="item"><a class="link" href="#sobre-mi">Sobre mí</a></li>
+        <li class="item"><a class="link" href="#proyectos">Mis Proyectos</a></li>
+        <li class="item"><a class="link" href="#contacto">Contactame</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+    <section id="sobre-mi" class="seccion sobre-mi">
+      <h1 class="titulo-seccion principal">Antonela Borgogno</h1>
+      <p class="parrafo-seccion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, corporis porro totam
+        delectus praesentium
+        debitis laboriosam fuga quasi quisquam natus nostrum. Tenetur, laboriosam earum in possimus voluptas repellat
+        nemo explicabo nostrum vel corporis dolorem veritatis? Eaque, qui? Porro officia assumenda cumque illo commodi
+        deleniti harum voluptate, earum impedit alias consectetur dignissimos. Autem corrupti nihil incidunt tempore
+        assumenda accusamus dignissimos cupiditate voluptas quasi ab recusandae voluptate dolorum, modi at rem quibusdam
+        earum unde? Eligendi, blanditiis vitae excepturi placeat magni beatae dicta sequi quae quasi natus maiores iste
+        omnis harum eum fuga, sed eos assumenda autem quas optio quo. Harum, id facere!</p>
+    </section>
+    <section id="proyectos" class="seccion proyectos">
+      <h2 class="titulo-seccion">Mis proyectos</h2>
+      <article class="proyecto">
+        <img class="imagen-proyecto"
+          src="https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?_gl=1*12n562y*_ga*NDUzMjU0MDMyLjE3NTMzNzk4NDY.*_ga_8JE65Q40S6*czE3NTMzNzk4NDYkbzEkZzEkdDE3NTMzNzk5MTYkajU5JGwwJGgw" width="400" alt="Escritorio de trabajo con un monitor mostrando código.">
+        <h3 class="nombre-proyecto">Lorem ipsum dolor sit amet consectetur.</h3>
+        <p class="descripcion-proyecto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas accusamus
+          amet reiciendis dolores, ipsam cum voluptatem tenetur? Ea, minima rerum ullam vitae similique assumenda. Ea
+          deserunt, neque totam illo nobis explicabo blanditiis debitis nemo porro deleniti nam a inventore ex enim esse
+          amet tempora odit, fugit reiciendis. Odit incidunt qui labore nisi facere magni voluptate sunt deleniti
+          repudiandae harum? Eaque.</p>
+      </article>
+      <article class="proyecto">
+        <img class="imagen-proyecto"
+          src="https://media.istockphoto.com/id/1467976868/photo/the-convenience-of-shopping-online.webp?s=1024x1024&w=is&k=20&c=TW1sWVSVTo-GtbD7tLz3IO98v_JUJWqAnbgMrjtKLfs="
+          width="400" alt="Persona usando una laptop para una tienda en línea.">
+        <h3 class="nombre-proyecto">Lorem, ipsum dolor.</h3>
+        <p class="descripcion-proyecto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas accusamus
+          amet reiciendis dolores, ipsam cum voluptatem tenetur? Ea, minima rerum ullam vitae similique assumenda. Ea
+          deserunt, neque totam illo nobis explicabo blanditiis debitis nemo porro deleniti nam a inventore ex enim esse
+          amet tempora odit, fugit reiciendis. Odit incidunt qui labore nisi facere magni voluptate sunt deleniti
+          repudiandae harum? Eaque.</p>
+      </article>
+      <article class="proyecto">
+        <img class="imagen-proyecto"
+          src="https://images.pexels.com/photos/242492/pexels-photo-242492.jpeg?_gl=1*ecylua*_ga*NDUzMjU0MDMyLjE3NTMzNzk4NDY.*_ga_8JE65Q40S6*czE3NTMzNzk4NDYkbzEkZzEkdDE3NTMzODAyNDQkajU1JGwwJGgw"
+          width="400" alt="Gato atigrado mirando la pantalla de una laptop.">
+        <h3 class="nombre-proyecto">Lorem ipsum dolor sit amet consectetur adipisicing.</h3>
+        <p class="descripcion-proyecto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas accusamus
+          amet reiciendis dolores, ipsam cum voluptatem tenetur? Ea, minima rerum ullam vitae similique assumenda. Ea
+          deserunt, neque totam illo nobis explicabo blanditiis debitis nemo porro deleniti nam a inventore ex enim esse
+          amet tempora odit, fugit reiciendis. Odit incidunt qui labore nisi facere magni voluptate sunt deleniti
+          repudiandae harum? Eaque.</p>
+      </article>
+      <article class="proyecto">
+        <img class="imagen-proyecto"
+          src="https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?_gl=1*1doo5uk*_ga*NDUzMjU0MDMyLjE3NTMzNzk4NDY.*_ga_8JE65Q40S6*czE3NTMzNzk4NDYkbzEkZzEkdDE3NTMzODAyMDEkajI5JGwwJGgw"
+          width="400" alt="Íconos de redes sociales sobre un fondo de madera.">
+        <h3 class="nombre-proyecto">Lorem, ipsum dolor.</h3>
+        <p class="descripcion-proyecto">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas accusamus
+          amet reiciendis dolores, ipsam cum voluptatem tenetur? Ea, minima rerum ullam vitae similique assumenda. Ea
+          deserunt, neque totam illo nobis explicabo blanditiis debitis nemo porro deleniti nam a inventore ex enim esse
+          amet tempora odit, fugit reiciendis. Odit incidunt qui labore nisi facere magni voluptate sunt deleniti
+          repudiandae harum? Eaque.</p>
+      </article>
+    </section>
+    <section id="contacto" class="seccion contacto">
+      <h2 class="titulo-seccion">Contactame</h2>
+      <address class="direccion-contacto">
+        <a class="dato-contacto" href="mailto:antonela.borgogno@example.com">Email: antonela.borgogno@example.com</a>
+        <a class="dato-contacto" href="tel:+5491112345678">Teléfono: +54 9 11 1234-5678</a>
+        <a class="dato-contacto" target="_blank" href="https://www.linkedin.com/in/antonelaborgogno/" target="_blank">LinkedIn: /in/antonelaborgognoLinkedIn:</a>
+      </address>
+    </section>
+  </main>
+  <footer class="footer">
+    <span class="autor">Hecho con ❤️</span>
+  </footer>
 </body>
+
 </html>
