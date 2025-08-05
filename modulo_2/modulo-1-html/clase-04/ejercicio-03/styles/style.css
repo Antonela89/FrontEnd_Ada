@@ -1,0 +1,29 @@
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+    font-size: 3rem;
+    font-family: "Roboto", sans-serif;
+}
+
+.gris {
+    color: gray;
+}
+
+.link {
+    color: turquoise;
+    text-decoration: none;
+}
+
+.italica {
+    font-style: italic;
+}
+
+.negrita {
+    font-weight: bold;
+}
+
+p.italica {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

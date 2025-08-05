@@ -1,0 +1,59 @@
+ul {
+    list-style: none;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.rojo {
+    color: red;
+}
+
+.naranja {
+    color: orange;
+}
+
+.violeta {
+    color: purple;
+}
+
+.verde-rojo {
+    display: inline;
+    background-image: linear-gradient(to right, green, white, red);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.amarillo {
+    color: yellow;
+}
+
+.marron-verde {
+    display: inline;
+    background-image: linear-gradient(to right, brown, green);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.azul {
+    color: indigo;
+}
+
+.bordo {
+    color: maroon;
+}
+
+.magenta-blanco {
+    display: inline;
+    background-image: linear-gradient(to right, magenta, white);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}

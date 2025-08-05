@@ -1,0 +1,87 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1 {
+    font-size: 3rem;
+    ;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+ul {
+    font-size: 20px;
+    list-style: none;
+    padding-left: 0px;
+}
+
+li {
+    padding: 1rem;
+}
+
+.ilustracion-1 {
+    background-color: #F21667;
+}
+
+.ilustracion-2 {
+    background-color: #F2167D;
+}
+
+.ilustracion-3 {
+    background-color: #445EF2;
+}
+
+.ilustracion-4 {
+    background-color: #4557BF;
+     color: white
+}
+
+.ilustracion-5 {
+    background-color: #F29B30;
+}
+
+.UI-UX-1 {
+    background-color: rgb(78, 72, 242);
+}
+
+.UI-UX-2 {
+    background-color: rgb(58, 54, 165);
+     color: white
+}
+
+.UI-UX-3 {
+    background-color: rgb(99, 94, 242);
+}
+
+
+.UI-UX-4 {
+    background-color: rgb(167, 216, 132);
+}
+
+
+.UI-UX-5 {
+    background-color: rgb(242, 89, 55);
+}
+
+.mynhhsateal-1 {
+    background-color: hsl(173, 100%, 44%);
+}
+
+.mynhhsateal-2 {
+    background-color: hsl(173, 54%, 42%);
+}
+
+.mynhhsateal-3 {
+    background-color: hsl(174, 100%, 29%);
+}
+
+.mynhhsateal-4 {
+    background-color: hsl(173, 73%, 57%);
+}
+
+.mynhhsateal-5 {
+    background-color: hsl(174, 100%, 19%);
+    color: white
+}

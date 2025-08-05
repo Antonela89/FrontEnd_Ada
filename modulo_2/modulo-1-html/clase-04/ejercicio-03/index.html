@@ -1,0 +1,54 @@
+<!-- ### 03 - Artículo
+
+`index.html` debe tener:
+
+- un título `h1` con un tamaño de letra más grande y una tipografía distinta de la que viene por defecto. Poner un título cualquiera (o aleatorio).
+- un texto que diga: `Publicado por @adalovelace hace 3 días`. `@adalovelace` debe ser un link (que no lleve a ningún lado). El texto debe tener un color gris mientras que el link un color celeste. El link no debe tener subrayado. El texto debe tener la misma tipografía que los siguientes párrafos.
+- 4 párrafos `p` con `lorem ipsum` y una tipografía distinta a la del título: 
+  - El primer párrafo debe tener una oración en itálica. 
+  - El segundo párrafo debe tener una oración en negrita. 
+  - El tercer párrafo debe estar completamente en itálica y tener una tipografía distinta a la de los párrafos.
+  - El cuarto párrafo debe tener 2 palabras en negrita y 2 palabras en itálica. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artículo</title>
+  <!-- links css -->
+  <link rel="stylesheet" href="./styles/style.css">
+  <!-- links fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <h1>Lorem ipsum dolor sit amet consectetur.</h1>
+  <span class="gris">Publicado por <a class="link" href="">@adalovelace </a>hace 3 días</span>
+  <p><span class="italica">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span> Voluptatem culpa veniam
+    minima quos voluptates
+    necessitatibus ipsam sequi itaque reiciendis, repellat accusantium voluptatibus sed molestias quasi labore at.
+    Eveniet, eum repellendus perferendis impedit dolor est voluptatem corrupti provident. Saepe perspiciatis debitis ut
+    expedita! Dolorem unde nisi atque aut ab consequuntur sapiente!</p>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem culpa veniam minima quos voluptates
+    necessitatibus ipsam sequi itaque reiciendis, repellat accusantium voluptatibus sed molestias quasi labore at.
+    <span class="negrita">Eveniet, eum repellendus perferendis impedit dolor est voluptatem corrupti provident.</span>
+    Saepe perspiciatis debitis ut
+    expedita! Dolorem unde nisi atque aut ab consequuntur sapiente!
+  </p>
+  <p class="italica">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem culpa veniam minima quos voluptates
+    necessitatibus ipsam sequi itaque reiciendis, repellat accusantium voluptatibus sed molestias quasi labore at.
+    Eveniet, eum repellendus perferendis impedit dolor est voluptatem corrupti provident. Saepe perspiciatis debitis ut
+    expedita! Dolorem unde nisi atque aut ab consequuntur sapiente!</p>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem culpa veniam minima quos voluptates
+    necessitatibus ipsam sequi itaque reiciendis, repellat accusantium <span class="italica">voluptatibus sed</span> molestias quasi labore at.
+    Eveniet, eum repellendus perferendis impedit dolor est voluptatem <span class="negrita">corrupti provident</span>. Saepe perspiciatis debitis ut
+    expedita! Dolorem unde nisi atque aut ab consequuntur sapiente!</p>
+</body>
+
+</html>
