@@ -1,0 +1,25 @@
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+    font-size: 120px;
+    font-weight: 900;
+}
+
+#rojo {
+    color: red;
+}
+
+#verde {
+ color: green;
+}
+
+#azul {
+ color: blue
+}
+
+#marron {
+    color: brown;
+}
+
