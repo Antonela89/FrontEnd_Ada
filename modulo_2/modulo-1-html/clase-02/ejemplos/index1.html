@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Mi Aplicación</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Mi Aplicación</h1>
+        <!-- Podría incluir notificaciones o perfil de usuario -->
+        <div class="user-profile">
+            <img src="avatar.png" alt="Avatar del usuario">
+            <span>Nombre Usuario</span>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        <aside>
+            <nav aria-label="Navegación principal del panel">
+                <ul>
+                    <li><a href="/dashboard" class="active">Resumen</a></li>
+                    <li><a href="/analytics">Estadísticas</a></li>
+                    <li><a href="/settings">Configuración</a></li>
+                    <li><a href="/logout">Cerrar Sesión</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- El contenido dentro de <main> será reemplazado dinámicamente por JavaScript -->
+        <main id="main-content" role="main" aria-live="polite">
+            <!-- Contenido inicial o de carga -->
+            <section aria-labelledby="section-title">
+                <h2 id="section-title">Resumen General</h2>
+                <div class="widget">
+                    <h3>Ventas del Mes</h3>
+                    <p>€1,234.56</p>
+                </div>
+                <div class="widget">
+                    <h3>Nuevos Usuarios</h3>
+                    <p>89</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

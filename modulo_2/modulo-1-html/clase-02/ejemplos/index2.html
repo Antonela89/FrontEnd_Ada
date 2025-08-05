@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso de Registro - Mi Servicio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Crear una Cuenta Nueva</h1>
+    </header>
+
+    <main>
+        <div class="wizard-container">
+            <!-- Los indicadores de progreso son una lista ordenada, ya que la secuencia importa -->
+            <nav aria-label="Pasos del proceso de registro">
+                <ol class="progress-indicator">
+                    <li class="active" aria-current="step">Paso 1: Datos Personales</li>
+                    <li>Paso 2: Preferencias</li>
+                    <li>Paso 3: Confirmación</li>
+                </ol>
+            </nav>
+
+            <!-- El <form> envuelve toda la sección que cambiará -->
+            <form id="wizard-form">
+                <!-- El contenido de esta sección será reemplazado por JavaScript para cada paso -->
+                <section id="step-content" role="group" aria-labelledby="step-title">
+                    <h2 id="step-title">Paso 1: Datos Personales</h2>
+                    
+                    <p>
+                        <label for="name">Nombre completo:</label>
+                        <input type="text" id="name" name="name" required>
+                    </p>
+                    <p>
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </p>
+                </section>
+
+                <div class="navigation-buttons">
+                    <button type="button" id="prev-btn" style="display: none;">Anterior</button>
+                    <button type="button" id="next-btn">Siguiente</button>
+                    <button type="submit" id="submit-btn" style="display: none;">Finalizar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>¿Ya tienes una cuenta? <a href="/login">Inicia sesión</a></p>
+    </footer>
+
+</body>

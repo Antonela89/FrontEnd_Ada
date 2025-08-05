@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Feed de Noticias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav aria-label="Navegación principal del sitio">
+            <!-- Logo, búsqueda, enlaces de navegación -->
+        </nav>
+    </header>
+
+    <div class="feed-layout">
+        <!-- El contenido de <main> es el feed que se actualiza -->
+        <main id="feed-container">
+            <h1>Últimas Publicaciones</h1>
+
+            <!-- Cada publicación es un <article> porque es un contenido independiente y autocontenido -->
+            <article class="post" aria-labelledby="post-title-1">
+                <header>
+                    <h2 id="post-title-1"><a href="/posts/1">Un Viaje Inesperado</a></h2>
+                    <p>Publicado por <a href="/users/juan">Juan Pérez</a> el <time datetime="2025-08-04">4 de agosto de 2025</time></p>
+                </header>
+                <p>El primer día de nuestro viaje comenzó con una sorpresa...</p>
+                <footer>
+                    <button>Me gusta</button>
+                    <button>Comentar</button>
+                </footer>
+            </article>
+
+            <article class="post" aria-labelledby="post-title-2">
+                <header>
+                    <h2 id="post-title-2"><a href="/posts/2">Receta de Cocina Fácil</a></h2>
+                    <p>Publicado por <a href="/users/ana">Ana Gómez</a> el <time datetime="2025-08-03">3 de agosto de 2025</time></p>
+                </header>
+                <p>Hoy os traigo una receta que os salvará de cualquier apuro...</p>
+                <footer>
+                    <button>Me gusta</button>
+                    <button>Comentar</button>
+                </footer>
+            </article>
+
+            <!-- Este botón cargaría más artículos con JavaScript -->
+            <button id="load-more">Cargar más</button>
+        </main>
+
+        <aside>
+            <section aria-labelledby="trending-title">
+                <h2 id="trending-title">Tendencias</h2>
+                <ul>
+                    <li><a href="/tags/viajes">#viajes</a></li>
+                    <li><a href="/tags/cocina">#cocina</a></li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Feed de Noticias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav aria-label="Navegación principal del sitio">
+            <!-- Logo, búsqueda, enlaces de navegación -->
+        </nav>
+    </header>
+
+    <div class="feed-layout">
+        <!-- El contenido de <main> es el feed que se actualiza -->
+        <main id="feed-container">
+            <h1>Últimas Publicaciones</h1>
+
+            <!-- Cada publicación es un <article> porque es un contenido independiente y autocontenido -->
+            <article class="post" aria-labelledby="post-title-1">
+                <header>
+                    <h2 id="post-title-1"><a href="/posts/1">Un Viaje Inesperado</a></h2>
+                    <p>Publicado por <a href="/users/juan">Juan Pérez</a> el <time datetime="2025-08-04">4 de agosto de 2025</time></p>
+                </header>
+                <p>El primer día de nuestro viaje comenzó con una sorpresa...</p>
+                <footer>
+                    <button>Me gusta</button>
+                    <button>Comentar</button>
+                </footer>
+            </article>
+
+            <article class="post" aria-labelledby="post-title-2">
+                <header>
+                    <h2 id="post-title-2"><a href="/posts/2">Receta de Cocina Fácil</a></h2>
+                    <p>Publicado por <a href="/users/ana">Ana Gómez</a> el <time datetime="2025-08-03">3 de agosto de 2025</time></p>
+                </header>
+                <p>Hoy os traigo una receta que os salvará de cualquier apuro...</p>
+                <footer>
+                    <button>Me gusta</button>
+                    <button>Comentar</button>
+                </footer>
+            </article>
+
+            <!-- Este botón cargaría más artículos con JavaScript -->
+            <button id="load-more">Cargar más</button>
+        </main>
+
+        <aside>
+            <section aria-labelledby="trending-title">
+                <h2 id="trending-title">Tendencias</h2>
+                <ul>
+                    <li><a href="/tags/viajes">#viajes</a></li>
+                    <li><a href="/tags/cocina">#cocina</a></li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+</body>
+</html>
