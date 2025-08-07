@@ -1,0 +1,42 @@
+body {
+    font-family: "Merienda", cursive;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+.fecha {
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.ingreso {
+    color: green;
+}
+
+.egreso {
+    color: red;
+}
+
+.ingreso,
+.egreso {
+    margin-left: 3rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    /* Define la transición */
+}
+
+.ingreso:hover,
+.egreso:hover {
+    transform: scale(1.5);
+    /* Aumenta el tamaño al 120% */
+}
