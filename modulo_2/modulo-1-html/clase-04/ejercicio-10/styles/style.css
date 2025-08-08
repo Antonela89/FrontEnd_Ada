@@ -1,0 +1,44 @@
+body {
+  font-family: "Playwrite HU", cursive;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+span {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.hecha {
+  color: green;
+}
+
+.cancelada {
+  color: red;
+}
+
+.pendiente {
+  color: blue;
+}
+
+.haciendo {
+  color: orange;
+}
+
+h3:hover {
+  text-decoration: underline wavy black;
+}
+
+h3:hover + span {
+  transform: scale(1.2);
+}
