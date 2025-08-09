@@ -1,0 +1,113 @@
+/* 1. Definimos los estilos de la etiqueta, pero la ocultamos */
+*::before {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: -1.6em; /* Posición justo encima del elemento */
+    left: 0;
+    z-index: 1000; /* Asegura que se vea por encima de otros elementos */
+
+    /* Estilos visuales de la etiqueta */
+    background-color: #333;
+    color: white;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-family: monospace;
+    white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+/* 2. Mostramos el pseudo-elemento cuando se hace hover en su padre */
+*:hover::before {
+    display: inline-block; /* Lo hacemos visible */
+}
+
+/* 3. Definimos el contenido (la etiqueta) para cada tipo de elemento */
+/* Bloques principales */
+body:hover::before { content: '<body>'; }
+header:hover::before { content: '<header>'; }
+main:hover::before { content: '<main>'; }
+footer:hover::before { content: '<footer>'; }
+nav:hover::before { content: '<nav>'; }
+aside:hover::before { content: '<aside>'; }
+section:hover::before { content: '<section>'; }
+article:hover::before { content: '<article>'; }
+
+/* Contenedores y texto */
+div:hover::before { content: '<div>'; }
+p:hover::before { content: '<p>'; }
+span:hover::before { content: '<span>'; }
+
+/* Títulos */
+h1:hover::before { content: '<h1>'; }
+h2:hover::before { content: '<h2>'; }
+h3:hover::before { content: '<h3>'; }
+
+/* Listas */
+ul:hover::before { content: '<ul>'; }
+ol:hover::before { content: '<ol>'; }
+li:hover::before { content: '<li>'; }
+
+/* Elementos interactivos y de formulario */
+a:hover::before { content: '<a>'; }
+button:hover::before { content: '<button>'; }
+form:hover::before { content: '<form>'; }
+input:hover::before { content: '<input>'; }
+label:hover::before { content: '<label>'; }
+
+/* Media */
+img:hover::before { content: '<img>'; }
+
+/* Configuración base para todos los elementos */ 
+* { 
+   outline: 1px solid rgba(255, 255, 255, 0.1); 
+   position: relative; 
+   margin: 0.5em; /* Espacio para ver los outlines */ 
+   color: white;
+} 
+
+/* Añadir etiquetas con pseudo-elementos */ 
+*::before { 
+   /* content: attr(class) " " attr(id); Muestra clase e id si existen  */
+   position: absolute; 
+   top: -1.5em; 
+   left: 0; 
+   font-size: 0.7em; 
+   padding: 0.2em 0.5em; 
+   border-radius: 3px; 
+   background: #333; 
+   color: #fff; 
+} 
+
+/* Estilos específicos por etiqueta */ 
+
+body { 
+   outline: 3px solid green; 
+   background-color: black; 
+} 
+
+header { outline: 2px solid blue; } 
+main { outline: 2px solid red; } 
+footer { outline: 2px solid yellow; } 
+section { outline: 1px solid tomato; } 
+article { outline: 2px dashed lime; } /* `article` es importante semánticamente */ 
+aside { outline: 1px solid pink; } 
+nav { outline: 1px solid brown; } 
+
+h1, h2, h3, h4, h5, h6 { 
+   outline: 1px solid greenyellow; 
+} 
+
+p { outline: 1px solid gray; } 
+div { outline: 1px solid orange; } 
+
+ul, ol { outline: 1px solid fuchsia; } 
+li { outline: 1px solid hotpink; } 
+
+a { outline: 1px solid peru; color: peru; } 
+img { outline: 1px solid violet; } 
+span { outline: 1px dotted aqua; } /* Punteado para elementos en línea */ 
+
+form { outline: 1px solid lavender; } 
+label { outline: 1px solid honeydew; } 
+input { outline: 1px solid palevioletred; } 
+button { outline: 1px solid plum; color: black}
