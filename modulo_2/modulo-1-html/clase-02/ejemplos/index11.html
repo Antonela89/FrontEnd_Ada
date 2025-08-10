@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live region para notificaciones dinámicas</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div aria-live="polite" aria-atomic="true" id="toastRegion"></div>
+  </body>
+  <script>
+    function showToast(message) {
+      const region = document.getElementById("toastRegion");
+      region.textContent = message;
+      // Opcional: limpiar después de un tiempo
+      setTimeout(() => {
+        region.textContent = "";
+      }, 5000);
+    }
+
+    // Ejemplo de uso
+    // showToast('Tu archivo se subió correctamente.');
+  </script>
+</html>

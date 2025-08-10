@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acordeón accesible</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <section>
+      <h3>
+        <button aria-expanded="false" aria-controls="panel1" id="accordion1">
+          ¿Qué incluye el plan?
+        </button>
+      </h3>
+      <div id="panel1" role="region" aria-labelledby="accordion1" hidden>
+        <p>Detalles del plan...</p>
+      </div>
+    </section>
+  </body>
+  <script>
+    const btn = document.querySelector('button[aria-controls="panel1"]');
+    const panel = document.getElementById("panel1");
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+      panel.hidden = expanded;
+    });
+  </script>
+</html>

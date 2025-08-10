@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plantilla básica con landmarks y "skip link"</title>
+
+  <link rel="stylesheet" href="./style.css">
+
+  <style>
+    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { left:10px; top:10px; width:auto; height:auto; background:#fff; padding:8px; z-index:1000; }
+  </style>
+</head>
+<body>
+  <!-- Skip link para saltar directamente al contenido principal -->
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header role="banner">
+    <h1>Mi sitio accesible</h1>
+    <nav role="navigation" aria-label="Navegación principal">
+      <ul>
+        <li><a href="/" aria-current="page">Inicio</a></li>
+        <li><a href="/about">Sobre nosotros</a></li>
+        <li><a href="/contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" role="main">
+    <article aria-labelledby="post-title">
+      <h2 id="post-title">Título del artículo</h2>
+      <p>Contenido del artículo...</p>
+    </article>
+  </main>
+
+  <aside role="complementary" aria-label="Barra lateral">
+    <p>Enlaces y recursos</p>
+  </aside>
+
+  <footer role="contentinfo">
+    <p>© 2025 Mi sitio</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Botones con estados ARIA</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <button id="likeBtn" aria-pressed="false" aria-label="Marcar como me gusta">
+      ❤️ <span id="like-count">12</span>
+    </button>
+  </body>
+  <script>
+    const btn = document.getElementById("likeBtn");
+    btn.addEventListener("click", () => {
+      const pressed = btn.getAttribute("aria-pressed") === "true";
+      btn.setAttribute("aria-pressed", String(!pressed));
+    });
+  </script>
+</html>

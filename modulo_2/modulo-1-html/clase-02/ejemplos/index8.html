@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal/dialog accesible</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <button id="openModal">Abrir diálogo</button>
+
+    <div
+      id="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      aria-describedby="modalDesc"
+      hidden
+    >
+      <div class="modal-content" role="document">
+        <h2 id="modalTitle">Confirmar acción</h2>
+        <p id="modalDesc">¿Estás seguro que deseas continuar?</p>
+        <button id="confirm">Confirmar</button>
+        <button id="close">Cancelar</button>
+      </div>
+    </div>
+
+  </body>
+    <script>
+      const open = document.getElementById("openModal");
+      const modal = document.getElementById("modal");
+      const close = document.getElementById("close");
+
+      open.addEventListener("click", () => {
+        modal.hidden = false;
+        document.getElementById("confirm").focus();
+      });
+
+      close.addEventListener("click", () => {
+        modal.hidden = true;
+        open.focus();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modal.hidden) {
+          modal.hidden = true;
+          open.focus();
+        }
+      });
+    </script>
+</html>
