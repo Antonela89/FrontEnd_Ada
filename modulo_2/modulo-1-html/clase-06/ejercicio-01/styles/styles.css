@@ -1,0 +1,39 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+}
+
+.notificacion {
+  width: 25rem;
+  height: 18.75rem;
+  /* outline: 1px solid red; */
+  padding: 1rem;
+  box-shadow: 7px 7px 12px 0 rgba(20, 20, 20, 0.3);
+  background-color: white;
+  border-radius: 0.25rem;
+}
+
+img {
+  width: 3rem;
+  height: 3rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  display: block;
+  width: 10rem;
+  color: white;
+  background-color: cornflowerblue;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  box-shadow: 1px 5px 5px 1px rgba(32,32,32,0.1);
+}

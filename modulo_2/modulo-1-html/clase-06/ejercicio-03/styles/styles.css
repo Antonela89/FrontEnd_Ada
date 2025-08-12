@@ -1,0 +1,167 @@
+body {
+  background-color: dimgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bandera-argentina {
+  width: 18.75rem;
+  height: 12.5rem;
+  /* outline: 1px solid black; */
+  margin: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+div[class*="franja"] {
+  height: 33.33%;
+  position: relative;
+  z-index: 1;
+}
+
+.franja-celeste {
+  background-color: cornflowerblue;
+}
+
+.franja-blanca {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.franja-blanca::before {
+  content: '';
+  background-image: url("../images/sol.png");
+  width: 33px;
+  height: 33px;
+  display: block;
+
+}
+
+.square,
+.heart-3d,
+.round,
+.button.round {
+  width: 12.5rem;
+}
+
+.round,
+.button.round {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.wave {
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.wave::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(0, 0, 0, 0.5) 12.5%,
+    rgba(255, 255, 255, 0.5) 25%,
+    rgba(0, 0, 0, 0.5) 37.5%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(0, 0, 0, 0.5) 62.5%,
+    rgba(255, 255, 255, 0.5) 75%,
+    rgba(0, 0, 0, 0.5) 87.5%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+
+  /* Dimensiones para que cubra toda la bandera y se pueda animar */
+  width: 200%;
+  height: 200%;
+
+  /* 3. Aplicación de la animación */
+  animation: wave-effect 8s linear infinite;
+}
+
+/* Definición de la animación de la onda */
+@keyframes wave-effect {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.waving {
+  clip-path: path(
+    "M 0,20 C 100,0 200,40 300,10 L 300,180 C 200,210 100,170 0,190 Z"
+  );
+}
+
+.button {
+  position: relative;
+}
+
+.button::after,
+.button.round::after {
+  content: "";
+  border: 10px solid rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  box-sizing: border-box;
+}
+
+.round::after,
+.tridimensional.round {
+  border-radius: 50%;
+}
+
+.tridimensional {
+  border-radius: 20px;
+}
+
+.tridimensional::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.7);
+  border-radius: inherit;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tridimensional::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.2) 40%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: inherit;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.heart-3d,
+.heart-3d::before,
+.heart-3d::after {
+  clip-path: path(
+    "M50.958 0.554387C50.5672 0.585653 49.3009 0.726347 48.1441 0.867041C24.9295 3.55587 5.87328 21.1114 1.23037 44.0758C-0.848775 54.3934 0.182983 67.6343 3.90356 78.8273C7.843 90.5987 14.4556 100.885 25.7424 112.782C31.0888 118.409 35.6536 122.63 50.5672 135.762C54.1783 138.935 58.1959 142.484 59.4778 143.656C75.4857 158.038 86.6005 170.107 96.1521 183.473L98.1844 186.333H100.248L102.311 186.318L104.344 183.316C113.051 170.466 123.29 158.929 138.501 144.844C141.487 142.062 144.879 139.013 154.556 130.415C169.501 117.096 177.145 109.42 183.336 101.495C193.388 88.5977 198.468 76.4355 199.969 61.5844C200.266 58.5204 200.235 51.1887 199.891 48.5311C198.249 35.9468 192.997 25.129 184.289 16.4216C175.582 7.71416 164.748 2.44594 152.18 0.820143C149.163 0.444958 142.597 0.444958 139.517 0.820143C128.058 2.27398 117.96 6.87 109.502 14.4831C106.517 17.1719 103.156 21.002 101.139 24.0191C100.67 24.7225 100.248 25.3009 100.201 25.3009C100.154 25.3009 99.732 24.7225 99.263 24.0191C97.2464 21.002 93.8854 17.1719 90.8995 14.4831C82.5986 7.01069 72.6093 2.39905 61.5413 0.929572C59.2589 0.616918 52.7557 0.39806 50.958 0.554387Z"
+  );
+  border-radius: 0;
+}
