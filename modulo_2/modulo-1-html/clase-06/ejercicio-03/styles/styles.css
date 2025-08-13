@@ -81,7 +81,7 @@ div[class*="franja"] {
   width: 200%;
   height: 200%;
 
-  /* 3. Aplicación de la animación */
+  /* Aplicación de la animación */
   animation: wave-effect 8s linear infinite;
 }
 
@@ -115,6 +115,7 @@ div[class*="franja"] {
   right: 0px;
   bottom: 0px;
   box-sizing: border-box;
+  z-index: 3;
 }
 
 .round::after,
