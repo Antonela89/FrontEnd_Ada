@@ -1,0 +1,49 @@
+section {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  background-color: black;
+  padding: 1rem;
+}
+
+div {
+  width: 31.25rem;
+  height: 1.875rem;
+  border-radius: 6.25rem;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fondo {
+  background-color: whitesmoke;
+  padding: 0.1875rem;
+  justify-content: left;
+}
+
+.progreso {
+  background-color: greenyellow;
+}
+
+.primero {
+  width: 10%;
+}
+
+.segundo {
+    width: 25%;
+}
+
+.tercero {
+    width: 50%;
+}
+
+.cuarto {
+    width: 75%;
+}
+
+.quinto {
+    width: 90%;
+}

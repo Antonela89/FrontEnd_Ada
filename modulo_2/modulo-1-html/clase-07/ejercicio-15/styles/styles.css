@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  /* outline: 1px solid green; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+.grupo1,
+.grupo2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.grupo1 {
+  height: 70%;
+}
+
+.grupo2 {
+  height: 20%;
+}
+
+.column {
+  width: 5%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.grupo1 .column,
+.grupo2 .column {
+  height: 100%;
+}
+
+.element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center ;
+}
+
+.grupo1 .column .element,
+.grupo2 .column .element {
+  width: 100%;
+  outline: 1px solid black;
+}
+
+.grupo1 .column .element {
+  height: calc(100% / 7);
+}
+
+.grupo2 .column .element {
+  height: 50%;
+}
+
+
+/* Paleta de colores para la Tabla Periódica */
+
+/* Metales Alcalinos */
+.alcalinos {
+  background-color: #ffcdd2; /* Rojo claro */
+}
+
+/* Metales Alcalinotérreos */
+.alcalinoterreos {
+  background-color: #ffecb3; /* Amarillo claro */
+}
+
+/* Metales de Transición */
+.metales-transicion {
+  background-color: #f8bbd0; /* Rosa claro */
+}
+
+/* Lantánidos */
+.lantanidos {
+  background-color: #e1bee7; /* Lavanda claro */
+}
+
+/* Actínidos */
+.actinidos {
+  background-color: #d1c4e9; /* Púrpura claro */
+}
+
+/* Metales del bloque p (Otros metales) */
+.metales-bloque-p {
+  background-color: #c8e6c9; /* Verde claro */
+}
+
+/* Metaloides */
+.metaloides {
+  background-color: #b2dfdb; /* Turquesa claro */
+}
+
+/* No metales */
+.no-metales {
+  background-color: #a7ffeb; /* Verde menta */
+}
+
+/* Halógenos */
+.halogenos {
+  background-color: #b3e5fc; /* Azul cielo claro */
+}
+
+/* Gases Nobles */
+.gases-nobles {
+  background-color: #c5cae9; /* Índigo claro */
+}
+
+/* Propiedades Desconocidas */
+.desconocido {
+  background-color: #e0e0e0; /* Gris claro */
+}
+
