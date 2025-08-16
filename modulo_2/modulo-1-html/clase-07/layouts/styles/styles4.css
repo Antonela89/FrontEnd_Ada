@@ -1,0 +1,6 @@
+@import url(./styles3.css);
+
+main {
+    flex-direction: row-reverse;
+}
+

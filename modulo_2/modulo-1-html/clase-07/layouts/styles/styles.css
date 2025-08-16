@@ -1,0 +1,99 @@
+:root {
+  /* paleta de colores */
+  --header: #f28dd7;
+  --nav: #8449bf;
+  --main: #8073d9;
+  --aside: #29a7d9;
+  --footer: #25c7d9;
+
+  /* alturas */
+  --header-footer-heigth: 15%;
+  --nav-heigth: 10%;
+  --total-heigth: 100%;
+
+  /* anchos */
+  --header-main-footer-width: 100%;
+  --aside-width: 25%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Merienda", cursive;
+}
+
+header {
+  background-color: var(--header);
+  height: var(--header-footer-heigth);
+}
+
+main {
+  background-color: var(--main);
+  height: calc(100% - (var(--header-footer-heigth))*2);
+}
+
+nav {
+  background-color: var(--nav);
+  height: var(--nav-heigth);
+  font-size: 0.8rem;
+}
+
+.content {
+  height: var(--total--heigth);
+}
+
+footer {
+  background-color: var(--footer);
+  height: var(--header-footer-heigth);
+}
+
+header,
+nav,
+main,
+.content,
+footer {
+  width: var(--header-main-footer-width);
+}
+
+header,
+nav,
+main,
+aside, 
+footer {
+  outline: 1px solid black;
+}
+
+header::after,
+main::after,
+.content::after,
+nav::after,
+aside::after,
+footer::after {
+  text-transform: capitalize;
+}
+
+header::after {
+  content: "header";
+}
+
+.content::after {
+  content: "main";
+}
+
+footer::after {
+  content: "footer";
+}
+
+nav::after {
+  content: "navigation bar";
+}
+
+aside::after {
+  content: "panel";
+}

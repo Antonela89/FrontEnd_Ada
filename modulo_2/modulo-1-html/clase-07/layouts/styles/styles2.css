@@ -1,0 +1,18 @@
+@import url(./styles1.css);
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+main {
+  height:calc(var(--total-heigth) - (var(--header-footer-heigth))*2 - var(--nav-heigth));
+}
+
+.container {
+  height: var(--total-heigth);
+}
+
+
+

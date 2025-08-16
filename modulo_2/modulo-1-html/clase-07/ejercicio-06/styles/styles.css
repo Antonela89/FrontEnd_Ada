@@ -1,0 +1,13 @@
+@import url(../../ejercicio-05/styles/styles.css);
+
+body {
+    justify-content: center;
+}
+
+.container {
+    height: 50%;
+}
+
+.card {
+    flex-direction: row;
+}

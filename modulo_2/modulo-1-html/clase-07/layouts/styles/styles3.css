@@ -1,0 +1,11 @@
+@import url(./styles1.css);
+
+aside {
+  background-color: var(--aside);
+  width: var(--aside-width);
+  height: var(--total-heigth);
+}
+
+.container {
+  flex-grow: 1;
+}
