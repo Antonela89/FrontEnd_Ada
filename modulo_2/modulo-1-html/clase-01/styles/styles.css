@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  font-family: "Merienda", cursive;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.proyecto-link {
+  display: block; /* Importante para que ocupe su espacio */
+  flex: 0 0 calc(25% - 0.75rem);
+  text-decoration: none;
+  border: 4px solid transparent;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  text-align: center;
+}
+
+.proyecto-link:hover {
+  cursor: pointer;
+  border-color: #794d79;
+}
+
+.iframe-viewport {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  /* Usamos 75% para una proporción 4:3, ideal para webs de escritorio */
+  padding-top: 75%;
+}
+
+.iframe-viewport iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  /* Ancho y alto de renderizado (fuerza la vista de escritorio) */
+  width: 1024px;
+  height: 768px; /* (1024 * 0.75 = 768) */
+
+  /* La magia para que quepa en el contenedor pequeño */
+   transform: translate(-50%, -50%) scale(0.25); 
+  /* Ajusta este valor si es necesario */
+
+  border: 0;
+  pointer-events: none;
+}
