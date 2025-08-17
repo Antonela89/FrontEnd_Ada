@@ -1,0 +1,102 @@
+:root {
+  --fondo: #eeeeee;
+  --blanco: #fff;
+  --rojo: #cb2140;
+  --negro: #0c1f2c;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100%;
+  background-color: var(--fondo);
+  color: var(--blanco);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.card {
+  width: 60%;
+
+  background-color: var(--rojo);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.7);
+
+  border-radius: 1rem;
+  margin: 3rem;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+h1,
+li,
+h3,
+button {
+  text-transform: uppercase;
+}
+
+img {
+  width: 70%;
+  padding: 3rem;
+}
+
+.info {
+  width: 100%;
+  background-color: var(--negro);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+li {
+  padding: 0.25rem 1rem;
+  border: 1px solid var(--rojo);
+  border-radius: 1rem;
+  font-size: 0.8rem;
+}
+
+.info p:nth-of-type(2) {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+button {
+  width: 30%;
+  padding: 1rem;
+  background-color: var(--rojo);
+  border-radius: 2rem;
+  color: var(--blanco);
+  border: none;
+}
+
+
+button:hover {
+    background-color: transparent;
+    outline: 3px solid var(--rojo);
+    color: var(--rojo);
+    font-weight: bold;
+}
