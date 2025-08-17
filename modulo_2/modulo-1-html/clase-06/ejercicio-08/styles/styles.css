@@ -1,0 +1,73 @@
+:root {
+  --fondo: #e7e9f2;
+  --azul: #242e4c;
+  --blanco: white;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--fondo);
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 1.5rem;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.container {
+  background-color: var(--blanco);
+  width: 40%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 1rem;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+  color: var(--azul);
+}
+
+i {
+    font-size: 3rem;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 1rem;
+  gap: 0.5rem;
+  padding: 2rem;
+  background-color: var(--fondo);
+}
+
+.content button {
+    width: 100%;
+    background-color: var(--blanco);
+}
+
+
+button {
+    width: 50%;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    border: none;
+}
+
+.confirmar,
+.content button:hover {
+    background-color: var(--azul);
+    color: var(--blanco)
+}
