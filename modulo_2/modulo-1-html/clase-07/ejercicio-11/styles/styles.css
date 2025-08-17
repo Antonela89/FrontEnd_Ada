@@ -91,3 +91,8 @@ ul {
   justify-content: center;
   font-size: 1, 5rem;
 }
+
+.inferior .redes i:hover {
+  transform: scale(1.2);
+  color: var(--destaque)
+}
