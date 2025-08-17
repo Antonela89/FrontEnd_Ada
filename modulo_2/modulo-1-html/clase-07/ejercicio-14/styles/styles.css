@@ -1,0 +1,115 @@
+:root {
+  --fondo: #e8ecf3;
+  --negro: #0c1226;
+  --blanco: #ffffff;
+  --amarillo: #ffcc48;
+  --azul: #7b98e8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--fondo);
+}
+
+.container {
+  width: 50%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--blanco);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.rating,
+.calificacion {
+  display: flex;
+  justify-content: center;
+}
+
+.rating {
+  align-items: center;
+  border-radius: 2rem;
+  width: 75%;
+  gap: 1rem;
+  background-color: var(--fondo);
+  padding: 1rem;
+}
+
+.calificacion {
+  width: 100%;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.element {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  height: calc((100% - 1rem) / 5);
+  justify-content: center;
+}
+
+i {
+  color: var(--amarillo);
+  font-size: 1.5rem;
+}
+
+.element {
+  padding: 1rem;
+}
+
+.fondo {
+  background-color: var(--fondo);
+  width: 80%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.estrellas,
+.subpie {
+  color: var(--azul);
+}
+
+h2, .subpie {
+    padding: 0.5rem 0;
+}
+
+.progreso {
+  background-color: var(--amarillo);
+  height: 100%;
+}
+
+.primero {
+  width: 84%;
+}
+
+.segundo {
+  width: 9%;
+}
+
+.tercero {
+  width: 4%;
+}
+
+.cuarto {
+  width: 2%;
+}
+
+.quinto {
+  width: 1%;
+}

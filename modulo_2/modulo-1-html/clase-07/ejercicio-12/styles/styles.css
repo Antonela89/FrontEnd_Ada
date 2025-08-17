@@ -1,0 +1,85 @@
+:root {
+  --fondo: #606265;
+  --blanco: #ebeced;
+  --facebook: #405896;
+  --twitter: #1da1f2;
+  --reddit: #000000;
+  --link: #dd997a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--fondo);
+}
+
+body,
+.modal,
+.redes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  width: 40%;
+  height: 50%;
+  background-color: var(--blanco);
+  padding: 1rem;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.close::after {
+  content: "X";
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  padding: 1rem;
+}
+
+.texto {
+  text-align: center;
+}
+
+.redes {
+  width: 100%;
+  gap: 1rem;
+}
+
+button {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  color: var(--blanco);
+}
+
+.facebook {
+  background-color: var(--facebook);
+}
+
+.twitter {
+  background-color: var(--twitter);
+}
+
+.reddit {
+  background-color: var(--reddit);
+}
+
+.redes p {
+  padding: 2rem;
+}
+
+a {
+  padding-top: 1rem;
+  text-decoration: none;
+  color: var(--link);
+}

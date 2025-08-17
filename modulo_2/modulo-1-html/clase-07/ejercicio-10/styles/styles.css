@@ -1,0 +1,74 @@
+:root {
+    --fondo: #073040;
+    --calculadora: #074973;
+    --texto: #F2DDD0;
+    --destaque: #D971A1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--fondo);
+  font-size: 2rem;
+}
+
+.calculadora {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--calculadora);
+    border: 1px solid var(--texto);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px 0px var(--calculadora);
+}
+
+.display, .botonera {
+    width: 100%;
+}
+
+.display {
+    background-color: var(--texto);
+    padding: 1rem;
+}
+
+.display p {
+    text-align: end;
+    padding: 1rem;
+}
+
+.botonera {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.botonera :nth-child(19) {
+    flex-grow: 1;
+    background-color: var(--destaque);
+}
+
+.tecla {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    color: var(--texto);
+    padding: 1rem;
+    border: 1px solid var(--fondo);
+}
+
+.tecla:hover {
+    background-color: var(--texto);
+    color: var(--fondo);
+    border-color: var(--destaque)
+}
+

@@ -1,0 +1,93 @@
+:root {
+  --destaque: #073040;
+  --fondo: #b0ccd7;
+  --blanco: white;
+  --texto: #989a9b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--texto);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--fondo);
+}
+
+footer {
+  width: 100%;
+  height: 80%;
+  border-top: 3px solid var(--destaque);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background-color: var(--blanco);
+}
+
+.superior,
+.links,
+.inferior,
+.inferior ul,
+.redes {
+  display: flex;
+}
+
+.superior,
+.inferior {
+  width: 100%;
+}
+
+.superior {
+  height: 90%;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  flex-grow: 1;
+  font-size: 5rem;
+}
+
+.links {
+  width: 70%;
+  justify-content: flex-end;
+  gap: 10rem;
+}
+
+h3 {
+  text-transform: uppercase;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.column li {
+  padding: 0.5rem 0;
+}
+
+.inferior {
+  height: 10%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inferior li {
+  padding: 0 1rem;
+}
+
+.redes {
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 1, 5rem;
+}
