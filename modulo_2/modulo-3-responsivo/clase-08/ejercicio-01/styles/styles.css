@@ -1,0 +1,50 @@
+:root {
+  --color-desktop: #f28dd7;
+  --color-tablet: #8449bf;
+  --color-mobile: #8073d9;
+  --fuente: "Merienda", cursive;
+  --font-size: 2.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-desktop);
+}
+
+h1 {
+  font-family: var(--fuente);
+  font-size: var(--font-size);
+  text-align: center;
+}
+
+
+@media (max-width: 56.25rem) and (min-width: 37.5rem) {
+    body {
+        background-color: var(--color-tablet);       
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+
+@media (max-width: 37.5rem) {
+    body {
+        background-color: var(--color-mobile);
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
