@@ -26,7 +26,7 @@ body {
 
 .proyecto-link {
   display: block; /* Importante para que ocupe su espacio */
-  flex: 0 0 calc(25% - 0.75rem);
+  flex: 0 0 calc(30% - 0.75rem);
   text-decoration: none;
   border: 4px solid transparent;
   transition: border-color 0.3s ease;
@@ -58,9 +58,60 @@ body {
   height: 768px; /* (1024 * 0.75 = 768) */
 
   /* La magia para que quepa en el contenedor pequeño */
-   transform: translate(-50%, -50%) scale(0.25); 
+  transform: translate(-50%, -50%) scale(0.25);
   /* Ajusta este valor si es necesario */
 
   border: 0;
   pointer-events: none;
+
+  transform-origin: center center;
 }
+
+.iframe-viewport.ejercio-02 iframe {
+    top: 70%;
+}
+
+/* Estilos específicos para la VISTA TABLET */
+.iframe-viewport.tablet iframe {
+  width: 768px; /* Ancho típico de tablet en vertical */
+  height: 1024px;
+  /* La escala es mayor para que el iframe (que es más pequeño) llene el cuadro */
+  transform: translate(-50%, -50%) scale(0.3); 
+}
+
+
+
+
+/* Estilos específicos para la VISTA MOBILE */
+.iframe-viewport.mobile iframe {
+  width: 375px; /* Ancho típico de un iPhone */
+  height: 667px;
+  /* La escala es aún mayor para que el móvil se vea grande en la vista previa */
+  transform: translate(-50%, -50%) scale(0.5); 
+}
+
+/* 1. ESTILOS PARA LA VISTA TABLET VERTICAL (PORTRAIT) */
+.iframe-viewport.tablet-vertical iframe {
+  /* Dimensiones de una tablet en vertical */
+  width: 768px;
+  height: 1024px;
+  /* Ajustamos la escala para que quepa bien */
+  transform: translate(-50%, -50%) scale(0.3);
+}
+
+
+/* 2. ESTILOS PARA LA VISTA TABLET HORIZONTAL (LANDSCAPE) */
+.iframe-viewport.tablet-horizontal {
+  /* Forzamos la relación de aspecto del contenedor para que sea apaisado (4:3) */
+  /* (768px de alto / 1024px de ancho) * 100% = 75% */
+  padding-top: 75%;
+}
+
+.iframe-viewport.tablet-horizontal iframe {
+  /* Invertimos las dimensiones para la vista horizontal */
+  width: 1024px;
+  height: 768px;
+  /* Ajustamos la escala para el nuevo tamaño */
+  transform: translate(-50%, -50%) scale(0.28);
+}
+

@@ -13,8 +13,9 @@
 body {
   font-size: var(--font-size);
   width: 100vw;
-  height: 100%;
+  min-height: 100vh;
   font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
 }
 
 header {
@@ -47,24 +48,23 @@ a {
 }
 
 .icono {
-    display: none;
+  display: none;
 }
 
 i {
   color: var(--texto);
 }
 
+@media (max-width: 768px) {
+  ul {
+    display: none;
+  }
 
-@media (max-width: 23.75rem) {
-    ul {
-        display: none;
-    }
+  nav {
+    justify-content: flex-end;
+  }
 
-    nav {
-        justify-content: flex-end;
-    }
-
-    .icono {
-        display: inline-flex;
-    }
+  .icono {
+    display: inline-flex;
+  }
 }
