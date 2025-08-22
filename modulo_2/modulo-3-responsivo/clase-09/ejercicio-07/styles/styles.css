@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.25rem;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 1rem;
+  font-family: "Roboto Condensed", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+p {
+  font-size: 1em;
+}
+
+.grilla {
+  width: 80%;
+  max-width: 75rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+article {
+  flex: 1 1 calc(33.333% - 2rem);
+  padding: 0.5rem;
+  border: 2px solid red;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+picture {
+  width: 80%;
+  aspect-ratio: 1/1;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* tablet */
+@media (min-width: 630px) and (max-width: 900px) {
+  body {
+    font-size: 1.15rem;
+  }
+
+  article {
+    flex-basis: calc(50% - 2rem);
+  }
+}
+
+/* mobile */
+@media (max-width: 630px) {
+  body {
+    font-size: 1rem;
+    align-items: flex-start;
+  }
+
+  body h1,
+  body h2,
+  body p {
+    align-self: flex-start;
+  }
+
+  .grilla {
+    width: 100%;
+  }
+
+  article {
+    flex-basis: 100%;
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  picture {
+    width: 35%;
+    flex-shrink: 0;
+  }
+}

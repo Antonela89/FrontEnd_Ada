@@ -1,0 +1,206 @@
+/* * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  font-family: "Merienda", cursive;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+} */
+
+/*
+.proyecto-link {
+  display: block; 
+  flex: 0 0 calc(30% - 0.75rem);
+  text-decoration: none;
+  border: 4px solid transparent;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  text-align: center;
+}
+
+.proyecto-link:hover {
+  cursor: pointer;
+  border-color: #794d79;
+}
+
+.iframe-viewport {
+  position: relative;
+  overflow: hidden;
+  height: 0;
+  padding-top: 75%;
+}
+
+.iframe-viewport iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  
+  width: 1024px;
+  height: 768px; 
+  transform: translate(-50%, -50%) scale(0.25);
+  border: 0;
+  pointer-events: none;
+  transform-origin: center center;
+}
+
+.iframe-viewport-tablet iframe {
+  top: 70%;
+  font-size: 0.5rem;
+}
+
+
+.iframe-viewport-tablet.tablet iframe {
+  width: 667px; 
+  height: 1024px;
+  transform: translate(-50%, -50%) scale(0.3);
+}
+
+
+.iframe-viewport-mobile.mobile iframe {
+  width: 375px; 
+  height: 667px;
+  transform: translate(-50%, -50%) scale(0.5);
+} */
+
+/* --- ESTILOS GENERALES Y RESET --- */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem; /* Aumenta el espacio entre el título y el contenido */
+  padding: 2rem;
+  font-family: "Merienda", cursive;
+  background-color: #f4f4f9; /* Un color de fondo suave */
+}
+
+h1 {
+  color: #333;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.content {
+  width: 100%;
+  max-width: 1400px; /* Limita el ancho máximo para pantallas grandes */
+  display: flex;
+  flex-direction: column; /* Un grupo de ejercicios debajo del otro */
+  gap: 2rem; /* Espacio entre los grupos de ejercicios */
+}
+
+/* --- GRUPO DE EJERCICIOS (NUEVO) --- */
+.exercise-group {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.exercise-group h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #794d79;
+}
+
+/* --- CONTENEDOR DE LAS VISTAS (NUEVO) --- */
+.views-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las vistas se muevan a la siguiente línea en pantallas pequeñas */
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* --- ENLACE A CADA PROYECTO --- */
+.proyecto-link {
+  flex: 1 1 300px; /* Permite que los elementos crezcan y se encojan, con una base de 300px */
+  max-width: 400px;
+  text-decoration: none;
+  color: #333;
+  text-align: center;
+  border: 4px solid transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Oculta cualquier desbordamiento del iframe */
+}
+
+.proyecto-link:hover {
+  cursor: pointer;
+  border-color: #794d79;
+  transform: translateY(-5px); /* Efecto de elevación */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.proyecto-link h3 {
+  padding: 0.5rem;
+  background-color: #f9f9f9;
+}
+
+/* --- ESTILOS DE IFRAME (REFACTORIZADOS) --- */
+.iframe-viewport {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  background-color: #e9ecef;
+  /* Proporción 4:3 para la vista de escritorio */
+  padding-top: 75%; 
+}
+
+.iframe-viewport iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 0;
+  pointer-events: none; /* El usuario no puede interactuar con el iframe */
+  transform-origin: center center;
+}
+
+/* Vista Desktop */
+.iframe-viewport iframe {
+  width: 1024px;
+  height: 768px;
+  transform: translate(-50%, -50%) scale(0.35); /* Escala ligeramente aumentada para mejor visibilidad */
+}
+
+/* Vista Tablet */
+.iframe-viewport-tablet iframe {
+  width: 768px;
+  height: 1024px;
+  transform: translate(-50%, -50%) scale(0.3);
+  padding-top: 15%;
+}
+
+/* Vista Mobile */
+.iframe-viewport-mobile iframe {
+  width: 375px;
+  height: 667px;
+  transform: translate(-50%, -50%) scale(0.6); /* Escala aumentada para mejor visibilidad */
+  padding-top: 30%;
+}
+
+

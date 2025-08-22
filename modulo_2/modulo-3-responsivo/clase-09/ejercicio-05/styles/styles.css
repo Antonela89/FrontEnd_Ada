@@ -1,0 +1,62 @@
+@import '../../ejercicio-04/styles/styles.css';
+
+/* Mobile */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 85%;
+}
+
+.wrap {
+  flex: 1 1 35%;
+}
+
+.content {
+  flex: 1 1 20%;
+}
+
+/* Tablet */
+
+@media (min-width: 500px) {
+  .wrap {
+    flex-direction: column;
+    flex: 1 1 20%;
+  }
+
+  .content {
+    flex-direction: row;
+    flex: 1 1 5%;
+  }
+
+  nav {
+    height: 100%;
+  }
+}
+
+
+@media (min-width: 1000px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .wrap {
+    height: 100%;
+  }
+
+  header {
+    flex: 1 1 15%;
+  }
+
+  .content {
+    flex: 1 1 85%;
+  }
+
+  nav, aside {
+    flex: 1 1 50%;
+  }
+
+  main {
+    height: 100%;
+  }
+}

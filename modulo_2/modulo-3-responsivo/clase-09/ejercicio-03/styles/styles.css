@@ -1,0 +1,104 @@
+:root {
+  --header-color: #591d4f;
+  --nav-color: #a67b8a;
+  --aside-color: #f2c6c2;
+  --main-color: #f2ddd0;
+  --footer-color: #734362;
+
+  --alto-100px: 6.25rem;
+  --alto-150px: 9.375rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+nav,
+main,
+aside,
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+header,
+footer {
+  color: white;
+}
+
+/* Mobile */
+header {
+  background-color: var(--header-color);
+  width: 100%;
+  height: var(--alto-150px);
+  flex: 1 30%;
+}
+
+nav {
+  background-color: var(--nav-color);
+  width: 100%;
+  height: var(--alto-100px);
+  flex: 1 1 20%;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  background-color: var(--main-color);
+  width: 100%;
+  height: calc(100% - var(--alto-150px));
+  flex: 1 1 100%;
+}
+
+aside {
+  background-color: var(--aside-color);
+  width: 100%;
+  height: var(--alto-150px);
+  flex: 1 1 50%;
+}
+
+footer {
+  background-color: var(--footer-color);
+  width: 100%;
+  height: var(--alto-100px);
+  flex: 1 1 20%;
+}
+
+/* Tablet - Desktop */
+@media (min-width: 500px) {
+  .wrap {
+    flex-direction: row;
+  }
+
+  main,
+  aside {
+    height: 100%;
+  }
+
+  main {
+    flex: 1 1 70%;
+  }
+
+  aside {
+    flex: 1 1 30%;
+  }
+}
