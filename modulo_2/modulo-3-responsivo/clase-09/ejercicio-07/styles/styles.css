@@ -34,6 +34,12 @@ p {
   font-size: 1em;
 }
 
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
 .grilla {
   width: 80%;
   max-width: 75rem;
@@ -85,14 +91,12 @@ img {
 @media (max-width: 630px) {
   body {
     font-size: 1rem;
-    align-items: flex-start;
   }
 
-  body h1,
-  body h2,
-  body p {
-    align-self: flex-start;
-  }
+.header {
+  align-items: flex-start;
+  text-align: left;
+}
 
   .grilla {
     width: 100%;
