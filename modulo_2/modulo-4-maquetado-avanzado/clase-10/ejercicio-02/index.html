@@ -1,0 +1,106 @@
+<!-- ### 2 - Carga de productos
+
+Crearemos un formulario para la carga rápida de productos para una empresa de bicicletas. Para eso mostraremos los siguientes campos:
+
+- Título de producto (input de texto)
+- Marca (`select` con `options`):
+  - Klatter
+  - Top Mega
+  - Fierce
+  - Shimano
+  - Lamborghini
+  - Aurora
+  - GT
+- Rodado (input numérico)
+- Categoría de producto (radio button):
+  - Mountain Bike
+  - Paseo
+  - Plegable
+  - Carrera
+- Descripción del producto (`textarea`)
+- Botón que diga "Cargar" (de tipo `submit`)
+
+Tanto el `select` como los `radio` deben tener el atributo `value` con el mismo valor que tienen en el texto.
+
+**No es necesario agregarles estilos** -->
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carga de productos</title>
+  </head>
+  <body>
+    <form action="">
+      <div>
+        <label for="titulo">Título de producto</label>
+        <input
+          type="text"
+          name="titulo"
+          id="titulo"
+          placeholder="Ej: Bicicleta Mountain Bike"
+        />
+      </div>
+
+      <div>
+        <label for="marca">Marca</label>
+        <select name="marca" id="marca">
+          <!-- Agregar una opción deshabilitada como placeholder -->
+          <option value="" disabled selected>Seleccione una marca</option>
+          <option value="Klatter">Klatter</option>
+          <option value="Top Mega">Top Mega</option>
+          <option value="Fierce">Fierce</option>
+          <option value="Shimano">Shimano</option>
+          <option value="Lamborghini">Lamborghini</option>
+          <option value="Aurora">Aurora</option>
+          <option value="GT">GT</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="rodado">Rodado</label>
+        <input type="number" name="rodado" id="rodado" placeholder="Ej: 29" />
+      </div>
+
+      <div>
+        <p>Categoría del producto</p>
+        <!-- Todos los radio buttons comparten el mismo 'name' para agruparlos -->
+        <div>
+          <input
+            type="radio"
+            name="categoria"
+            id="mountain-bike"
+            value="Mountain Bike"
+          />
+          <label for="mountain-bike">Mountain Bike</label>
+        </div>
+        <div>
+          <input type="radio" name="categoria" id="paseo" value="Paseo" />
+          <label for="paseo">Paseo</label>
+        </div>
+        <div>
+          <input type="radio" name="categoria" id="plegable" value="Plegable" />
+          <label for="plegable">Plegable</label>
+        </div>
+        <div>
+          <input type="radio" name="categoria" id="carrera" value="Carrera" />
+          <label for="carrera">Carrera</label>
+        </div>
+      </div>
+
+      <div>
+        <label for="descripcion">Descripción del producto</label>
+        <br />
+        <!-- Salto de línea para que el textarea quede debajo -->
+        <textarea
+          name="descripcion"
+          id="descripcion"
+          placeholder="Describa el producto aquí..."
+        ></textarea>
+      </div>
+
+      <button type="submit">Cargar</button>
+    </form>
+  </body>
+</html>

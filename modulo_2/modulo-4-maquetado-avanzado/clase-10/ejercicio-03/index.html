@@ -1,0 +1,72 @@
+<!-- ### 3 - Pago
+
+¡Es momento de pagar! para ello necesitaremos los datos de una tarjeta para que puedan realizar la compra.
+
+Crearemos un formulario con los siguientes datos:
+
+- Número de tarjeta de crédito
+- Nombre completo del titular
+- Selector del mes en números
+- Input del año en números (no puede ser menor al año actual y no puede ser mayor a 10 años del año actual)
+- CCV (código de seguridad) que debe ser de tipo password
+- Botón de pagar
+
+**No es necesario agregarles estilos** -->
+
+    
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pago</title>
+  </head>
+  <body>
+    <form action="">
+      <div>
+        <label for="tarjeta-numero">Número de tarjeta de crédito</label>
+        <!-- Usamos type="text" y pattern para un mejor control del número de tarjeta -->
+        <input type="text" name="tarjeta-numero" id="tarjeta-numero" placeholder="0000 0000 0000 0000" pattern="[0-9]{13,19}" title="Ingrese un número de tarjeta válido de entre 13 y 19 dígitos." required />
+      </div>
+      
+      <div>
+        <label for="titular-nombre">Nombre completo del titular</label>
+        <input type="text" name="titular-nombre" id="titular-nombre" placeholder="Ada Lovelace" required />
+      </div>
+
+      <div>
+        <label>Fecha de vencimiento</label>
+        <div>
+          <!-- Selector para el Mes -->
+          <select name="mes-vencimiento" id="mes-vencimiento" required>
+            <option value="" disabled selected>Mes</option>
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="03">03</option>
+            <option value="04">04</option>
+            <option value="05">05</option>
+            <option value="06">06</option>
+            <option value="07">07</option>
+            <option value="08">08</option>
+            <option value="09">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+          
+          <!-- Input para el Año con validación min/max -->
+          <input type="number" name="anio-vencimiento" id="anio-vencimiento" placeholder="Año" min="2025" max="2035" required />
+        </div>
+      </div>
+
+      <div>
+        <label for="ccv">CCV (Código de seguridad)</label>
+        <input type="password" name="ccv" id="ccv" placeholder="123" pattern="[0-9]{3,4}" title="El CCV debe tener 3 o 4 dígitos." required />
+      </div>
+      
+      <button type="submit">Pagar</button>
+    </form>
+  </body>
+</html>
+
+  
