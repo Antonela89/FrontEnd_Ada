@@ -1,12 +1,118 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reservación Hotel III</title>
-    <link rel="stylesheet" href="./styles/styles.css">
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <div class="header">
+        <h3>new quick reservation</h3>
+        <p>X</p>
+      </div>
+      <div class="main">
+        <div class="contenedor-form">
+          <form action="">
+            <div class="fila">
+              <div class="campo">
+                <label for="adultos">adults</label>
+                <select name="adultos" id="adultos">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="niños">children</label>
+                <select name="niños" id="niños">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="tipo">rate type</label>
+                <select name="tipo" id="tipo">
+                  <option value="rack-rate">rack rate</option>
+                  <option value=""></option>
+                  <option value=""></option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="habitaciones">rooms</label>
+                <select name="habitaciones" id="habitaciones">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+            </div>
+            <div class="fila">
+              <div class="campo">
+                <label for="titulo">title</label>
+                <select name="titulo" id="titulo">
+                  <option value="">Mr.</option>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="nombre">first name</label>
+                <input type="text" name="nombre" id="nombre" />
+              </div>
+              <div class="campo">
+                <label for="apellido">last name</label>
+                <input type="text" name="apellido" id="apellido" />
+              </div>
+            </div>
+            <div class="fila">
+              <div class="campo">
+                <label for="email">email address</label>
+                <input type="email" name="email" id="email" />
+              </div>
+              <div class="campo">
+                <label for="telefono">phone number</label>
+                <input type="text" name="telefono" id="telefono" />
+              </div>
+            </div>
+            <div class="fila">
+              <input type="checkbox" name="" id="" />single
+              <input type="checkbox" name="" id="" />group
+              <input type="checkbox" name="" id="" />business
+            </div>
+          </form>
+        </div>
+        <div class="contenedor-resumen">
+          <form action="">
+            <div class="campo">
+              <label for="tipo-habitacion">room type</label>
+              <input type="text" name="tipo-habitacion" id="tipo-habitacion" />
+            </div>
+            <div class="campo">
+              <label for="duracion">duration</label>
+              <input type="text" name="duracion" id="duracion" />
+            </div>
+            <div class="campo">
+              <label for="precio">price</label>
+              <input type="text" name="precio" id="precio" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="footer">
+        <button>temp reserve</button>
+        <button>reserve</button>
+        <button>check in</button>
+      </div>
+    </div>
+  </body>
 </html>
