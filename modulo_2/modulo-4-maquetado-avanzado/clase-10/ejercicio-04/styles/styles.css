@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: antiquewhite;
+  padding: 1rem;
+}
+
+.contenedor-form {
+  width: 90%;
+  max-width: 37.5rem;
+  padding: 2rem;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  background-color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.fila {
+    display: flex;
+    gap: 1rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.campo-dni {
+    flex: 1; 
+}
+
+.campo-email {
+    flex: 2; 
+}
+
+label {
+    margin-bottom: 0.25rem; 
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 0.75rem;
+    border-radius: 0.5rem; 
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.contenedor-password {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; 
+    width: 100%;
+}
+
+.contenedor-password small {
+    color: #555;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem; 
+}
+
+.botones label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f0d8b6; 
+    color: #333;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+button:hover {
+    background-color: #e8c9a1; 
+}

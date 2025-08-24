@@ -25,7 +25,7 @@ Crearemos un formulario con los siguientes datos:
     <form action="">
       <div>
         <label for="tarjeta-numero">Número de tarjeta de crédito</label>
-        <!-- Usamos type="text" y pattern para un mejor control del número de tarjeta -->
+        <!-- type="text" y pattern para un mejor control del número de tarjeta, si usamos number aparece flechas para aumentar o disminuir el número-->
         <input type="text" name="tarjeta-numero" id="tarjeta-numero" placeholder="0000 0000 0000 0000" pattern="[0-9]{13,19}" title="Ingrese un número de tarjeta válido de entre 13 y 19 dígitos." required />
       </div>
       
@@ -54,7 +54,7 @@ Crearemos un formulario con los siguientes datos:
             <option value="12">12</option>
           </select>
           
-          <!-- Input para el Año con validación min/max -->
+          <!-- Input para el Año con validación min/max -> controlan el valor que se ingresa -->
           <input type="number" name="anio-vencimiento" id="anio-vencimiento" placeholder="Año" min="2025" max="2035" required />
         </div>
       </div>
