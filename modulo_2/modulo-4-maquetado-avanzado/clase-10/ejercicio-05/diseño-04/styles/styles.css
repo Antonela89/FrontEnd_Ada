@@ -1,0 +1,166 @@
+:root {
+    /* ---- Colores ---- */
+    --color-primary: #2563eb;
+    /* Azul principal para botones y acentos */
+    --color-white: #ffffff;
+    /* Texto sobre fondos oscuros (imagen) */
+    --color-text-dark: #1f2937;
+    /* Etiquetas del formulario */
+    --color-text-placeholder: #9ca3af;
+    /* Texto de relleno en los campos */
+    --color-bg-input: #f3f4f6;
+    /* Fondo de los campos de entrada */
+
+    /* ---- Tipografía ---- */
+    --font-family-heading: 'Montserrat', 'Raleway', sans-serif;
+    --font-family-body: 'Inter', 'Roboto', sans-serif;
+
+    /* ---- Espesor de Fuente ---- */
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+    /* Para el título principal */
+
+    /* ---- Alto de Letra ---- */
+    --font-size-body: 0.875rem;
+    /* Párrafos, texto en inputs */
+    --font-size-label: 1rem;
+    /* Etiquetas del formulario */
+    --font-size-h1: 3rem;
+    /* Título principal: "MAKE YOUR RESERVATION" */
+
+    /* ---- Radios y Sombras ---- */
+    --border-radius-card: 0.75rem;
+    /* Bordes redondeados del formulario */
+    --border-radius-input: 0.5rem;
+    /* Bordes redondeados de los campos */
+    --shadow-card: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    padding: 3rem;
+    background: center/cover url('../images/fondo.jpg');
+    color: var(--color-white);
+}
+
+body:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(30, 58, 138, 0.4);
+}
+
+.row-between {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.texto {
+    position: relative;
+    text-align: left;
+    max-width: 37.5rem;
+    gap: 1rem;
+}
+
+.texto h1 {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-black);
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+}
+
+.texto p {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body);
+    line-height: 1.7;
+}
+
+.contenedor {
+    position: relative;
+    width: 100%;
+    background-color: var(--color-white);
+    padding: 2.5rem 1.5rem;
+    border-radius: var(--border-radius-card);
+    box-shadow: var(--shadow-card);
+    width: 25rem;
+    color: var(--color-text-dark);
+    gap: 1.5rem;
+}
+
+label {
+    display: block;
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-dark);
+    text-transform: capitalize;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background-color: var(--color-bg-input);
+    border: none;
+    border-radius: var(--border-radius-input);
+    font-size: var(--font-size-body);
+}
+
+
+input::placeholder {
+    color: var(--color-text-placeholder);
+}
+
+select {
+    /* quitar la flecha */
+    appearance: none;
+}
+
+/* clase reutilizable para centrado vertical y horizontal - row */
+.fila {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.campo {
+    gap: 0.5rem;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--border-radius-input);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

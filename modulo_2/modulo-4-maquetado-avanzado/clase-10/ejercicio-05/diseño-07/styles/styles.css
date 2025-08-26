@@ -1,0 +1,172 @@
+:root {
+    /* ---- Colores ---- */
+    --color-primary: #3b82f6;
+    /* Azul para botones y elementos activos */
+    --color-bg-page: #f8f9fa;
+    /* Fondo de la página (gris muy claro) */
+    --color-bg-card: #ffffff;
+    --color-text-primary: #1f2937;
+    /* Texto principal oscuro */
+    --color-text-secondary: #6b7280;
+    /* Texto de etiquetas y placeholders */
+    --color-text-accent: #111827;
+    /* Texto resaltado en el resumen (casi negro) */
+    --color-border: #d1d5db;
+    /* Borde para campos de entrada */
+    --color-divider: #e5e7eb;
+    /* Línea divisoria vertical */
+    --color-fab: #ec4899;
+    /* Color del botón flotante (rosa) */
+
+    /* ---- Tipografía (Fuente) ---- */
+    --font-family-sans: 'Inter', -apple-system, BlinkMacSystem-Font, "Segoe UI", Roboto, sans-serif;
+
+    /* ---- Espesor de Fuente (Font Weight) ---- */
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* ---- Alto de Letra (Font Size) ---- */
+    --font-size-xs: 0.75rem;
+    /* 12px - Etiquetas */
+    --font-size-sm: 0.875rem;
+    /* 14px - Título, botones */
+    --font-size-base: 1rem;
+    /* 16px - Texto en inputs */
+    --font-size-lg: 1.25rem;
+    /* 20px - Valores del resumen */
+
+    /* ---- Radios y Sombras ---- */
+    --border-radius-md: 0.5rem;
+    /* 8px */
+    --border-radius-lg: 1rem;
+    /* 16px */
+    --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.07);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family-sans);
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    background: var(--color-bg-card);
+    padding: 2.5rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-card);
+    max-width: 64rem;
+}
+
+.header,
+.main,
+.footer {
+    width: 100%;
+    display: flex;
+}
+
+.header,
+.footer {
+    align-items: center;
+}
+
+
+.header {
+    text-transform: uppercase;
+    gap: 1rem;
+    justify-content: space-between;
+    color: var(--color-text-secondary);
+}
+
+h3 {
+    text-align: center;
+    flex: 1;
+    font: var(--font-weight-bold) var(--font-size-sm);
+    letter-spacing: 0.1em;
+}
+
+
+.contenedor-form {
+    width: 42.5rem;
+    padding: 1rem;
+}
+
+form,
+.fila,
+.campo {
+    width: 100%;
+    display: flex;
+}
+
+form,
+.campo {
+    flex-direction: column;
+}
+
+form,
+.fila {
+    gap: 1rem;
+}
+
+.campo {
+    gap: 0.5rem;
+}
+
+.fila:nth-child(4){
+    width: 50%;
+    gap: 1rem;
+    justify-content: flex-start;
+}
+
+
+label {
+    display: block;
+    text-transform: uppercase;
+    font: var(--font-weight-semibold) var(--font-size-xs);
+    color: var(--color-text-secondary);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--color-border);
+    font: var(--font-weight-medium) var(--font-size-base);
+}
+
+.contenedor-resumen {
+    width: 21.25rem;
+    padding: 1rem;
+    border-left: 1px solid var(--color-divider);
+}
+
+.footer {
+    justify-content: center;
+    gap: 1rem;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    border: none;
+    cursor: pointer;
+    font: var(--font-weight-semibold) var(--font-size-sm);
+    background: var(--color-primary);
+    color: var(--color-bg-card);
+    text-transform: capitalize;
+}

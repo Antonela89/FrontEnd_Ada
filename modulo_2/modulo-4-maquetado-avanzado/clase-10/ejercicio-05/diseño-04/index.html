@@ -5,59 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reservación Hotel I</title>
     <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <div class="contenedor">
-      <form action="">
-        <div class="fila">
-          <div class="campo">
-            <label for="">your destination</label
-            ><input type="text" name="" id="" />
-          </div>
-        </div>
-        <div class="fila">
-          <div class="campo">
-            <label for="">check in</label>
-            <input type="date" name="" id="" />
-          </div>
-          <div class="campo">
-            <label for="">check out</label>
-            <input type="date" name="" id="" />
-          </div>
-        </div>
-        <div class="fila">
-          <div class="campo">
-            <label for="">rooms</label>
-            <select name="" id="">
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-            </select>
-          </div>
-          <div class="campo">
-            <label for="">adults</label>
-            <select name="" id="">
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-            </select>
-          </div>
-          <div class="campo">
-            <label for="">children</label>
-            <select name="" id="">
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-              <option value=""></option>
-            </select>
-          </div>
-        </div>
-        <div class="fila">
-            <button type="submit">check availability</button>
-        </div>
-      </form>
+  <body class="row-between">
+    <div class="texto column">
+      <h1>Make your reservation</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus
+        rerum non ducimus voluptatibus nihil laborum sit eum, suscipit, odio
+        iure dolorem est voluptates blanditiis, excepturi praesentium. Sint
+        possimus repellat numquam qui nobis unde, magnam tempora tempore,
+        eveniet vitae adipisci perspiciatis.
+      </p>
     </div>
+    <form action="" class="contenedor column">
+      <div class="fila">
+        <div class="campo column">
+          <label for="destino">your destination</label
+          ><input type="text" name="destino" id="destino" placeholder="Enter a destination or hotel name" />
+        </div>
+      </div>
+      <div class="fila">
+        <div class="campo column">
+          <label for="fecha-ingreso">check in</label>
+          <input type="date" name="fecha-ingreso" id="fecha-ingreso" placeholder="dd/mm/aaaa" />
+        </div>
+        <div class="campo column">
+          <label for="fecha-egreso">check out</label>
+          <input type="date" name="fecha-egreso" id="fecha-egreso" placeholder="dd/mm/aaaa"/>
+        </div>
+      </div>
+      <div class="fila">
+        <div class="campo column">
+          <label for="habitaciones">rooms</label>
+          <select name="habitaciones" id="habitaciones">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="campo column">
+          <label for="adultos">adults</label>
+          <select name="adultos" id="adultos">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="campo column">
+          <label for="niños">children</label>
+          <select name="niños" id="niños">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+      </div>
+      <div class="fila">
+        <button type="submit">check availability</button>
+      </div>
+    </form>
   </body>
 </html>

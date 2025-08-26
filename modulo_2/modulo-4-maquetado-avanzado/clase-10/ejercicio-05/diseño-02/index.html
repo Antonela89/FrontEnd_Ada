@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Autenticación</title>
-    <link rel="stylesheet" href="./styles/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="contenedor">
-        <h2>Welcome!</h2>
-        <p>Semper vitae et hendrerit lorem tartor, tristique ut eu ornare pede urna, sem nunc aliquet tellus bibendum, iaculis aliquam curabitur vitae partttar, ligula mi voluptatum feugiast sapien lacus.</p>
-        <form action="">
-            <div class="fila">
-                <label for="">password</label>
-                <input type="password" name="" id="">
+      <h2>Welcome!</h2>
+      <p>
+        Semper vitae et hendrerit lorem tartor, tristique ut eu ornare pede
+        urna, sem nunc aliquet tellus bibendum, iaculis aliquam curabitur vitae
+        partttar, ligula mi voluptatum feugiast sapien lacus.
+      </p>
+      <form action="">
+        <div class="fila">
+          <label for="">password</label>
+          <input type="password" name="" id="" />
+        </div>
+        <div class="fila">
+          <label for="">username</label>
+          <input type="text" name="" id="" />
+        </div>
+        <div class="fila">
+          <div class="terminos">
+            <div class="campo">
+              <input type="checkbox" name="recordar" id="recordar" />
+              <p>Remember Me</p>
             </div>
-            <div class="fila">
-                <label for="">username</label>
-                <input type="text" name="" id="">
-            </div>
-            <div class="fila">
-                <div class="terminos">
-                    <input type="checkbox" name="" id="">Remember Me</input>
-                    <a href="">Forgot Password</a>
-                </div>
-            </div>
-            <div class="fila botones">
-                <button type="submit">login</button>
-                <button>sign up</button>
-            </div>
-        </form>
+            <a href="">Forgot Password</a>
+          </div>
+        </div>
+        <div class="fila botones">
+          <button type="submit">login</button>
+          <button>sign up</button>
+        </div>
+      </form>
     </div>
-</body>
+  </body>
 </html>

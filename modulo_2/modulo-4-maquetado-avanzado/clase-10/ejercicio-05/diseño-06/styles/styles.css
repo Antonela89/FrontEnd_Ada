@@ -1,0 +1,138 @@
+:root {
+    /* ---- Colores ---- */
+    --color-primary: #fdb813;
+    /* Amarillo/Dorado principal para el título y el botón */
+    --color-bg-form: #1c1c1c;
+    /* Fondo del formulario (negro-grisáceo oscuro) */
+    --color-bg-input: #e9ecef;
+    /* Fondo de los campos de entrada */
+    --color-text-light: #ffffff;
+    --color-text-dark: #000000;
+    --color-text-placeholder: #6c757d;
+
+    /* ---- Tipografía ---- */
+    /* título */
+    --font-family-display: 'Oswald', 'Anton', sans-serif;
+    /* texto */
+    --font-family-body: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+    /* ---- Espesor de Fuente ---- */
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+
+    /* ---- Font Size ---- */
+    --font-size-label: 0.75rem;
+    /* Para etiquetas como "NAME", "EMAIL" */
+    --font-size-input: 1rem;
+    /* Texto dentro de los campos */
+    --font-size-button: 1rem;
+    --font-size-h1: 3.75rem;
+    /* Título principal "BOOK A CAR" */
+
+    /* ---- Radios y Espaciado ---- */
+    --border-radius-input: 0.25rem;
+    --form-padding: 1rem;
+    --input-padding-vertical: 1rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    background: center/cover no-repeat url('https://colorlib.com/etc/bforms/colorlib-booking-4/img/background.jpg');
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font: var(--font-weight-black) var(--font-size-h1) var(--font-family-display);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.contenedor {
+    position: relative;
+    z-index: 3;
+}
+
+.contenedor.column {
+    width: 100%;
+    max-width: 40.125rem;
+}
+
+form.contenedor {
+    gap: 1.5rem;
+    position: relative;
+    background-color: var(--color-bg-form);
+    padding: var(--form-padding);
+}
+
+.fila {
+    width: 100%;
+    gap: 1rem;
+}
+
+.campo {
+    flex: 1;
+    gap: 0.5rem;
+}
+
+label {
+    display: block;
+    font: var(--font-weight-regular) var(--font-size-label)/1.2 var(--font-family-body);
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input,
+select {
+    width: 100%;
+    background-color: var(--color-bg-input);
+    color: var(--color-text-dark);
+    border: none;
+    border-radius: var(--border-radius-input);
+    padding: var(--input-padding-vertical) 1rem;
+    font: var(--font-size-input) var(--font-family-body);
+}
+
+input::placeholder {
+    color: var(--color-text-placeholder);
+}
+
+
+button[type="submit"] {
+    width: 100%;
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
+    border: none;
+    padding: var(--input-padding-vertical) 1.5rem;
+    font: var(--font-weight-bold) var(--font-size-button) var(--font-family-body);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}

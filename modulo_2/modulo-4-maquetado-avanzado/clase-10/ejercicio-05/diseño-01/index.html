@@ -11,23 +11,23 @@
         <h2>Create a new Topic</h2>
         <input type="text" name="topic" id="topic" placeholder="Type title, or paste a link here">
         <div class="selectores">
-            <select name="categorias" id="">
-                <option value="" disabled>Category</option>
-                <option value="">Community Resources</option>
-                <option value="">Desing Help</option>
-                <option value="">Publishing Help</option>
+            <select name="categorias" id="categorias">
+                <option value="" disabled selected hidden>Category</option>
+                <option value="community-resources">Community Resources</option>
+                <option value="desing-help">Desing Help</option>
+                <option value="publishing-help">Publishing Help</option>
             </select>
-            <select name="tags" id="">
-                <option value="" disabled>Tags</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+            <select name="tags" id="tags">
+                <option value="" disabled selected hidden>Tags</option>
+                <option value="desing">Desing</option>
+                <option value="foro">Foro</option>
+                <option value="articulos">Artículos</option>
             </select>
         </div>
-        <textarea name="" id="" placeholder="Enter your description here"></textarea>
+        <textarea name="descripcion" id="descripcion" rows="5" placeholder="Enter your description here"></textarea>
         <div class="botones">
             <button type="submit">+ Create Topic</button>
-            <button>Cancel</button>
+            <button type="reset">Cancel</button>
         </div>
 </body>
 </html>

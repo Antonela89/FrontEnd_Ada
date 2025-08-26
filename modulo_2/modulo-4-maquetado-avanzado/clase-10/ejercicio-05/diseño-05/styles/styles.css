@@ -1,0 +1,133 @@
+:root {
+    /* ---- Colores ---- */
+    --color-primary: #f50057;
+    /* Rosa/Magenta vibrante para el botón y las etiquetas */
+    --color-text-input: #495057;
+    /* Color para el texto dentro de los campos */
+    --color-white: #ffffff;
+    --color-divider: #e9ecef;
+    /* Color de la línea vertical divisoria */
+    --color-placeholder: #6c757d;
+    /* Usado para los iconos y placeholders de fecha */
+
+    /* ---- Tipografía (Fuente) ---- */
+    /* Una fuente moderna y geométrica como Poppins, Nunito o Lato funciona muy bien aquí */
+    --font-family-sans: 'Poppins', 'Nunito', 'Lato', sans-serif;
+
+    /* ---- Espesor de Fuente (Font Weight) ---- */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    /* ---- Alto de Letra (Font Size) ---- */
+    --font-size-label: 0.875rem;
+    /* Tamaño para las etiquetas: "Destination", "Check In" */
+    --font-size-input: 1.375rem;
+    /* Tamaño grande para el texto del campo de entrada */
+    --font-size-button: 1.125rem;
+
+    /* ---- Radios y Sombras ---- */
+    --shadow-card: 0px 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: center/cover url('https://colorlib.com/etc/bforms/colorlib-booking-11/img/background.jpg');
+    padding: 2.5rem;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(125, 85, 219, 0.2);
+    /* Superposición púrpura/índigo */
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    border-radius: 0.25rem;
+    box-shadow: var(--shadow-card);
+    padding: 1rem;
+    gap: 1rem;
+    z-index: 3;
+}
+
+.fila {
+    border-right: 1px solid var(--color-divider);
+    flex: 3;
+}
+
+.fila:nth-child(4) {
+    flex: 1;
+}
+
+.fila:last-of-type {
+    border-right: none;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+}
+
+label {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-label);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-primary);
+    display: block;
+    text-transform: capitalize;
+}
+
+input,
+select {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-input);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-input);
+    border: none;
+    background: transparent;
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+    /* Quita el borde azul por defecto al hacer clic */
+}
+
+button[type="submit"] {
+    font-family: var(--font-family-sans);
+    font-size: var(--font-size-button);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 0.25rem;
+    padding: 1.5rem 2.5rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    white-space: nowrap;
+}

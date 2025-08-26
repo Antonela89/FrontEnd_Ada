@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro</title>
     <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="contenedor">
@@ -25,76 +31,150 @@
         <h2>register with your work email address</h2>
         <form action="">
           <div class="fila">
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
-            <input type="text" name="" id="" />
+            <input
+              type="text"
+              name="primerNombre"
+              id="primerNombre"
+              placeholder="First Name"
+            />
+            <input
+              type="text"
+              name="segundoNombre"
+              id="segundoNombre"
+              placeholder="Middle Name"
+            />
+            <input
+              type="text"
+              name="apellido"
+              id="apellido"
+              placeholder="Last Name"
+            />
           </div>
           <div class="fila">
-            <input type="email" name="" id="" />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email Address"
+            />
           </div>
           <div class="fila">
-            <input type="text" name="" id="" />
+            <input
+              type="text"
+              name="telefono"
+              id="telefono"
+              placeholder="Phone Number"
+            />
           </div>
           <div class="fila">
-            <input type="password" name="" id="" />
-            <input type="password" name="" id="" />
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+            />
           </div>
           <fieldset>
             <label for="">other information</label>
             <div class="fila">
               <div class="campo">
-                <input type="text" name="" id="" />
+                <input
+                  type="text"
+                  name="codigo-referencia"
+                  id="codigo-referencia"
+                  placeholder="Have a referral code?"
+                />
               </div>
               <div class="campo">
-                <input type="text" name="" id="" />
+                <input
+                  type="text"
+                  name="promoCode"
+                  id="promoCode"
+                  placeholder="Promo Code"
+                />
               </div>
             </div>
             <div class="fila">
               <select name="" id="">
-                <option value=""></option>
+                <option value="" selected hidden disabled>
+                  How did you hear about us?
+                </option>
                 <option value=""></option>
                 <option value=""></option>
               </select>
             </div>
             <div class="fila">
               <select name="" id="">
-                <option value=""></option>
+                <option value="" selected hidden disabled>Countary</option>
                 <option value=""></option>
                 <option value=""></option>
               </select>
             </div>
             <div class="fila">
               <div class="campo">
-                <input type="text" name="" id="" />
+                <input
+                  type="text"
+                  name="direccion"
+                  id="direccion"
+                  placeholder="Address Line 1"
+                />
               </div>
               <div class="campo">
-                <input type="text" name="" id="" />
+                <input
+                  type="text"
+                  name="tipo-vivienda"
+                  id="tipo-vivienda"
+                  placeholder="Apartment, Unit, Office"
+                />
               </div>
             </div>
             <div class="fila">
               <div class="campo">
-                <input type="text" name="" id="" />
+                <input
+                  type="text"
+                  name="ciudad"
+                  id="ciudad"
+                  placeholder="City"
+                />
               </div>
               <div class="campo">
-                <select name="" id="">
-                  <option value=""></option>
+                <select name="estado" id="estado">
+                  <option value="" select hidden disabled>State</option>
                   <option value=""></option>
                   <option value=""></option>
                   <option value=""></option>
                 </select>
               </div>
               <div class="campo">
-                <input type="text" name="" id="" />
+                <input
+                  type="text"
+                  name="zipCode"
+                  id="zipCode"
+                  placeholder="Zip Code"
+                />
               </div>
             </div>
           </fieldset>
           <div class="fila terminos">
-            <input type="checkbox" name="" id="" />I reed and agree to
+            <input
+              type="checkbox"
+              name="aceptaTermino"
+              id="aceptaTermino"
+            /><label for="aceptaTermino">I reed and agree to</label>
             <a href="">term & conditions.</a>
           </div>
         </form>
         <button type="submit">sign up</button>
-        <a href="">Have an Account?</a><span>please sign up</span>
+        <div class="enlaces">
+          <a href="">Have an Account?</a>
+          <span>please sign up</span>
+        </div>
       </div>
     </div>
   </body>

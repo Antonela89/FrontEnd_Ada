@@ -5,44 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reservación Taxi</title>
     <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <div class="contenedor">
-      <form action="">
-        <div class="fila">
-          <div class="campo">
-            <label for="">name</label><input type="text" name="" id="" />
+  <body class="center">
+    <div class="contenedor column">
+      <h1>book a car</h1>
+      <form action="" class="contenedor column">
+        <div class="fila center">
+          <div class="campo column">
+            <label for="nombre">name</label
+            ><input type="text" name="nombre" id="nombre" placeholder="Enter your name" />
+          </div>
+          <div class="campo column">
+            <label for="email">email</label
+            ><input type="email" name="email" id="email" placeholder="Enter your email" />
           </div>
         </div>
-        <div class="campo">
-          <label for="">email</label><input type="email" name="" id="" />
-        </div>
-        <div class="fila">
-          <div class="campo">
-            <label for="">phone</label>
-            <input type="text" name="" id="" />
+        <div class="fila center">
+          <div class="campo column">
+            <label for="telefono">phone</label>
+            <input type="text" name="telefono" id="telefono" placeholder="Enter your phone number"/>
           </div>
         </div>
-        <div class="fila">
-          <div class="campo">
-            <label for="">pickup location</label>
-            <input type="text" name="" id="" />
+        <div class="fila center">
+          <div class="campo column">
+            <label for="ubicacion">pickup location</label>
+            <input type="text" name="ubicacion" id="ubicacion" placeholder="Enter ZIP/Location" />
           </div>
         </div>
-        <div class="fila">
-          <div class="campo">
-            <label for="">destination</label>
-            <input type="text" name="" id="" />
+        <div class="fila center">
+          <div class="campo column">
+            <label for="destino">destination</label>
+            <input type="text" name="destino" id="destino" placeholder="Enter ZIP/Location"/>
           </div>
         </div>
-        <div class="fila">
-          <div class="campo">
-            <label for="">check in</label>
-            <input type="date" name="" id="" />
+        <div class="fila center">
+          <div class="campo column">
+            <label for="dia">check in</label>
+            <input type="date" name="dia" id="dia" />
           </div>
-          <div class="campo">
-            <label for="">hour</label>
-            <select name="" id="">
+          <div class="campo column">
+            <label for="hora">hour</label>
+            <select name="hora" id="hora">
               <option value="">1</option>
               <option value="">2</option>
               <option value="">3</option>
@@ -57,9 +66,9 @@
               <option value="">12</option>
             </select>
           </div>
-          <div class="campo">
-            <label for="">min</label>
-            <select name="" id="">
+          <div class="campo column">
+            <label for="minutos">min</label>
+            <select name="minutos" id="minutos">
               <option value="">00</option>
               <option value="">05</option>
               <option value="">10</option>
@@ -74,11 +83,11 @@
               <option value="">55</option>
             </select>
           </div>
-          <div class="campo">
-            <label for="">am/pm</label>
-            <select name="" id="">
-              <option value="">am</option>
-              <option value="">pm</option>
+          <div class="campo column">
+            <label for="am-pm">am/pm</label>
+            <select name="am-pm" id="am-pm">
+              <option value="am">am</option>
+              <option value="pm">pm</option>
             </select>
           </div>
         </div>

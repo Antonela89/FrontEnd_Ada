@@ -1,0 +1,233 @@
+:root {
+    /* ---- Colores ---- */
+    --color-gradient-panel: linear-gradient(160deg, #4a90e2 0%, #17ead9 100%);
+    --color-gradient-button: linear-gradient(90deg, #17ead9 0%, #6221e4 100%);
+    --color-accent: #4a90e2;
+    /* Azul para enlaces y bordes activos */
+    --color-text-light: #ffffff;
+    --color-text-dark: #333333;
+    /* Títulos y texto principal del formulario */
+    --color-text-secondary: #7f8c8d;
+    /* Texto de ayuda, placeholders, iconos */
+    --color-border: #dcdfe6;
+    /* Borde de los campos inactivos */
+    --color-bg-page: #f4f7f6;
+    /* Un gris muy claro para el fondo */
+
+    /* ---- Tipografía (Fuente) ---- */
+    --font-family-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+    /* ---- Espesor de Fuente (Font Weight) ---- */
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 900;
+
+    /* ---- Alto de Letra (Font Size) ---- */
+    --font-size-xs: 0.75rem;
+    /* 12px - Texto de ayuda */
+    --font-size-sm: 0.875rem;
+    /* 14px - Texto en inputs, párrafos */
+    --font-size-base: 1rem;
+    /* 16px - Título principal del formulario */
+    --font-size-lg: 2rem;
+    /* 32px - "Let's Get" */
+    --font-size-xl: 4.5rem;
+    /* 72px - "Started" */
+
+    /* ---- Radios y Sombras ---- */
+    --border-radius: 0.5rem;
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family-sans);
+    background: url('../images/fondo.jpg');
+    background-size: cover;
+    padding: 4rem 2rem;
+}
+
+.contenedor {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    background-color: transparent;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+}
+
+.imagen::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(25, 111, 172, 0.4);
+}
+
+.imagen {
+    position: relative;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 3rem;
+    color: var(--color-text-light);
+    gap: 1rem;
+
+}
+
+.imagen span {
+    text-transform: uppercase;
+    z-index: 3;
+}
+
+.imagen span:nth-child(1) {
+    padding-bottom: 6rem;
+}
+
+.texto {
+    z-index: 3;
+}
+
+.texto h1 {
+    font: var(--font-weight-extrabold) var(--font-size-lg) var( --font-family-sans);
+    text-transform: capitalize;
+}
+
+.texto p {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin: 1.5rem 0;
+}
+
+.texto a {
+    display: block;
+    text-align: end;
+    text-decoration: none;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    font-weight: var(--font-weight-extrabold);
+}
+
+.formulario {
+    flex: 1;
+    background: #fff;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: var(--color-text-dark);
+    align-items: center;
+}
+
+.formulario h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font: var(--font-weight-extrabold) var(--font-size-base) var(--font-family-sans);
+}
+
+form,
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.fila {
+    display: flex;
+    gap: 1rem;
+}
+
+.campo {
+    flex: 1;
+    position: relative;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    /* Espacio a la izquierda para el icono */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    font-size: var(--font-size-sm);
+}
+
+input:focus {
+    outline: 2px solid var(--color-accent);
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-secondary);
+}
+
+fieldset {
+    border: none;
+    text-transform: capitalize;
+    color: var(--color-accent);
+    font-weight: var(--font-weight-bold);
+}
+
+.terminos {
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 2.5rem;
+}
+
+input[type="checkbox"] {
+    flex-basis: 5%;
+}
+
+.terminos label {
+    display: block;
+    text-wrap: nowrap;
+}
+
+.terminos a {
+    display: block;
+    text-wrap: nowrap;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+}
+
+button[type="submit"] {
+    width: 40%;
+    padding: 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    background: var(--color-gradient-button);
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    cursor: pointer;
+    font: var(--font-weight-bold) var(--font-size-sm) var(--font-family-sans);
+}
+
+.enlaces {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.enlaces a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+}

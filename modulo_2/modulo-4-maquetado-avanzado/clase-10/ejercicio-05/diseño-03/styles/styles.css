@@ -1,0 +1,189 @@
+:root {
+    /* ---- Colores ---- */
+    /* Color de fondo */
+    --color-primary-gradient: linear-gradient(90deg, rgba(255, 108, 168, 1) 0%, rgba(243, 84, 134, 1) 100%);
+    /* Color del borde del campo activo */
+    --color-primary-focus: #f55a8e;
+    /* Títulos y texto principal */
+    --color-text-heading: #343a40;
+    /* Párrafos y texto secundario */
+    --color-text-body: #6c757d;
+    --color-white: #ffffff;
+    /* Borde de los campos */
+    --color-border: #ced4da;
+    /* Texto de relleno */
+    --color-placeholder: #adb5bd;
+    /* Gradiente del marco exterior */
+    --color-frame-gradient: linear-gradient(to right top, #d946ef, #e85a8f, #f58d59, #ebc051);
+
+    /* ---- Tipografía (Fuente) ---- */
+    --font-family-sans: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+    /* ---- Espesor de Fuente (Font Weight) ---- */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    /* ---- Alto de Letra (Font Size) ---- */
+    /* Footer */
+    --sm: 0.875rem;
+    /* Cuerpo, inputs, navegación */
+    --md: 1rem;
+    /* Logo */
+    --lg: 1.25rem;
+    /* Título principal */
+    --xl: 2.25rem;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 3rem;
+    font-family: var(--font-family-sans);
+    color: var(--color-text-body);
+    background: var(--color-frame-gradient);
+}
+
+/* clase reutilizable para centrado vertical y horizontal - row */
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-between {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+}
+
+.contenedor {
+    width: 100%;
+    background: var(--color-white);
+    border: 3px solid var(--color-text-heading);
+    border-radius: var(--sm);
+    overflow: hidden;
+}
+
+h1 {
+    font-size: var(--lg);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-heading);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav ul li {
+    font-size: var(--md);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-body);
+    text-transform: capitalize;
+}
+
+nav ul li:hover {
+    font-weight: var(--font-weight-bold);
+}
+
+.contenedor-form.column {
+    text-align: center;
+    padding: 5rem 3rem;
+    max-width: 37.5rem;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+h2 {
+    font-size: var(--xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-heading);
+}
+
+p {
+    font-size: var(--md);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+form.column {
+    gap: 1.5rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    font-size: var(--md);
+    font-family: var(--font-family-sans);
+}
+
+textarea {
+    resize: none;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-primary-focus);
+    box-shadow: 0 0 0 3px rgba(245, 90, 142, 0.2);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 1.125rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: var(--color-primary-gradient);
+    color: var(--color-text-white);
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: var(--color-white);
+    text-transform: capitalize;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+    border-top: 1px solid var(--color-border);
+    font-size: var(--sm);
+    color: var(--color-text-body);
+}
+
+.terminos {
+    display: flex;
+    gap: 1.5rem;
+}
+
+footer a {
+    text-decoration: none;
+    text-transform: capitalize;
+    color: var(--color-text-body);
+}
+
+.redes {
+    display: flex;
+    gap: 1rem;
+}

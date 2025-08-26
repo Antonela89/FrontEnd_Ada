@@ -1,0 +1,136 @@
+:root {
+    /* colores */
+    --gris-claro: #f8f9fa;
+    --gris-mclaro: #ced4da;
+    --gris-medio: #6c757d;
+    --gris-oscuro: #495057;
+    --blanco: #ffffff;
+    --azul: #3b82f6;
+
+    /* tipografia */
+    --texto: 400 0.875rem;
+    --label: bold 0.75rem;
+    --enlace: 600 0.875rem;
+    --boton: bold 1rem;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gris-claro);
+}
+
+.contenedor {
+    width: 50%;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+h2,
+label {
+    color: var(--gris-oscuro)
+}
+
+p,
+::placeholder {
+    color: var(--gris-medio);
+}
+
+h2,
+p {
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fila {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    width: 100%;
+    text-transform: uppercase;
+    font: var(--label);
+    letter-spacing: 0.25rem;
+}
+
+input {
+    width: 100%;
+    border: 1px solid var(--gris-mclaro);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem;
+}
+
+input[type="checkbox"] {
+    border: 1px solid var(--gris-mclaro);
+    margin: 0;
+}
+
+.terminos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.campo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.campo p {
+    white-space: nowrap;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--azul)
+}
+
+button {
+    text-transform: uppercase;
+    font: var(--boton);
+    padding: 0.875rem 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+button[type="submit"] {
+    background-color: var(--azul);
+    color: var(--blanco);
+}
+
+.botones button:nth-child(2) {
+    background-color: transparent;
+    color: var(--azul);
+}
