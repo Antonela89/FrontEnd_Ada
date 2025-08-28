@@ -1,0 +1,139 @@
+/* Cuadrado gris: 100px x 100px
+Cuadrado rojo: 60px x 60px
+Cuadrado verde: 30px x 30px */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.box-container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.cuadrado-gris {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    position: absolute;
+}
+
+.cuadrado-rojo {
+    width: 60px;
+    height: 60px;
+    background-color: red;
+    position: absolute;
+}
+
+.cuadrado-verde {
+    width: 30px;
+    height: 30px;
+    background-color: green;
+    position: absolute;
+}
+
+/* cuadrado n° 1 */
+.posicion-1 .cuadrado-verde {
+    bottom: 0;
+    right: 0;
+}
+
+/* cuadrado n° 2 */
+.posicion-2 .cuadrado-rojo {
+    bottom: 0;
+    left: 0;
+}
+
+.posicion-2 .cuadrado-verde {
+    right: 0;
+}
+
+/* cuadrado n° 3 */
+.posicion-3 .cuadrado-rojo {
+    bottom: 0;
+    right: 0;
+}
+
+.posicion-3 .cuadrado-verde {
+    right: 0;
+}
+
+
+/* cuadrado n° 4 */
+.posicion-4 .cuadrado-rojo {
+    bottom: 0;
+    left: 0;
+}
+
+.posicion-4 .cuadrado-verde {
+    bottom: 0;
+    left: 30%;
+}
+
+/* cuadrado n° 5 */
+.posicion-5 .cuadrado-rojo {
+    top: 0;
+    right: 0;
+}
+
+.posicion-5 .cuadrado-verde {
+    top: 30%;
+    right: 30%;
+}
+
+/* cuadrado n° 6 */
+.posicion-6 .cuadrado-rojo {
+    bottom: 0;
+    right: 0;
+}
+
+.posicion-6 .cuadrado-verde {
+    bottom: 30%;
+    right: 0;
+}
+
+/* cuadrado n° 7 */
+.posicion-7 .cuadrado-rojo {
+    top: 0;
+    left: 20%;
+}
+
+.posicion-7 .cuadrado-verde {
+    bottom: 0;
+    left: 0;
+}
+
+/* cuadrado n° 8 */
+.posicion-8 .cuadrado-rojo {
+    bottom: 0;
+    left: 20%;
+}
+
+.posicion-8 .cuadrado-verde {
+    bottom: 0;
+    left: 35%;
+}
+
+/* cuadrado n° 9 */
+.posicion-9 .cuadrado-rojo {
+    bottom: 20%;
+    left: 20%;
+}
+
+.posicion-9 .cuadrado-verde {
+    bottom: 35%;
+    left: 35%;
+}

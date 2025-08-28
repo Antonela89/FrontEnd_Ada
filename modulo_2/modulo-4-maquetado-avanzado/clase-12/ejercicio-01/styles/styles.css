@@ -32,3 +32,30 @@
 .four {
     background-color: darkred;
 }
+
+.box {
+    position: relative;
+}
+
+.box:nth-child(odd) {
+    z-index: 2;
+}
+
+.box:nth-child(even) {
+    z-index: 1;
+}
+
+.two {
+    top: 100px;
+    right: 50px;
+}
+
+.three {
+    top: 200px;
+    right: 100px;
+}
+
+.four {
+    top: 300px;
+    right: 150px;
+}
