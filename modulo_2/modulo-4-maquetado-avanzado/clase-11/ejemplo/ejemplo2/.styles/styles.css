@@ -1,0 +1,27 @@
+*{
+font-family: "Inter", sans-serif;
+}
+
+h2+p{
+ color: blue;
+ font-weight: bold;   
+}
+
+h2~p{
+    
+    background-color: red
+}
+
+div section {
+    border: solid salmon;
+}
+
+div p {
+    border: solid rgb(68, 33, 78);
+}
+
+ul>li{
+    color: orange;
+    list-style: square;
+    font-style: italic;
+}

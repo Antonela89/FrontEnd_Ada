@@ -1,0 +1,42 @@
+input[type]{
+    border: 1px solid blue;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+ input[type = "submit"]{
+    background-color: rgb(226, 147, 110);
+    color: red;
+    font-weight: bold;
+    cursor:pointer;
+    border-radius: 0.5rem ;
+}
+
+p[class~="highlight"]{
+   background-color: blueviolet;
+   font-weight: bold;
+   color: white;
+   display: inline;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}  
+
+a[href^="https"]{
+    color: aqua;
+    text-decoration: none;
+}
+
+img[src$="200"]:hover{
+    transform: scale(1.2);
+}
+
+img[src$="200"]{
+    transition:transform 1s ease;
+}
+
+a[href*="example"]{
+    text-decoration: none;
+    background: red;
+    padding: 1rem;
+    border: yellow solid;
+    border-radius: 0.5rem;
+    color: white;
+}
