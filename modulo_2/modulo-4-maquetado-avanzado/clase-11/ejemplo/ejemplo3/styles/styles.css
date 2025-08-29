@@ -70,7 +70,8 @@ body {
     padding: 1rem;
 }
 
-.nav a {
+.nav a,
+.footer a {
     padding: 0.5rem;
     border: 1px solid #eee;
     border-radius: 0.5rem;
