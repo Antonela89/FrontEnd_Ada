@@ -1,0 +1,30 @@
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ body {
+     width: 100vw;
+     height: 100vh;
+     background-color: #f0f0f0;
+ }
+
+ header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    background-color: #DEEFE7;
+ }
+
+nav {
+    padding: 1rem 1.5rem;
+}
+
+ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}

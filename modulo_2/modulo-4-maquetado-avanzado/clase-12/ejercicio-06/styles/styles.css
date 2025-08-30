@@ -1,0 +1,94 @@
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ body {
+     width: 100vw;
+     height: 100vh;
+     padding: 3rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background-color: #f0f0f0;
+ }
+
+ .product-card {
+     width: 40%;
+     height: auto;
+     display: flex;
+     flex-direction: column;
+     padding: 1rem;
+     border-radius: 0.25rem;
+     border: 1px solid gray;
+     background-color: white;
+ }
+
+ .product-photo-container {
+     position: relative;
+     width: 100%;
+     height: auto;
+ }
+
+ .badges-container {
+     width: 100%;
+     position: absolute;
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .badges {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     gap: 0.25rem;
+ }
+
+ .badges span {
+     display: inline-block;
+     padding: 0.25rem;
+     border-radius: 0.5rem;
+     color: white;
+ }
+
+ .badges span:nth-child(1) {
+     background-color: blue;
+ }
+
+ .badges span:nth-child(2) {
+     background-color: green;
+ }
+
+ .badges-container i {
+     color: red;
+     font-size: 1.5rem;
+ }
+
+ .product-photo img {
+     width: 100%;
+     object-fit: contain;
+ }
+
+ .product-info {
+     position: relative;
+     padding: 0 1.5rem;
+ }
+
+ .product-info h2 {
+     font-size: 2rem;
+ }
+
+ .product-info p {
+     color: gray;
+     font-size: 1.5rem;
+ }
+
+ .product-info span {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    color: green;
+    font-size: 1.5rem;
+    font-weight: bold;
+ }

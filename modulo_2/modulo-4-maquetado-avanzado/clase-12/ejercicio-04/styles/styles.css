@@ -1,3 +1,11 @@
+:root {
+    --azul: #002333;
+    --celeste-medio: #159A9C;
+    --gris: #B4BEC9;
+    --gris-medio: #DEEFE7;
+    --blanco: #FFFFFF;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,22 +22,52 @@ body {
 .header-notificaciones {
     width: 50%;
     height: 10vh;
-    background-color: blue;
-    color: white;
+    background-color: var(--azul);
+    color: var(--gris);
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+nav {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 1rem;
 }
 
 ul {
-    color: white;
+    color: var(--blanco);
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 }
 
-ul li a {
-    color: white;
-    text-decoration: none;
+.icono-container {
+    position: relative;
+}
+
+i {
+    font-size: 2rem;
+    position: relative;
+}
+
+
+.notificacion {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: var(--celeste-medio);
+    border-radius: 50%;
+}
+
+ul .icono-container:nth-child(2) span {
+    left: 15px;
 }

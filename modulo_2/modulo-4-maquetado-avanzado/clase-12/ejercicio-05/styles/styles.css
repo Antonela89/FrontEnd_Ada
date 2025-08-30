@@ -1,0 +1,76 @@
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ body {
+     width: 100vw;
+     height: 100vh;
+     padding: 3rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background-color: #f0f0f0;
+ }
+
+ .user-card {
+     width: 20rem;
+     height: auto;
+     border-radius: 0.5rem;
+     background-color: #f8f3ef;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 1.5rem;
+     padding: 1.5rem 0;
+     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+ }
+
+ .user-photo-container {
+     width: 15rem;
+     height: 15rem;
+     position: relative;
+ }
+
+ .user-photo {
+     width: 15rem;
+     height: 15rem;
+     border-radius: 50%;
+     overflow: hidden;
+ }
+
+ .user-photo img {
+     width: 100%;
+     height: 100%;
+     position: relative;
+     object-fit: none;
+     object-position: 60% 15%;
+ }
+
+ .user-flag {
+     width: 3.5rem;
+     height: auto;
+     border-radius: 0.25rem;
+     position: absolute;
+     bottom: 0;
+     right: 1.5rem;
+     border: 1px solid white;
+ }
+ 
+ .user-info {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 0.5rem;
+     color: #555;
+ }
+
+ .user-info p {
+     font-size: 1rem;
+ }
+
+ .user-info strong {
+     color: #333;
+ }

@@ -1,0 +1,96 @@
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ body {
+     width: 100vw;
+     height: 100vh;
+     background-color: #f0f0f0;
+     padding: 1rem;
+     font-family: "Roboto", sans-serif;
+ }
+
+ .image-overlay-container {
+     width: 100%;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+     overflow: hidden;
+     border-radius: 1rem;
+     cursor: pointer;
+ }
+
+ .image-overlay-container img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.4s ease;
+ }
+ 
+/* Cambio de escala de imagen cuando se hace hover */
+ .image-overlay-container:hover img {
+     transform: scale(1.05);
+ }
+
+ .overlay {
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     background-color: rgba(0, 0, 0, 0);
+     /* el color aparece cuando se hace hover */
+     outline: 3px solid transparent;
+     outline-offset: -3rem;
+     transition: all 0.4s ease-in-out;
+ }
+ 
+ .image-overlay-container:hover .overlay {
+    background-color: rgba(180, 190, 201, 0.5);
+    outline-color: white;
+    outline-offset: -2rem;
+ }
+
+ .overlay-text {
+     width: 100%;
+     height: 100%;
+     position: absolute;
+     color: white;
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+     align-items: center;
+     justify-content: center;
+     text-transform: uppercase;
+ }
+
+ .overlay-text h2 {
+     font-size: 3rem;
+     font-weight: bold;
+     text-shadow: 1px 1px 3px rgba(0,0,0,0.4); /* Sombra para legibilidad */
+
+     /* transición para un movimiento suave */
+     transition: transform 0.4s ease-in-out;
+ }
+
+ /* Pequeño movimiento del h2 para hacer espacio al párrafo*/
+ .image-overlay-container:hover .overlay-text h2 {
+     transform: translateY(-10px);
+ }
+
+ 
+ /* El párrafo empieza invisible y desplazado */
+ .overlay-text p {
+    opacity: 0;
+    transform: translateY(10px); /* Empieza un poco más abajo */
+    transition: all 0.4s ease-in-out;
+    transition-delay: 0.1s; /* Un pequeño retraso para que aparezca después del h2 */
+ }
+
+ /*  El párrafo aparece al hacer hover en el contenedor */
+ .image-overlay-container:hover .overlay-text p {
+     opacity: 1;
+     transform: translateY(0); /* Vuelve a su posición original */
+ }
