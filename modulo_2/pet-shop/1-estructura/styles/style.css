@@ -1,0 +1,19 @@
+header div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem
+}
+
+h1 {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
