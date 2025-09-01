@@ -135,12 +135,19 @@ body {
     text-decoration: underline var(--brand);
 }
 
+
+/* Opcion donde el input esta por fuera del label - el input se tranforma en hermano de .grid
 #compacto:checked~.grid .card {
+    padding: 1rem;
+} */
+
+/* Opcion donde el input esta dentro del label - el label es el hermano de .grid, mientras que el input es el hijo del label */
+.toggle:has(input:checked) ~ .grid .card {
     padding: 1rem;
 }
 
 button,
-input {
+input { 
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     transition: all 0.2s ease-in-out;
