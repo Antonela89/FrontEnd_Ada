@@ -1,0 +1,56 @@
+/* seccion banner*/
+.hero {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  background: linear-gradient(135deg, var(--verde-bosque), var(--verde-menta));
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 4rem;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  background: center/cover no-repeat url('../images/fotos/banner.png');
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 4rem;
+}
+
+.content-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.content-hero h2 {
+  font-size: 3rem;
+  background-color: var(--beige-arena);
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+.content-hero p {
+  font-size: 1.5rem;
+  font-style: italic
+}
+
+.hero .content-hero button {
+  width: 50%;
+  color: var(--blanco-hueso);
+  background-color: var(--verde-bosque);
+  padding: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  transition: all 0.3s ease-in-out;
+  font-size: 1.25rem;
+}
+
+.hero .content-hero button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

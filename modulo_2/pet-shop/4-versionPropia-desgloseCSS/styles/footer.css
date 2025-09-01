@@ -1,0 +1,8 @@
+/* footer */
+footer {
+  background-color: var(--beige-arena);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
