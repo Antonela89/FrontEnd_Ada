@@ -1,0 +1,58 @@
+/* seccion novedades */
+.notificaciones {
+  width: 100%;
+  background-color: var(--beige-arena);
+  padding: 1rem;
+}
+
+.notificaciones i {
+  font-size: 2rem;
+  color: var(--verde-bosque)
+}
+
+.notificaciones,
+.notificaciones div,
+.notificaciones div form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.notificaciones div:nth-child(1) {
+  justify-content: flex-start;
+}
+
+.notificaciones div {
+  width: 50%;
+}
+
+.notificaciones div form {
+  width: 100%;
+}
+
+.notificaciones input {
+  width: 80%;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+}
+
+input::placeholder {
+  color: var(--gris-suave);
+}
+
+.notificaciones input:focus {
+  outline: none;
+  border-color: var(--verde-bosque);
+  box-shadow: 0 0 5px var(--verde-bosque);
+}
+
+.notificaciones button {
+  width: 20%;
+  padding: 1rem;
+  background-color: var(--verde-bosque);
+  color: var(--blanco-hueso);
+  border: none;
+  border-radius: 1rem;
+}

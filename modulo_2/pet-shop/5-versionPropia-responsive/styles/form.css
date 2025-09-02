@@ -1,0 +1,69 @@
+/* seccion formulario de contacto */
+.contacto {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  background: linear-gradient(135deg, var(--verde-bosque), var(--verde-menta));
+}
+
+.productos h2,
+.contacto h2 {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  background-color: var(--beige-arena);
+}
+
+.contacto h2 {
+  border-top: 3px solid var(--verde-menta);
+}
+
+.productos h2 {
+  border-bottom: 3px solid var(--verde-menta);
+}
+
+.contacto form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contacto form input {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--blanco-hueso);
+}
+
+.contacto form input:focus {
+  outline: none;
+  border-color: var(--beige-arena);
+  box-shadow: 0 0 5px var(--beige-arena);
+}
+
+.contacto .botones {
+  width: 80%;
+  padding: 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.botones button {
+  width: 50%;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: none;
+  color: var(--gris-suave);
+  font-weight: bold;
+  background-color: var(--blanco-hueso);
+}
+
+.botones button:nth-child(2):hover {
+  background-color: var(--verde-bosque);
+  color: var(--blanco-hueso);
+}

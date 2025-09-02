@@ -1,0 +1,24 @@
+:root {
+    /*primario*/
+  --verde-bosque: #2F4858;
+  /*secundario*/
+  --verde-menta: #86B0A5;
+  /*acento*/
+  --beige-arena: #F0E2D0;
+  /*fondo*/
+  --blanco-hueso: #F9F9F9;
+  /*texto*/
+  --gris-suave: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  color: var(--gris-suave)
+}
