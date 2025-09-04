@@ -1,0 +1,47 @@
+    /* Amarillo Simpson (para fondos o acentos): #FED90F
+    Azul de Marge (para encabezados o botones): #00A9E7
+    Rojo/Naranja de Bart (para acentos o botones): #F26223
+    Blanco (para el fondo de las tarjetas y texto): #FFFFFF
+    Negro/Gris oscuro (para texto): #222222 */
+
+    :root {
+        --amarillo: #FED90F;
+        --azul: #00A9E7;
+        --naranja: #F26223;
+        --blanco: #FFFFFF;
+        --gris: #222222;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: "Caveat", cursive;
+        color: var(--gris);
+    }
+
+    header {
+        text-align: center;
+        
+        & .top-bar {
+            background-color: var(--azul);
+        }
+
+        & .main-header {
+            background-color: var(--amarillo);
+        }
+    }
+
+    .card-container {}
+
+    footer {
+        background-color: var(--azul);
+        color: var(--blanco);
+    }
