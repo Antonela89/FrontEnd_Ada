@@ -1,0 +1,107 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    perspective: 1000px; /* Para posibles efectos 3D en el futuro */
+    overflow: hidden; /* Evita barras de desplazamiento si la carta seleccionada se sale */
+}
+
+.card-stack {
+    position: relative;
+    width: 220px;
+    height: 300px;
+    /* cursor: pointer; */ /* El cursor se gestionará en JS para cada carta */
+}
+
+.card {
+    position: absolute;
+    width: 220px;
+    height: 300px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer; /* Cada carta es clickeable */
+    
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s ease, 
+                border 0.4s ease;
+    
+    transform-origin: center bottom; /* Punto de rotación para el abanico */
+}
+
+/* Apilamiento inicial de las cartas */
+.card-1 { z-index: 5; transform: rotate(0deg); }
+.card-2 { z-index: 4; transform: rotate(-2deg); }
+.card-3 { z-index: 3; transform: rotate(2deg); }
+.card-4 { z-index: 2; transform: rotate(-4deg); }
+.card-5 { z-index: 1; transform: rotate(4deg); }
+
+
+/* Efecto al pasar el cursor sobre el contenedor, PERO SOLO SI NO HAY NINGUNA CARTA SELECCIONADA */
+.card-stack:hover:not(.has-selected-card) .card-1 {
+    transform: translateY(-80px) rotate(0deg);
+}
+.card-stack:hover:not(.has-selected-card) .card-2 {
+    transform: translateY(-60px) rotate(-15deg);
+}
+.card-stack:hover:not(.has-selected-card) .card-3 {
+    transform: translateY(-40px) rotate(15deg);
+}
+.card-stack:hover:not(.has-selected-card) .card-4 {
+    transform: translateY(-20px) rotate(-25deg);
+}
+.card-stack:hover:not(.has-selected-card) .card-5 {
+    transform: translateY(0px) rotate(25deg);
+}
+
+/* ESTILOS PARA LA CARTA SELECCIONADA */
+.card.is-selected {
+    /* Llevarla al centro y un poco más grande, sin rotación */
+    transform: translate(-50%, -50%) scale(1.1) rotate(0deg); 
+    left: 50%;
+    top: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    border: 3px solid #007bff; /* Borde de resaltado */
+    /* z-index se gestiona con JavaScript */
+    cursor: zoom-out; /* Cambia el cursor para indicar que se puede "deseleccionar" */
+}
+
+/* Cuando una carta está seleccionada, las otras deben volver a su posición base y no hacer abanico */
+.card-stack.has-selected-card .card:not(.is-selected) {
+    /* Resetear la translación y dejar la rotación inicial de su clase específica */
+    /* Esto es importante para que no mantengan el abanico si el ratón sigue encima */
+    transform: rotate(var(--_initial-rotate, 0deg)); /* Usamos una variable para resetear a su rotación inicial */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra más suave */
+    cursor: pointer; /* Siguen siendo clickeables */
+}
+
+/* Definir las rotaciones iniciales usando variables CSS para un mejor reset */
+.card-1 { z-index: 5; --_initial-rotate: 0deg; transform: rotate(var(--_initial-rotate)); }
+.card-2 { z-index: 4; --_initial-rotate: -2deg; transform: rotate(var(--_initial-rotate)); }
+.card-3 { z-index: 3; --_initial-rotate: 2deg; transform: rotate(var(--_initial-rotate)); }
+.card-4 { z-index: 2; --_initial-rotate: -4deg; transform: rotate(var(--_initial-rotate)); }
+.card-5 { z-index: 1; --_initial-rotate: 4deg; transform: rotate(var(--_initial-rotate)); }
+
+
+/* Estilos del contenido de las cartas */
+.card h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.card p {
+    margin: 0;
+    font-size: 1em;
+    color: #666;
+}

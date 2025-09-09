@@ -1,0 +1,213 @@
+/* --- ESTILOS GENERALES Y DE PÁGINA --- */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #2c3e50;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+.page-container {
+    display: flex;
+    gap: 100px;
+    /* Espacio entre los dos ejemplos */
+    align-items: flex-start;
+    padding: 40px;
+}
+
+.example-wrapper {
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* --- ESTILOS BASE PARA AMBOS MAZOS --- */
+.card-stack {
+    position: relative;
+    width: 200px;
+    height: 280px;
+    perspective: 1000px;
+}
+
+.card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    cursor: pointer;
+    border: 3px solid transparent; /* Borde inicial transparente para una transición suave */
+    /* ▼▼▼ MEJORA DE TRANSICIÓN PRINCIPAL ▼▼▼ */
+    /* Animamos múltiples propiedades con duraciones y easings diferentes */
+    transition: transform 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6),
+        /* Easing con efecto de "rebote" */
+        box-shadow 0.5s ease-in-out,
+        border-color 0.5s ease,
+        opacity 0.5s ease-in-out;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA EL EFECTO APILADO (STACK) --- */
+.stack-effect .card {
+    transform-origin: center center;
+    /* Rota desde el centro */
+}
+
+/* Almacenamos la rotación inicial en una variable para poder resetearla */
+.stack-effect .card-1 {
+    z-index: 5;
+    --initial-transform: rotate(0deg);
+    transform: var(--initial-transform);
+}
+
+.stack-effect .card-2 {
+    z-index: 4;
+    --initial-transform: rotate(-3deg);
+    transform: var(--initial-transform);
+}
+
+.stack-effect .card-3 {
+    z-index: 3;
+    --initial-transform: rotate(3deg);
+    transform: var(--initial-transform);
+}
+
+.stack-effect .card-4 {
+    z-index: 2;
+    --initial-transform: rotate(-6deg);
+    transform: var(--initial-transform);
+}
+
+.stack-effect .card-5 {
+    z-index: 1;
+    --initial-transform: rotate(6deg);
+    transform: var(--initial-transform);
+}
+
+/* Hover en el mazo apilado */
+.stack-effect:hover:not(.has-selected-card) .card-1 {
+    transform: translateY(-30px) rotate(-8deg);
+}
+
+.stack-effect:hover:not(.has-selected-card) .card-2 {
+    transform: translateY(-15px) rotate(-4deg);
+}
+
+.stack-effect:hover:not(.has-selected-card) .card-3 {
+    transform: translateY(0px) rotate(0deg);
+}
+
+.stack-effect:hover:not(.has-selected-card) .card-4 {
+    transform: translateY(15px) rotate(4deg);
+}
+
+.stack-effect:hover:not(.has-selected-card) .card-5 {
+    transform: translateY(30px) rotate(8deg);
+}
+
+/* Cuando hay una carta seleccionada, las otras vuelven a su estado inicial apilado */
+.stack-effect.has-selected-card .card:not(.is-selected) {
+    transform: var(--initial-transform);
+}
+
+
+/* --- ESTILOS ESPECÍFICOS PARA EL EFECTO ABANICO (FAN) --- */
+.fan-effect .card {
+    transform-origin: center bottom;
+    /* ¡Clave! Rota desde la base */
+}
+
+.fan-effect .card-1 {
+    z-index: 5;
+}
+
+.fan-effect .card-2 {
+    z-index: 4;
+}
+
+.fan-effect .card-3 {
+    z-index: 3;
+}
+
+.fan-effect .card-4 {
+    z-index: 2;
+}
+
+.fan-effect .card-5 {
+    z-index: 1;
+}
+
+/* Hover en el mazo en abanico */
+.fan-effect:hover:not(.has-selected-card) .card-1 {
+    transform: translateY(-40px) rotate(-30deg);
+}
+
+.fan-effect:hover:not(.has-selected-card) .card-2 {
+    transform: translateY(-55px) rotate(-15deg);
+}
+
+.fan-effect:hover:not(.has-selected-card) .card-3 {
+    transform: translateY(-65px) rotate(0deg);
+}
+
+.fan-effect:hover:not(.has-selected-card) .card-4 {
+    transform: translateY(-55px) rotate(15deg);
+}
+
+.fan-effect:hover:not(.has-selected-card) .card-5 {
+    transform: translateY(-40px) rotate(30deg);
+}
+
+/* Cuando hay una carta seleccionada, las otras se apilan en el centro */
+.fan-effect.has-selected-card .card:not(.is-selected) {
+    transform: translateY(0) rotate(0);
+}
+
+
+/* --- ▼▼▼ ESTILOS MEJORADOS PARA LA INTERACCIÓN DE SELECCIÓN ▼▼▼ --- */
+
+/* 1. ESTADO DE LA CARTA SELECCIONADA */
+.card.is-selected {
+    transform: translate(-50%, -50%) scale(1.15) rotate(0deg); /* La rotación se resetea */
+    left: 50%;
+    top: 50%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Sombra más dramática */
+    border-color: #00aaff; /* El borde aparece suavemente */
+    cursor: zoom-out;
+}
+
+/* 2. ESTADO DE LAS OTRAS CARTAS (CUANDO UNA ESTÁ SELECCIONADA) */
+/* Hacemos que "se aparten" y se desvanezcan */
+.card-stack.has-selected-card .card:not(.is-selected) {
+    transform: translateY(120%) scale(0.7); /* Se mueven hacia abajo y se encogen */
+    opacity: 0;
+    pointer-events: none; /* ¡Importante! Evita que se pueda hacer clic en ellas cuando están ocultas */
+}
+
+/* 3. RESETEO DE LAS OTRAS CARTAS (NECESARIO PARA EL EFECTO STACK) */
+/* Cuando no hay selección, las cartas apiladas vuelven a su rotación original */
+.stack-effect.has-selected-card .card:not(.is-selected),
+.stack-effect .card:not(.is-selected) {
+    transform: var(--initial-transform); /* Asegura que la rotación se mantenga */
+}
+/* La animación de apartarse sobreescribe esta, pero al deseleccionar, vuelven a esta. */
+.card-stack.has-selected-card .stack-effect .card:not(.is-selected) {
+    transform: translateY(120%) scale(0.7);
+}

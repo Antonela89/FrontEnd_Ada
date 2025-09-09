@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gooey Effect - Efecto Pegajoso</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+
+  <body>
+    <!-- SVG filter para efecto Gooey -->
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+          <feColorMatrix
+            in="blur"
+            mode="matrix"
+            values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  0 0 0 18 -8"
+            result="goo"
+          />
+          <feBlend in="SourceGraphic" in2="goo" />
+        </filter>
+      </defs>
+    </svg>
+
+    <!-- El resto de tu contenido HTML -->
+    <div class="container">
+      <div class="circulo1"></div>
+      <div class="circulo2"></div>
+    </div>
+  </body>
+</html>
