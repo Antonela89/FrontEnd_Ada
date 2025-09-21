@@ -1,0 +1,332 @@
+# index.html ```html
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio - Antonela Borgogno</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="description" content="[DESCRIBE TU PORTFOLIO EN UNA FRASE]" />
+  </head>
+  <body>
+    <!--
+    ✅ TAREAS QUE DEBEN COMPLETAR LAS ALUMNAS (HTML)
+    1) Cambiar [TU NOMBRE] y la meta description.
+    2) Reemplazar el logotipo NA por tus iniciales.
+    3) Agregar un ítem en el menú: "Experiencia" y su sección.
+    4) Escribir el título y subtítulo del héroe (mensaje de valor personal).
+    5) Completar badges de skills (mínimo 4).
+    6) Redactar "Sobre mí" y elegir 4–6 etiquetas (pills).
+    7) Crear al menos 3 tarjetas de proyectos (duplicar la plantilla de .card).
+    8) Configurar el formulario: agregar campo "Asunto" y ajustar action="#".
+    9) Completar datos del footer y enlaces sociales reales.
+  -->
+
+    <!-- Header fijo con navegación -->
+    <header class="header">
+      <div class="container nav">
+        <a class="brand" href="#inicio">AB</a>
+        <nav class="menu" aria-label="Principal">
+          <a href="#inicio" class="menu__link">Inicio</a>
+          <a href="#sobre" class="menu__link">Sobre mí</a>
+          <a href="#proyectos" class="menu__link">Proyectos</a>
+          <!-- TODO: Agregar Experiencia en el menú y su sección -->
+          <a href="#experiencia" class="menu__link">Experiencia</a>
+          <a href="#contacto" class="menu__link">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO: 100% flexbox (dos columnas) -->
+      <section id="inicio" class="hero container">
+        <div class="hero__text">
+          <h1>
+            [TU PROPUESTA DE VALOR]
+            <span class="resaltado">[ADJETIVO 1]</span> y
+            <span class="resaltado">[ADJETIVO 2]</span>
+          </h1>
+          <p>
+            [Breve presentación: qué hacés, en qué te especializás y para
+            quién.]
+          </p>
+          <div class="cta">
+            <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+            <a href="#contacto" class="btn btn--ghost">Contactar</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <div class="badge-row">
+            <span class="badge">HTML5</span>
+            <!-- TODO: Agregar al menos 3 badges más -->
+          </div>
+          <div class="mockup" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- SOBRE MÍ: layout en columnas con flex y wrap -->
+      <section id="sobre" class="sobre container">
+        <div class="sobre__col sobre__bio">
+          <h2>Sobre mí</h2>
+          <p>
+            [Redactá 3–5 líneas sobre tu perfil, intereses y estilo de trabajo.]
+          </p>
+          <ul class="pill-list">
+            <li class="pill">[Etiqueta]</li>
+            <!-- TODO: Añadir 3–5 etiquetas más -->
+          </ul>
+        </div>
+        <div class="sobre__col sobre__datos">
+          <div class="dato">
+            <strong>Experiencia:</strong>
+            <span>[Académica / Personal / Freelance]</span>
+          </div>
+          <div class="dato">
+            <strong>Ubicación:</strong>
+            <span>[Tu ciudad, país]</span>
+          </div>
+          <div class="dato">
+            <strong>Disponibilidad:</strong>
+            <span>[Tipo de disponibilidad]</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROYECTOS: tarjetas en filas con flex-wrap -->
+      <section id="proyectos" class="proyectos container">
+        <div class="section-head">
+          <h2>Proyectos destacados</h2>
+          <p>Maquetados con Flexbox y enfoque mobile-first.</p>
+        </div>
+        <div class="cards">
+          <!-- PLANTILLA DE CARD: DUPLICAR AL MENOS 3 VECES -->
+          <article class="card">
+            <div class="card__media" aria-hidden="true"></div>
+            <div class="card__body">
+              <h3 class="card__title">[Nombre del proyecto]</h3>
+              <p class="card__text">[Qué resolviste, tecnologías y tu rol.]</p>
+              <div class="card__actions">
+                <a class="btn btn--sm btn--primary" href="#">Demo</a>
+                <a class="btn btn--sm btn--ghost" href="#">Código</a>
+              </div>
+            </div>
+          </article>
+          <!-- TODO: duplicar esta tarjeta -->
+        </div>
+      </section>
+
+      <!-- TODO: Crear sección Experiencia -->
+      <!--
+    <section id="experiencia" class="container">
+      ...
+    </section>
+    -->
+
+      <!-- CONTACTO: formulario en columna con flex -->
+      <section id="contacto" class="contacto container">
+        <div class="section-head">
+          <h2>Contacto</h2>
+          <p>¿Trabajamos juntas/os? Escribime y te respondo a la brevedad.</p>
+        </div>
+        <form class="form" action="#" method="post">
+          <div class="form__row">
+            <label for="nombre">Nombre</label>
+            <input
+              id="nombre"
+              name="nombre"
+              type="text"
+              placeholder="Tu nombre"
+              required
+            />
+          </div>
+          <div class="form__row">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="tu@email.com"
+              required
+            />
+          </div>
+          <!-- TODO: Agregar campo Asunto -->
+          <div class="form__row">
+            <label for="mensaje">Mensaje</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="5"
+              placeholder="Contame sobre tu idea"
+              required
+            ></textarea>
+          </div>
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit">Enviar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__content">
+        <small>© 2025 [TU NOMBRE]. Hecho con ❤ y Flexbox.</small>
+        <div class="social">
+          <!-- TODO: Reemplazar con enlaces reales -->
+          <a class="social__link" href="#" aria-label="GitHub">GitHub</a>
+          <a class="social__link" href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a class="social__link" href="#" aria-label="Email">Email</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+``` html
+
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio – Nombre Apellido</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta
+      name="description"
+      content="Portfolio profesional – proyectos, experiencia y contacto."
+    />
+  </head>
+  <body>
+    <!-- Header fijo con navegación -->
+    <header class="header">
+      <div class="container nav">
+        <a class="brand" href="#inicio">NA</a>
+        <nav class="menu" aria-label="Principal">
+          <a href="#inicio" class="menu__link">Inicio</a>
+          <a href="#sobre" class="menu__link">Sobre mí</a>
+          <a href="#proyectos" class="menu__link">Proyectos</a>
+          <a href="#contacto" class="menu__link">Contacto</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO: los alumnos deben personalizar título, párrafo y botones -->
+      <section id="inicio" class="hero container">
+        <div class="hero__text">
+          <h1>Escribe aquí tu mensaje de presentación</h1>
+          <p>Completa con una breve descripción personal/profesional.</p>
+          <div class="cta">
+            <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+            <a href="#contacto" class="btn btn--ghost">Contactar</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <!-- Los alumnos pueden agregar badges o una imagen -->
+          <div class="badge-row">
+            <span class="badge">HTML5</span>
+            <span class="badge">CSS3</span>
+          </div>
+          <div class="mockup" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      ```
+      <!-- SOBRE MÍ: los alumnos deben escribir su biografía y datos -->
+      <section id="sobre" class="sobre container">
+        <div class="sobre__col sobre__bio">
+          <h2>Sobre mí</h2>
+          <p>Aquí cada alumna redactará un párrafo personal.</p>
+          <ul class="pill-list">
+            <li class="pill">Habilidad 1</li>
+            <li class="pill">Habilidad 2</li>
+          </ul>
+        </div>
+        <div class="sobre__col sobre__datos">
+          <!-- Completar con datos propios -->
+          <div class="dato"><strong>Experiencia:</strong> <span>…</span></div>
+          <div class="dato"><strong>Ubicación:</strong> <span>…</span></div>
+          <div class="dato">
+            <strong>Disponibilidad:</strong> <span>…</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROYECTOS: los alumnos deben crear sus propias tarjetas -->
+      <section id="proyectos" class="proyectos container">
+        <div class="section-head">
+          <h2>Proyectos destacados</h2>
+          <p>Cada alumna debe agregar al menos 2 proyectos.</p>
+        </div>
+        <div class="cards">
+          <!-- Ejemplo de tarjeta (clonar y personalizar) -->
+          <article class="card">
+            <div class="card__media"></div>
+            <div class="card__body">
+              <h3 class="card__title">Título del proyecto</h3>
+              <p class="card__text">Breve descripción del proyecto.</p>
+              <div class="card__actions">
+                <a class="btn btn--sm btn--primary" href="#">Demo</a>
+                <a class="btn btn--sm btn--ghost" href="#">Código</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTACTO: formulario (completar con acción real si se desea) -->
+      <section id="contacto" class="contacto container">
+        <div class="section-head">
+          <h2>Contacto</h2>
+          <p>Cada alumna puede personalizar este mensaje.</p>
+        </div>
+        <form class="form" action="#" method="post">
+          <div class="form__row">
+            <label for="nombre">Nombre</label>
+            <input
+              id="nombre"
+              name="nombre"
+              type="text"
+              placeholder="Tu nombre"
+              required
+            />
+          </div>
+          <div class="form__row">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="tu@email.com"
+              required
+            />
+          </div>
+          <div class="form__row">
+            <label for="mensaje">Mensaje</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="5"
+              placeholder="Escribe tu mensaje"
+              required
+            ></textarea>
+          </div>
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit">Enviar</button>
+          </div>
+        </form>
+      </section>
+      ```
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__content">
+        <small>© 2025 Nombre Apellido. Completar con su nombre real.</small>
+        <div class="social">
+          <a class="social__link" href="#">GitHub</a>
+          <a class="social__link" href="#">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+```
