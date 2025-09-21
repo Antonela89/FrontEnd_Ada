@@ -2,40 +2,51 @@
 .notificaciones {
   width: 100%;
   background-color: var(--beige-arena);
-  padding: 1rem;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .notificaciones i {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--verde-bosque)
 }
 
-.notificaciones,
-.notificaciones div,
-.notificaciones div form {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
+.notificaciones h3 {
+  font-size: 1.4rem;
 }
 
 .notificaciones div:nth-child(1) {
+  display: flex;
   justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 18.75rem;
 }
 
-.notificaciones div {
-  width: 50%;
+.notificaciones div:nth-child(2) {
+  flex: 1.5;
+  min-width: 18.75rem;
+  max-width: 35.50rem;
 }
 
-.notificaciones div form {
+.notificaciones form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   width: 100%;
 }
 
 .notificaciones input {
-  width: 80%;
+  flex-grow: 1;
   padding: 1rem;
   border-radius: 1rem;
   border: none;
+  font-size: 1rem;
 }
 
 input::placeholder {
@@ -44,15 +55,67 @@ input::placeholder {
 
 .notificaciones input:focus {
   outline: none;
-  border-color: var(--verde-bosque);
-  box-shadow: 0 0 5px var(--verde-bosque);
+  box-shadow: 0 0 0 3px var(--verde-bosque);
 }
 
 .notificaciones button {
-  width: 20%;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   background-color: var(--verde-bosque);
   color: var(--blanco-hueso);
   border: none;
   border-radius: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.notificaciones button:hover {
+  opacity: 0.85;
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .notificaciones {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .notificaciones div:nth-child(1) {
+    justify-content: center;
+  }
+
+  .notificaciones div:nth-child(1),
+  .notificaciones div:nth-child(2) {
+    flex: none;
+    width: 100%;
+  }
+
+  .notificaciones div:nth-child(2) {
+    max-width: 31.25rem;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .notificaciones {
+    padding: 1.5rem 1rem;
+  }
+
+  .notificaciones h3 {
+    font-size: 1.2rem;
+  }
+
+  .notificaciones i {
+    font-size: 2rem;
+  }
+
+  .notificaciones form {
+    flex-direction: column;
+  }
+
+  .notificaciones input {
+    width: 100%;
+  }
 }

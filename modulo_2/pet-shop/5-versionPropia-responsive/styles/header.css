@@ -53,13 +53,13 @@ nav a,
   color: var(--gris-suave)
 }
 
-nav a {
-  width: 10%;
-  height: 10%;
+nav > a {
+  width: 10rem;
+  height: auto;
   overflow: hidden;
 }
 
-nav a img {
+nav > a img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -80,13 +80,44 @@ li {
 }
 
 /* Responsive */
-/* Tablet */
+/* Tablet Responsive */
 @media (max-width: 1024px) {
+  .encabezado {
+    padding: 0.5rem 1.5rem; /* Menos padding lateral */
+  }
 
+  nav {
+    padding: 1.5rem; /* Menos padding lateral */
+  }
+
+  ul {
+    gap: 1rem; /* Menos espacio entre elementos del menú */
+  }
+
+  li {
+    font-size: 1.1rem; /* Fuente ligeramente más pequeña */
+  }
 }
 
-
-/* Mobile */
+/* Mobile Responsive */
 @media (max-width: 767px) {
-  
+  .encabezado {
+    flex-direction: column; /* Apila el texto de ofertas y las opciones */
+    gap: 0.75rem; /* Añade un espacio entre los elementos apilados */
+    padding: 0.75rem;
+    text-align: center;
+  }
+
+  nav {
+    flex-direction: column; /* Apila el logo y el menú de navegación */
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  ul {
+    flex-direction: column; /* Apila los items de la lista de navegación */
+    gap: 1rem;
+    width: 100%;
+    text-align: center;
+  }
 }

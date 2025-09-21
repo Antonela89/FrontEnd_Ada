@@ -1,8 +1,28 @@
 /* footer */
 footer {
+  width: 100%; 
   background-color: var(--beige-arena);
-  padding: 0.5rem;
+  padding: 1.5rem 1rem; 
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center; 
+  color: var(--verde-bosque); 
+  font-weight: bold; 
+  border-top: 3px solid var(--verde-menta); 
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  footer {
+    padding: 1.25rem 1rem; 
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  footer {
+    padding: 1rem; 
+    font-size: 0.9rem; 
+  }
 }
