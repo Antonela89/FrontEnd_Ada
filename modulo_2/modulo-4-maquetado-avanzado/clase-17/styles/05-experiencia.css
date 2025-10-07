@@ -1,0 +1,14 @@
+.experiencia,
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--background-color)
+}
+
+@media (min-width:768px) {
+    .timeline {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

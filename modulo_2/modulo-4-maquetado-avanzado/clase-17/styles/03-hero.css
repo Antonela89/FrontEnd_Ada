@@ -1,0 +1,106 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    background-color: var(--background-color);
+}
+
+.hero__text,
+.hero__media {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 1 1 calc(100% - 2rem);
+    align-items: center;
+    justify-content: center;
+}
+
+.cta,
+.badge-row {
+    display: flex;
+    gap: 1rem;
+    padding-block: 1rem;
+}
+
+.cta {
+    flex-direction: column;
+}
+
+.badge-row {
+    flex-wrap: wrap;
+}
+
+.resaltado {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.badge {
+    flex: 1 1 100%;
+    border: 3px solid var(--accent-color-transparencia);
+    padding: 1rem;
+    border-radius: 1rem;
+    position: relative; 
+    overflow: hidden;  
+    transition: color 0.3s; 
+}
+
+/* importante */
+    /* Cuando uses attr() para pasar un código de ícono desde un atributo HTML a la propiedad content de CSS, escribe siempre el código en formato de entidad de carácter HTML (&#x...;). */
+
+
+.badge[data-icon]::before {
+    content: attr(data-icon); /* Toma el ícono del atributo data-icon */
+    font-family: "Font Awesome 6 Brands"; /* La familia correcta para HTML5, CSS3, etc. */
+    font-weight: 400; /* El peso correcto para íconos de marcas */
+
+     font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased; 
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem; 
+    color: var(--secondary-accent-color); 
+    opacity: 0; 
+    transition: opacity 0.3s;
+    z-index: 2; 
+}
+
+.badge::after {
+    content: '';
+    background-color: var(--accent-color-transparencia);
+    position: absolute;
+    inset: 0; 
+    opacity: 0; 
+    transition: opacity 0.3s;
+    z-index: 1;
+}
+
+.badge:hover::before,
+.badge:hover::after {
+    opacity: 1; 
+}
+
+.badge:hover {
+    color: transparent; 
+}
+
+@media (min-width: 768px) {
+
+    .hero,
+    .badge-row,
+    .cta {
+        flex-direction: row;
+    }
+
+    .hero__text,
+    .hero__media {
+        flex-basis: calc(50% - 3rem);
+    }
+
+}

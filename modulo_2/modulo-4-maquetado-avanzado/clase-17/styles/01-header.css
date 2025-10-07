@@ -1,0 +1,64 @@
+.header {
+    position: fixed;
+    inset-block-start: 0;
+    background-color: var(--accent-color); 
+    inline-size: 100%;
+    block-size: 19rem;
+    padding: 1rem;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; 
+}
+
+.header-container.nav a {
+    text-decoration: none;
+    color: var(--background-color)
+}
+
+.brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+    align-items: center;
+}
+
+.menu__link {
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s ease;
+}
+
+.menu__link:hover {
+    background-color: var(--secondary-accent-color);
+    color: var(--accent-color-transparencia);
+    border-radius: 0.5rem;
+    transform: scale(1.1);
+}
+
+/* responsivo /
+/ tablet */
+@media (min-width: 768px) {
+    .header {
+        block-size: 5rem;
+    }
+
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-inline: 1.5rem;
+    }
+    .menu {
+        flex-direction: row;
+    }
+}

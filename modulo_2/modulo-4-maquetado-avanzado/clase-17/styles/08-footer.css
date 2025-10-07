@@ -1,0 +1,23 @@
+.footer {
+    inline-size: 100%;
+    color: var(--background-color);
+}
+
+.footer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--accent-color);
+}
+
+.social {
+    display: flex;
+    gap: 1rem;
+}
+
+.social__link {
+    text-decoration: none;
+    color: var(--background-color);
+    font-weight: bold;
+}

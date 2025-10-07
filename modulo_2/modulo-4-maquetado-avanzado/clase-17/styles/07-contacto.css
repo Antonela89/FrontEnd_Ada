@@ -1,0 +1,26 @@
+.contacto,
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    inline-size: 100%;
+    color: var(--background-color)
+}
+
+.form {
+    align-items: center;
+}
+
+.form__row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    inline-size: 80%;
+}
+
+.form__row input,
+.form__row textarea {
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}

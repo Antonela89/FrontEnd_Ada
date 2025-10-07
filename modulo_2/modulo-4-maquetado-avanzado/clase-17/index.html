@@ -1,12 +1,27 @@
-# index.html ```html
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portfolio - Antonela Borgogno</title>
-    <link rel="stylesheet" href="styles.css" />
-    <meta name="description" content="[DESCRIBE TU PORTFOLIO EN UNA FRASE]" />
+
+    <!-- link css -->
+    <link rel="stylesheet" href="./styles/00-config.css" />
+    <link rel="stylesheet" href="./styles/01-header.css" />
+    <link rel="stylesheet" href="./styles/02-main.css" />
+    <link rel="stylesheet" href="./styles/03-hero.css" />
+    <link rel="stylesheet" href="./styles/04-sobre.css" />
+    <link rel="stylesheet" href="./styles/05-experiencia.css" />
+    <link rel="stylesheet" href="./styles/06-proyectos.css" />
+    <link rel="stylesheet" href="./styles/07-contacto.css" />
+    <link rel="stylesheet" href="./styles/08-footer.css" />
+
+    <meta
+      name="description"
+      content="Portfolio de Antonela Borgogno, desarrolladora Front-End especializada en la creación de interfaces web modernas y accesibles."
+    />
+    <!-- link font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
     <!--
@@ -24,7 +39,7 @@
 
     <!-- Header fijo con navegación -->
     <header class="header">
-      <div class="container nav">
+      <div class="header-container nav">
         <a class="brand" href="#inicio">AB</a>
         <nav class="menu" aria-label="Principal">
           <a href="#inicio" class="menu__link">Inicio</a>
@@ -37,18 +52,19 @@
       </div>
     </header>
 
-    <main>
+    <main class="main">
       <!-- HERO: 100% flexbox (dos columnas) -->
       <section id="inicio" class="hero container">
         <div class="hero__text">
           <h1>
-            [TU PROPUESTA DE VALOR]
-            <span class="resaltado">[ADJETIVO 1]</span> y
-            <span class="resaltado">[ADJETIVO 2]</span>
+            Desarrollo interfaces web
+            <span class="resaltado">intuitivas</span> y 
+            <span class="resaltado">modernas</span>
           </h1>
           <p>
-            [Breve presentación: qué hacés, en qué te especializás y para
-            quién.]
+            Soy desarrolladora Front-End. Me especializo en la creación de
+            experiencias de usuario memorables y accesibles para startups y
+            agencias digitales.
           </p>
           <div class="cta">
             <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
@@ -57,8 +73,11 @@
         </div>
         <div class="hero__media">
           <div class="badge-row">
-            <span class="badge">HTML5</span>
+            <span class="badge" data-icon='&#xf13b'>HTML5</span>
             <!-- TODO: Agregar al menos 3 badges más -->
+            <span class="badge" data-icon='&#xf38b'>CSS3</span>
+            <span class="badge" data-icon='&#xf3b9'>JavaScript</span>
+            <span class="badge" data-icon='&#xf41b'>React</span>
           </div>
           <div class="mockup" aria-hidden="true"></div>
         </div>
@@ -69,25 +88,60 @@
         <div class="sobre__col sobre__bio">
           <h2>Sobre mí</h2>
           <p>
-            [Redactá 3–5 líneas sobre tu perfil, intereses y estilo de trabajo.]
+            Apasionada por el diseño y la tecnología, disfruto transformando
+            ideas complejas en interfaces limpias y funcionales. Mi objetivo es
+            escribir código escalable y fácil de mantener, colaborando de cerca
+            con equipos de diseño y desarrollo. En mi tiempo libre, exploro
+            nuevas librerías y contribuyo a proyectos de código abierto.
           </p>
           <ul class="pill-list">
-            <li class="pill">[Etiqueta]</li>
+            <li class="pill">Diseño UI</li>
             <!-- TODO: Añadir 3–5 etiquetas más -->
+            <li class="pill">Metodologías Ágiles</li>
+            <li class="pill">Accesibilidad Web</li>
+            <li class="pill">Sistemas de Diseño</li>
+            <li class="pill">Mobile-First</li>
           </ul>
         </div>
         <div class="sobre__col sobre__datos">
           <div class="dato">
             <strong>Experiencia:</strong>
-            <span>[Académica / Personal / Freelance]</span>
+            <span>Freelance y Académica</span>
           </div>
           <div class="dato">
             <strong>Ubicación:</strong>
-            <span>[Tu ciudad, país]</span>
+            <span>Córdoba, Argentina</span>
           </div>
           <div class="dato">
             <strong>Disponibilidad:</strong>
-            <span>[Tipo de disponibilidad]</span>
+            <span>Inmediata (Full-Time)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCIA: sección de trabajos anteriores -->
+      <section id="experiencia" class="experiencia container">
+        <div class="section-head">
+          <h2>Experiencia Profesional</h2>
+          <p>Mi recorrido en el mundo del desarrollo web.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline__item">
+            <h3 class="timeline__title">Desarrolladora Front-End Freelance</h3>
+            <span class="timeline__date">2023 - Presente</span>
+            <p class="timeline__text">
+              Colaboré con diversas startups para diseñar y desarrollar sus
+              plataformas web, enfocándome en la usabilidad y el rendimiento.
+            </p>
+          </div>
+          <div class="timeline__item">
+            <h3 class="timeline__title">Maquetadora Web en Agencia Creativa</h3>
+            <span class="timeline__date">2022 - 2023</span>
+            <p class="timeline__text">
+              Fui responsable de traducir diseños de Figma a código HTML y CSS
+              semántico y accesible, asegurando la compatibilidad entre
+              navegadores.
+            </p>
           </div>
         </div>
       </section>
@@ -101,10 +155,14 @@
         <div class="cards">
           <!-- PLANTILLA DE CARD: DUPLICAR AL MENOS 3 VECES -->
           <article class="card">
-            <div class="card__media" aria-hidden="true"></div>
+            <div class="card__media" aria-hidden="true" style="--imagen-fondo: url('https://www.ispring.es/blog/wp-content/uploads/editor/2024/07/ispring-blog-image-1720783516.png')"></div>
             <div class="card__body">
-              <h3 class="card__title">[Nombre del proyecto]</h3>
-              <p class="card__text">[Qué resolviste, tecnologías y tu rol.]</p>
+              <h3 class="card__title">Plataforma de E-learning</h3>
+              <p class="card__text">
+                Resolví la necesidad de una interfaz intuitiva para cursos
+                online, utilizando React y CSS Modules. Mi rol fue liderar el
+                desarrollo del front-end.
+              </p>
               <div class="card__actions">
                 <a class="btn btn--sm btn--primary" href="#">Demo</a>
                 <a class="btn btn--sm btn--ghost" href="#">Código</a>
@@ -112,15 +170,38 @@
             </div>
           </article>
           <!-- TODO: duplicar esta tarjeta -->
+          <article class="card">
+            <div class="card__media" aria-hidden="true" style="--imagen-fondo: url('https://d585tldpucybw.cloudfront.net/sfimages/default-source/default-album/dark.png?sfvrsn=23c7e2d9_0')"></div>
+            <div class="card__body">
+              <h3 class="card__title">Dashboard de Finanzas</h3>
+              <p class="card__text">
+                Creé un panel de control para visualizar datos financieros,
+                implementando gráficos interactivos con D3.js y maquetado con
+                Flexbox.
+              </p>
+              <div class="card__actions">
+                <a class="btn btn--sm btn--primary" href="#">Demo</a>
+                <a class="btn btn--sm btn--ghost" href="#">Código</a>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card__media" aria-hidden="true" style="--imagen-fondo: url('https://blog.arcadina.com/wp-content/uploads/2021/12/7-disenos-unicos-para-tu-sitio-web-de-fotografia-1-arcadina-1536x834.png')"></div>
+            <div class="card__body">
+              <h3 class="card__title">Sitio Web para Fotógrafa</h3>
+              <p class="card__text">
+                Desarrollé un portfolio minimalista y optimizado para imágenes
+                de alta resolución, enfocado en el rendimiento y la estética
+                visual.
+              </p>
+              <div class="card__actions">
+                <a class="btn btn--sm btn--primary" href="#">Demo</a>
+                <a class="btn btn--sm btn--ghost" href="#">Código</a>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
-
-      <!-- TODO: Crear sección Experiencia -->
-      <!--
-    <section id="experiencia" class="container">
-      ...
-    </section>
-    -->
 
       <!-- CONTACTO: formulario en columna con flex -->
       <section id="contacto" class="contacto container">
@@ -151,6 +232,16 @@
           </div>
           <!-- TODO: Agregar campo Asunto -->
           <div class="form__row">
+            <label for="asunto">Asunto</label>
+            <input
+              id="asunto"
+              name="asunto"
+              type="text"
+              placeholder="Motivo del contacto"
+              required
+            />
+          </div>
+          <div class="form__row">
             <label for="mensaje">Mensaje</label>
             <textarea
               id="mensaje"
@@ -169,164 +260,31 @@
 
     <footer class="footer">
       <div class="container footer__content">
-        <small>© 2025 [TU NOMBRE]. Hecho con ❤ y Flexbox.</small>
+        <small>© 2025 Antonela Borgogno - Hecho con ❤ y Flexbox.</small>
         <div class="social">
           <!-- TODO: Reemplazar con enlaces reales -->
-          <a class="social__link" href="#" aria-label="GitHub">GitHub</a>
-          <a class="social__link" href="#" aria-label="LinkedIn">LinkedIn</a>
-          <a class="social__link" href="#" aria-label="Email">Email</a>
+          <a
+            class="social__link"
+            href="https://github.com/antonelaborgogno"
+            aria-label="GitHub"
+            target="_blank"
+            >GitHub</a
+          >
+          <a
+            class="social__link"
+            href="https://linkedin.com/in/antonelaborgogno"
+            aria-label="LinkedIn"
+            target="_blank"
+            >LinkedIn</a
+          >
+          <a
+            class="social__link"
+            href="mailto:hola@antonelaborgogno.com"
+            aria-label="Email"
+            >Email</a
+          >
         </div>
       </div>
     </footer>
   </body>
 </html>
-``` html
-
-<!DOCTYPE html>
-
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfolio – Nombre Apellido</title>
-    <link rel="stylesheet" href="styles.css" />
-    <meta
-      name="description"
-      content="Portfolio profesional – proyectos, experiencia y contacto."
-    />
-  </head>
-  <body>
-    <!-- Header fijo con navegación -->
-    <header class="header">
-      <div class="container nav">
-        <a class="brand" href="#inicio">NA</a>
-        <nav class="menu" aria-label="Principal">
-          <a href="#inicio" class="menu__link">Inicio</a>
-          <a href="#sobre" class="menu__link">Sobre mí</a>
-          <a href="#proyectos" class="menu__link">Proyectos</a>
-          <a href="#contacto" class="menu__link">Contacto</a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <!-- HERO: los alumnos deben personalizar título, párrafo y botones -->
-      <section id="inicio" class="hero container">
-        <div class="hero__text">
-          <h1>Escribe aquí tu mensaje de presentación</h1>
-          <p>Completa con una breve descripción personal/profesional.</p>
-          <div class="cta">
-            <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
-            <a href="#contacto" class="btn btn--ghost">Contactar</a>
-          </div>
-        </div>
-        <div class="hero__media">
-          <!-- Los alumnos pueden agregar badges o una imagen -->
-          <div class="badge-row">
-            <span class="badge">HTML5</span>
-            <span class="badge">CSS3</span>
-          </div>
-          <div class="mockup" aria-hidden="true"></div>
-        </div>
-      </section>
-
-      ```
-      <!-- SOBRE MÍ: los alumnos deben escribir su biografía y datos -->
-      <section id="sobre" class="sobre container">
-        <div class="sobre__col sobre__bio">
-          <h2>Sobre mí</h2>
-          <p>Aquí cada alumna redactará un párrafo personal.</p>
-          <ul class="pill-list">
-            <li class="pill">Habilidad 1</li>
-            <li class="pill">Habilidad 2</li>
-          </ul>
-        </div>
-        <div class="sobre__col sobre__datos">
-          <!-- Completar con datos propios -->
-          <div class="dato"><strong>Experiencia:</strong> <span>…</span></div>
-          <div class="dato"><strong>Ubicación:</strong> <span>…</span></div>
-          <div class="dato">
-            <strong>Disponibilidad:</strong> <span>…</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROYECTOS: los alumnos deben crear sus propias tarjetas -->
-      <section id="proyectos" class="proyectos container">
-        <div class="section-head">
-          <h2>Proyectos destacados</h2>
-          <p>Cada alumna debe agregar al menos 2 proyectos.</p>
-        </div>
-        <div class="cards">
-          <!-- Ejemplo de tarjeta (clonar y personalizar) -->
-          <article class="card">
-            <div class="card__media"></div>
-            <div class="card__body">
-              <h3 class="card__title">Título del proyecto</h3>
-              <p class="card__text">Breve descripción del proyecto.</p>
-              <div class="card__actions">
-                <a class="btn btn--sm btn--primary" href="#">Demo</a>
-                <a class="btn btn--sm btn--ghost" href="#">Código</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- CONTACTO: formulario (completar con acción real si se desea) -->
-      <section id="contacto" class="contacto container">
-        <div class="section-head">
-          <h2>Contacto</h2>
-          <p>Cada alumna puede personalizar este mensaje.</p>
-        </div>
-        <form class="form" action="#" method="post">
-          <div class="form__row">
-            <label for="nombre">Nombre</label>
-            <input
-              id="nombre"
-              name="nombre"
-              type="text"
-              placeholder="Tu nombre"
-              required
-            />
-          </div>
-          <div class="form__row">
-            <label for="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="tu@email.com"
-              required
-            />
-          </div>
-          <div class="form__row">
-            <label for="mensaje">Mensaje</label>
-            <textarea
-              id="mensaje"
-              name="mensaje"
-              rows="5"
-              placeholder="Escribe tu mensaje"
-              required
-            ></textarea>
-          </div>
-          <div class="form__actions">
-            <button class="btn btn--primary" type="submit">Enviar</button>
-          </div>
-        </form>
-      </section>
-      ```
-    </main>
-
-    <footer class="footer">
-      <div class="container footer__content">
-        <small>© 2025 Nombre Apellido. Completar con su nombre real.</small>
-        <div class="social">
-          <a class="social__link" href="#">GitHub</a>
-          <a class="social__link" href="#">LinkedIn</a>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
-```

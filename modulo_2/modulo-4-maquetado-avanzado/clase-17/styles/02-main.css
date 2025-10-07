@@ -1,0 +1,55 @@
+.main {
+    inline-size: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-block-start: 19rem;
+}
+
+.container {
+    inline-size: 100%;
+    padding: 1rem;
+    background-color: var(--secondary-accent-color);
+}
+
+h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--primary-text-color);
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    border-radius: 1rem;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease-in color 0.3s ease-in;
+}
+
+.btn:hover,
+.btn:active {
+    background-color: var(--secondary-accent-color);
+    color: var(--background-color)
+}
+
+.btn--primary {
+    border-color: var(--accent-color)
+}
+
+.btn--ghost {
+    border-color: var(--accent-color-transparencia);
+}
+
+/* responsivo /
+/ tablet */
+@media (min-width: 768px) {
+    .main {
+        padding-block-start: 5rem;
+    }
+
+    .container {
+        padding-inline: 5rem;
+        padding-block: 2rem;
+    }
+}

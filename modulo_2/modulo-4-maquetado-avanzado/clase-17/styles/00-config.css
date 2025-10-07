@@ -1,0 +1,33 @@
+:root{
+    /* Fondo blanco ligeramente azulado, muy común en interfaces corporativas */
+  --background-color: #f8f9fa;
+
+  /* Azul pizarra oscuro para el texto principal, más profesional que el negro puro */
+  --primary-text-color: #2c3e50;
+
+  /* Gris pizarra para el texto secundario, complementa perfectamente el texto principal */
+  --secondary-text-color: #8492a6;
+
+  /* Un violeta más profundo y corporativo, en lugar del neón */
+  --accent-color: #6f42c1;
+
+  /* Transparencia del nuevo violeta */
+  --accent-color-transparencia: rgba(111, 66, 193, 0.2);
+
+  /* Un color teal (verde azulado) más sobrio y profesional */
+  --secondary-accent-color: #20c997;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    color: var(--primary-text-color);
+    width: 100vw;
+    min-height: 100vh;
+}
