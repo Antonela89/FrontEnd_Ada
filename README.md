@@ -67,3 +67,4 @@ Este curso está diseñado para profundizar en el uso de React, enfocándose en 
 *   **Email:** info@ada.com.ar
 *   **WhatsApp:** +54 911 3103-3575
 *   **Redes Sociales:** @adaitw (Instagram, Facebook), /school/ada-itw (LinkedIn)
+---
