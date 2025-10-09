@@ -4,21 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manipulacion del DOM</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
-    <div class="contenedor">
-        <button id="btn">soy un boton</button>
-        <button>boton 2</button>
-        <button>boton 3</button>
-    </div>
+
+    <!-- header -->
+    <header class="centrado">
+      <!-- Ejercicio-3 -->
+      <button id="theme">Cambiar de Color</button>
+      <button id="theme-varios">Paleta</button>
+      <button id="theme-varios-css">Paleta con Variable de entorno</button>
+      <button id="theme-aleatorio">Color Aleatorio</button>
+    </header>
+
+    <!-- main -->
+    <main class="contenedor centrado">
+      <!-- Ejercicio-2 -->
+      <seccion class="centrado">
+        <button id="add">Agregar parrafo</button>
+        <button id="delete">Eliminar parrafo</button>
+      </seccion>
+      <!-- Ejercicio-4 -->
+      <section class="centrado">
+        <ul>
+          <li>Antonela</li>
+          <li class="destacado">Arya</li>
+          <li class="destacado">Diana</li>
+          <li>Carlos</li>
+        </ul>
+
+        <button id="destacar">Destacar</button>
+      </section>
+    </main>
   </body>
 
   <!-- scrip en linea -->
-  <script>
-    console.dir(document.body)
-    console.log('Hola Mundo')
-  </script>
-  
+  <!-- Ejercicio-1: Explorando el DOM -->
+  <!-- <script>
+    console.log(document.body);
+    console.dir(document.body);
+  </script> -->
+
   <!-- importación de archivo script -->
   <script src="./scripts/main.js"></script>
 </html>

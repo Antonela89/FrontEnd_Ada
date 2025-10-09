@@ -1,0 +1,46 @@
+:root {
+  --color-principal: #025159; /* Valor por defecto */
+}
+
+body {
+    inline-size: 100vw;
+    min-block-size: 100vh;
+    box-sizing: border-box;
+    background-color: var(--color-principal);
+}
+
+header {
+    inline-size: 100%;
+    block-size: 5rem;
+}
+
+main {
+    inline-size: 100%;
+    min-block-size: calc(100vh - 5rem);
+    flex-direction: column;
+}
+
+.centrado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+button {
+    padding-inline: 1.5rem;
+    padding-block: 0.75rem;
+    border-radius: 1rem;
+    border: 1px solid black;
+    text-transform: uppercase;
+}
+
+.color_fondo {
+    background-color: red;
+}
+
+.destacado {
+    color: green;
+    text-transform: uppercase;
+    font-weight: bold;
+}
