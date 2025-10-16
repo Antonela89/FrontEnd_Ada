@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos del Objeto Event</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Atributos y Métodos del Objeto `event`</h1>
+
+    <!-- Ejemplo para target y currentTarget -->
+    <div id="parent" class="container">
+        <p>Contenedor Padre (haz clic aquí o en el botón)</p>
+        <button id="childButton">Botón Hijo</button>
+    </div>
+
+    <!-- Ejemplo para preventDefault -->
+    <div class="container">
+        <a id="myLink" href="https://www.google.com">Enlace a Google (acción por defecto prevenida)</a>
+    </div>
+
+    <!-- Ejemplo para stopPropagation -->
+    <div id="outerBox" class="container">
+        Contenedor Exterior
+        <div id="innerBox">
+            Contenedor Interior (la propagación se detiene aquí)
+        </div>
+    </div>
+
+    <!-- Ejemplo para propiedades de teclado -->
+    <div class="container">
+        <input type="text" id="keyInput" placeholder="Presiona una tecla...">
+        <p id="keyInfo"></p>
+    </div>
+
+    <!-- Ejemplo para coordenadas del mouse -->
+    <div id="mouseCoordsBox" class="container">
+        <p>Mueve el mouse sobre este área.</p>
+        <p id="coordsInfo">Coordenadas:</p>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos de Eventos en JS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Eventos de JavaScript</h1>
+
+    <div id="eventos-mouse" class="container">
+        <h2>Eventos del Mouse</h2>
+        <button id="clickBtn">Haz Clic</button>
+        <button id="dblClickBtn">Doble Clic</button>
+        <div id="mouseOverBox">Pasa el mouse sobre mí</div>
+    </div>
+
+    <div id="eventos-teclado" class="container">
+        <h2>Eventos del Teclado</h2>
+        <input type="text" id="keyInput" placeholder="Escribe algo aquí...">
+        <p id="keyLog"></p>
+    </div>
+
+    <div id="eventos-formulario" class="container">
+        <h2>Eventos de Formulario</h2>
+        <form id="myForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name">
+            <button type="submit">Enviar</button>
+        </form>
+        <p id="formLog"></p>
+    </div>
+
+    <div id="eventos-ventana" class="container">
+        <h2>Eventos de Ventana</h2>
+        <p>Redimensiona esta ventana.</p>
+        <p id="windowSize"></p>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
