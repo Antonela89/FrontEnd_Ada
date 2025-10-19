@@ -126,9 +126,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`El evento que se ha disparado es de tipo: "${event.type}"`);
     }
 
-    // Adjuntamos la misma función a diferentes eventos en el mismo elemento.
-    childButton.addEventListener('click', handleMultipleEvents);
-    childButton.addEventListener('mouseover', handleMultipleEvents);
-    childButton.addEventListener('mouseout', handleMultipleEvents);
+    // Agrupar los nombres de los eventos en un array
+    const eventos = ['click', 'mouseover', 'mouseout'];
 
+    // Iterar el array, cada elemento del array será colocado con un evento en la función addEventListener
+    eventos.forEach(evento => {
+        childButton.addEventListener(evento, handleMultipleEvents);
+    });
 });
