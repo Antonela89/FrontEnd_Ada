@@ -64,3 +64,92 @@ Estos eventos permiten reaccionar a la finalización de transiciones y animacion
 *   **transitionend:** Se produce cuando una transición CSS ha terminado.
 
 Esta lista abarca una amplia gama de los eventos disponibles en JavaScript, proporcionando los pilares para la creación de experiencias de usuario ricas e interactivas. Para un listado exhaustivo y más detallado, se puede consultar la documentación de Mozilla Developer Network (MDN).
+
+## `addEventListener` vs. `onclick`: ¿Cuál es la diferencia y cuál deberías usar?
+
+En el mundo del desarrollo web con JavaScript, tanto `addEventListener` como `onclick` se utilizan para manejar eventos, como un clic de un usuario en un botón. Sin embargo, existen diferencias fundamentales entre ambos que hacen que `addEventListener` sea la opción preferida y más versátil en la mayoría de los escenarios de desarrollo modernos.
+
+La principal diferencia radica en que **`addEventListener` permite agregar múltiples manejadores de eventos a un solo elemento, mientras que `onclick` solo puede tener uno.** Si intentas asignar una segunda función a la propiedad `onclick` de un elemento, esta sobrescribirá la primera. `addEventListener`, por otro lado, simplemente agregará la nueva función a una lista de manejadores de eventos que se ejecutarán en orden.
+
+Aquí te presentamos una tabla comparativa para entender mejor las diferencias clave:
+
+| Característica | `addEventListener` | `onclick` |
+|---|---|---|
+| **Múltiples Eventos** | Permite agregar múltiples funciones para el mismo evento en un elemento. | Solo permite una función por evento. La nueva asignación sobrescribe la anterior. |
+| **Control de Fases de Evento** | Ofrece un control preciso sobre la fase de propagación del evento (captura y burbujeo). | No tiene control sobre la fase de captura. |
+| **Separación de Código** | Fomenta la separación del código JavaScript del HTML, lo que mejora la mantenibilidad. | A menudo se usa directamente en el HTML como un atributo, mezclando la estructura con el comportamiento. |
+| **Sintaxis** | Se agrega a través de un método en JavaScript. | Puede ser una propiedad de un elemento en JavaScript o un atributo en HTML. |
+| **Compatibilidad** | Es el estándar moderno y funciona en todos los navegadores actuales. | Funciona en todos los navegadores, incluso en versiones muy antiguas. |
+
+### ¿Cuándo usar cada uno?
+
+**Se recomienda usar `addEventListener` en la mayoría de los casos** debido a su flexibilidad y poder. Es ideal para:
+
+*   Aplicaciones complejas donde múltiples partes del código necesitan reaccionar al mismo evento.
+*   Cuando necesitas un control fino sobre cómo se manejan los eventos (por ejemplo, en la fase de captura).
+*   Proyectos que siguen las mejores prácticas de separación de la estructura (HTML) y el comportamiento (JavaScript).
+
+**`onclick` puede ser adecuado para interacciones muy simples y directas** donde solo se necesita una única acción para un evento. Por ejemplo, para un botón simple que solo necesita ejecutar una función.
+
+### En resumen
+
+Aunque `onclick` puede parecer más simple para tareas básicas, `addEventListener` ofrece una solución más robusta y escalable para el manejo de eventos en JavaScript. Su capacidad para manejar múltiples listeners y controlar la propagación de eventos lo convierte en la herramienta preferida para el desarrollo web moderno.
+
+---
+
+En JavaScript, el método `addEventListener` está diseñado para asociar un "escuchador" (una función) a un único tipo de evento a la vez. Sin embargo, es muy común querer ejecutar la misma lógica para diferentes eventos en el mismo elemento.
+
+Afortunadamente, existen formas sencillas y limpias de "nuclear" o agrupar varios eventos en un solo `addEventListener` sin tener que repetir el código. La técnica más recomendada es iterar sobre un array de nombres de eventos.
+
+### La Mejor Práctica: Usar un Bucle con un Array de Eventos
+
+Este método es eficiente, fácil de leer y escalar. Consiste en crear un array con los nombres de todos los eventos que quieres escuchar y luego usar un bucle (como `forEach`) para registrar el mismo "listener" para cada uno de ellos.
+
+**Ejemplo:**
+
+Supongamos que quieres que un campo de texto (`<input>`) realice una acción tanto cuando el usuario escribe en él (`keyup`) como cuando pega contenido (`paste`).
+
+```html
+<input type="text" id="miInput" placeholder="Escribe o pega algo aquí">
+<p>Última acción: <span id="resultado"></span></p>
+```
+
+```javascript
+// 1. Selecciona el elemento del DOM
+const miInput = document.getElementById('miInput');
+const resultado = document.getElementById('resultado');
+
+// 2. Define la función que se ejecutará (el "listener")
+function actualizarUI(evento) {
+  // La propiedad 'evento.type' nos dice qué evento se disparó
+  resultado.textContent = `Evento '${evento.type}' detectado.`;
+  console.log('El valor del input es:', miInput.value);
+  console.log('Tipo de evento:', evento.type);
+}
+
+// 3. Crea un array con los eventos que quieres escuchar
+const eventos = ['keyup', 'paste', 'cut'];
+
+// 4. Itera sobre el array y añade el listener para cada evento
+eventos.forEach(evento => {
+  miInput.addEventListener(evento, actualizarUI);
+});
+```
+
+**Ventajas de este método:**
+
+*   **Código DRY (Don't Repeat Yourself):** Evitas escribir `miInput.addEventListener(...)` varias veces para el mismo elemento y la misma función.
+*   **Legibilidad:** Es muy claro qué eventos están asociados a qué función.
+*   **Mantenimiento Sencillo:** Si en el futuro necesitas añadir o quitar un evento, solo tienes que modificar el array `eventos`.
+*   **Reutilización:** Puedes crear una función auxiliar para registrar múltiples eventos en cualquier elemento, haciendo tu código aún más modular.
+
+### ¿Se pueden poner varios eventos directamente en `addEventListener`?
+
+No, no es posible pasar un array de eventos directamente a `addEventListener`. La sintaxis del método espera una cadena de texto con el nombre de un solo evento como primer argumento.
+
+```javascript
+// ESTO NO FUNCIONA
+miInput.addEventListener(['keyup', 'paste'], miFuncion);
+```
+
+Por esta razón, el enfoque del bucle es la solución estándar y recomendada para lograr este comportamiento.
