@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerText vs. textContent</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Comparativa: <code>innerText</code> vs. <code>textContent</code></h1>
+
+    <div id="container" class="container">
+        <!-- Contenido visible e invisible -->
+        Hola,      este es un     párrafo.
+        <span class="hidden">Este texto está oculto.</span>
+        <p>
+            Este es otro párrafo con un <span>elemento anidado</span>.
+        </p>
+
+        <!-- CSS transformará esto a mayúsculas -->
+        <div class="uppercase">Todo en minúsculas.</div>
+
+        <!-- Estas etiquetas serán ignoradas de forma diferente -->
+        <style> .ignorado { color: red; } </style>
+        <script> console.log('Script ignorado'); </script>
+    </div>
+
+    <div class="output">
+        <h2>Salida de <code>textContent</code>:</h2>
+        <pre id="output-textContent"></pre>
+    </div>
+
+    <div class="output">
+        <h2>Salida de <code>innerText</code>:</h2>
+        <pre id="output-innerText"></pre>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

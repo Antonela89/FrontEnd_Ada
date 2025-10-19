@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center;
+    margin: 0;
+}
+
+#game-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#sequence-display {
+    font-size: 2.5em;
+    letter-spacing: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+#message {
+    font-size: 1.2em;
+    height: 30px;
+    color: #555;
+}
+
+.highlight {
+    color: #007bff;
+    font-weight: bold;
+}

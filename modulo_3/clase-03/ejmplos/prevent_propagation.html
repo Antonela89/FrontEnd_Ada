@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>⚡ Eventos VS — preventDefault() vs stopPropagation()</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>⚔️ preventDefault() vs stopPropagation()</h1>
+    <div id="contador">Eventos activados: <span id="num">0</span></div>
+    <p>
+      Interactuá con los elementos y observá cómo reacciona cada tipo de evento.
+    </p>
+
+    <section>
+      <!-- preventDefault -->
+      <div class="card" id="cardDefault">
+        <h2>🛑 preventDefault()</h2>
+        <p>Evita la acción nativa de un elemento.</p>
+        <a href="https://www.google.com" id="enlaceGoogle">Ir a Google</a>
+      </div>
+
+      <!-- stopPropagation -->
+      <div class="card" id="cardStop">
+        <h2>🚷 stopPropagation()</h2>
+        <p>Detiene la propagación del evento a los padres.</p>
+
+        <div class="abuelo" id="abuelo">
+          Abuelo
+          <div class="padre" id="padre">
+            Padre
+            <div class="hijo" id="hijo">Hijo (clic acá)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="mensaje" id="mensaje">Esperando interacción...</div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>

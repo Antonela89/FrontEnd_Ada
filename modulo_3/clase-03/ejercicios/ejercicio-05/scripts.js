@@ -1,3 +1,33 @@
+// **5\. Controlando la Propagación de Eventos**
+
+// **Objetivo:**
+
+// Comprender cómo funciona la propagación de eventos y cómo stopPropagation() puede evitarla.
+
+// **Consigna:**
+
+// 1. Crea una estructura de div anidados, como en el ejemplo:
+
+// \<div id="abuelo"\>
+
+//     \<div id="padre"\>
+
+//         \<div id="hijo"\>Haz clic aquí\</div\>
+
+//     \</div\>
+
+// \</div\>
+
+// 2. Agrega eventos de clic en cada div que muestren un mensaje en la consola indicando qué elemento fue clickeado.
+
+// 3. Usa stopPropagation() en el div hijo y observa qué sucede.
+
+// 4. **Preguntas para reflexionar:**
+
+//    * ¿Qué sucede cuando haces clic en el div hijo sin stopPropagation()?
+//    * ¿Qué cambia al agregar stopPropagation() en el hijo?
+//    * ¿Cómo podrías usar esta técnica en un proyecto real?
+
 // Esperamos a que todo el contenido del DOM (la estructura HTML) esté completamente cargado y parseado
 // antes de intentar adjuntar nuestros event listeners. Esto previene errores si el script se carga
 // antes que los elementos HTML a los que hace referencia.

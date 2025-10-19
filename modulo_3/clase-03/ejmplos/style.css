@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0e0e0e;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    transition: background-color 0.5s ease;
+}
+
+h1 {
+    background: linear-gradient(45deg, #7b2ff7, #f107a3);
+    /* -webkit-background-clip: text; */
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+#contador {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 1rem;
+}
+
+.card {
+    width: 320px;
+    height: 20rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    transition: transform 0.3s, background-color 0.4s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+a {
+    color: #00ffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.mensaje {
+    margin-top: 40px;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.visible {
+    opacity: 1;
+}
+
+/* Jerarquía de propagación */
+.abuelo,
+.padre,
+.hijo {
+    padding: 15px;
+    border-radius: 10px;
+    margin: 5px;
+    color: #fff;
+}
+
+.abuelo {
+    background-color: #222;
+}
+
+.padre {
+    background-color: #333;
+}
+
+.hijo {
+    background-color: #555;
+    cursor: pointer;
+}
+
+/* Efecto del contador */
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+        color: #0ff;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animar {
+    animation: pop 0.4s ease;
+}
