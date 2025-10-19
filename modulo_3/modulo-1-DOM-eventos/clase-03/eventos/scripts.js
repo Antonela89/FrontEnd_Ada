@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         nameInput.style.backgroundColor = '';
     });
 
-
     // --- Eventos de Ventana ---
 
     const windowSize = document.getElementById('windowSize');
