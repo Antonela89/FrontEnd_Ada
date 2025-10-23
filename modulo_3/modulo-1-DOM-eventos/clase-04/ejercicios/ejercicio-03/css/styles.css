@@ -1,0 +1,42 @@
+@import url('../../css/style-general.css');
+
+:root {
+    --anchoTextArea: 31.25rem;
+    --altoTextArea: 10rem;
+}
+
+textarea {
+    width: 100%;
+    max-width: var(--anchoTextArea); 
+    height: var(--altoTextArea); 
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1em;
+    resize: vertical; /* Permite redimensionar verticalmente */
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+p {
+    text-align: right; 
+    font-size: 0.95em;
+    color: #555;
+    width: 100%;
+    max-width: var(--anchoTextArea); 
+    box-sizing: border-box;
+}
+
+.cantidad {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.cantidad.warning {
+    color: #dc3545; 
+}

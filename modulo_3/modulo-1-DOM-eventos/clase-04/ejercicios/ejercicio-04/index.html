@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selección de opciones con radio y checkbox</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+     <div class="container">
+        <h1>Elige tus Preferencias</h1>
+
+        <form id="preferencesForm">
+            <fieldset>
+                <legend>Tu Color Favorito:</legend>
+                <label>
+                    <input type="radio" name="color" value="Rojo"> Rojo
+                </label>
+                <label>
+                    <input type="radio" name="color" value="Azul"> Azul
+                </label>
+                <label>
+                    <input type="radio" name="color" value="Verde"> Verde
+                </label>
+                <p class="error-message" id="colorError"></p> 
+            </fieldset>
+
+            <fieldset>
+                <legend>Tus Pasatiempos:</legend>
+                <label>
+                    <input type="checkbox" name="pasatiempos" value="Leer"> Leer
+                </label>
+                <label>
+                    <input type="checkbox" name="pasatiempos" value="Deportes"> Deportes
+                </label>
+                <label>
+                    <input type="checkbox" name="pasatiempos" value="Cocinar"> Cocinar
+                </label>
+                <label>
+                    <input type="checkbox" name="pasatiempos" value="Viajar"> Viajar
+                </label>
+                <p class="error-message" id="pasatiemposError"></p>
+            </fieldset>
+
+            <button type="submit">Mostrar Selecciones</button>
+        </form>
+
+        <article class="card results-card" id="resultsCard">
+            <h2>Tus Selecciones:</h2>
+            <p><strong>Color elegido:</strong> <span id="displayColor">Ninguno</span></p>
+            <p><strong>Pasatiempos:</strong> <span id="displayPasatiempos">Ninguno</span></p>
+        </article>
+    </div>
+
+</body>
+<script src="js/scripts.js"></script>
+
+</html>
