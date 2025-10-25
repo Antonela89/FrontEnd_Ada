@@ -1,0 +1,55 @@
+/* Contenedor del interruptor */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Ocultamos el checkbox HTML por defecto */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* El "carril" del interruptor */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+    /* Para hacerlo redondeado */
+}
+
+/* El círculo o "perilla" que se desliza */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    /* Para hacerlo un círculo */
+}
+
+/* ESTA ES LA MAGIA DEL CSS:
+Cuando el input (checkbox) está en estado 'checked',
+se aplica este estilo al elemento hermano '.slider' */
+input:checked+.slider {
+    background-color: #2196F3;
+    /* Cambia el color del carril */
+}
+
+input:checked+.slider:before {
+    /* Mueve la perilla hacia la derecha */
+    transform: translateX(26px);
+}

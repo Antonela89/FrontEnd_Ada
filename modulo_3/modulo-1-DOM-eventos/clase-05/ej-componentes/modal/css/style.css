@@ -1,0 +1,45 @@
+/* El fondo oscuro (overlay). Oculto por defecto. */
+.modal-overlay {
+    display: none;
+    /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Negro con opacidad */
+    /* Flexbox para centrar el contenido del modal */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cuando el overlay tiene la clase 'show', se muestra */
+.modal-overlay.show {
+    display: flex;
+}
+
+/* Contenido del Modal */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* El botón de cierre (X) */
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}

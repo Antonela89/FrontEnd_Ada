@@ -1,0 +1,34 @@
+<!-- ### 2. Sidebar (Barra Lateral)
+
+Este ejemplo muestra una barra de navegación lateral que aparece desde la izquierda cuando se presiona un botón (ícono de hamburguesa). -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Sidebar</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- El Sidebar -->
+    <nav id="mySidebar" class="sidebar">
+        <a href="#" class="close-btn" id="closeBtn">&times;</a>
+        <a href="#">Inicio</a>
+        <a href="#">Servicios</a>
+        <a href="#">Clientes</a>
+        <a href="#">Contacto</a>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div id="main">
+        <button class="open-btn" id="openBtn">&#9776; Abrir Sidebar</button>
+        <h2>Contenido Principal</h2>
+        <p>Cuando el sidebar se abre, este contenido se puede empujar (con JS) o simplemente el sidebar se superpone.
+        </p>
+    </div>
+</body>
+<script src="js/script.js"></script>
+</html>

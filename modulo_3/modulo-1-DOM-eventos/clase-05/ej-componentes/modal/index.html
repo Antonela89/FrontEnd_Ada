@@ -1,0 +1,35 @@
+<!-- ### 3. Modal (Ventana Emergente)
+
+Un ejemplo de una ventana modal que se muestra al hacer clic en un botón. Incluye un fondo oscuro (overlay) y un botón de cierre. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Modal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <h2>Ejemplo de Componente Modal</h2>
+
+    <!-- Botón para abrir el modal -->
+    <button id="openModalBtn">Abrir Modal</button>
+
+    <!-- El Modal -->
+    <div id="myModal" class="modal-overlay">
+        <!-- Contenido del Modal -->
+        <div class="modal-content">
+            <span class="close-button" id="closeModalBtn">&times;</span>
+            <h3>Título del Modal</h3>
+            <p>Este es el contenido del modal. Se usa para notificaciones importantes, formularios de inicio de sesión,
+                o confirmaciones de acciones.</p>
+        </div>
+    </div>
+</body>
+<script src="js/script.js"></script>
+
+</html>

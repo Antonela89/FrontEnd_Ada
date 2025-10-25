@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío Extra: Calculadora</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculadora Simple</h1>
+        <form id="calculatorForm">
+            <label for="num1">Primer Número:
+                <input type="number" id="num1" placeholder="Ej: 10">
+                <p class="error-message" id="num1Error"></p>
+            </label>
+
+            <label for="operation">Operación:</label>
+            <select id="operation">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <p class="error-message" id="operationError"></p>
+
+            <label for="num2">Segundo Número:
+                <input type="number" id="num2" placeholder="Ej: 5">
+                <p class="error-message" id="num2Error"></p>
+            </label>
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        <article class="card results-card" id="resultCard">
+            <h2>Resultado:</h2>
+            <p id="calculationResult">Esperando cálculo...</p>
+        </article>
+    </div>
+</body>
+<script src="js/script.js"></script>
+
+</html>

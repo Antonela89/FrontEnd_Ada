@@ -1,0 +1,29 @@
+<!-- ### 4. Toggle Switch (Interruptor)
+
+Este es un interruptor de encendido/apagado estilizado usando un input de tipo `checkbox` y CSS puro. El estado se maneja sin necesidad de JavaScript, aunque se puede usar JS para leer su valor. -->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Toggle</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <h2>Ejemplo de Componente Toggle</h2>
+
+    <label class="switch">
+        <!-- El input checkbox es el que guarda el estado (marcado/no marcado) -->
+        <input type="checkbox" id="notificationToggle">
+        <!-- El span es solo para la apariencia visual del interruptor -->
+        <span class="slider"></span>
+    </label>
+    <span id="toggle-status">Desactivado</span>
+<script src="js/script.js"></script>
+</body>
+
+</html>
