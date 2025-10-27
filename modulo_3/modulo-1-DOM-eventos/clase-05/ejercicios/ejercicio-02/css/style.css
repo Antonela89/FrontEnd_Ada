@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    inline-size: 100vw;
+    block-size: 100vh;
+}
+
+header {
+    inline-size: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    padding-inline: 2rem;
+    justify-content: flex-end;
+    background-color: #007bff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #fff;
+    color: #007bff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #e6f2ff;
+}
+
+.sidebar {
+    position: fixed;
+    /* Fijo en la pantalla */
+    top: 0;
+    left: 0;
+    height: 100vh;
+    /* Ocupa toda la altura */
+    width: 250px;
+    /* Ancho fijo */
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    /* Asegura que esté por encima del contenido */
+
+    /* Estado inicial (oculto) */
+    transform: translateX(-100%);
+    /* Lo mueve completamente a la izquierda */
+
+    /* Animación */
+    transition: transform 0.4s ease-in-out;
+}
+
+.sidebar.show {
+    /* Estado visible */
+    transform: translateX(0);
+    /* Lo trae a su posición original */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-top: 4rem;
+    /* Espacio para que no choque con el header */
+}
+
+.sidebar li a {
+    display: block;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar li a:hover {
+    background-color: #e6f2ff;
+    color: #0056b3;
+}
+
+.container {
+    inline-size: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    transition: margin-left 0.4s ease-in-out;
+}
+
+.container.reduce {
+    margin-left: 16.25rem;
+}
+
+
+/*
+    - transform: translateX(-100%);: Esta regla mueve el elemento el 100% de su propio ancho hacia la izquierda, sacándolo completamente del área visible de la pantalla.
+
+    - transform: translateX(0);: Esta regla lo devuelve a su posición original (0 de desplazamiento).
+
+    - transition: transform 0.4s ease-in-out;: Esta es la clave. Le dice al navegador: "Cualquier cambio en la propiedad transform debe ser animado durante 0.4 segundos con una curva de aceleración suave".
+
+¿Por qué transform es mejor que width?
+Animar transform es mucho más eficiente para el navegador que animar width. Los cambios en transform no obligan al navegador a recalcular el layout de toda la página (un proceso llamado "reflow"), lo que resulta en animaciones más fluidas y sin "saltos", especialmente en dispositivos móviles. 
+*/

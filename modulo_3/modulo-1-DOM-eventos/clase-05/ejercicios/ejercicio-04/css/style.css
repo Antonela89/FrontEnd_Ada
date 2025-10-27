@@ -1,0 +1,75 @@
+/* --- Definición de Variables de Color --- */
+:root {
+    /* Modo Claro (Por defecto) */
+    --bg-color: #f4f7f6;
+    --text-color: #1a1a1a;
+    --primary-color: #007bff;
+    --secondary-bg-color: #ffffff;
+    --border-color: #ddd;
+    --button-text-color: #ffffff;
+
+    /* Transición suave para todas las propiedades de color */
+    --theme-transition: color 0.4s ease, background-color 0.4s ease;
+}
+
+/* --- Estilos para el Modo Oscuro --- */
+body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --primary-color: #64b5f6; /* Un azul más claro para mejor contraste */
+    --secondary-bg-color: #1e1e1e;
+    --border-color: #444;
+    --button-text-color: #1a1a1a;
+}
+
+/* --- Estilos Generales --- */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    transition: var(--theme-transition);
+}
+
+header {
+    background-color: var(--secondary-bg-color);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--theme-transition);
+}
+
+.container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: var(--secondary-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: var(--theme-transition);
+}
+
+h1 {
+    color: var(--primary-color);
+    transition: var(--theme-transition);
+}
+
+/* --- Estilos de Botones --- */
+.theme-toggle-button, .sample-button {
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px; /* Botón tipo "píldora" */
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--theme-transition), transform 0.2s ease;
+}
+
+.theme-toggle-button:hover, .sample-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}

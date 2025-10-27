@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="main-content">
+        <h1>Página Principal</h1>
+        <p>Haz clic en el botón de abajo para abrir el modal de confirmación.</p>
+        <button id="openModalBtn" class="action-button">Eliminar Cuenta</button>
+    </div>
+
+    <!-- El Overlay contendrá el modal -->
+    <div id="modalOverlay" class="modal-overlay">
+        <!-- El Modal en sí -->
+        <div id="modalContent" class="modal-content">
+            <button id="closeModalBtn" class="close-modal-btn">&times;</button>
+            <h2>¿Estás seguro?</h2>
+            <p>Esta acción es irreversible. Todos tus datos se perderán permanentemente. ¿Deseas continuar?</p>
+            <button class="action-button danger">Sí, eliminar</button>
+        </div>
+    </div>
+
+</body>
+<script src="js/script.js"></script>
+
+</html>

@@ -1,0 +1,86 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.accordion-container {
+    width: 100%;
+    max-width: 650px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #e0e0e0; /* Separador entre items */
+}
+
+.accordion-item:last-child {
+    border-bottom: none; /* Sin borde en el último item */
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 18px 10px;
+    background-color: transparent; /* Fondo transparente para un look más limpio */
+    color: #007bff;
+    text-align: left;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #f8f9fa;
+}
+
+/* Indicador de expandir/colapsar (ícono de flecha) */
+.accordion-header::after {
+    content: '▼';
+    font-size: 0.8em;
+    transition: transform 0.3s ease-out;
+}
+
+.accordion-header.active::after {
+    transform: rotate(180deg); /* La flecha apunta hacia arriba */
+}
+
+/* --- La magia de la animación --- */
+.accordion-content {
+    max-height: 0; /* Oculto por defecto */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    padding: 0 10px; /* Padding horizontal consistente */
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+
+/* Estado visible */
+.accordion-content.show {
+    max-height: 200px; /* Altura máxima suficiente para el contenido */
+    padding: 5px 10px 20px 10px; /* Padding completo cuando está visible */
+}
+
+.accordion-content p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}

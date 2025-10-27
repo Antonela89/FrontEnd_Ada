@@ -1,0 +1,111 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+h1, p {
+    text-align: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.action-button {
+    padding: 0.8rem 1.8rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.action-button.danger {
+    background-color: #dc3545;
+}
+
+.action-button.danger:hover {
+    background-color: #a71d2a;
+}
+
+/* --- ESTILOS DEL MODAL --- */
+
+.modal-overlay {
+    /* Posicionamiento */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;  /* Ocupa el toda la pantalla */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    z-index: 1000;
+
+    /* Centrado del contenido */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Estado inicial (oculto) */
+    opacity: 0;
+    visibility: hidden; /* Oculta el elemento a los lectores de pantalla y eventos de ratón */
+
+    /* Animación */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.modal-overlay.show {
+    /* Estado visible */
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative; /* Para posicionar el botón de cierre */
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+
+    /* Animación de entrada */
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* El modal se agranda cuando el overlay se muestra */
+.modal-overlay.show .modal-content {
+    transform: scale(1);
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-modal-btn:hover {
+    color: #333;
+}

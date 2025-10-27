@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejericicio - 01: FAQ con Collapse</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="accordion-container">
+        <h1>Preguntas Frecuentes (FAQ)</h1>
+
+        <!-- Pregunta 1 -->
+        <div class="faq-item">
+            <a class="question" href="#">¿Qué es JavaScript?</a>
+            <div class="response">
+                <p>JavaScript es un lenguaje de programación interpretado, multiparadigma y de alto nivel. Se utiliza
+                    principalmente para crear interactividad en sitios web, pero también se ha extendido a otras áreas
+                    como el desarrollo de aplicaciones móviles, de escritorio y servidores (Node.js).</p>
+            </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="faq-item">
+            <a class="question" href="#">¿Cuál es la diferencia entre `let`, `const` y `var`?</a>
+            <div class="response">
+                <p><code>var</code> tiene un alcance de función y permite el "hoisting". <code>let</code> y
+                    <code>const</code> tienen un alcance de bloque (block scope) y son introducidos en ES6. La
+                    diferencia principal es que <code>let</code> permite reasignar su valor, mientras que
+                    <code>const</code> declara una constante que no puede ser reasignada después de su inicialización.
+                </p>
+            </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="faq-item">
+            <a class="question" href="#">¿Qué es el DOM?</a>
+            <div class="response">
+                <p>El DOM (Document Object Model) es una interfaz de programación para documentos HTML, XML y SVG.
+                    Proporciona una representación estructurada del documento como un árbol y define cómo los programas
+                    pueden acceder y cambiar el contenido, estructura y estilo de un documento.</p>
+            </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="faq-item">
+            <a class="question" href="#">¿Qué es un evento en JavaScript?</a>
+            <div class="response">
+                <p>Un evento es una acción o suceso que ocurre en el sistema o en el navegador web que JavaScript puede
+                    detectar y a la que puede reaccionar. Ejemplos comunes incluyen clics de ratón, pulsaciones de
+                    teclas, carga de una página, envío de formularios, etc.</p>
+            </div>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="faq-item">
+            <a class="question" href="#">¿Para qué se usa `preventDefault()`?</a>
+            <div class="response">
+                <p>El método `preventDefault()` se utiliza en el contexto de eventos para detener la acción
+                    predeterminada que el navegador normalmente realizaría para ese evento. Por ejemplo, evitar que un
+                    formulario se envíe o que un enlace redirija a otra página.</p>
+            </div>
+        </div>
+
+        <!-- Pregunta 6 -->
+        <div class="faq-item">
+            <a class="question" href="#">¿Cómo se selecciona un elemento HTML con JavaScript?</a>
+            <div class="response">
+                <p>Se pueden seleccionar elementos usando métodos como `document.getElementById('idDelElemento')`,
+                    `document.querySelector('.claseDelElemento')` (para el primer elemento que coincida) o
+                    `document.querySelectorAll('etiqueta')` (para todos los elementos que coincidan).</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script src="js/script.js"></script>
+</html>

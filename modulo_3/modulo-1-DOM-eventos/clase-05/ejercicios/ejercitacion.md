@@ -10,7 +10,7 @@
 Crea una sección de preguntas frecuentes (FAQ) donde cada pregunta tenga una respuesta que se muestre u oculte al hacer clic en la pregunta.
 
 **Pasos:**
-
+ 
 1.  **Estructura HTML:**
     *   Crea un contenedor para las preguntas y respuestas.
     *   Usa un botón o enlace para cada pregunta.
