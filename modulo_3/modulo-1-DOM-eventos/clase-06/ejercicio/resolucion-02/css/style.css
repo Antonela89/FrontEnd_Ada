@@ -1,0 +1,234 @@
+/* variables y estilos globales */
+:root {
+    --color-fondo: #f0f2f5;
+    --color-superficie: #ffffff;
+    --color-primario: #007bff;
+    --color-primario-hover: #0056b3;
+    --color-texto: #333333;
+    --color-borde: #dddddd;
+    --color-sombra: rgba(0, 0, 0, 0.1);
+    --color-exito: #28a745;
+    --color-peligro: #dc3545;
+    --radio-borde: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    inline-size: 100vw;
+    block-size: 100vh;
+}
+
+/* LAYOUT CON GRID */
+.app-layout {
+    display: grid;
+    /* Defino dos columnas: una fija para el sidebar y otra flexible para el contenido. */
+    grid-template-columns: 13.75rem 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    max-inline-size: 75rem;
+    margin: 0 auto;
+}
+
+/* ESTILOS DEL SIDEBAR */
+.sidebar {
+    background-color: var(--color-superficie);
+    padding: 1.5rem;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 4px 12px var(--color-sombra);
+    block-size: fit-content;
+    /* Para que no se estire innecesariamente. */
+}
+
+.sidebar h2 {
+    color: var(--color-primario);
+    margin-block-end: 1.5rem;
+    border-block-end: 2px solid var(--color-borde);
+    padding-block-end: 0.5rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar-link {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--color-texto);
+    text-decoration: none;
+    border-radius: var(--radio-borde);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-weight: 500;
+}
+
+.sidebar-link:hover {
+    background-color: #e9ecef;
+}
+
+/* La clase 'active' la pondré con JS para resaltar el filtro actual. */
+.sidebar-link.active {
+    background-color: var(--color-primario);
+    color: white;
+}
+
+/* Contenedor */
+.container {
+    inline-size: 100%;
+    background-color: var(--color-superficie);
+    padding: 2rem;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 4px 12px var(--color-sombra);
+}
+
+#formulario {
+    display: flex;
+    gap: 0.5rem;
+    margin-block-end: 2rem;
+}
+
+#formulario input,
+#formulario select {
+    inline-size: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    font-size: 1rem;
+}
+
+#formulario input {
+    flex-grow: 1;
+}
+
+#formulario button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: var(--color-primario);
+    color: white;
+    border-radius: var(--radio-borde);
+    cursor: pointer;
+}
+
+.tarea-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: var(--radio-borde);
+    margin-block-end: 0.5rem;
+}
+
+.tarea-item.completada {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+.acciones button {
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.acciones .completar {
+    color: var(--color-exito);
+}
+
+.acciones .eliminar {
+    color: var(--color-peligro);
+}
+
+/* ESTILOS DEL MODAL */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Lo oculto por defecto y controlo la visibilidad con una clase. */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal {
+    background-color: var(--color-superficie);
+    padding: 2rem;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-inline-size: 25rem;
+    text-align: center;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-backdrop.active .modal {
+    transform: translateY(0);
+}
+
+.modal-titulo {
+    margin-block-end: 1rem;
+}
+
+.modal-mensaje {
+    margin-block-end: 2rem;
+    color: #6c757d;
+}
+
+.modal-acciones {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.modal-acciones button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--radio-borde);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#modal-confirmar {
+    background-color: var(--color-peligro);
+    color: white;
+}
+
+#modal-cancelar {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* RESPONSIVIDAD */
+@media (max-width: 768px) {
+    .app-layout {
+        /* En pantallas pequeñas, apilo el sidebar y el contenido. */
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: 1rem;
+    }
+
+    #formulario {
+        flex-direction: column;
+    }
+}

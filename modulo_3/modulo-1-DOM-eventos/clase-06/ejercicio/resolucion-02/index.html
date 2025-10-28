@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App Avanzada</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- LAYOUT PARA SIDEBAR Y CONTENIDO PRINCIPAL -->
+    <div class="app-layout">
+
+        <!-- SIDEBAR PARA FILTROS -->
+        <aside class="sidebar">
+            <h2>Filtros</h2>
+            <nav>
+                <ul id="lista-filtros">
+                    <!-- Los enlaces usarán data-attributes para ser manejados por JS -->
+                    <li><a href="#" class="sidebar-link active" data-categoria="Todas">Todas</a></li>
+                    <li><a href="#" class="sidebar-link" data-categoria="Trabajo">Trabajo</a></li>
+                    <li><a href="#" class="sidebar-link" data-categoria="Estudio">Estudio</a></li>
+                    <li><a href="#" class="sidebar-link" data-categoria="Personal">Personal</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="container">
+            <h1>Mi Lista de Tareas</h1>
+            <form id="formulario">
+                <!-- añadido aria-label para mejor accesibilidad -->
+                <input type="text" id="tarea" placeholder="Escribe una nueva tarea..." aria-label="Nueva tarea">
+                <select id="categoria" aria-label="Categoría de la tarea">
+                    <option value="Trabajo">Trabajo</option>
+                    <option value="Estudio">Estudio</option>
+                    <option value="Personal">Personal</option>
+                </select>
+                <button type="submit">Agregar</button>
+            </form>
+
+            <!-- ATRIBUTOS ARIA PARA LA LISTA DINÁMICA -->
+            <div id="lista-tareas" aria-live="polite"></div>
+
+            <button id="borrar-todo">Borrar todas las tareas</button>
+        </main>
+
+    </div>
+
+    <!-- ESTRUCTURA DEL MODAL (oculto por defecto) -->
+    <div id="modal-backdrop" class="modal-backdrop">
+        <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+            <h2 id="modal-titulo" class="modal-titulo">Confirmación</h2>
+            <p id="modal-mensaje" class="modal-mensaje">¿Estás seguro?</p>
+            <div class="modal-acciones">
+                <button id="modal-confirmar">Confirmar</button>
+                <button id="modal-cancelar">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
