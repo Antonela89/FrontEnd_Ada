@@ -1,0 +1,206 @@
+/* VARIABLES Y ESTILOS GLOBALES */
+:root {
+    --color-fondo: #f0f2f5;
+    --color-superficie: #ffffff;
+    --color-primario: #007bff;
+    --color-primario-hover: #0056b3;
+    --color-texto: #333333;
+    --color-borde: #dddddd;
+    --color-sombra: rgba(0, 0, 0, 0.1);
+    --color-exito: #28a745;
+    --color-peligro: #dc3545;
+    --radio-borde: 8px; /* Para tener bordes redondeados consistentes */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos base para todo el cuerpo de la página. */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* CONTENEDOR PRINCIPAL Y TÍTULO */
+.container {
+    width: 100%;
+    max-width: 40rem;
+    background-color: var(--color-superficie);
+    padding: 2rem;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 4px 12px var(--color-sombra);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-primario);
+}
+
+/* FORMULARIO DE ENTRADA */
+#formulario {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilos compartidos para el input y el select, para que se vean iguales. */
+#formulario input[type="text"],
+#formulario select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Cuando hago clic en el input o select, quiero un feedback visual. */
+#formulario input[type="text"]:focus,
+#formulario select:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* El input de texto debe ser el que más crezca. */
+#formulario input[type="text"] {
+    flex-grow: 1;
+    /* Le digo que ocupe todo el espacio sobrante. */
+}
+
+/* El botón principal de "Agregar". */
+#formulario button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: var(--color-primario);
+    color: white;
+    font-weight: 500;
+    border-radius: var(--radio-borde);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#formulario button:hover {
+    background-color: var(--color-primario-hover);
+}
+
+/* LISTA DE TAREAS */
+#lista-tareas {
+    margin-bottom: 2rem;
+}
+
+/* Cada una de las tareas. */
+.tarea-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+/* La clase que mi JavaScript añade a las tareas completadas. */
+.tarea-item.completada {
+    opacity: 0.6;
+    background-color: #e9ecef;
+}
+
+.tarea-item.completada p {
+    text-decoration: line-through;
+}
+
+.tarea-item p a {
+    text-decoration: none;
+    color: var(--color-primario);
+    font-weight: 500;
+}
+
+/* El contenedor de los botones de acción (completar, eliminar). */
+.acciones {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Estilo base para mis botones de acción. */
+.acciones button {
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: transform 0.2s ease;
+}
+
+.acciones button:hover {
+    transform: scale(1.2);
+}
+
+/* Colores específicos para cada botón. */
+.acciones .completar {
+    color: var(--color-exito);
+}
+
+.acciones .eliminar {
+    color: var(--color-peligro);
+}
+
+/* Mensaje que aparece cuando no hay tareas. */
+.lista-vacia {
+    text-align: center;
+    color: #6c757d;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: var(--radio-borde);
+}
+
+/* BOTÓN "BORRAR TODO"*/
+/* El botón de "Borrar todo" es una acción destructiva, así que lo hago
+   diferente, menos prominente que el de "Agregar". */
+#borrar-todo {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    border: 1px solid var(--color-peligro);
+    background-color: transparent;
+    color: var(--color-peligro);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radio-borde);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#borrar-todo:hover {
+    background-color: var(--color-peligro);
+    color: white;
+}
+
+/* RESPONSIVIDAD  */
+/* Media Query para pantallas pequeñas (móviles). */
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+        /* Menos padding en los bordes. */
+    }
+
+    .container {
+        padding: 1.5rem;
+        /* Menos padding interno. */
+    }
+
+    #formulario {
+        flex-direction: column;
+    }
+}
