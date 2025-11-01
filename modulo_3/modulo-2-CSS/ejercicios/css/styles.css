@@ -10,12 +10,23 @@ html {
 
 /* ENCABEZADO*/
 /* navbar */
-.navbar-brand i {
-    font-size: 1.5rem;
+/* --- Efectos Hover para Iconos del Navbar y Footer --- */
+
+/* 1. Definimos la transición para que la animación sea suave */
+/* Seleccionamos el icono del logo en el navbar y los iconos de redes en el footer */
+.navbar-brand .icon,
+.footer .social-icons .icon {
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.navbar-item i:hover {
-    color: var(--bulma-text-info-light);
+/* 2. Definimos el efecto al pasar el cursor (hover) */
+/* Hacemos el icono un poco más grande y cambiamos su color */
+.navbar-brand .icon:hover,
+.footer .social-icons .icon:hover {
+    transform: scale(1.2);
+    /* Aumenta el tamaño en un 20% */
+    color: hsl(0, 0%, 96%) !important;
+    /* Un blanco brillante */
 }
 
 /* --------------------------------------------------------------------------------------------- */
