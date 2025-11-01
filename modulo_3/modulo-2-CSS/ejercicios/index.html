@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Solar con Bulma CSS</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- link Bulma Timeline -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-timeline@3.0.4/dist/css/bulma-timeline.min.css">
+    <!-- link Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar px-4 is-fixed-top" role="navigation" aria-label="main navigation">
+        <!-- Logo -->
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <i class="fas fa-star has-text-link"></i>
+            </a>
+            <!-- Menu Hamburguesa - Responsive -->
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbar-sistemaSolar">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="navbar-sistemaSolar">
+            <!-- Texto a la izquierda -->
+            <div class="navbar-start">
+                <a class="navbar-item" href="#">
+                    Explorando Nuestro Sistema Solar
+                </a>
+            </div>
+            <!-- Contenedor vacío para el menú dinámico -->
+            <div class="navbar-end" id="navbar-dynamic-menu">
+                <!-- El menú se inyectará aquí con JavaScript -->
+            </div>
+        </div>
+    </nav>
+    <!-- fin navbar -->
+
+    <!-- MAIN -->
+    <!-- Banner -->
+    <section class="hero is-fullheight is-bold" id="hero">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <p class="title is-1">
+                    Descubre los secretos de nuestro vecindario cósmico
+                </p>
+                <p class="subtitle is-3">
+                    Explora los planetas, lunas y maravillas de nuestro sistema solar.
+                </p>
+                <div class="buttons is-centered mt-5">
+                    <a class="button is-primary is-large is-rounded" href="#introduccion">Explorar Ahora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- fin banner -->
+
+    <!-- seccion introduccion -->
+    <section class="section is-small" id="introduccion">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered">Bienvenidos al Sistema Solar</h2>
+            <p class="subtitle is-5 has-text-centered mb-5">
+                Nuestro sistema solar es un vasto y fascinante conjunto de planetas, lunas, asteroides y cometas que
+                orbitan alrededor de una estrella central: el Sol.
+            </p>
+
+            <div class="columns is-vcentered">
+                <div class="column is-two-thirds">
+                    <div class="box has-background-dark p-0" style="overflow: hidden;">
+                        <canvas id="solarSystemCanvas"></canvas>
+                    </div>
+                </div>
+                <div class="column">
+                    <p>
+                        Formado hace aproximadamente 4.6 mil millones de años, este sistema es parte de la Vía Láctea y
+                        alberga una diversidad increíble de mundos. Desde los planetas rocosos cercanos al Sol hasta los
+                        gigantes gaseosos y helados en las regiones exteriores, cada cuerpo celeste tiene una historia
+                        única que contar.
+                    </p>
+                    <p class="mt-3">
+                        Prepárate para un viaje asombroso a través del espacio y el tiempo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- fin seccion introduccion -->
+
+    <!-- seccion sol -->
+    <section class="section is-small has-background-light has-text-dark" id="sol">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered has-text-dark">El Corazón de Nuestro Sistema: El Sol</h2>
+            <div class="columns is-vcentered">
+                <div class="column is-one-third">
+                    <figure class="image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg/1255px-The_Sun_by_the_Atmospheric_Imaging_Assembly_of_NASA%27s_Solar_Dynamics_Observatory_-_20100819.jpg?20100831165216"
+                            alt="El Sol">
+                    </figure>
+                </div>
+                <div class="column">
+                    <p class="title is-4 has-text-dark">Una Estrella Vital</p>
+                    <p>
+                        El Sol es la estrella central de nuestro sistema solar y es, con mucho, el objeto más grande,
+                        representando el 99.8% de la masa total. Es una esfera de plasma caliente e ionizado que genera
+                        energía a través de la fusión nuclear.
+                    </p>
+                    <p class="mt-3">
+                        Su inmensa gravedad mantiene unidos a todos los planetas y demás cuerpos celestes. Sin el Sol,
+                        no existiría la vida en la Tierra tal como la conocemos. Su luz y calor son esenciales para
+                        nuestro clima y ecosistemas.
+                    </p>
+                    <p class="mt-3">
+                        Fenómenos como las manchas solares, las erupciones solares y las eyecciones de masa coronal
+                        demuestran su actividad constante y dinámica.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- fin seccion sol -->
+
+    <!-- seccion planetas -->
+    <section class="section is-small" id="planetas">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered">Los Planetas de Nuestro Sistema Solar</h2>
+            <p class="subtitle is-5 has-text-centered mb-6">
+                Desde los rocosos interiores hasta los gigantes gaseosos exteriores, cada planeta es un mundo único.
+            </p>
+
+            <!-- Contenedor principal del carrusel -->
+            <div class="carousel-wrapper">
+
+                <!-- "Ventana" del carrusel que oculta el resto de las tarjetas -->
+                <div class="carousel-viewport">
+                    <!-- "Riel" que se moverá y que contendrá las tarjetas -->
+                    <div class="columns is-mobile" id="planetas-container">
+                        <!-- Las tarjetas se inyectarán aquí con JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Botones de Navegación -->
+                <button class="carousel-nav carousel-nav-left" aria-label="Anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav carousel-nav-right" aria-label="Siguiente">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="block mt-6" id="comparativas">
+            <h2 class="title is-2 has-text-centered">Comparativas</h2>
+
+            <!-- Controles de Filtro -->
+            <div class="field is-grouped is-grouped-centered mb-5" id="table-filters">
+                <p class="control">
+                    <button class="button is-primary" data-filter="all">Todos</button>
+                </p>
+                <p class="control">
+                    <button class="button" data-filter="rocoso">Rocosos</button>
+                </p>
+                <p class="control">
+                    <button class="button" data-filter="gaseoso">Gigantes Gaseosos</button>
+                </p>
+                <p class="control">
+                    <button class="button" data-filter="helado">Gigantes Helados</button>
+                </p>
+            </div>
+
+            <div id="comparative-table-container">
+                <!-- La tabla se inyectará aquí -->
+            </div>
+            <!-- <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/The_Solar_System.svg/768px-The_Solar_System.svg.png?20220911122449"
+                    alt="Sistema Solar">
+            </figure> -->
+        </div>
+    </section>
+    <!-- fin seccion planetas -->
+
+
+    <!-- seccion otros cuerpos -->
+    <section class="section is-small has-background-light" id="otrosCuerpos">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered has-text-dark">Más Allá de los Planetas</h2>
+            <p class="subtitle is-5 has-text-centered has-text-dark mb-6">
+                Nuestro sistema solar está lleno de objetos fascinantes más allá de los ocho planetas principales.
+            </p>
+
+            <!-- Contenedor para el sistema de pestañas dinámico -->
+            <div id="other-bodies-container">
+                <!-- Las pestañas y su contenido se inyectarán aquí -->
+            </div>
+
+        </div>
+    </section>
+    <!-- fin seccion otros cuerpos -->
+
+    <!-- seccion galeria -->
+    <section class="section" id="galeria">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered">Galería Cósmica</h2>
+            <p class="subtitle is-5 has-text-centered mb-6">
+                Haz clic en una imagen para verla en detalle.
+            </p>
+
+            <!-- Contenedor para la rejilla de imágenes dinámica -->
+            <div class="columns is-multiline is-centered" id="gallery-container">
+                <!-- La galería se inyectará aquí -->
+            </div>
+
+        </div>
+    </section>
+    <!-- fin seccion galeria -->
+
+    <!-- seccion timeline -->
+    <section class="section" id="misiones">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered">Hitos de la Exploración Espacial</h2>
+            <p class="subtitle is-5 has-text-centered mb-6">
+                Un viaje a través de las misiones que definieron nuestra historia en el cosmos.
+            </p>
+
+            <!-- Contenedor para el timeline dinámico -->
+            <div id="timeline-container" class="timeline is-centered">
+                <!-- El timeline se inyectará aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- seccion contacto -->
+    <section class="section is-small has-background-light has-text-dark" id="nosotros">
+        <div class="container">
+            <h2 class="title is-2 has-text-centered has-text-dark">Sobre Nosotros y Contacto</h2>
+            <div class="columns">
+                <div class="column is-half">
+                    <p class="title has-text-dark is-4">Nuestra Misión</p>
+                    <p>
+                        Creamos este espacio para compartir el asombro y el conocimiento sobre el sistema solar con
+                        entusiastas de todas las edades. Nuestro objetivo es hacer que la astronomía sea accesible y
+                        emocionante para todos.
+                    </p>
+                    <p class="mt-3">
+                        La información proviene de fuentes confiables como la NASA, la ESA y diversas universidades.
+                    </p>
+
+                    <!-- notifcacion -->
+                    <div id="contact-notification-container" class="my-6"></div>
+                </div>
+
+                <div class="column is-half">
+                    <form id="contact-form" novalidate>
+                        <p class="title has-text-dark is-4">Contáctanos</p>
+
+                        <div class="field">
+                            <label class="label has-text-dark">Nombre</label>
+                            <div class="control has-icons-left"> <!-- Añadimos has-icons-left -->
+                                <input class="input" id="name" type="text" placeholder="Tu nombre" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                            <!-- Contenedor para el mensaje de error -->
+                            <p class="help is-danger is-hidden">El nombre es obligatorio.</p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label has-text-dark">Email</label>
+                            <div class="control has-icons-left">
+                                <input class="input" id="email" type="email" placeholder="tu@ejemplo.com" required>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                            </div>
+                            <p class="help is-danger is-hidden">Por favor, introduce un email válido.</p>
+                        </div>
+
+                        <div class="field">
+                            <label class="label has-text-dark">Mensaje</label>
+                            <div class="control has-icons-left">
+                                <textarea class="textarea" id="message" placeholder="Tu mensaje" required></textarea>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </span>
+                            </div>
+                            <p class="help is-danger is-hidden">El mensaje no puede estar vacío.</p>
+                        </div>
+
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button class="button is-primary" type="submit">Enviar Mensaje</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- fin seccion contacto -->
+    <!-- fin main -->
+
+    <!-- FOOTER -->
+    <footer class="footer has-background-dark has-text-white">
+        <div class="content has-text-centered">
+            <p>
+                &copy; <strong>Sistema Solar</strong> by <a href="#" class="has-text-link">Antonela Borgogno</a> -
+                <a class="has-text-link" href="#">ADA ITW</a>
+            </p>
+
+            <p>
+                Todos los derechos reservados.
+                <br>
+                <a href="#" class="has-text-link">Política de Privacidad</a> | <a href="#"
+                    class="has-text-link">Términos de Uso</a>
+            </p>
+
+            <div class="social-icons mt-3">
+                <a href="#" class="mr-2"><i class="fab fa-facebook-f has-text-link"></i></a>
+                <a href="#" class="mr-2"><i class="fab fa-twitter has-text-link"></i></a>
+                <a href="#" class="mr-2"><i class="fab fa-instagram has-text-link"></i></a>
+            </div>
+        </div>
+        <a href="#hero" class="button is-primary is-rounded back-to-top is-hidden" id="back-to-top-button">
+            <span class="icon"><i class="fas fa-arrow-up"></i></span>
+        </a>
+    </footer>
+</body>
+<script src="js/main.js" type="module"></script>
+
+</html>
