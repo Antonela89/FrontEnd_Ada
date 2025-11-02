@@ -172,7 +172,7 @@ export function initializeCanvas() {
 		});
 
 		// Incremento mi variable de "tiempo" para el siguiente fotograma.
-		angle += 0.01; 
+		angle += 1;
 
 		// 'requestAnimationFrame()' es la forma moderna y optimizada de crear bucles de animación.
 		// Le pido al navegador que llame a 'animate' de nuevo en el próximo ciclo de repintado.
