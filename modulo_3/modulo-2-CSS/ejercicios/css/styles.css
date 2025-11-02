@@ -223,18 +223,6 @@ html {
 }
 
 /* --- Sección "Galería" --- */
-/* He decidido usar 'gap' para el espaciado de la galería. Es más moderno y robusto que depender de los paddings de las columnas.
-*/
-#gallery-container.columns.is-variable {
-    margin-left: 0;
-    margin-right: 0;
-    gap: 0.5rem;
-}
-
-#gallery-container .column {
-    padding: 0 !important;
-}
-
 .gallery-image img {
     transition: transform 0.3s ease, filter 0.3s ease;
     cursor: pointer;
