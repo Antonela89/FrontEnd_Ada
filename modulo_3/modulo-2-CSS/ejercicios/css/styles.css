@@ -106,7 +106,7 @@ html {
 .flip-card {
     flex: 1;
     /* Esto asegura que la tarjeta ocupe todo el espacio de '.carousel-slide' */
-    height: 36.25rem;
+    height: 580px;
     perspective: 1000px;
 }
 
@@ -143,10 +143,11 @@ html {
 }
 
 .flip-card .card .card-image {
-    height: 15.625rem;
+    height: 250px;
     flex-shrink: 0;
 }
 
+.flip-card .card .card-image .image,
 .flip-card .card .card-image img {
     height: 100%;
     width: 100%;
