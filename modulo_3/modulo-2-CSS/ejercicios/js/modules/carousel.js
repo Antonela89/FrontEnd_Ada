@@ -1,3 +1,5 @@
+// js/modules/carousel.js (VERSIÓN FINAL Y A PRUEBA DE BALAS)
+
 export function initializeCarousel(containerSelector) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
@@ -5,58 +7,97 @@ export function initializeCarousel(containerSelector) {
     const track = container.querySelector('#planetas-container');
     const prevButton = container.querySelector('.carousel-nav-left');
     const nextButton = container.querySelector('.carousel-nav-right');
-    
+    const viewport = container.querySelector('.carousel-viewport');
+
     let currentIndex = 0;
     let slides;
-    let slideWidth = 0; // Variable para almacenar el ancho medido
+    let slideWidth = 0;
 
     /**
-     * Mide el ancho de una tarjeta y establece el ancho total del riel.
-     * Se ejecuta solo al inicio y al redimensionar la ventana.
+     * Determina cuántos slides deben ser visibles según el ancho de la ventana.
+     * Esta función es la que define tu diseño responsivo.
      */
-    function setupCarouselDimensions() {
-        slides = track.querySelectorAll('.column');
-        if (slides.length === 0) return;
-
-        // Medimos el ancho de la primera tarjeta y lo guardamos
-        slideWidth = slides[0].getBoundingClientRect().width;
-        
-        // Establecemos el ancho total del riel
-        track.style.width = `${slideWidth * slides.length}px`;
+    function getSlidesVisible() {
+        if (window.innerWidth >= 1024) {
+            return 4; // Desktop: 4 tarjetas visibles
+        }
+        if (window.innerWidth >= 769) {
+            return 2; // Tablet: 2 tarjetas visibles
+        }
+        return 1; // Mobile: 1 tarjeta visible
     }
 
     /**
-     * Aplica la transformación para mover el carrusel y actualiza los botones.
-     * Usa el 'slideWidth' que ya hemos medido.
+     * Calcula el ancho correcto de un slide y el ancho total del riel,
+     * y aplica esos tamaños directamente a los elementos.
      */
-    function updateCarouselState() {
+    function setupCarouselDimensions() {
+        slides = track.querySelectorAll('.carousel-slide');
         if (slides.length === 0) return;
 
-        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-
-        prevButton.disabled = currentIndex === 0;
+        const slidesVisible = getSlidesVisible();
+        const viewportWidth = viewport.getBoundingClientRect().width;
         
-        const slidesVisible = Math.floor(container.querySelector('.carousel-viewport').clientWidth / slideWidth);
+        // ¡LA MAGIA! Calculamos el ancho del slide dividiendo el ancho de la ventana visible.
+        // Ya no medimos el slide, evitamos la race condition.
+        slideWidth = viewportWidth / slidesVisible;
+
+        // Establecemos el ancho total del riel basándonos en este cálculo preciso.
+        track.style.width = `${slideWidth * slides.length}px`;
+
+        // Aplicamos el ancho calculado a cada slide individualmente para forzar el tamaño.
+        // Esto es lo que soluciona el texto vertical.
+        slides.forEach(slide => {
+            slide.style.width = `${slideWidth}px`;
+        });
+    }
+
+    /**
+     * Mueve el carrusel a la posición correcta y actualiza los botones.
+     */
+    function updateCarouselState() {
+        if (!slides || slides.length === 0) return;
+
+        const slidesVisible = getSlidesVisible();
+        const offset = currentIndex * slideWidth;
+        track.style.transform = `translateX(-${offset}px)`;
+        
+        prevButton.disabled = currentIndex === 0;
         nextButton.disabled = currentIndex >= slides.length - slidesVisible;
     }
 
     // --- Event Listeners ---
     nextButton.addEventListener('click', () => {
-        currentIndex++;
-        updateCarouselState();
+        const slidesVisible = getSlidesVisible();
+        if (currentIndex < slides.length - slidesVisible) {
+            currentIndex++;
+            updateCarouselState();
+        }
     });
 
     prevButton.addEventListener('click', () => {
-        currentIndex--;
-        updateCarouselState();
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarouselState();
+        }
     });
 
-    window.addEventListener('resize', () => {
-        // Al redimensionar, reseteamos todo para asegurar que las medidas son correctas
+    // --- Lógica de Redimensionamiento (Resize) ---
+    function debounce(func, delay = 100) {
+        let timeoutId;
+        return (...args) => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => { func.apply(this, args); }, delay);
+        };
+    }
+
+    const debouncedResize = debounce(() => {
         currentIndex = 0;
-        setupCarouselDimensions(); // Volvemos a medir
-        updateCarouselState();   // Y actualizamos la posición
+        setupCarouselDimensions(); // Volver a calcular y aplicar todos los anchos
+        updateCarouselState();   // Mover a la posición inicial
     });
+
+    window.addEventListener('resize', debouncedResize);
 
     /**
      * Función que se devuelve para ser llamada desde main.js después de renderizar las tarjetas.

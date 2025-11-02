@@ -44,7 +44,7 @@ function generatePlanetCardHTML(planet) {
 
     // Usamos template literals (`) para construir el HTML de forma legible.
     return `
-        <div class="column is-one-quarter-desktop is-half-tablet">
+        <div class="carousel-slide">
             <div class="flip-card" id="${planet.name.toLowerCase()}">
                 <div class="flip-card-inner">
                     <!-- CARA FRONTAL -->
@@ -114,85 +114,3 @@ export function initializePlanetCards() {
     attachFlipEventListeners();
 }
 
-
-// <div class="columns is-multiline">
-//                 <div class="column is-one-quarter-desktop is-half-tablet">
-//                     <!-- 1. Contenedor principal para la perspectiva 3D -->
-//                     <div class="flip-card">
-//                         <!-- 2. Contenedor interno que realizará la animación de giro -->
-//                         <div class="flip-card-inner">
-
-//                             <!-- 3. CARA FRONTAL DE LA TARJETA -->
-//                             <div class="flip-card-front">
-//                                 <div class="card has-background-dark has-text-white">
-//                                     <div class="card-image">
-//                                         <figure class="image">
-//                                             <img src="https://content.nationalgeographic.com.es/medio/2022/07/31/el-planeta-mercurio_c7bafef8_1280x720.jpg"
-//                                                 alt="Mercurio">
-//                                         </figure>
-//                                     </div>
-//                                     <div class="card-content">
-//                                         <div class="media">
-//                                             <div class="media-content">
-//                                                 <p class="title is-4 has-text-white">Mercurio</p>
-//                                                 <p class="subtitle is-6 has-text-grey-light">El Mensajero Veloz</p>
-//                                             </div>
-//                                         </div>
-//                                         <div class="content">
-//                                             El planeta más pequeño y más cercano al Sol. Posee un terreno lleno de
-//                                             cráteres, similar al de la Luna.
-//                                         </div>
-//                                     </div>
-//                                     <footer class="card-footer">
-//                                         <!-- Este botón activará el giro -->
-//                                         <a href="#"
-//                                             class="card-footer-item button is-primary is-inverted is-outlined js-flip-button">Más
-//                                             Información</a>
-//                                     </footer>
-//                                 </div>
-//                             </div>
-
-//                             <!-- 4. CARA TRASERA DE LA TARJETA -->
-//                             <div class="flip-card-back">
-//                                 <div class="card has-background-dark has-text-white">
-//                                     <div class="card-content">
-//                                         <p class="title is-4 has-text-white">Datos Clave</p>
-//                                         <div class="content">
-//                                             <table
-//                                                 class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth has-background-dark has-text-white">
-//                                                 <tbody>
-//                                                     <tr>
-//                                                         <td>Diámetro:</td>
-//                                                         <td>4,879 km</td>
-//                                                     </tr>
-//                                                     <tr>
-//                                                         <td>Distancia al Sol:</td>
-//                                                         <td>57.9 mill. km</td>
-//                                                     </tr>
-//                                                     <tr>
-//                                                         <td>Duración del Día:</td>
-//                                                         <td>59 días terrestres</td>
-//                                                     </tr>
-//                                                     <tr>
-//                                                         <td>Duración del Año:</td>
-//                                                         <td>88 días terrestres</td>
-//                                                     </tr>
-//                                                     <tr>
-//                                                         <td>Gravedad:</td>
-//                                                         <td>3.7 m/s²</td>
-//                                                     </tr>
-//                                                 </tbody>
-//                                             </table>
-//                                         </div>
-//                                     </div>
-//                                     <footer class="card-footer">
-//                                         <!-- Este botón devolverá la tarjeta a su estado original -->
-//                                         <a href="#"
-//                                             class="card-footer-item button is-light is-inverted is-outlined js-flip-button">Volver</a>
-//                                     </footer>
-//                                 </div>
-//                             </div>
-
-//                         </div>
-//                     </div>
-//                 </div>

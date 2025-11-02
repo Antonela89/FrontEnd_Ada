@@ -36,7 +36,7 @@ export function initializeGallery() {
 	const galleryHTML = galleryData
 		.map(
 			(item) => `
-        <div class="column is-one-quarter-desktop is-one-third-tablet">
+        <div class="column is-one-quarter-desktop is-one-third-tablet is-half-mobile">
             <figure class="image is-1by1 gallery-image">
                 <img src="${item.thumbnail}" 
                     alt="${item.alt}"

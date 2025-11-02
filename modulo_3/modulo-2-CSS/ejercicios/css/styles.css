@@ -54,125 +54,133 @@ html {
 }
 
 /* seccion planetas */
-/* --- Estilos del Carrusel --- */
+/* --- Contenedores del Carrusel --- */
 
-/* Contenedor principal para posicionar los botones de navegación */
 .carousel-wrapper {
     position: relative;
 }
 
-/* La "ventana" visible del carrusel */
 .carousel-viewport {
     overflow: hidden;
 }
 
 /* El "riel" que contiene las tarjetas */
 #planetas-container.columns {
+    display: flex;
     flex-wrap: nowrap !important;
+    margin: 0;
     transition: transform 0.5s ease-in-out;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
 }
 
-/* Estilo de cada tarjeta dentro del carrusel para mobile*/
-#planetas-container .column {
+/* --- Estilos de cada Tarjeta/Columna dentro del Riel --- */
+
+.carousel-slide {
     flex-shrink: 0;
     flex-grow: 0;
+    padding: 0.75rem;
+    /* display: flex; */
+
+    /* Por defecto (móvil), cada tarjeta ocupa 100% de la ventana */
     width: 90vw;
-    margin: 0.75rem;
 }
 
-/* --- ESTILOS PARA LA TARJETA CON EFECTO FLIP --- */
+/* En tablet (a partir de 769px), cada tarjeta ocupa el 50% */
+@media screen and (min-width: 769px) {
+    .carousel-slide {
+        width: 50vw;
+    }
+}
 
-/* 1. El contenedor principal necesita 'perspective' para crear el espacio 3D */
+/* En desktop (a partir de 1024px), cada tarjeta ocupa el 25% */
+@media screen and (min-width: 1024px) {
+    .carousel-slide {
+        width: 25vw;
+    }
+}
+
+/* --- Estilos de la Tarjeta Interactiva (Flip Card) --- */
+
+/* Contenedor principal para la perspectiva 3D */
 .flip-card {
     background-color: transparent;
     width: 100%;
+    /* flex: 1; */
     height: 580px;
-    /* Es importante darle una altura fija para que la animación funcione bien */
+    /* Altura fija y consistente */
     perspective: 1000px;
-    /* Distancia de la "cámara" para el efecto 3D */
 }
 
-.flip-card .card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.flip-card .card .card-image {
-    height: 250px;
-    flex-shrink: 0;
-    /* Evita que el contenedor de la imagen se encoja */
-}
-
-.flip-card .card .card-image .image,
-.flip-card .card .card-image img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-/* El contenido debe ocupar el espacio restante */
-.flip-card .card .card-content {
-    flex-grow: 1;
-}
-
-/* 2. El contenedor interno es el que gira y necesita 'transform-style' */
+/* Contenedor interno que realiza la animación de giro */
 .flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
     transition: transform 0.8s;
-    /* Duración de la animación de giro */
     transform-style: preserve-3d;
 }
 
-/* 3. Clase que se añade con JS para activar el giro */
+/* Clase que se añade con JS para activar el giro */
 .flip-card-inner.is-flipped {
     transform: rotateY(180deg);
 }
 
-/* 4. Estilos para las caras frontal y trasera */
+/* Estilos para las caras frontal y trasera */
 .flip-card-front,
 .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
-    /* Para Chrome, Safari, etc. */
     backface-visibility: hidden;
-    /* Oculta la parte de atrás de la cara cuando está girando */
+    /* Oculta la "espalda" de la cara durante el giro */
 }
 
-/* 5. La cara trasera debe empezar ya girada */
+/* La cara trasera debe empezar ya girada 180 grados */
 .flip-card-back {
     transform: rotateY(180deg);
 }
 
-/* Pequeños ajustes para que la card de Bulma ocupe toda la altura */
+
+/* --- Estilos de la Tarjeta de Bulma (dentro de la Flip Card) --- */
+
+/* Asegura que la tarjeta de Bulma ocupe toda la altura de la flip-card */
 .flip-card .card {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
+/* Contenedor de la imagen de la tarjeta */
+.flip-card .card .card-image {
+    height: 250px;
+    /* Altura fija para la imagen */
+    flex-shrink: 0;
+}
+
+/* La imagen y su figura deben llenar el contenedor */
+.flip-card .card .card-image .image,
+.flip-card .card .card-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* Asegura que la imagen no se deforme */
+}
+
+/* El contenido (título, descripción) ocupa el espacio restante y tiene scroll */
 .flip-card .card .card-content {
     flex-grow: 1;
     overflow-y: auto;
 }
 
-/* Ajustes para que la tabla se vea bien en fondo oscuro */
+/* --- Estilos de la Tabla en la Cara Trasera --- */
+
 .table.has-background-dark.has-text-white {
     background-color: #363636;
-    /* Color de fondo oscuro de Bulma */
     color: #fff;
 }
 
 .table.has-background-dark.has-text-white tr:hover {
     background-color: #4a4a4a !important;
-    /* Resaltado en hover */
 }
 
 .table.has-background-dark td,
@@ -180,23 +188,8 @@ html {
     border-color: #4a4a4a !important;
 }
 
-/* A partir de 769px (tablet), mostramos 2 tarjetas */
-@media screen and (min-width: 769px) {
-    #planetas-container .column {
-        width: 45vw;
-        /* Aprox. 2 tarjetas */
-    }
-}
+/* --- Estilos de los Botones de Navegación del Carrusel --- */
 
-/* A partir de 1024px (desktop), mostramos 4 tarjetas */
-@media screen and (min-width: 1024px) {
-    #planetas-container .column {
-        width: 24vw;
-        /* Aprox. 4 tarjetas */
-    }
-}
-
-/* Estilo de los botones de navegación */
 .carousel-nav {
     position: absolute;
     top: 50%;
@@ -223,12 +216,10 @@ html {
 
 .carousel-nav-left {
     left: -1.5rem;
-    /* Posiciona el botón un poco fuera del contenedor */
 }
 
 .carousel-nav-right {
     right: -1.5rem;
-    /* Posiciona el botón un poco fuera del contenedor */
 }
 
 /* seccion otros cuerpos */
@@ -237,6 +228,12 @@ html {
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.tabs.is-centered.is-multiline ul{    
+    display: flex;
+    flex-shrink: 1;
+    flex-wrap: wrap;
 }
 
 /* seccion galeria */
@@ -251,6 +248,9 @@ html {
     filter: brightness(0.8);
 }
 
+#gallery-container.is-variable.column {
+    padding: 0; 
+}
 
 /* seccion contacto */
 

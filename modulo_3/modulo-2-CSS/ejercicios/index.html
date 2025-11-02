@@ -55,14 +55,14 @@
     <section class="hero is-fullheight is-bold" id="hero">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <p class="title is-1">
+                <p class="title is-1-desktop is-2-mobile">
                     Descubre los secretos de nuestro vecindario cósmico
                 </p>
-                <p class="subtitle is-3">
+                <p class="subtitle is-3-desktop is-4-mobile">
                     Explora los planetas, lunas y maravillas de nuestro sistema solar.
                 </p>
                 <div class="buttons is-centered mt-5">
-                    <a class="button is-primary is-large is-rounded" href="#introduccion">Explorar Ahora</a>
+                    <a class="button is-primary is-large-desktop is-rounded" href="#introduccion">Explorar Ahora</a>
                 </div>
             </div>
         </div>
@@ -72,8 +72,8 @@
     <!-- seccion introduccion -->
     <section class="section is-small" id="introduccion">
         <div class="container">
-            <h2 class="title is-2 has-text-centered">Bienvenidos al Sistema Solar</h2>
-            <p class="subtitle is-5 has-text-centered mb-5">
+            <h2 class="title is-2-desktop is-3-mobile has-text-centered">Bienvenidos al Sistema Solar</h2>
+            <p class="subtitle is-5-desktop is-6-mobile has-text-centered mb-5">
                 Nuestro sistema solar es un vasto y fascinante conjunto de planetas, lunas, asteroides y cometas que
                 orbitan alrededor de una estrella central: el Sol.
             </p>
@@ -103,7 +103,7 @@
     <!-- seccion sol -->
     <section class="section is-small has-background-light has-text-dark" id="sol">
         <div class="container">
-            <h2 class="title is-2 has-text-centered has-text-dark">El Corazón de Nuestro Sistema: El Sol</h2>
+            <h2 class="title is-2-desktop is-3-mobile has-text-centered has-text-dark">El Corazón de Nuestro Sistema: El Sol</h2>
             <div class="columns is-vcentered">
                 <div class="column is-one-third">
                     <figure class="image">
@@ -136,8 +136,8 @@
     <!-- seccion planetas -->
     <section class="section is-small" id="planetas">
         <div class="container">
-            <h2 class="title is-2 has-text-centered">Los Planetas de Nuestro Sistema Solar</h2>
-            <p class="subtitle is-5 has-text-centered mb-6">
+            <h2 class="title is-2-desktop is-3-mobile has-text-centered">Los Planetas de Nuestro Sistema Solar</h2>
+            <p class="subtitle is-5-desktop is-6-mobile has-text-centered mb-6">
                 Desde los rocosos interiores hasta los gigantes gaseosos exteriores, cada planeta es un mundo único.
             </p>
 
@@ -147,7 +147,7 @@
                 <!-- "Ventana" del carrusel que oculta el resto de las tarjetas -->
                 <div class="carousel-viewport">
                     <!-- "Riel" que se moverá y que contendrá las tarjetas -->
-                    <div class="columns is-mobile" id="planetas-container">
+                    <div class="columns" id="planetas-container">
                         <!-- Las tarjetas se inyectarán aquí con JavaScript -->
                     </div>
                 </div>
@@ -163,10 +163,10 @@
         </div>
 
         <div class="block mt-6" id="comparativas">
-            <h2 class="title is-2 has-text-centered">Comparativas</h2>
+            <h2 class="title is-2-desktop is-3-mobile has-text-centered">Comparativas</h2>
 
             <!-- Controles de Filtro -->
-            <div class="field is-grouped is-grouped-centered mb-5" id="table-filters">
+            <div class="field is-grouped is-grouped-centered is-multiline mb-5" id="table-filters">
                 <p class="control">
                     <button class="button is-primary" data-filter="all">Todos</button>
                 </p>
@@ -184,10 +184,6 @@
             <div id="comparative-table-container">
                 <!-- La tabla se inyectará aquí -->
             </div>
-            <!-- <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/The_Solar_System.svg/768px-The_Solar_System.svg.png?20220911122449"
-                    alt="Sistema Solar">
-            </figure> -->
         </div>
     </section>
     <!-- fin seccion planetas -->
@@ -196,8 +192,8 @@
     <!-- seccion otros cuerpos -->
     <section class="section is-small has-background-light" id="otrosCuerpos">
         <div class="container">
-            <h2 class="title is-2 has-text-centered has-text-dark">Más Allá de los Planetas</h2>
-            <p class="subtitle is-5 has-text-centered has-text-dark mb-6">
+            <h2 class="title is-2-desktop is-3-mobile has-text-centered has-text-dark">Más Allá de los Planetas</h2>
+            <p class="subtitle is-5-desktop is-6-mobile has-text-centered has-text-dark mb-6">
                 Nuestro sistema solar está lleno de objetos fascinantes más allá de los ocho planetas principales.
             </p>
 
@@ -213,13 +209,13 @@
     <!-- seccion galeria -->
     <section class="section" id="galeria">
         <div class="container">
-            <h2 class="title is-2 has-text-centered">Galería Cósmica</h2>
-            <p class="subtitle is-5 has-text-centered mb-6">
+            <h2 class="title is-2-desktop is-3-mobile has-text-centered">Galería Cósmica</h2>
+            <p class="subtitle is-5-desktop is-6-mobile has-text-centered mb-6">
                 Haz clic en una imagen para verla en detalle.
             </p>
 
             <!-- Contenedor para la rejilla de imágenes dinámica -->
-            <div class="columns is-multiline is-centered" id="gallery-container">
+            <div class="columns is-multiline is-centered is-variable is-2 is-mobile" id="gallery-container">
                 <!-- La galería se inyectará aquí -->
             </div>
 
@@ -230,8 +226,8 @@
     <!-- seccion timeline -->
     <section class="section" id="misiones">
         <div class="container">
-            <h2 class="title is-2 has-text-centered">Hitos de la Exploración Espacial</h2>
-            <p class="subtitle is-5 has-text-centered mb-6">
+            <h2 class="title is-2-desktop is-3-mobile has-text-centered">Hitos de la Exploración Espacial</h2>
+            <p class="subtitle is-5-desktop is-6-mobile has-text-centered mb-6">
                 Un viaje a través de las misiones que definieron nuestra historia en el cosmos.
             </p>
 
@@ -245,7 +241,7 @@
     <!-- seccion contacto -->
     <section class="section is-small has-background-light has-text-dark" id="nosotros">
         <div class="container">
-            <h2 class="title is-2 has-text-centered has-text-dark">Sobre Nosotros y Contacto</h2>
+            <h2 class="title is-2-desktop is-3-mobile has-text-centered has-text-dark">Sobre Nosotros y Contacto</h2>
             <div class="columns">
                 <div class="column is-half">
                     <p class="title has-text-dark is-4">Nuestra Misión</p>

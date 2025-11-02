@@ -1,5 +1,3 @@
-// js/modules/otherBodies.js
-
 import otherBodiesData from '../data/otherBodiesData.js';
 
 /**
@@ -12,7 +10,7 @@ export function initializeOtherBodies() {
 
 	// --- 1. Generar el HTML para las pestañas de navegación ---
 	const tabsHTML = `
-        <div class="tabs is-centered is-boxed is-medium">
+        <div class="tabs is-centered is-boxed is-medium is-multiline">
             <ul>
                 ${otherBodiesData
 					.map(
