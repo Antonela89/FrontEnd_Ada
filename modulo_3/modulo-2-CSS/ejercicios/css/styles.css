@@ -1,43 +1,63 @@
-/* importacion de Bulma css */
-@import "https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css";
+/* ==========================================================================
+    CONFIGURACIÓN GLOBAL Y HELPERS
+   ========================================================================== */
 
+/* 1. Importo la librería de Bulma desde un CDN.
+    Esta es la base sobre la que construiré todos mis estilos.
+    Cualquier variable de Sass que quisiera sobreescribir debería ir antes de esta línea.
+*/
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css";
 
+/* 2. Activo el scroll suave para toda la página.
+    Es un detalle simple de UX que mejora enormemente la navegación por anclas.
+*/
 html {
     scroll-behavior: smooth;
 }
 
-/* --------------------------------------------------------------------------------------------- */
+/* 3. Estilo general para todas las imágenes con 'figure.image'.
+    Decidí aplicar un 'border-radius' global para suavizar las esquinas y mantener un estilo consistente en toda la web.
+*/
+.image {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    /* Necesario para que el border-radius se aplique a la <img> interior */
+}
 
-/* ENCABEZADO*/
-/* navbar */
-/* --- Efectos Hover para Iconos del Navbar y Footer --- */
 
-/* 1. Definimos la transición para que la animación sea suave */
-/* Seleccionamos el icono del logo en el navbar y los iconos de redes en el footer */
+/* ==========================================================================
+    COMPONENTES PRINCIPALES (Navbar, Hero, Footer)
+   ========================================================================== */
+
+/* --- NAVBAR Y FOOTER --- */
+
+/*  He agrupado los estilos de los iconos del navbar y footer para reutilizar código.
+    La transición en 'transform' y 'color' es la clave para el efecto de hover suave.
+*/
 .navbar-brand .icon,
 .footer .social-icons .icon {
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-/* 2. Definimos el efecto al pasar el cursor (hover) */
-/* Hacemos el icono un poco más grande y cambiamos su color */
+/* El efecto de 'scale' da un feedback visual claro e inmediato al usuario.
+    Decidí cambiar el color a un blanco brillante para que resalte sobre el fondo oscuro.
+*/
 .navbar-brand .icon:hover,
 .footer .social-icons .icon:hover {
     transform: scale(1.2);
-    /* Aumenta el tamaño en un 20% */
     color: hsl(0, 0%, 96%) !important;
-    /* Un blanco brillante */
+    /* Uso !important para sobreescribir 'has-text-link' */
 }
 
-/* --------------------------------------------------------------------------------------------- */
+/* --- HERO BANNER --- */
 
-/* CUERPO */
-/* seccion hero - banner */
+/* Para el Hero, he optado por una técnica de overlay con 'linear-gradient'.
+    Esto me permite oscurecer la imagen de fondo y asegurar que el texto blanco tenga un contraste excelente, mejorando la legibilidad.
+    'background-attachment: fixed' crea un elegante efecto de parallax.
+*/
 .hero {
     background:
-        /* Capa 1: Overlay oscuro */
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        /* Capa 2: imagen de fondo */
         url('https://starwalk.space/gallery/images/milky-way-faq/1540x866.jpg');
     background-repeat: no-repeat;
     background-position: center center;
@@ -45,17 +65,12 @@ html {
     background-size: cover;
 }
 
-/* seccion introduccion */
 
-/* seccion sol */
-.image {
-    border-radius: 1rem;
-    overflow: hidden;
-}
+/* ==========================================================================
+    SECCIÓN PLANETAS Y CARRUSEL
+   ========================================================================== */
 
-/* seccion planetas */
 /* --- Contenedores del Carrusel --- */
-
 .carousel-wrapper {
     position: relative;
 }
@@ -64,7 +79,9 @@ html {
     overflow: hidden;
 }
 
-/* El "riel" que contiene las tarjetas */
+/* El "riel" que contiene las tarjetas.
+    Mi decisión clave aquí fue 'flex-wrap: nowrap !important;' para forzar el comportamiento de carrusel y evitar que las tarjetas se apilen.
+*/
 #planetas-container.columns {
     display: flex;
     flex-wrap: nowrap !important;
@@ -72,45 +89,27 @@ html {
     transition: transform 0.5s ease-in-out;
 }
 
-/* --- Estilos de cada Tarjeta/Columna dentro del Riel --- */
+/* --- Estilos de cada Tarjeta/Slide --- */
 
+/* Decidí usar nuestra propia clase 'carousel-slide' para evitar conflictos con la clase '.column' de Bulma.
+    Esto me da control total sobre el layout del carrusel.
+*/
 .carousel-slide {
     flex-shrink: 0;
     flex-grow: 0;
     padding: 0.75rem;
-    /* display: flex; */
-
-    /* Por defecto (móvil), cada tarjeta ocupa 100% de la ventana */
-    width: 90vw;
-}
-
-/* En tablet (a partir de 769px), cada tarjeta ocupa el 50% */
-@media screen and (min-width: 769px) {
-    .carousel-slide {
-        width: 50vw;
-    }
-}
-
-/* En desktop (a partir de 1024px), cada tarjeta ocupa el 25% */
-@media screen and (min-width: 1024px) {
-    .carousel-slide {
-        width: 25vw;
-    }
+    display: flex;
+    /* Clave para que el hijo '.flip-card' pueda usar 'flex: 1' */
 }
 
 /* --- Estilos de la Tarjeta Interactiva (Flip Card) --- */
-
-/* Contenedor principal para la perspectiva 3D */
 .flip-card {
-    background-color: transparent;
-    width: 100%;
-    /* flex: 1; */
-    height: 580px;
-    /* Altura fija y consistente */
+    flex: 1;
+    /* Esto asegura que la tarjeta ocupe todo el espacio de '.carousel-slide' */
+    height: 36.25rem;
     perspective: 1000px;
 }
 
-/* Contenedor interno que realiza la animación de giro */
 .flip-card-inner {
     position: relative;
     width: 100%;
@@ -119,12 +118,10 @@ html {
     transform-style: preserve-3d;
 }
 
-/* Clase que se añade con JS para activar el giro */
 .flip-card-inner.is-flipped {
     transform: rotateY(180deg);
 }
 
-/* Estilos para las caras frontal y trasera */
 .flip-card-front,
 .flip-card-back {
     position: absolute;
@@ -132,48 +129,37 @@ html {
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    /* Oculta la "espalda" de la cara durante el giro */
 }
 
-/* La cara trasera debe empezar ya girada 180 grados */
 .flip-card-back {
     transform: rotateY(180deg);
 }
 
-
 /* --- Estilos de la Tarjeta de Bulma (dentro de la Flip Card) --- */
-
-/* Asegura que la tarjeta de Bulma ocupe toda la altura de la flip-card */
 .flip-card .card {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* Contenedor de la imagen de la tarjeta */
 .flip-card .card .card-image {
-    height: 250px;
-    /* Altura fija para la imagen */
+    height: 15.625rem;
     flex-shrink: 0;
 }
 
-/* La imagen y su figura deben llenar el contenedor */
-.flip-card .card .card-image .image,
 .flip-card .card .card-image img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    /* Asegura que la imagen no se deforme */
 }
 
-/* El contenido (título, descripción) ocupa el espacio restante y tiene scroll */
 .flip-card .card .card-content {
     flex-grow: 1;
     overflow-y: auto;
+    /* Permite scroll si el contenido es muy largo, evitando que se rompa el diseño. */
 }
 
-/* --- Estilos de la Tabla en la Cara Trasera --- */
-
+/* Estilos de la tabla interna y botones del carrusel */
 .table.has-background-dark.has-text-white {
     background-color: #363636;
     color: #fff;
@@ -187,8 +173,6 @@ html {
 .table.has-background-dark th {
     border-color: #4a4a4a !important;
 }
-
-/* --- Estilos de los Botones de Navegación del Carrusel --- */
 
 .carousel-nav {
     position: absolute;
@@ -222,21 +206,33 @@ html {
     right: -1.5rem;
 }
 
-/* seccion otros cuerpos */
 
-#otrosCuerpos .media-left .image img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
+/* ==========================================================================
+    OTRAS SECCIONES
+   ========================================================================== */
 
-.tabs.is-centered.is-multiline ul{    
-    display: flex;
+/* --- Sección "Otros Cuerpos" --- */
+/* He sobreescrito el comportamiento de las pestañas de Bulma para que sean responsivas.
+    'flex-shrink: 1' y 'flex-wrap: wrap' son las claves para evitar el scroll horizontal en móviles.
+*/
+.tabs.is-centered.is-multiline ul {
     flex-shrink: 1;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-/* seccion galeria */
+/* --- Sección "Galería" --- */
+/* He decidido usar 'gap' para el espaciado de la galería. Es más moderno y robusto que depender de los paddings de las columnas.
+*/
+#gallery-container.columns.is-variable {
+    margin-left: 0;
+    margin-right: 0;
+    gap: 0.5rem;
+}
+
+#gallery-container .column {
+    padding: 0 !important;
+}
 
 .gallery-image img {
     transition: transform 0.3s ease, filter 0.3s ease;
@@ -248,99 +244,58 @@ html {
     filter: brightness(0.8);
 }
 
-#gallery-container.is-variable.column {
-    padding: 0; 
-}
-
-/* seccion contacto */
-
+/* --- Sección "Contacto" --- */
+/* He diseñado un tema oscuro para mi formulario, asegurando consistencia con el resto de la página.
+    Las transiciones en 'border-color' y 'box-shadow' son cruciales para un feedback suave al usuario.
+*/
 #contact-form .input,
 #contact-form .textarea {
     background-color: hsl(0, 0%, 14%);
-    /* Un gris muy oscuro */
     color: hsl(0, 0%, 96%);
-    /* Texto casi blanco */
     border-color: hsl(0, 0%, 29%);
-    /* Borde sutil */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 #contact-form .input::placeholder,
 #contact-form .textarea::placeholder {
     color: hsl(0, 0%, 55%);
-    /* Un poco más claro para mejor contraste */
 }
 
-/* 2. Transición Suave - Añadimos background-color a la transición */
-#contact-form .input,
-#contact-form .textarea {
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-/* 3. Efecto Hover MEJORADO */
 #contact-form .input:hover,
 #contact-form .textarea:hover {
     border-color: hsl(0, 0%, 60%);
-    /* Borde más claro */
     background-color: hsl(0, 0%, 18%);
-    /* Fondo ligeramente más brillante */
 }
 
-/* 4. Efecto Focus MEJORADO y más intenso */
 #contact-form .input:focus,
 #contact-form .textarea:focus {
-    background-color: hsl(0, 0%, 14%);
-    /* Volvemos al fondo original para máximo contraste */
     border-color: hsl(171, 100%, 41%);
-    /* Color primario de Bulma (turquesa) */
-    box-shadow: 0 0 0.5em 0.1em rgba(0, 209, 178, 0.35);
-    /* Resplandor más grande y notorio */
+    box-shadow: 0 0 0.5em 0.1em rgba(0, 209, 178, 0.25);
 }
 
-/* 5. ¡LA CLAVE! Cambiar el color del icono cuando el input está en focus */
+/* El selector de hermano adyacente '+' es mi herramienta para cambiar el color del icono cuando el campo está activo. */
 #contact-form .input:focus+.icon,
 #contact-form .textarea:focus+.icon {
     color: hsl(171, 100%, 41%) !important;
-    /* Mismo color que el borde de focus */
 }
 
-/* 6. Estilos base del icono */
 #contact-form .icon {
     color: hsl(0, 0%, 55%);
     transition: color 0.3s ease-in-out;
-    /* Animamos también el cambio de color del icono */
+}
+
+/* Este selector es muy específico: solo afecta al icono 'is-left' que está dentro de un control que contiene un 'textarea'.
+    Esto me permite ajustar su posición vertical sin afectar a los iconos de los 'input'.
+*/
+#contact-form .control .textarea+.icon.is-left {
+    top: 0.4rem;
 }
 
 #contact-form .textarea {
     padding-left: 2.5em !important;
-    padding-right: 1em;
 }
 
-.notification.fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* --------------------------------------------------------------------------------------------- */
-/*PIE DE PAGINA*/
-.footer {
-    padding-block-end: 3rem;
-}
-
-.footer i {
-    font-size: 1.5rem;
-}
-
+/* --- Botón "Volver Arriba" --- */
 .back-to-top {
     position: fixed;
     bottom: 2rem;
