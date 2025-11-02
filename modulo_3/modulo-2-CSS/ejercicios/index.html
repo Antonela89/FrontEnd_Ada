@@ -5,62 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Solar con Bulma CSS</title>
-    <!-- link css -->
+    <!-- Importo las extensiones hoja de estilo CSS -->
     <link rel="stylesheet" href="css/styles.css">
-    <!-- link Bulma Timeline -->
+    <!-- Importo las extensiones (Timeline) y librerías (Font Awesome) desde CDNs.-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-timeline@3.0.4/dist/css/bulma-timeline.min.css">
-    <!-- link Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <!-- 
+        La estructura de la página sigue una semántica HTML5 clara: <nav>, <main> (implícito), <section>, <footer>.
+        He optado por una arquitectura de "esqueleto HTML": la estructura base está aquí, pero el contenido
+        repetitivo y dinámico (menú, tarjetas, tablas) se inyectará con JavaScript.
+    -->
+
     <!-- NAVBAR -->
+    <!-- 'is-fixed-top' es clave para la UX, manteniendo la navegación siempre accesible. -->
+    <!-- 'px-4' agrega 1rem de padding block. -->
     <nav class="navbar px-4 is-fixed-top" role="navigation" aria-label="main navigation">
-        <!-- Logo -->
         <div class="navbar-brand">
             <a class="navbar-item" href="#">
+                <!-- Envuelvo el icono en un 'span.icon' siguiendo las buenas prácticas de Bulma para un correcto espaciado y alineación. -->
                 <span class="icon is-medium">
                     <i class="fas fa-star has-text-link"></i>
                 </span>
             </a>
-            <!-- Menu Hamburguesa - Responsive -->
+            <!-- El 'navbar-burger' es esencial para la responsividad. Los atributos 'data-target' son mi hook para el JS. -->
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                 data-target="navbar-sistemaSolar">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
             </a>
         </div>
 
         <div class="navbar-menu" id="navbar-sistemaSolar">
-            <!-- Texto a la izquierda -->
             <div class="navbar-start">
-                <a class="navbar-item" href="#">
-                    Explorando Nuestro Sistema Solar
-                </a>
+                <a class="navbar-item" href="#">Explorando Nuestro Sistema Solar</a>
             </div>
-            <!-- Contenedor vacío para el menú dinámico -->
-            <div class="navbar-end" id="navbar-dynamic-menu">
-                <!-- El menú se inyectará aquí con JavaScript -->
-            </div>
+            <!-- Este 'div' es el punto de montaje para mi módulo de navegación dinámico. -->
+            <div class="navbar-end" id="navbar-dynamic-menu"></div>
         </div>
     </nav>
     <!-- fin navbar -->
 
     <!-- MAIN -->
-    <!-- Banner -->
+    <!-- Hero Section: La primera impresión. 'is-fullheight' captura la atención inmediatamente. -->
     <section class="hero is-fullheight is-bold" id="hero">
         <div class="hero-body">
             <div class="container has-text-centered">
-                <p class="title is-1-desktop is-2-mobile">
-                    Descubre los secretos de nuestro vecindario cósmico
-                </p>
-                <p class="subtitle is-3-desktop is-4-mobile">
-                    Explora los planetas, lunas y maravillas de nuestro sistema solar.
-                </p>
+                <!-- 
+                    He utilizado clases de tipografía responsivas ('is-1-desktop', 'is-2-mobile').
+                    Es una decisión consciente para asegurar la legibilidad y el impacto visual en todos los dispositivos, evitando títulos enormes en pantallas pequeñas.
+                -->
+                <p class="title is-1-desktop is-2-mobile">Descubre los secretos de nuestro vecindario cósmico</p>
+                <p class="subtitle is-3-desktop is-4-mobile">Explora los planetas, lunas y maravillas de nuestro sistema
+                    solar.</p>
                 <div class="buttons is-centered mt-5">
                     <a class="button is-primary is-large-desktop is-rounded" href="#introduccion">Explorar Ahora</a>
                 </div>
@@ -69,7 +69,10 @@
     </section>
     <!-- fin banner -->
 
-    <!-- seccion introduccion -->
+    <!-- 
+        A partir de aquí, cada <section> funciona como un componente autocontenido con su propio ID,
+        lo que facilita la navegación por anclas y la organización del código.
+    -->
     <section class="section is-small" id="introduccion">
         <div class="container">
             <h2 class="title is-2-desktop is-3-mobile has-text-centered">Bienvenidos al Sistema Solar</h2>
@@ -77,9 +80,12 @@
                 Nuestro sistema solar es un vasto y fascinante conjunto de planetas, lunas, asteroides y cometas que
                 orbitan alrededor de una estrella central: el Sol.
             </p>
-
-            <div class="columns is-vcentered">
+            <!-- 
+                Uso el sistema de columnas de Bulma para el layout. 'is-vcentered' es un detalle simple que asegura una alineación vertical entre la animación y el texto.
+            -->
+            <div class="columns is-vcentered is-mobile">
                 <div class="column is-two-thirds">
+                    <!-- He elegido un <canvas> aquí para una infografía animada, buscando una experiencia más rica e interactiva que una simple imagen. -->
                     <div class="box has-background-dark p-0" style="overflow: hidden;">
                         <canvas id="solarSystemCanvas"></canvas>
                     </div>
@@ -98,12 +104,19 @@
             </div>
         </div>
     </section>
-    <!-- fin seccion introduccion -->
+
+    <!-- 
+        El resto de las secciones siguen el mismo patrón de "esqueleto".
+        Defino la estructura principal y los puntos de montaje (contenedores con ID),
+        y delego la responsabilidad de renderizar el contenido a mis módulos de JavaScript.
+        Esto es la base de mi arquitectura desacoplada.
+    -->
 
     <!-- seccion sol -->
     <section class="section is-small has-background-light has-text-dark" id="sol">
         <div class="container">
-            <h2 class="title is-2-desktop is-3-mobile has-text-centered has-text-dark">El Corazón de Nuestro Sistema: El Sol</h2>
+            <h2 class="title is-2-desktop is-3-mobile has-text-centered has-text-dark">El Corazón de Nuestro Sistema: El
+                Sol</h2>
             <div class="columns is-vcentered">
                 <div class="column is-one-third">
                     <figure class="image">
@@ -143,87 +156,70 @@
 
             <!-- Contenedor principal del carrusel -->
             <div class="carousel-wrapper">
-
                 <!-- "Ventana" del carrusel que oculta el resto de las tarjetas -->
                 <div class="carousel-viewport">
+                    <!-- 
+                        He decidido no usar las clases de columna de Bulma ('is-mobile', etc.) aquí
+                        porque mi carrusel JS necesita un control total y absoluto sobre el ancho de los slides.
+                        El ID 'planetas-container' es el punto de montaje para el módulo de las tarjetas.
+                    -->
                     <!-- "Riel" que se moverá y que contendrá las tarjetas -->
                     <div class="columns" id="planetas-container">
-                        <!-- Las tarjetas se inyectarán aquí con JavaScript -->
+                        <!-- Aqui se agregan las cards de los planetas con JS -->
                     </div>
                 </div>
-
                 <!-- Botones de Navegación -->
-                <button class="carousel-nav carousel-nav-left" aria-label="Anterior">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-nav carousel-nav-right" aria-label="Siguiente">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <button class="carousel-nav carousel-nav-left" aria-label="Anterior"><i
+                        class="fas fa-chevron-left"></i></button>
+                <button class="carousel-nav carousel-nav-right" aria-label="Siguiente"><i
+                        class="fas fa-chevron-right"></i></button>
             </div>
         </div>
 
         <div class="block mt-6" id="comparativas">
             <h2 class="title is-2-desktop is-3-mobile has-text-centered">Comparativas</h2>
-
-            <!-- Controles de Filtro -->
             <div class="field is-grouped is-grouped-centered is-multiline mb-5" id="table-filters">
-                <p class="control">
-                    <button class="button is-primary" data-filter="all">Todos</button>
-                </p>
-                <p class="control">
-                    <button class="button" data-filter="rocoso">Rocosos</button>
-                </p>
-                <p class="control">
-                    <button class="button" data-filter="gaseoso">Gigantes Gaseosos</button>
-                </p>
-                <p class="control">
-                    <button class="button" data-filter="helado">Gigantes Helados</button>
-                </p>
+                <!-- Botones de filtro estáticos, ya que es poco probable que cambien. El JS les añadirá la funcionalidad. -->
+                <p class="control"><button class="button is-primary" data-filter="all">Todos</button></p>
+                <p class="control"><button class="button" data-filter="rocoso">Rocosos</button></p>
+                <p class="control"><button class="button" data-filter="gaseoso">Gigantes Gaseosos</button></p>
+                <p class="control"><button class="button" data-filter="helado">Gigantes Helados</button></p>
             </div>
-
             <div id="comparative-table-container">
-                <!-- La tabla se inyectará aquí -->
+                <!-- Aqui se agrega la tabla -->
             </div>
         </div>
     </section>
-    <!-- fin seccion planetas -->
+    <!-- fin sección planetas -->
 
-
-    <!-- seccion otros cuerpos -->
+    <!-- Sección de Otros Cuerpos, punto de montaje para el módulo de pestañas. -->
     <section class="section is-small has-background-light" id="otrosCuerpos">
         <div class="container">
             <h2 class="title is-2-desktop is-3-mobile has-text-centered has-text-dark">Más Allá de los Planetas</h2>
             <p class="subtitle is-5-desktop is-6-mobile has-text-centered has-text-dark mb-6">
                 Nuestro sistema solar está lleno de objetos fascinantes más allá de los ocho planetas principales.
             </p>
-
             <!-- Contenedor para el sistema de pestañas dinámico -->
             <div id="other-bodies-container">
                 <!-- Las pestañas y su contenido se inyectarán aquí -->
             </div>
-
         </div>
     </section>
-    <!-- fin seccion otros cuerpos -->
+    <!-- fin sección otros cuerpos -->
 
-    <!-- seccion galeria -->
+    <!-- Sección de Galería, punto de montaje para la rejilla y el modal. -->
     <section class="section" id="galeria">
         <div class="container">
             <h2 class="title is-2-desktop is-3-mobile has-text-centered">Galería Cósmica</h2>
-            <p class="subtitle is-5-desktop is-6-mobile has-text-centered mb-6">
-                Haz clic en una imagen para verla en detalle.
-            </p>
-
-            <!-- Contenedor para la rejilla de imágenes dinámica -->
+            <p class="subtitle is-5-desktop is-6-mobile has-text-centered mb-6">Imágenes asombrosas del universo.</p>
             <div class="columns is-multiline is-centered is-variable is-2 is-mobile" id="gallery-container">
                 <!-- La galería se inyectará aquí -->
             </div>
-
         </div>
     </section>
     <!-- fin seccion galeria -->
 
-    <!-- seccion timeline -->
+    <!-- Sección Timeline, punto de montaje para la extensión Bulma-Timeline. -->
     <section class="section" id="misiones">
         <div class="container">
             <h2 class="title is-2-desktop is-3-mobile has-text-centered">Hitos de la Exploración Espacial</h2>
@@ -237,12 +233,14 @@
             </div>
         </div>
     </section>
+    <!-- fin seccion timeline -->
 
-    <!-- seccion contacto -->
+    <!-- Sección de Contacto. He optado por mantener el formulario en el HTML por simplicidad, -->
+    <!-- ya que es un componente único. 'novalidate' es importante para que mi JS de validación tome el control. -->
     <section class="section is-small has-background-light has-text-dark" id="nosotros">
         <div class="container">
             <h2 class="title is-2-desktop is-3-mobile has-text-centered has-text-dark">Sobre Nosotros y Contacto</h2>
-            <div class="columns">
+            <div class="columns is-mobile">
                 <div class="column is-half">
                     <p class="title has-text-dark is-4">Nuestra Misión</p>
                     <p>
@@ -253,11 +251,9 @@
                     <p class="mt-3">
                         La información proviene de fuentes confiables como la NASA, la ESA y diversas universidades.
                     </p>
-
-                    <!-- notifcacion -->
+                    <!-- Punto de montaje para las notificaciones del formulario, desacoplado del formulario en sí. -->
                     <div id="contact-notification-container" class="my-6"></div>
                 </div>
-
                 <div class="column is-half">
                     <form id="contact-form" novalidate>
                         <p class="title has-text-dark is-4">Contáctanos</p>
@@ -324,7 +320,6 @@
                     class="has-text-link">Términos de Uso</a>
             </p>
 
-
             <div class="social-icons mt-3">
                 <a href="#" class="mr-2">
                     <span class="icon is-medium"> <!-- Envolvemos en un span.icon -->
@@ -342,14 +337,25 @@
                     </span>
                 </a>
             </div>
-
-
         </div>
+        <!-- 
+            He colocado el botón "Volver Arriba" fuera del 'div.content' pero dentro del 'footer'
+            para facilitar su posicionamiento 'fixed' relativo a la ventana.
+        -->
         <a href="#hero" class="button is-primary is-rounded back-to-top is-hidden" id="back-to-top-button">
             <span class="icon"><i class="fas fa-arrow-up"></i></span>
         </a>
     </footer>
+
+    <!--
+        Mi script principal ('main.js') se carga al final del <body>.
+        Es CRUCIAL cargarlo con 'type="module"' para habilitar la sintaxis 'import'/'export'
+        y que toda mi arquitectura modular funcione correctamente.
+        Esto también implica que el script se carga con 'defer' por defecto, asegurando que el DOM
+        esté parseado antes de que se ejecute, lo cual es una buena práctica.
+    -->
+    <script src="js/main.js" type="module"></script>
+
 </body>
-<script src="js/main.js" type="module"></script>
 
 </html>
