@@ -2,13 +2,9 @@
 // MÓDULO: NAVEGACIÓN PRINCIPAL (navbar.js)
 // ==========================================================================
 //
-// Construye dinámicamente la barra de navegación y
-// activa su comportamiento responsivo (el menú de hamburguesa).
-// Decidí que la estructura del menú (sus enlaces y desplegables) debía
-// provenir de una fuente de datos externa ('navData.js'). Esto desacopla
-// la estructura de la navegación de la implementación, lo que significa que
-// para añadir o quitar una sección de la web, solo necesito modificar el
-// array de datos, sin tocar este archivo ni el HTML.
+// 	Contruye dinámicamente la barra de navegación y
+// activar su comportamiento responsivo, incluyendo el cierre automático
+// del menú de hamburguesa al seleccionar una opción.
 
 import navData from '../data/navData.js';
 
@@ -16,87 +12,79 @@ import navData from '../data/navData.js';
 
 /**
  * Activa la funcionalidad del menú de hamburguesa de Bulma.
- * He creado esta función helper para mantener la lógica de la UI separada
- * de la lógica de renderizado.
+ * También añade la lógica para el cierre automático en móvil.
  */
-function attachBurgerListener() {
-    // Selecciono todos los '.navbar-burger'. Aunque solo tengo uno,
-    // escribirlo de esta forma lo hace más robusto por si en el futuro
-    // decidiera añadir más navbars.
-	const navbarBurgers = document.querySelectorAll('.navbar-burger');
-	navbarBurgers.forEach((burger) => {
-		burger.addEventListener('click', () => {
-            // La lógica es la estándar de Bulma: obtengo el ID del objetivo
-            // desde el atributo 'data-target' del botón.
-			const target = document.getElementById(burger.dataset.target);
+function attachBurgerAndLinkListeners() {
+    // Seleccionamos todos los elementos necesarios una sola vez.
+    const navbarBurgers = document.querySelectorAll('.navbar-burger');
+    const allNavbarLinks = document.querySelectorAll('.navbar-item');
 
-            // Y luego alterno la clase 'is-active' tanto en el botón (para la animación de 'X')
-            // como en el menú objetivo (para mostrarlo/ocultarlo).
-			burger.classList.toggle('is-active');
-			target.classList.toggle('is-active');
-		});
-	});
+    // Listener para el (los) botón(es) de hamburguesa.
+    navbarBurgers.forEach((burger) => {
+        burger.addEventListener('click', () => {
+            const target = document.getElementById(burger.dataset.target);
+            burger.classList.toggle('is-active');
+            target.classList.toggle('is-active');
+        });
+    });
+
+    // ¡LA LÓGICA DE CIERRE CORRECTA!
+    // Listener para todos los enlaces del menú.
+    allNavbarLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            // Buscamos el menú de hamburguesa activo en el momento del clic.
+            const activeBurger = document.querySelector('.navbar-burger.is-active');
+            
+            // Si existe un menú activo (es decir, estamos en vista móvil y el menú está abierto)...
+            if (activeBurger) {
+                const target = document.getElementById(activeBurger.dataset.target);
+                
+                // ...lo cerramos.
+                activeBurger.classList.remove('is-active');
+                target.classList.remove('is-active');
+            }
+        });
+    });
 }
 
 /**
  * Genera el HTML para un único item del menú.
- * Esta función es el núcleo de la lógica de renderizado.
- * Es una función pura que recibe un objeto y devuelve un string de HTML.
- * @param {object} item - Un objeto del array navData.
- * @returns {string} El string HTML para ese item del menú.
+ * (Esta función no necesita cambios, está perfecta).
  */
 function generateMenuItemHTML(item) {
-	// Mi decisión clave aquí fue usar una estructura de datos que me permitiera
-    // anidar elementos. Si un item tiene una propiedad 'children', lo trato
-    // como un menú desplegable.
-	if (item.children && item.children.length > 0) {
-		// Para los sub-items, utilizo 'map' para transformar cada objeto 'child'
-        // en su correspondiente string de HTML.
-		const dropdownItems = item.children
-			.map((child) => {
-                // He añadido una pequeña lógica para manejar separadores,
-                // haciendo mi estructura de datos aún más flexible.
-				if (child.isDivider) {
-					return '<hr class="navbar-divider">';
-				}
-				return `<a class="navbar-item" href="${child.href}">${child.text}</a>`;
-			})
-			.join('');
-
-        // Devuelvo el HTML completo del componente 'dropdown' de Bulma.
-        // He optado por '.is-hoverable' para una mejor UX en escritorio y '.is-boxed'
-        // para un estilo más moderno.
-		return `
+    if (item.children && item.children.length > 0) {
+        const dropdownItems = item.children
+            .map((child) => {
+                if (child.isDivider) {
+                    return '<hr class="navbar-divider">';
+                }
+                return `<a class="navbar-item" href="${child.href}">${child.text}</a>`;
+            })
+            .join('');
+        return `
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="${item.href}">
-                    ${item.text}
-                </a>
-                <div class="navbar-dropdown is-boxed">
-                    ${dropdownItems}
-                </div>
+                <a class="navbar-link" href="${item.href}">${item.text}</a>
+                <div class="navbar-dropdown is-boxed">${dropdownItems}</div>
             </div>
         `;
-	}
-	// Si el item no tiene 'children', simplemente devuelvo un enlace estándar.
-	else {
-		return `<a class="navbar-item" href="${item.href}">${item.text}</a>`;
-	}
+    } else {
+        return `<a class="navbar-item" href="${item.href}">${item.text}</a>`;
+    }
 }
 
 // --- FUNCIÓN PÚBLICA (EXPORTADA) ---
 
 /**
  * La función orquestadora que se llama desde 'main.js'.
- * Su flujo de trabajo es simple y directo.
  */
 export function initializeNavbar() {
-	const menuContainer = document.getElementById('navbar-dynamic-menu');
-	if (!menuContainer) return;
+    const menuContainer = document.getElementById('navbar-dynamic-menu');
+    if (!menuContainer) return;
 
-	// Genero todo el HTML del menú de una sola vez usando 'map' y 'join'.
-	menuContainer.innerHTML = navData.map(generateMenuItemHTML).join('');
+    // 1. Generamos el HTML del menú.
+    menuContainer.innerHTML = navData.map(generateMenuItemHTML).join('');
 
-	// Una vez que el menú está en el DOM, activo la funcionalidad del menú de hamburguesa.
-    // El orden aquí es crucial.
-	attachBurgerListener();
+    // 2. Una vez que TODO el navbar está en el DOM (incluyendo los enlaces que acabamos de crear),
+    // llamamos a la función que activa TODA la interactividad.
+    attachBurgerAndLinkListeners();
 }
