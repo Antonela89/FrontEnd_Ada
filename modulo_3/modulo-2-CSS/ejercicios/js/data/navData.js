@@ -29,7 +29,7 @@ const navData = [
     },
     { text: 'Galería', href: '#galeria' },
     { text: 'Misiones', href: '#misiones' },
-    { text: 'Contacto', href: '#contacto' },
+    { text: 'Contacto', href: '#nosotros' },
 ];
 
 export default navData;
