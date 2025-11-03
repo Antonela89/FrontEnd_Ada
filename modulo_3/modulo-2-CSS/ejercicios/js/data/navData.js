@@ -28,7 +28,8 @@ const navData = [
         ]
     },
     { text: 'Galería', href: '#galeria' },
-    { text: 'Misiones', href: '#misiones' }
+    { text: 'Misiones', href: '#misiones' },
+    { text: 'Contacto', href: '#contacto' },
 ];
 
 export default navData;
