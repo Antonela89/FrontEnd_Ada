@@ -207,11 +207,14 @@ html {
     right: -1.5rem;
 }
 
+/* tabla comparativa filtros */
+#table-filters {
+    flex-wrap: wrap;
+}
 
 /* ==========================================================================
     OTRAS SECCIONES
    ========================================================================== */
-
 /* --- Sección "Otros Cuerpos" --- */
 /* He sobreescrito el comportamiento de las pestañas de Bulma para que sean responsivas.
     'flex-shrink: 1' y 'flex-wrap: wrap' son las claves para evitar el scroll horizontal en móviles.
