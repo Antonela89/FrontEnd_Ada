@@ -50,7 +50,7 @@ export function initializeOtherBodies() {
             ${otherBodiesData.map((body, index) => `
                 <div id="${body.id}" class="tab-content ${index > 0 ? 'is-hidden' : ''}">
                     <div class="box">
-                        <div class="columns is-vcentered is-mobile">
+                        <div class="columns is-vcentered">
                             <div class="column is-two-fifths">
                                 <figure class="image is-16by9">
                                     <img src="${body.image}" alt="${body.title}">
