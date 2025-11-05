@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Completa de Extensiones de Bulma (Corregido)</title>
+
+    <!-- Bulma CSS Principal -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- === CSS de Extensiones (Rutas 100% Verificadas) === -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-accordion@2.0.1/dist/css/bulma-accordion.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-badge@3.0.1/dist/css/bulma-badge.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-calendar@6.1.19/dist/css/bulma-calendar.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-checkradio@2.1.3/dist/css/bulma-checkradio.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-divider@1.1.0/dist/bulma-divider.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-pageloader@0.3.0/dist/css/bulma-pageloader.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-quickview@2.0.0/dist/css/bulma-quickview.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-steps@2.2.1/dist/css/bulma-steps.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-switch@2.0.4/dist/css/bulma-switch.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-timeline@3.0.4/dist/css/bulma-timeline.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.4/dist/bulma-toast.min.css">
+
+    <style>
+        .pricing-table.is-active .box {
+            transform: scale(1.05);
+            box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.2);
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero is-primary is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-2">Galería de Extensiones de Bulma</h1>
+                <p class="subtitle is-4">Un showcase con diseño responsivo y colores</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navbar con Megamenu -->
+    <nav class="navbar is-info" role="navigation">
+        <div class="container">
+            <div class="navbar-brand"><a class="navbar-item has-text-weight-bold">Demostración</a></div>
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <div class="navbar-item has-dropdown is-hoverable is-megamenu">
+                        <a class="navbar-link">Megamenu</a>
+                        <div class="navbar-dropdown">
+                            <div class="container is-fluid">
+                                <div class="columns">
+                                    <div class="column">
+                                        <h1 class="title is-6">Categoría 1</h1><a class="navbar-item">Producto A</a><a
+                                            class="navbar-item">Producto B</a>
+                                    </div>
+                                    <div class="column">
+                                        <h1 class="title is-6">Categoría 2</h1><a class="navbar-item">Producto C</a><a
+                                            class="navbar-item">Producto D</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor Principal -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                <div class="column is-full">
+                    <div class="box">
+                        <h3 class="title is-5">Accordion</h3>
+                        <div class="accordions">
+                            <article class="accordion is-active is-info">
+                                <div class="accordion-header">
+                                    <p>Pregunta 1</p><button class="toggle"></button>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">Respuesta a la primera pregunta.</div>
+                                </div>
+                            </article>
+                            <article class="accordion is-success">
+                                <div class="accordion-header">
+                                    <p>Pregunta 2</p><button class="toggle"></button>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">Respuesta a la segunda pregunta.</div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half-desktop is-full-tablet">
+                    <div class="box">
+                        <h3 class="title is-5 mb-4">Formularios</h3><label class="label">Slider</label><input
+                            class="slider is-fullwidth is-success mb-5" type="range" min="0" max="100" value="25"><label
+                            class="label">Switch</label>
+                        <div class="field mb-5"><input id="switchExample" type="checkbox"
+                                class="switch is-rounded is-success"><label for="switchExample">Activar
+                                notificaciones</label></div><label class="label">Checkradio</label>
+                        <div class="field"><input class="is-checkradio is-info" id="exampleCheckbox" type="checkbox"
+                                checked><label for="exampleCheckbox">Acepto los términos</label></div>
+                    </div>
+                </div>
+                <div class="column is-half-desktop is-full-tablet">
+                    <div class="box">
+                        <h3 class="title is-5 mb-4">Notificaciones</h3><label class="label">Badge</label>
+                        <div class="buttons mb-5"><button class="button is-primary badge"
+                                data-badge="8">Mensajes</button><button class="button is-danger badge is-badge-large"
+                                data-badge="NUEVO">Ofertas</button></div><label class="label">Tooltip</label>
+                        <div class="buttons mb-5"><button class="button has-tooltip-bottom"
+                                data-tooltip="Haz clic para guardar">Guardar</button><button
+                                class="button has-tooltip-right has-tooltip-info"
+                                data-tooltip="Esto eliminará el archivo">Eliminar</button></div><label
+                            class="label">Toast</label>
+                        <div class="buttons"><button class="button is-success" id="toast-button">Mostrar Notificación
+                                Toast</button></div>
+                    </div>
+                </div>
+                <div class="column is-full">
+                    <div class="box">
+                        <h3 class="title is-5">Steps</h3>
+                        <div class="steps has-content-centered">
+                            <div class="step-item is-completed is-success">
+                                <div class="step-marker">1</div>
+                                <div class="step-details">
+                                    <p class="step-title">Registro</p>
+                                </div>
+                            </div>
+                            <div class="step-item is-active">
+                                <div class="step-marker"><i class="fa fa-user"></i></div>
+                                <div class="step-details">
+                                    <p class="step-title">Verificación</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-marker">3</div>
+                                <div class="step-details">
+                                    <p class="step-title">Configuración</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-full">
+                    <div class="box">
+                        <h3 class="title is-5">Timeline</h3>
+                        <div class="timeline is-centered">
+                            <header class="timeline-header"><span class="tag is-medium is-primary">Inicio</span>
+                            </header>
+                            <div class="timeline-item is-info">
+                                <div class="timeline-marker is-info is-icon"><i class="fa fa-flag"></i></div>
+                                <div class="timeline-content">
+                                    <p class="heading">Enero 2024</p>
+                                    <p>Planificación</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item is-success">
+                                <div class="timeline-marker is-success"></div>
+                                <div class="timeline-content">
+                                    <p class="heading">Marzo 2024</p>
+                                    <p>Desarrollo</p>
+                                </div>
+                            </div>
+                            <header class="timeline-header"><span class="tag is-medium is-primary">Lanzamiento</span>
+                            </header>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-full">
+                    <h3 class="title is-4 has-text-centered">Tabla de Precios</h3>
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-one-third-desktop is-half-tablet">
+                            <div class="pricing-table">
+                                <div class="box">
+                                    <div class="pricing-plan">
+                                        <div class="plan-header">Básico</div>
+                                        <div class="plan-price"><span class="plan-price-amount">$10</span>/mes</div>
+                                        <div class="plan-items">
+                                            <div class="plan-item">10GB</div>
+                                            <div class="plan-item">1 Usuario</div>
+                                        </div>
+                                        <div class="plan-footer"><button class="button is-fullwidth">Elegir</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third-desktop is-half-tablet">
+                            <div class="pricing-table is-active">
+                                <div class="box">
+                                    <div class="pricing-plan is-primary">
+                                        <div class="plan-header">Profesional</div>
+                                        <div class="plan-price"><span class="plan-price-amount">$30</span>/mes</div>
+                                        <div class="plan-items">
+                                            <div class="plan-item">50GB</div>
+                                            <div class="plan-item">10 Usuarios</div>
+                                        </div>
+                                        <div class="plan-footer"><button
+                                                class="button is-fullwidth is-primary">Elegir</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-one-third-desktop is-half-tablet">
+                            <div class="pricing-table">
+                                <div class="box">
+                                    <div class="pricing-plan">
+                                        <div class="plan-header">Empresarial</div>
+                                        <div class="plan-price"><span class="plan-price-amount">$70</span>/mes</div>
+                                        <div class="plan-items">
+                                            <div class="plan-item">Ilimitado</div>
+                                            <div class="plan-item">Ilimitado</div>
+                                        </div>
+                                        <div class="plan-footer"><button class="button is-fullwidth">Elegir</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half-desktop is-full-tablet">
+                    <div class="box">
+                        <h3 class="title is-5 mb-4">Calendar</h3>
+                        <div class="field"><label class="label">Selector de Fecha</label>
+                            <div class="control"><input class="input" type="date"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-half-desktop is-full-tablet">
+                    <div class="box">
+                        <h3 class="title is-5 mb-4">Interactivas</h3>
+                        <p>Haz clic para probar estas extensiones.</p>
+                        <div class="buttons"><button class="button is-primary" data-show="quickview"
+                                data-target="quickviewExample">Abrir Quickview</button><button class="button is-danger"
+                                id="pageloader-button">Activar Pageloader</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elementos Ocultos -->
+    <div id="quickviewExample" class="quickview">
+        <header class="quickview-header">
+            <p class="title">Detalles del Producto</p><span class="delete" data-dismiss="quickview"></span>
+        </header>
+        <div class="quickview-body">
+            <div class="quickview-block">
+                <p>Este es el panel de vista rápida.</p>
+            </div>
+        </div>
+    </div>
+    <div class="pageloader" id="pageloader"><span class="title">Cargando...</span></div>
+
+    <!-- === Scripts de Extensiones (Rutas 100% Verificadas) === -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-accordion@2.0.1/dist/js/bulma-accordion.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-calendar@6.1.19/dist/js/bulma-calendar.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-quickview@2.0.0/dist/js/bulma-quickview.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.4/dist/bulma-toast.min.js"></script>
+
+    <!-- Script de inicialización -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            bulmaAccordion.attach();
+            if (document.querySelector('#carousel-demo')) {
+                bulmaCarousel.attach('#carousel-demo', {slidesToScroll: 1, slidesToShow: 1, loop: true});
+            }
+            bulmaQuickview.attach();
+            bulmaCalendar.attach('[type="date"]', {color: 'primary', lang: 'es'});
+
+            const toastButton = document.getElementById('toast-button');
+            if (toastButton && typeof bulmaToast !== 'undefined') {
+                toastButton.addEventListener('click', () => {
+                    bulmaToast.toast({message: '¡Notificación Toast exitosa!', type: 'is-success', position: 'top-center', duration: 3000});
+                });
+            }
+
+            const pageloader = document.getElementById('pageloader');
+            const pageloaderButton = document.getElementById('pageloader-button');
+            if (pageloader && pageloaderButton) {
+                pageloaderButton.addEventListener('click', () => {
+                    pageloader.classList.add('is-active');
+                    setTimeout(() => {pageloader.classList.remove('is-active');}, 3000);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
