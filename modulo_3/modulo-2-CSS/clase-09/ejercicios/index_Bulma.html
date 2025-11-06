@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Metadatos básicos del documento -->
+  <meta charset="UTF-8" />
+  <!-- Asegura que la página sea responsiva y se vea bien en todos los dispositivos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- El título que aparece en la pestaña del navegador -->
+  <title>Soluciones - Actividades Clase 9</title>
+
+  <!-- === CONEXIÓN CON BULMA Y FONT AWESOME === -->
+  <!-- 1. Se enlaza la hoja de estilos de Bulma desde una CDN (Content Delivery Network). -->
+  <!--    Esta única línea de código nos da acceso a TODO el framework de Bulma sin necesidad de descargar nada. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+
+  <!-- 2. Se enlaza Font Awesome, una librería de íconos. -->
+  <!--    Bulma se integra muy bien con ella para agregar íconos a botones, inputs, etc. -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Estilos personalizados muy ligeros -->
+  <style>
+    /* Este es un estilo CSS personalizado que no viene en Bulma. */
+    /* Lo usamos para agregar una barra de color a la izquierda de cada solución cuando se muestra. */
+    .solution-content {
+      border-left: 4px solid #00d1b2;
+      /* Un borde izquierdo de color turquesa */
+      padding-left: 20px;
+      /* Espacio interno para que el texto no se pegue al borde */
+      margin-top: 20px;
+      /* Un margen superior para separarlo del botón "Ver Solución" */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- === HERO / BANNER PRINCIPAL === -->
+  <!-- La etiqueta <section> se usa para agrupar contenido temáticamente relacionado. -->
+  <!-- CLASES DE BULMA: -->
+  <!-- .hero: Convierte la sección en un gran banner, ideal para cabeceras. -->
+  <!-- .is-info: Es un modificador de color. Pinta el fondo del hero de color azul "info". -->
+  <section class="hero is-info">
+    <!-- .hero-body: Es el contenedor del contenido dentro del hero. Añade un padding (relleno) generoso. -->
+    <div class="hero-body">
+      <!-- .title y .subtitle: Clases de Bulma para estilizar el texto con tamaños y grosores predefinidos para títulos. -->
+      <p class="title">Carrera Front End</p>
+      <p class="subtitle">Soluciones a las Actividades de la Clase 9</p>
+    </div>
+  </section>
+
+  <!-- === CONTENIDO PRINCIPAL DE LA PÁGINA === -->
+  <!-- CLASES DE BULMA: -->
+  <!-- .section: Otra sección, pero esta vez usada para el contenido principal. Agrega un espaciado vertical estándar. -->
+  <section class="section">
+    <!-- .container: Un componente central en Bulma. Centra el contenido horizontalmente y le pone un ancho máximo para que no se extienda por toda la pantalla en monitores grandes. -->
+    <div class="container">
+
+      <!-- === SISTEMA DE COLUMNAS (GRID) DE BULMA === -->
+      <!-- .columns: Es el contenedor principal para la grilla de Bulma. Permite dividir el espacio en columnas. -->
+      <div class="columns">
+
+        <!-- === COLUMNA 1: MENÚ LATERAL === -->
+        <!-- CLASES DE BULMA: -->
+        <!-- .column: Define que este div es una columna. -->
+        <!-- .is-one-quarter: Modificador de tamaño. Le dice a la columna que ocupe 1/4 (25%) del ancho disponible. -->
+        <!-- .is-hidden-mobile: Modificador de responsividad. Oculta este menú en dispositivos móviles para no ocupar espacio valioso. -->
+        <div class="column is-one-quarter is-hidden-mobile">
+          <!-- La etiqueta <aside> es semánticamente correcta para contenido lateral, como una barra de navegación. -->
+          <!-- CLASES DE BULMA: -->
+          <!-- .menu: Aplica los estilos de Bulma para crear una lista de navegación vertical. -->
+          <aside class="menu">
+            <!-- .menu-label y .menu-list: Son las partes estructurales del componente "menu" de Bulma. -->
+            <p class="menu-label">Actividades</p>
+            <ul class="menu-list">
+              <!-- Cada <a> tiene un href que apunta a un ID (#actividad1). Esto hace que al hacer clic, la página se desplace hasta el elemento con ese ID. -->
+              <li><a href="#actividad1">Actividad 1: Formulario</a></li>
+              <li><a href="#actividad2">Actividad 2: Íconos</a></li>
+              <li><a href="#actividad3">Actividad 3: Navbar</a></li>
+              <li><a href="#actividad4">Actividad 4: Página Completa</a></li>
+              <li><a href="#actividad5">Actividad 5: Botón</a></li>
+            </ul>
+          </aside>
+        </div>
+
+        <!-- === COLUMNA 2: CONTENIDO DE LAS ACTIVIDADES === -->
+        <!-- Como esta columna no tiene una clase de tamaño, automáticamente ocupará el espacio restante (3/4). -->
+        <div class="column">
+
+          <!-- --- INICIO DE UNA ACTIVIDAD --- -->
+          <!-- Cada actividad está envuelta en un div con la clase .box y un ID único. -->
+          <!-- El ID (ej: "actividad1") es a donde apuntan los enlaces del menú lateral. -->
+          <!-- CLASES DE BULMA: -->
+          <!-- .box: Un componente muy común. Crea un contenedor con un borde sutil, sombra, y padding. Es perfecto para agrupar contenido y hacerlo resaltar. -->
+          <div class="box" id="actividad1">
+
+            <!-- .content: Una clase de Bulma que estiliza elementos HTML estándar (como <p>, <strong>, <ul>) con un formato agradable y legible. -->
+            <div class="content">
+              <h3 class="title is-4">Actividad 1: Creando un Formulario de Registro</h3>
+              <p><strong>Consigna:</strong> Crea un formulario de registro de usuario con los siguientes campos: Nombre
+                completo, Correo electrónico, Contraseña, Confirmar contraseña y un botón de envío.</p>
+              <p><strong>Requisitos:</strong> Usa etiquetas <code>&lt;label&gt;</code>, estilos de Bulma, y
+                <code>method="POST"</code>.</p>
+              <p>💡 <strong>Extra:</strong> Agrega un <code>&lt;textarea&gt;</code> para una descripción.</p>
+            </div>
+
+            <!-- BOTÓN PARA VER/OCULTAR SOLUCIÓN -->
+            <!-- CLASES DE BULMA: -->
+            <!-- .button: Estilo base para un botón. -->
+            <!-- .is-primary: Modificador de color (azul primario de Bulma). -->
+            <!-- .is-small: Modificador de tamaño. -->
+            <!-- ATRIBUTO PERSONALIZADO: -->
+            <!-- data-target="solucion1": Este es un atributo "data-". No hace nada por sí solo, pero nuestro JavaScript lo usará para saber qué elemento debe mostrar/ocultar cuando se haga clic en este botón. -->
+            <button class="button is-primary is-small" data-target="solucion1">Ver Solución</button>
+
+            <!-- CONTENEDOR DE LA SOLUCIÓN -->
+            <!-- CLASES DE BULMA: -->
+            <!-- .is-hidden: Esta clase de ayuda simplemente aplica "display: none;". El elemento está en el HTML, pero no es visible por defecto. JavaScript se encargará de quitar esta clase para mostrarlo. -->
+            <div class="solution-content is-hidden" id="solucion1">
+              <h4 class="title is-5">Código de la Solución:</h4>
+              <!-- La etiqueta <pre> preserva los espacios y saltos de línea, es ideal para mostrar bloques de código. -->
+              <pre><code>&lt;form method="POST"&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="nombre"&gt;Nombre completo&lt;/label&gt;
+    &lt;div class="control"&gt;
+      &lt;input class="input" type="text" id="nombre" placeholder="Ej: Ada Lovelace"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="email"&gt;Correo electrónico&lt;/label&gt;
+    &lt;div class="control"&gt;
+      &lt;input class="input" type="email" id="email" placeholder="Ej: ada@example.com"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="password"&gt;Contraseña&lt;/label&gt;
+    &lt;div class="control"&gt;
+      &lt;input class="input" type="password" id="password"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="confirm_password"&gt;Confirmar contraseña&lt;/label&gt;
+    &lt;div class="control"&gt;
+      &lt;input class="input" type="password" id="confirm_password"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="descripcion"&gt;Descripción sobre ti&lt;/label&gt;
+    &lt;div class="control"&gt;
+      &lt;textarea class="textarea" id="descripcion" placeholder="Escribe algo sobre ti..."&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="control"&gt;
+    &lt;button class="button is-link"&gt;Registrarse&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+              <h4 class="title is-5 mt-4">Resultado:</h4>
+              <!-- Aquí se pega el HTML de la solución para que se renderice y se vea el resultado visual. -->
+              <form method="POST">
+                <div class="field"><label class="label" for="nombre-sol">Nombre completo</label>
+                  <div class="control"><input class="input" type="text" id="nombre-sol" placeholder="Ej: Ada Lovelace">
+                  </div>
+                </div>
+                <div class="field"><label class="label" for="email-sol">Correo electrónico</label>
+                  <div class="control"><input class="input" type="email" id="email-sol"
+                      placeholder="Ej: ada@example.com"></div>
+                </div>
+                <div class="field"><label class="label" for="password-sol">Contraseña</label>
+                  <div class="control"><input class="input" type="password" id="password-sol"></div>
+                </div>
+                <div class="field"><label class="label" for="confirm_password-sol">Confirmar contraseña</label>
+                  <div class="control"><input class="input" type="password" id="confirm_password-sol"></div>
+                </div>
+                <div class="field"><label class="label" for="descripcion-sol">Descripción sobre ti</label>
+                  <div class="control"><textarea class="textarea" id="descripcion-sol"
+                      placeholder="Escribe algo sobre ti..."></textarea></div>
+                </div>
+                <div class="control"><button class="button is-link">Registrarse</button></div>
+              </form>
+            </div>
+          </div>
+          <!-- --- FIN DE UNA ACTIVIDAD --- -->
+
+          <!-- Actividad 2 -->
+          <div class="box" id="actividad2">
+            <div class="content">
+              <h3 class="title is-4">Actividad 2: Mejorando el Formulario con Íconos</h3>
+              <p><strong>Consigna:</strong> Toma el formulario anterior y agrégale íconos en los inputs.</p>
+              <p><strong>Requisitos:</strong> Usa <code>.has-icons-left</code>, <code>.box</code>, <code>.label</code> y
+                un botón <code>.is-primary</code>.</p>
+            </div>
+            <button class="button is-primary is-small" data-target="solucion2">Ver Solución</button>
+            <div class="solution-content is-hidden" id="solucion2">
+              <h4 class="title is-5">Código de la Solución:</h4>
+              <pre><code>&lt;div class="box"&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label"&gt;Correo Electrónico&lt;/label&gt;
+    &lt;div class="control has-icons-left"&gt;
+      &lt;input class="input" type="email" placeholder="Email"&gt;
+      &lt;span class="icon is-small is-left"&gt;
+        &lt;i class="fas fa-envelope"&gt;&lt;/i&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="field"&gt;
+    &lt;label class="label"&gt;Contraseña&lt;/label&gt;
+    &lt;div class="control has-icons-left"&gt;
+      &lt;input class="input" type="password" placeholder="Contraseña"&gt;
+      &lt;span class="icon is-small is-left"&gt;
+        &lt;i class="fas fa-lock"&gt;&lt;/i&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="field"&gt;
+    &lt;div class="control"&gt;
+      &lt;button class="button is-primary"&gt;Iniciar Sesión&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              <h4 class="title is-5 mt-4">Resultado:</h4>
+              <div class="box">
+                <div class="field"><label class="label">Correo Electrónico</label>
+                  <div class="control has-icons-left"><input class="input" type="email" placeholder="Email"><span
+                      class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div>
+                </div>
+                <div class="field"><label class="label">Contraseña</label>
+                  <div class="control has-icons-left"><input class="input" type="password"
+                      placeholder="Contraseña"><span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control"><button class="button is-primary">Iniciar Sesión</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actividad 3 -->
+          <div class="box" id="actividad3">
+            <div class="content">
+              <h3 class="title is-4">Actividad 3: Creando un Navbar Navegable</h3>
+              <p><strong>Consigna:</strong> Crea un navbar con un logo, tres enlaces y un botón de inicio de sesión.</p>
+              <p><strong>Requisitos:</strong> Usa <code>.navbar</code>, <code>.navbar-menu</code>,
+                <code>.navbar-burger</code>, etc.</p>
+              <p>💡 <strong>Extra:</strong> Prueba cambiar el color del navbar a <code>.is-dark</code>.</p>
+            </div>
+            <button class="button is-primary is-small" data-target="solucion3">Ver Solución</button>
+            <div class="solution-content is-hidden" id="solucion3">
+              <h4 class="title is-5">Código de la Solución:</h4>
+              <pre><code>&lt;nav class="navbar is-dark" role="navigation" aria-label="main navigation"&gt;
+  &lt;div class="navbar-brand"&gt;
+    &lt;a class="navbar-item" href="#"&gt;
+      &lt;img src="https://bulma.io/images/bulma-logo.png" width="112" height="28"&gt;
+    &lt;/a&gt;
+
+    &lt;a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"&gt;
+      &lt;span aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;span aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;span aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+
+  &lt;div class="navbar-menu"&gt;
+    &lt;div class="navbar-start"&gt;
+      &lt;a class="navbar-item"&gt;Inicio&lt;/a&gt;
+      &lt;a class="navbar-item"&gt;Acerca de&lt;/a&gt;
+      &lt;a class="navbar-item"&gt;Contacto&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;div class="navbar-end"&gt;
+      &lt;div class="navbar-item"&gt;
+        &lt;div class="buttons"&gt;
+          &lt;a class="button is-primary"&gt;
+            &lt;strong&gt;Iniciar Sesión&lt;/strong&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+              <h4 class="title is-5 mt-4">Resultado:</h4>
+              <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand"><a class="navbar-item" href="#"><img
+                      src="https://bulma.io/images/bulma-logo.png" width="112" height="28" alt="logo bulma"></a><a
+                    role="button" class="navbar-burger" aria-label="menu"
+                    aria-expanded="false"><span></span><span></span><span></span></a></div>
+                <div class="navbar-menu">
+                  <div class="navbar-start"><a class="navbar-item">Inicio</a><a class="navbar-item">Acerca de</a><a
+                      class="navbar-item">Contacto</a></div>
+                  <div class="navbar-end">
+                    <div class="navbar-item">
+                      <div class="buttons"><a class="button is-primary"><strong>Iniciar Sesión</strong></a></div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Actividad 4 -->
+          <div class="box" id="actividad4">
+            <div class="content">
+              <h3 class="title is-4">Actividad 4: Creando una Página con Formulario y Navbar</h3>
+              <p><strong>Consigna:</strong> Arma una página web que contenga un navbar y un formulario de contacto
+                centrado.</p>
+              <p><strong>Requisitos:</strong> Usa <code>.container</code>, <code>.columns</code> y estilos de Bulma para
+                centrar el contenido.</p>
+            </div>
+            <button class="button is-primary is-small" data-target="solucion4">Ver Solución</button>
+            <div class="solution-content is-hidden" id="solucion4">
+              <h4 class="title is-5">Código de la Solución:</h4>
+              <pre><code>&lt;!-- El navbar de la Actividad 3 iría aquí arriba --&gt;
+&lt;section class="section"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="columns is-centered"&gt;
+      &lt;div class="column is-half"&gt;
+        &lt;div class="box"&gt;
+          &lt;h2 class="title is-3 has-text-centered"&gt;Contacto&lt;/h2&gt;
+          &lt;div class="field"&gt;
+            &lt;label class="label"&gt;Nombre&lt;/label&gt;
+            &lt;div class="control"&gt;&lt;input class="input" type="text"&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="field"&gt;
+            &lt;label class="label"&gt;Email&lt;/label&gt;
+            &lt;div class="control"&gt;&lt;input class="input" type="email"&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="field"&gt;
+            &lt;label class="label"&gt;Mensaje&lt;/label&gt;
+            &lt;div class="control"&gt;&lt;textarea class="textarea"&gt;&lt;/textarea&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="control"&gt;
+            &lt;button class="button is-primary is-fullwidth"&gt;Enviar Mensaje&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+              </code></pre>
+              <h4 class="title is-5 mt-4">Resultado:</h4>
+              <div class="columns is-centered">
+                <div class="column is-half">
+                  <div class="box">
+                    <h2 class="title is-3 has-text-centered">Contacto</h2>
+                    <div class="field"><label class="label">Nombre</label>
+                      <div class="control"><input class="input" type="text"></div>
+                    </div>
+                    <div class="field"><label class="label">Email</label>
+                      <div class="control"><input class="input" type="email"></div>
+                    </div>
+                    <div class="field"><label class="label">Mensaje</label>
+                      <div class="control"><textarea class="textarea"></textarea></div>
+                    </div>
+                    <div class="control"><button class="button is-primary is-fullwidth">Enviar Mensaje</button></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actividad 5 -->
+          <div class="box" id="actividad5">
+            <div class="content">
+              <h3 class="title is-4">Actividad 5: Personalizando un Botón</h3>
+              <p><strong>Consigna:</strong> Crea un botón de peligro con borde y un ícono.</p>
+              <p><strong>Requisitos:</strong> Usa <code>.button.is-danger.is-outlined</code>, <code>.icon</code>, y
+                <code>.box</code>.</p>
+            </div>
+            <button class="button is-primary is-small" data-target="solucion5">Ver Solución</button>
+            <div class="solution-content is-hidden" id="solucion5">
+              <h4 class="title is-5">Código de la Solución:</h4>
+              <pre><code>&lt;div class="box" style="display: flex; justify-content: center;"&gt;
+  &lt;button class="button is-danger is-outlined"&gt;
+    &lt;span class="icon"&gt;
+      &lt;i class="fas fa-trash"&gt;&lt;/i&gt;
+    &lt;/span&gt;
+    &lt;span&gt;Eliminar&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+              </code></pre>
+              <h4 class="title is-5 mt-4">Resultado:</h4>
+              <div class="box" style="display: flex; justify-content: center;">
+                <button class="button is-danger is-outlined">
+                  <span class="icon"><i class="fas fa-trash"></i></span>
+                  <span>Eliminar</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- === CÓDIGO JAVASCRIPT PARA LA INTERACTIVIDAD === -->
+  <!-- La etiqueta <script> contiene el código que le da vida a la página. -->
+  <script>
+    // Se asegura de que el código se ejecute solo cuando todo el HTML ha sido cargado. Es una buena práctica.
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // 1. Selecciona TODOS los botones que tienen nuestro atributo personalizado 'data-target'.
+      const toggleButtons = document.querySelectorAll('[data-target]');
+
+      // 2. Recorre cada uno de los botones encontrados.
+      toggleButtons.forEach(button => {
+
+        // 3. A cada botón, le añade un "escuchador de eventos" que se activa con un 'clic'.
+        button.addEventListener('click', () => {
+
+          // 4. Cuando se hace clic, obtiene el valor del atributo 'data-target' (ej: "solucion1").
+          const targetId = button.dataset.target;
+          const targetElement = document.getElementById(targetId);
+
+          // 5. Usa classList.toggle() para AÑADIR la clase 'is-hidden' si no la tiene, o QUITARLA si ya la tiene.
+          //    Esta es la magia que muestra y oculta el div de la solución.
+          targetElement.classList.toggle('is-hidden');
+
+          // 6. (Mejora de UX) Cambia el texto del botón para que el usuario sepa qué acción va a realizar.
+          if (targetElement.classList.contains('is-hidden')) {
+            button.textContent = 'Ver Solución';
+          } else {
+            button.textContent = 'Ocultar Solución';
+          }
+        });
+      });
+
+      // --- Funcionalidad para el Navbar Burger en móviles ---
+      const burgers = document.querySelectorAll('.navbar-burger');
+      if (burgers.length > 0) {
+        burgers.forEach(el => {
+          el.addEventListener('click', () => {
+            const target = el.dataset.target;
+            const $target = document.getElementById(target);
+            el.classList.toggle('is-active');
+            $target.classList.toggle('is-active');
+          });
+        });
+      }
+    });
+  </script>
+
+</body>
+
+</html>
