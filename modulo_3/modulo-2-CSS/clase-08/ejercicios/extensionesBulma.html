@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Visual de Extensiones de Bulma (Guía Completa)</title>
+
+    <!-- === Estilos Fundamentales === -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- === CSS de Extensiones (Rutas 100% Verificadas) === -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-accordion@2.0.1/dist/css/bulma-accordion.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-badge@3.0.1/dist/css/bulma-badge.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-calendar@6.1.19/dist/css/bulma-calendar.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-checkradio@2.1.3/dist/css/bulma-checkradio.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-divider@1.1.0/dist/bulma-divider.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-pageloader@0.3.0/dist/css/bulma-pageloader.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-quickview@2.0.0/dist/css/bulma-quickview.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-steps@2.2.1/dist/css/bulma-steps.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-switch@2.0.4/dist/css/bulma-switch.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-timeline@3.0.4/dist/css/bulma-timeline.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.4/dist/bulma-toast.min.css">
+
+    <!-- === Estilos Personalizados === -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            padding-top: 52px;
+        }
+
+        .hero-carousel .hero {
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-carousel .title {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .box {
+            box-shadow: 0 8px 16px rgba(10, 10, 10, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(10, 10, 10, 0.12);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Fija con Megamenu Funcional -->
+    <nav class="navbar is-info is-fixed-top">
+        <div class="container">
+            <div class="navbar-brand"><a class="navbar-item has-text-weight-bold" href="#">DEMOSTRACIÓN</a></div>
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                    <div class="navbar-item has-dropdown is-hoverable is-megamenu"><a class="navbar-link">Navegar a
+                            Sección</a>
+                        <div class="navbar-dropdown">
+                            <div class="container is-fluid">
+                                <div class="columns">
+                                    <div class="column">
+                                        <h1 class="title is-6">Componentes Visuales</h1><a class="navbar-item"
+                                            href="#seccion-carrusel">Galería Principal (Carrusel)</a><a
+                                            class="navbar-item" href="#seccion-componentes">Accordion y Timeline</a><a
+                                            class="navbar-item" href="#seccion-pasos">Indicador de Pasos</a>
+                                    </div>
+                                    <div class="column">
+                                        <h1 class="title is-6">Componentes Interactivos</h1><a class="navbar-item"
+                                            href="#seccion-interactiva">Pruebas (Quickview y Loader)</a><a
+                                            class="navbar-item" href="#seccion-componentes">Formularios y
+                                            Notificaciones</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero is-primary is-medium">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <p class="title is-2">Galería Visual de Bulma</p>
+                <p class="subtitle is-4">Una demostración con un diseño limpio y moderno</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor Principal -->
+    <section class="section">
+        <div class="container">
+            <!-- Carrusel con ID para el ancla -->
+            <div id="seccion-carrusel" class="carousel hero-carousel">
+                <div class="item-1">
+                    <section class="hero is-large"
+                        style="background-image: url('https://picsum.photos/1200/600?random=1');">
+                        <div class="hero-body has-text-centered">
+                            <h1 class="title is-1 has-text-white">Diseño Responsivo</h1>
+                        </div>
+                    </section>
+                </div>
+                <div class="item-2">
+                    <section class="hero is-large"
+                        style="background-image: url('https://picsum.photos/1200/600?random=2');">
+                        <div class="hero-body has-text-centered">
+                            <h1 class="title is-1 has-text-white">Componentes Modernos</h1>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="is-divider my-6" data-content="DEMOSTRACIONES"></div>
+
+            <!-- Sección de Componentes Interactivos con ID para el ancla -->
+            <div id="seccion-interactiva" class="box has-background-light">
+                <div class="columns is-vcentered">
+                    <div class="column">
+                        <h3 class="title is-4">Componentes Interactivos</h3>
+                        <p class="subtitle is-6">Prueba las extensiones que requieren acción del usuario.</p>
+                    </div>
+                    <div class="column is-narrow">
+                        <div class="buttons are-medium"><button class="button is-info" data-show="quickview"
+                                data-target="quickviewDemo"><span class="icon"><i
+                                        class="fas fa-eye"></i></span><span>Abrir Quickview</span></button><button
+                                class="button is-danger" id="pageloader-trigger"><span class="icon"><i
+                                        class="fas fa-spinner fa-pulse"></i></span><span>Activar
+                                    Pageloader</span></button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor Unificado para todas las secciones de componentes -->
+            <div id="seccion-componentes" class="columns is-multiline is-variable is-5 mt-5">
+
+                <!-- Columna 1: Componentes de Contenido -->
+                <div class="column is-half-desktop is-full-tablet is-flex">
+                    <div class="box">
+                        <h3 class="title is-5">Accordion</h3>
+                        <p class="content is-small mb-4">Crea paneles de contenido colapsables, ideales para FAQs.
+                            <strong>Necesita el CSS y JS de `bulma-accordion`.</strong></p>
+                        <div class="accordions">
+                            <article class="accordion is-active is-info">
+                                <div class="accordion-header">
+                                    <p>¿Cómo funciona?</p><button class="toggle"></button>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">El JS adjunto gestiona el estado de apertura y
+                                        cierre.</div>
+                                </div>
+                            </article>
+                            <article class="accordion is-success">
+                                <div class="accordion-header">
+                                    <p>¿Es personalizable?</p><button class="toggle"></button>
+                                </div>
+                                <div class="accordion-body">
+                                    <div class="accordion-content">Sí, puedes cambiar colores y tamaños con las clases
+                                        de Bulma.</div>
+                                </div>
+                            </article>
+                        </div>
+                        <hr>
+                        <h3 class="title is-5">Timeline</h3>
+                        <p class="content is-small mb-4">Muestra eventos en orden cronológico. <strong>Solo necesita el
+                                CSS de `bulma-timeline`.</strong></p>
+                        <div class="timeline">
+                            <header class="timeline-header"><span class="tag is-primary">Inicio</span></header>
+                            <div class="timeline-item is-info">
+                                <div class="timeline-marker is-info is-icon"><i class="fa fa-flag"></i></div>
+                                <div class="timeline-content">
+                                    <p class="heading">Fase 1</p>
+                                    <p>Planificación</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item is-success">
+                                <div class="timeline-marker is-success is-icon"><i class="fa fa-cogs"></i></div>
+                                <div class="timeline-content">
+                                    <p class="heading">Fase 2</p>
+                                    <p>Desarrollo</p>
+                                </div>
+                            </div>
+                            <header class="timeline-header"><span class="tag is-primary">Fin</span></header>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Controles y Notificaciones -->
+                <div class="column is-half-desktop is-full-tablet is-flex">
+                    <div class="box">
+                        <h3 class="title is-5">Controles de Formulario</h3>
+                        <p class="content is-small mb-4">Extensiones que mejoran los campos de formulario estándar. Cada
+                            una requiere su propio CSS.</p>
+                        <!-- Columnas anidadas para organizar los controles -->
+                        <div class="columns is-multiline">
+                            <div class="column is-half">
+                                <div class="field"><label class="label">Slider</label>
+                                    <div class="control"><input class="slider is-fullwidth is-success" type="range"
+                                            value="25"></div>
+                                </div>
+                            </div>
+                            <div class="column is-half">
+                                <div class="field"><label class="label">Switch</label>
+                                    <div class="control"><input id="switchExample" type="checkbox"
+                                            class="switch is-rounded is-success" checked><label
+                                            for="switchExample">Notificaciones</label></div>
+                                </div>
+                            </div>
+                            <div class="column is-half">
+                                <div class="field"><label class="label">Checkradio</label>
+                                    <div class="control"><input class="is-checkradio is-info" id="exampleCheckbox"
+                                            type="checkbox" checked><label for="exampleCheckbox">Acepto</label></div>
+                                </div>
+                            </div>
+                            <div class="column is-half">
+                                <div class="field"><label class="label">Calendario</label>
+                                    <div class="control"><input class="input" type="date" id="calendar-demo"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h3 class="title is-5">Notificaciones</h3>
+                        <p class="content is-small mb-4">Pequeños indicadores para comunicar estados o alertas al
+                            usuario.</p>
+                        <div class="field"><label class="label">Badge y Tooltip</label>
+                            <div class="buttons"><button class="button is-primary badge"
+                                    data-badge="8">Mensajes</button><button class="button has-tooltip-right"
+                                    data-tooltip="Esto es un tooltip">Tooltip</button></div>
+                        </div>
+                        <div class="field mt-4"><label class="label">Toast</label>
+                            <div class="buttons"><button class="button is-success" id="toast-trigger">Mostrar
+                                    Notificación Toast</button></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna de Steps con ID -->
+                <div id="seccion-pasos" class="column is-full">
+                    <div class="box">
+                        <h3 class="title is-5 has-text-centered">Indicador de Pasos (Steps)</h3>
+                        <p class="content is-small has-text-centered mb-5">Guía a los usuarios a través de un proceso.
+                            <strong>Solo necesita el CSS de `bulma-steps`.</strong></p>
+                        <div class="steps has-content-centered is-medium">
+                            <div class="step-item is-completed is-success">
+                                <div class="step-marker"><i class="fa fa-check"></i></div>
+                                <div class="step-details">
+                                    <p class="step-title">Registro</p>
+                                </div>
+                            </div>
+                            <div class="step-item is-active">
+                                <div class="step-marker"><i class="fa fa-user"></i></div>
+                                <div class="step-details">
+                                    <p class="step-title">Verificación</p>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-marker">3</div>
+                                <div class="step-details">
+                                    <p class="step-title">Configuración</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Elementos Ocultos -->
+    <div id="quickviewDemo" class="quickview">
+        <header class="quickview-header">
+            <p class="title">Vista Rápida</p><span class="delete" data-dismiss="quickview"></span>
+        </header>
+        <div class="quickview-body">
+            <div class="content">
+                <p>Este panel aparece desde el lateral. <strong>Necesita el CSS y JS de `bulma-quickview`.</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="pageloader is-primary" id="pageloader-element"><span class="title">Cargando demostración...</span></div>
+
+    <!-- Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-accordion@2.0.1/dist/js/bulma-accordion.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-calendar@6.1.19/dist/js/bulma-calendar.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-quickview@2.0.0/dist/js/bulma-quickview.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.4/dist/bulma-toast.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            bulmaAccordion.attach();
+            bulmaCarousel.attach('#seccion-carrusel', {slidesToScroll: 1, slidesToShow: 1, loop: true, autoplay: true, autoplaySpeed: 4000});
+            bulmaQuickview.attach();
+            bulmaCalendar.attach('#calendar-demo', {color: 'primary', lang: 'es', dateFormat: 'dd/MM/yyyy'});
+            document.getElementById('toast-trigger')?.addEventListener('click', () => {bulmaToast.toast({message: '¡Notificación exitosa!', type: 'is-success', position: 'top-center'});});
+            const pageloader = document.getElementById('pageloader-element');
+            document.getElementById('pageloader-trigger')?.addEventListener('click', () => {
+                pageloader.classList.add('is-active');
+                setTimeout(() => {pageloader.classList.remove('is-active');}, 2500);
+            });
+        });
+    </script>
+</body>
+
+</html>

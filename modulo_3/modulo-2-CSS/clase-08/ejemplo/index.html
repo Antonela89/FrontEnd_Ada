@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8"> <!-- Codificación UTF-8 para admitir caracteres especiales -->
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Hace que el sitio sea responsivo en móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Hace que el sitio sea responsivo en móviles -->
   <title>Grillas en Bulma — Versión Semántica</title> <!-- Título que aparece en la pestaña del navegador -->
 
   <!-- Carga el framework Bulma desde un CDN -->
@@ -12,22 +13,34 @@
   <style>
     /* ====== Estilo visual personalizado ====== */
     .color-box {
-      height: 150px; /* Altura fija de cada caja */
-      border-radius: 12px; /* Bordes redondeados */
-      color: white; /* Texto blanco */
-      display: flex; /* Activa flexbox dentro de cada caja */
-      align-items: center; /* Centra verticalmente el texto */
-      justify-content: center; /* Centra horizontalmente el texto */
-      font-size: 1.2rem; /* Tamaño del texto */
-      font-weight: bold; /* Texto en negrita */
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.5); /* Sombra para mejorar contraste */
-      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave en hover */
+      height: 150px;
+      /* Altura fija de cada caja */
+      border-radius: 12px;
+      /* Bordes redondeados */
+      color: white;
+      /* Texto blanco */
+      display: flex;
+      /* Activa flexbox dentro de cada caja */
+      align-items: center;
+      /* Centra verticalmente el texto */
+      justify-content: center;
+      /* Centra horizontalmente el texto */
+      font-size: 1.2rem;
+      /* Tamaño del texto */
+      font-weight: bold;
+      /* Texto en negrita */
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+      /* Sombra para mejorar contraste */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      /* Transición suave en hover */
     }
 
     /* Efecto al pasar el mouse por encima */
     .color-box:hover {
-      transform: scale(1.05); /* Aumenta ligeramente el tamaño */
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Agrega sombra externa */
+      transform: scale(1.05);
+      /* Aumenta ligeramente el tamaño */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      /* Agrega sombra externa */
     }
   </style>
 </head>
@@ -37,7 +50,8 @@
   <!-- CABECERA PRINCIPAL -->
   <header class="container has-text-centered"> <!-- Bulma: ".container" centra horizontalmente y limita el ancho -->
     <h1 class="title">🎨 Galería de Colores</h1> <!-- Bulma: ".title" da estilo de encabezado grande -->
-    <p class="subtitle">Experimentando con <strong>grillas en Bulma</strong></p> <!-- ".subtitle" agrega un subtítulo con tamaño menor -->
+    <p class="subtitle">Experimentando con <strong>grillas en Bulma</strong></p>
+    <!-- ".subtitle" agrega un subtítulo con tamaño menor -->
   </header>
 
   <!-- CONTENIDO PRINCIPAL -->
@@ -45,14 +59,16 @@
 
     <!-- SECCIÓN 1: Galería de colores -->
     <section aria-labelledby="galeria-titulo"> <!-- "aria-labelledby" mejora accesibilidad -->
-      <h2 id="galeria-titulo" class="title is-4">1️⃣ Grilla Responsiva</h2> <!-- ".title.is-4" define un subtítulo más pequeño -->
-      <p class="mb-4">Ejemplo de cómo Bulma adapta columnas según el tamaño de pantalla.</p> <!-- ".mb-4" aplica margen inferior -->
+      <h2 id="galeria-titulo" class="title is-4">1️⃣ Grilla Responsiva</h2>
+      <!-- ".title.is-4" define un subtítulo más pequeño -->
+      <p class="mb-4">Ejemplo de cómo Bulma adapta columnas según el tamaño de pantalla.</p>
+      <!-- ".mb-4" aplica margen inferior -->
 
       <!-- Fila de columnas -->
-      <div class="columns is-multiline is-variable is-6">
+      <div class="columns is-multiline is-gap-6">
         <!-- ".columns" crea una fila flexbox -->
         <!-- ".is-multiline" permite que las columnas bajen a una nueva línea si no entran -->
-        <!-- ".is-variable.is-6" agrega espacio (gap) entre las columnas -->
+        <!-- ".is-gap-6" agrega espacio (gap) entre las columnas -->
 
         <!-- Cada artículo representa una "tarjeta de color" -->
         <article class="column is-one-quarter-desktop is-half-tablet is-full-mobile">
@@ -60,7 +76,8 @@
           <!-- ".is-one-quarter-desktop" ocupa 1/4 del ancho en pantallas grandes -->
           <!-- ".is-half-tablet" ocupa la mitad en tablets -->
           <!-- ".is-full-mobile" ocupa todo el ancho en celulares -->
-          <div class="color-box has-background-primary">Primary</div> <!-- ".has-background-primary" aplica color azul -->
+          <div class="color-box has-background-primary">Primary</div>
+          <!-- ".has-background-primary" aplica color azul -->
         </article>
 
         <article class="column is-one-quarter-desktop is-half-tablet is-full-mobile">
@@ -114,7 +131,8 @@
       </section>
 
       <!-- Ejemplo: columna responsiva -->
-      <aside class="column is-full-mobile is-half-tablet is-one-third-desktop has-background-light has-text-centered mb-3">
+      <aside
+        class="column is-full-mobile is-half-tablet is-one-third-desktop has-background-light has-text-centered mb-3">
         <!-- ".has-background-light" aplica fondo claro -->
         <!-- ".has-text-centered" centra el texto -->
         Contenido adaptable
@@ -122,7 +140,8 @@
       <!-- Bulma adapta el ancho de la columna según el breakpoint -->
 
       <!-- Ejemplo: separación variable -->
-      <section class="columns is-variable is-6 mb-3">
+      <!-- <section class="columns is-variable is-6 mb-3"> -->
+        <section class="columns is-gap-6 mb-3">
         <!-- ".is-variable.is-6" crea un gap dinámico de tamaño 6 -->
         <div class="column has-background-danger">A</div>
         <div class="column has-background-info">B</div>
@@ -163,8 +182,11 @@
     <!-- ".footer" agrega fondo gris claro y padding -->
     <!-- ".has-text-centered" centra el texto -->
     <!-- ".mt-6" separa el pie del contenido superior -->
-    <p>💡 <strong>Bulma</strong> simplifica las grillas usando Flexbox. Experimentá con los modificadores <code>is-*</code> para adaptar el layout.</p>
+    <p>💡 <strong>Bulma</strong> simplifica las grillas usando Flexbox. Experimentá con los modificadores
+      <code>is-*</code> para adaptar el layout.
+    </p>
   </footer>
 
 </body>
+
 </html>
