@@ -1,163 +1,390 @@
 <!DOCTYPE html>
-<html lang="es">
+<!-- Se añade la clase 'dark' al <html> para activar el modo oscuro de Tailwind por defecto. -->
+<html lang="es" class="dark">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soluciones con Tailwind - Actividades Clase 9</title>
+    <title>Soluciones con Tailwind CSS - Actividades Clase 9</title>
 
-    <!-- Tailwind CSS (usando el CDN para demostración) -->
+    <!-- 1. CDN de Tailwind CSS: Permite usar sus clases sin instalación. -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome para los íconos -->
+
+    <!-- 2. CDN de Font Awesome: Para los íconos. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
     <style>
-        /* Pequeño estilo para el contenido de la solución, compatible con Tailwind */
+        /* Estilo personalizado para la barra visual de la solución */
         .solution-content {
-            border-left: 4px solid #3b82f6; /* Un color azul de Tailwind */
-            padding-left: 20px;
-            margin-top: 20px;
+            border-left: 4px solid #0ea5e9;
+            /* Color sky-500 de Tailwind */
         }
     </style>
 </head>
 
-<!-- bg-gray-100 para un fondo gris claro en toda la página -->
-<body class="bg-gray-100">
+<!-- El fondo y color de texto base se definen aquí para el modo oscuro. -->
 
-    <!-- TÍTULO PRINCIPAL -->
-    <!-- Construimos el "hero" con utilidades: bg-blue-600 para el fondo, text-white, y p-8 para padding. -->
-    <section class="bg-blue-600 text-white p-8">
-        <div class="container mx-auto">
-            <h1 class="text-4xl font-bold">Carrera Front End</h1>
-            <p class="text-xl mt-2">Soluciones a las Actividades de la Clase 9 (Versión Tailwind)</p>
-        </div>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- === HERO / BANNER PRINCIPAL === -->
+    <section class="bg-sky-800 p-8 text-center text-white">
+        <h1 class="text-4xl font-bold mb-2">Carrera Front End</h1>
+        <p class="text-xl">Soluciones a las Actividades (Tailwind CSS)</p>
     </section>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <!-- container mx-auto para centrar, p-8 para padding y flex para el layout de columnas. -->
-    <div class="container mx-auto p-8 flex flex-col md:flex-row gap-8">
+    <!-- === CONTENIDO PRINCIPAL === -->
+    <main class="max-w-7xl mx-auto p-4 sm:p-6">
+        <!-- Grid de Tailwind: 1 columna en móvil, 4 en desktop (1 para el menú, 3 para el contenido) -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-        <!-- MENÚ LATERAL -->
-        <!-- w-full md:w-1/4: ocupa todo el ancho en móvil, y 1/4 en pantallas medianas o más. -->
-        <!-- hidden md:block: está oculto en móvil y visible a partir de 'md'. -->
-        <aside class="hidden md:block w-full md:w-1/4">
-            <div class="bg-white p-4 rounded-lg shadow">
-                <p class="font-bold text-gray-600 mb-2">
-                    Actividades
-                </p>
-                <!-- ul con clases para estilizar la lista y los enlaces del menú. -->
-                <ul class="space-y-1">
-                    <li><a href="#actividad1" class="block p-2 rounded hover:bg-gray-200">Actividad 1: Formulario</a></li>
-                    <li><a href="#actividad2" class="block p-2 rounded hover:bg-gray-200">Actividad 2: Íconos</a></li>
-                    <li><a href="#actividad3" class="block p-2 rounded hover:bg-gray-200">Actividad 3: Navbar</a></li>
-                    <li><a href="#actividad4" class="block p-2 rounded hover:bg-gray-200">Actividad 4: Página Completa</a></li>
-                    <li><a href="#actividad5" class="block p-2 rounded hover:bg-gray-200">Actividad 5: Botón</a></li>
+            <!-- === COLUMNA 1: MENÚ LATERAL === -->
+            <aside class="hidden lg:block lg:col-span-1">
+                <h2 class="text-sm font-semibold text-gray-400 mb-4 tracking-wider">ACTIVIDADES</h2>
+                <ul class="space-y-2">
+                    <li><a href="#actividad1" class="block p-2 rounded-md hover:bg-gray-700 transition-colors">Actividad
+                            1: Formulario</a></li>
+                    <li><a href="#actividad2" class="block p-2 rounded-md hover:bg-gray-700 transition-colors">Actividad
+                            2: Íconos</a></li>
+                    <li><a href="#actividad3" class="block p-2 rounded-md hover:bg-gray-700 transition-colors">Actividad
+                            3: Navbar</a></li>
+                    <li><a href="#actividad4" class="block p-2 rounded-md hover:bg-gray-700 transition-colors">Actividad
+                            4: Página Completa</a></li>
+                    <li><a href="#actividad5" class="block p-2 rounded-md hover:bg-gray-700 transition-colors">Actividad
+                            5: Botón</a></li>
                 </ul>
-            </div>
-        </aside>
+            </aside>
 
-        <!-- CONSIGNAS Y SOLUCIONES -->
-        <!-- flex-1 permite que esta columna ocupe el espacio restante. -->
-        <!-- space-y-8 añade espacio vertical entre los elementos hijos (las cajas de actividades). -->
-        <main class="flex-1 space-y-8">
+            <!-- === COLUMNA 2: CONTENIDO DE ACTIVIDADES === -->
+            <div class="lg:col-span-3 space-y-8">
 
-            <!-- Actividad 1 -->
-            <!-- La caja se crea con clases de fondo, padding, borde redondeado y sombra. -->
-            <div class="bg-white p-6 rounded-lg shadow-md" id="actividad1">
-                <div class="prose max-w-none"> <!-- .prose para estilizar texto genérico -->
-                    <h3 class="text-2xl font-semibold">Actividad 1: Creando un Formulario de Registro</h3>
-                    <p><strong>Consigna:</strong> Crea un formulario de registro...</p>
-                </div>
-                 <!-- Botón estilizado con utilidades de Tailwind -->
-                <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 text-sm rounded" data-target="solucion1">Ver Solución</button>
-                <!-- 'hidden' de Tailwind oculta el elemento por defecto. -->
-                <div class="solution-content hidden" id="solucion1">
-                    <h4 class="text-lg font-semibold mt-3">Resultado:</h4>
-                    <form method="POST" class="space-y-4">
-                        <div>
-                            <!-- Estilos para la etiqueta y el input. -->
-                            <label class="block text-sm font-medium text-gray-700" for="nombreTW">Nombre completo</label>
-                            <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" type="text" id="nombreTW">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700" for="emailTW">Correo electrónico</label>
-                            <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" type="email" id="emailTW">
-                        </div>
-                        <button class="bg-green-500 text-white py-2 px-4 rounded">Registrarse</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Actividad 2 -->
-            <div class="bg-white p-6 rounded-lg shadow-md" id="actividad2">
-                <h3 class="text-2xl font-semibold">Actividad 2: Mejorando el Formulario con Íconos</h3>
-                <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 text-sm rounded" data-target="solucion2">Ver Solución</button>
-                <div class="solution-content hidden" id="solucion2">
-                    <h4 class="text-lg font-semibold mt-3">Resultado:</h4>
-                    <div class="bg-gray-50 p-4 rounded-lg">
-                        <!-- Para el ícono, usamos un div con 'relative'. El ícono se posiciona de forma 'absolute'. -->
-                        <div class="relative">
-                            <!-- El input necesita padding a la izquierda (pl-10) para no solaparse con el ícono. -->
-                            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                                <i class="fas fa-envelope text-gray-400"></i>
-                            </span>
-                            <input class="w-full pl-10 pr-3 py-2 border rounded-md" type="email" placeholder="Email">
-                        </div>
-                        <div class="relative mt-4">
-                             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                                <i class="fas fa-lock text-gray-400"></i>
-                            </span>
-                            <input class="w-full pl-10 pr-3 py-2 border rounded-md" type="password" placeholder="Contraseña">
-                        </div>
-                        <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded">Iniciar Sesión</button>
+                <!-- ACTIVIDAD 1 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg" id="actividad1">
+                    <div class="prose prose-invert max-w-none">
+                        <h3>Actividad 1: Formulario de Registro</h3>
+                        <p><strong>Consigna:</strong> Crea un formulario de registro de usuario con los siguientes
+                            campos: Nombre completo, Correo electrónico, Contraseña, Confirmar contraseña y un botón de
+                            envío.</p>
+                        <p><strong>Requisitos:</strong> Usa estilos de Tailwind, y <code>method="POST"</code>.</p>
+                        <p>💡 <strong>Extra:</strong> Agrega un <code>&lt;textarea&gt;</code> para una descripción.</p>
+                    </div>
+                    <button class="mt-4 px-3 py-1 bg-sky-600 text-white text-sm rounded-md hover:bg-sky-700"
+                        data-target="solucion1-tw">Ver Solución</button>
+                    <div class="solution-content pl-4 mt-4 hidden" id="solucion1-tw">
+                        <h4 class="text-lg font-semibold mt-4">Código:</h4>
+                        <pre class="bg-gray-900 p-4 rounded-md overflow-x-auto"><code class="text-sm">&lt;form method="POST" class="space-y-4"&gt;
+    &lt;div&gt;
+        &lt;label class="block text-sm font-medium text-gray-300"&gt;Nombre completo&lt;/label&gt;
+        &lt;input class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2" type="text" placeholder="Ej: Ada Lovelace"&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label class="block text-sm font-medium text-gray-300"&gt;Correo electrónico&lt;/label&gt;
+        &lt;input class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2" type="email" placeholder="Ej: ada@example.com"&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label class="block text-sm font-medium text-gray-300"&gt;Contraseña&lt;/label&gt;
+        &lt;input class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2" type="password"&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label class="block text-sm font-medium text-gray-300"&gt;Confirmar contraseña&lt;/label&gt;
+        &lt;input class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2" type="password"&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label class="block text-sm font-medium text-gray-300"&gt;Descripción&lt;/label&gt;
+        &lt;textarea class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2" placeholder="Escribe algo sobre ti..."&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" class="px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700"&gt;Registrarse&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                        <h4 class="text-lg font-semibold mt-4">Resultado:</h4>
+                        <form method="POST" class="space-y-4 mt-2">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300">Nombre completo</label>
+                                <input
+                                    class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2"
+                                    type="text" placeholder="Ej: Ada Lovelace">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300">Correo electrónico</label>
+                                <input
+                                    class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2"
+                                    type="email" placeholder="Ej: ada@example.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300">Contraseña</label>
+                                <input
+                                    class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2"
+                                    type="password">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300">Confirmar contraseña</label>
+                                <input
+                                    class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2"
+                                    type="password">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300">Descripción</label>
+                                <textarea
+                                    class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 p-2"
+                                    placeholder="Escribe algo sobre ti..."></textarea>
+                            </div>
+                            <button
+                                class="px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700">Registrarse</button>
+                        </form>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Actividad 3 -->
-            <div class="bg-white p-6 rounded-lg shadow-md" id="actividad3">
-                <h3 class="text-2xl font-semibold">Actividad 3: Creando un Navbar Navegable</h3>
-                 <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 text-sm rounded" data-target="solucion3">Ver Solución</button>
-                 <div class="solution-content hidden" id="solucion3">
-                    <h4 class="text-lg font-semibold mt-3">Resultado:</h4>
-                    <!-- Navbar construido con Flexbox. -->
-                    <nav class="bg-gray-800 text-white p-4 flex items-center justify-between">
-                       <!-- Logo -->
-                        <div class="font-bold text-lg">MiLogo</div>
-                        <!-- Enlaces de navegación (ocultos en móvil) -->
-                        <div class="hidden md:flex space-x-4">
-                           <a href="#" class="hover:text-gray-300">Inicio</a>
-                           <a href="#" class="hover:text-gray-300">Acerca de</a>
-                           <a href="#" class="hover:text-gray-300">Contacto</a>
+
+                <!-- ACTIVIDAD 2 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg" id="actividad2">
+                    <div class="prose prose-invert max-w-none">
+                        <h3>Actividad 2: Formulario con Íconos</h3>
+                        <p><strong>Consigna:</strong> Toma el formulario anterior y agrégale íconos en los inputs.</p>
+                    </div>
+                    <button class="mt-4 px-3 py-1 bg-sky-600 text-white text-sm rounded-md hover:bg-sky-700"
+                        data-target="solucion2-tw">Ver Solución</button>
+                    <div class="solution-content pl-4 mt-4 hidden" id="solucion2-tw">
+                        <h4 class="text-lg font-semibold mt-4">Código:</h4>
+                        <pre class="bg-gray-900 p-4 rounded-md overflow-x-auto"><code class="text-sm">&lt;form method="POST" class="space-y-4"&gt;
+    &lt;div&gt;
+        &lt;label class="block text-sm font-medium text-gray-300"&gt;Correo Electrónico&lt;/label&gt;
+        &lt;div class="relative mt-1"&gt;
+            &lt;div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"&gt;
+                &lt;i class="fas fa-envelope text-gray-400"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+            &lt;input class="block w-full bg-gray-700 rounded-md pl-10 p-2" type="email" placeholder="Email"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label class="block text-sm font-medium text-gray-300"&gt;Contraseña&lt;/label&gt;
+        &lt;div class="relative mt-1"&gt;
+            &lt;div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"&gt;
+                &lt;i class="fas fa-lock text-gray-400"&gt;&lt;/i&gt;
+            &lt;/div&gt;
+            &lt;input class="block w-full bg-gray-700 rounded-md pl-10 p-2" type="password" placeholder="Contraseña"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" class="px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700"&gt;Iniciar Sesión&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                        <h4 class="text-lg font-semibold mt-4">Resultado:</h4>
+                        <div class="bg-gray-900/50 p-6 rounded-md mt-2">
+                            <form method="POST" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300">Correo Electrónico</label>
+                                    <div class="relative mt-1">
+                                        <div
+                                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            <i class="fas fa-envelope text-gray-400"></i></div>
+                                        <input
+                                            class="block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm pl-10 p-2 focus:ring-sky-500 focus:border-sky-500"
+                                            type="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-300">Contraseña</label>
+                                    <div class="relative mt-1">
+                                        <div
+                                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            <i class="fas fa-lock text-gray-400"></i></div>
+                                        <input
+                                            class="block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm pl-10 p-2 focus:ring-sky-500 focus:border-sky-500"
+                                            type="password" placeholder="Contraseña">
+                                    </div>
+                                </div>
+                                <button class="px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700">Iniciar
+                                    Sesión</button>
+                            </form>
                         </div>
-                        <!-- Botón -->
-                        <button class="bg-blue-500 hover:bg-blue-600 font-bold py-2 px-4 rounded">Iniciar Sesión</button>
-                    </nav>
-                 </div>
+                    </div>
+                </div>
+
+                <!-- ACTIVIDAD 3 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg" id="actividad3">
+                    <div class="prose prose-invert max-w-none">
+                        <h3>Actividad 3: Navbar Navegable</h3>
+                        <p><strong>Consigna:</strong> Crea un navbar con un logo, tres enlaces y un botón de inicio de
+                            sesión.</p>
+                        <p>💡 <strong>Extra:</strong> Prueba cambiar el color del navbar.</p>
+                    </div>
+                    <button class="mt-4 px-3 py-1 bg-sky-600 text-white text-sm rounded-md hover:bg-sky-700"
+                        data-target="solucion3-tw">Ver Solución</button>
+                    <div class="solution-content pl-4 mt-4 hidden" id="solucion3-tw">
+                        <h4 class="text-lg font-semibold mt-4">Código:</h4>
+                        <pre class="bg-gray-900 p-4 rounded-md overflow-x-auto"><code class="text-sm">&lt;nav class="bg-gray-800 p-4 flex justify-between items-center"&gt;
+    &lt;!-- Logo --&gt;
+    &lt;div class="text-white font-bold text-xl"&gt;MiLogo&lt;/div&gt;
+
+    &lt;!-- Links (Desktop) --&gt;
+    &lt;div class="hidden md:flex items-center space-x-4"&gt;
+        &lt;a href="#" class="text-gray-300 hover:text-sky-400"&gt;Inicio&lt;/a&gt;
+        &lt;a href="#" class="text-gray-300 hover:text-sky-400"&gt;Acerca de&lt;/a&gt;
+        &lt;a href="#" class="text-gray-300 hover:text-sky-400"&gt;Contacto&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Botón Login (Desktop) --&gt;
+    &lt;div class="hidden md:block"&gt;
+        &lt;a href="#" class="px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700"&gt;Iniciar Sesión&lt;/a&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Botón Burger (Mobile) --&gt;
+    &lt;div class="md:hidden"&gt;
+        &lt;button id="burger-tw-sol" class="focus:outline-none"&gt;
+            &lt;i class="fas fa-bars fa-lg text-white"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+&lt;!-- Menú desplegable (Mobile) --&gt;
+&lt;div id="mobile-menu-tw-sol" class="hidden md:hidden bg-gray-800 p-2 space-y-2"&gt;
+    &lt;a href="#" class="block px-4 py-2 rounded-md hover:bg-gray-700"&gt;Inicio&lt;/a&gt;
+    &lt;a href="#" class="block px-4 py-2 rounded-md hover:bg-gray-700"&gt;Acerca de&lt;/a&gt;
+    &lt;a href="#" class="block px-4 py-2 rounded-md hover:bg-gray-700"&gt;Contacto&lt;/a&gt;
+    &lt;a href="#" class="block px-4 py-2 bg-sky-600 text-white rounded-md text-center"&gt;Iniciar Sesión&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+                        <h4 class="text-lg font-semibold mt-4">Resultado:</h4>
+                        <div class="rounded-md overflow-hidden mt-2 border border-gray-700">
+                            <nav class="bg-gray-900/50 p-4 flex justify-between items-center relative">
+                                <div class="text-white font-bold text-xl">MiLogo</div>
+                                <div class="hidden md:flex items-center space-x-4"><a href="#"
+                                        class="hover:text-sky-400">Inicio</a><a href="#"
+                                        class="hover:text-sky-400">Acerca de</a><a href="#"
+                                        class="hover:text-sky-400">Contacto</a></div>
+                                <div class="hidden md:block"><a href="#"
+                                        class="px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700">Iniciar
+                                        Sesión</a></div>
+                                <div class="md:hidden"><button id="burger-tw" class="focus:outline-none"><i
+                                            class="fas fa-bars fa-lg"></i></button></div>
+                            </nav>
+                            <div id="mobile-menu-tw" class="hidden md:hidden bg-gray-900/50 p-2 space-y-2">
+                                <a href="#" class="block px-4 py-2 rounded-md hover:bg-gray-700">Inicio</a><a href="#"
+                                    class="block px-4 py-2 rounded-md hover:bg-gray-700">Acerca de</a><a href="#"
+                                    class="block px-4 py-2 rounded-md hover:bg-gray-700">Contacto</a><a href="#"
+                                    class="block px-4 py-2 bg-sky-600 text-white rounded-md text-center">Iniciar
+                                    Sesión</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACTIVIDAD 4 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg" id="actividad4">
+                    <div class="prose prose-invert max-w-none">
+                        <h3>Actividad 4: Página con Formulario y Navbar</h3>
+                        <p><strong>Consigna:</strong> Arma una página web que contenga un navbar y un formulario de
+                            contacto centrado.</p>
+                    </div>
+                    <button class="mt-4 px-3 py-1 bg-sky-600 text-white text-sm rounded-md hover:bg-sky-700"
+                        data-target="solucion4-tw">Ver Solución</button>
+                    <div class="solution-content pl-4 mt-4 hidden" id="solucion4-tw">
+                        <h4 class="text-lg font-semibold mt-4">Código:</h4>
+                        <pre class="bg-gray-900 p-4 rounded-md overflow-x-auto"><code class="text-sm">&lt;!-- Navbar (como en Actividad 3) iría aquí --&gt;
+&lt;section class="flex justify-center items-center py-10"&gt;
+    &lt;div class="w-full max-w-md bg-gray-800 p-8 rounded-lg shadow-xl"&gt;
+        &lt;h2 class="text-2xl font-bold text-center mb-6"&gt;Contacto&lt;/h2&gt;
+        &lt;form class="space-y-4"&gt;
+            &lt;div&gt;
+                &lt;label class="block text-sm font-medium"&gt;Nombre&lt;/label&gt;
+                &lt;input class="mt-1 block w-full bg-gray-700 rounded-md p-2" type="text"&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;label class="block text-sm font-medium"&gt;Email&lt;/label&gt;
+                &lt;input class="mt-1 block w-full bg-gray-700 rounded-md p-2" type="email"&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;label class="block text-sm font-medium"&gt;Mensaje&lt;/label&gt;
+                &lt;textarea class="mt-1 block w-full bg-gray-700 rounded-md p-2"&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+            &lt;button type="submit" class="w-full px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700"&gt;Enviar Mensaje&lt;/button&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+                        <h4 class="text-lg font-semibold mt-4">Resultado (Solo el formulario centrado):</h4>
+                        <div class="flex justify-center items-center py-10 bg-gray-900/50 rounded-md mt-2">
+                            <div class="w-full max-w-md bg-gray-800/80 p-8 rounded-lg shadow-xl">
+                                <h2 class="text-2xl font-bold text-center mb-6">Contacto</h2>
+                                <form class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-300">Nombre</label>
+                                        <input class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2"
+                                            type="text">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-300">Email</label>
+                                        <input class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2"
+                                            type="email">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-300">Mensaje</label>
+                                        <textarea
+                                            class="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md p-2"></textarea>
+                                    </div>
+                                    <button
+                                        class="w-full px-4 py-2 bg-sky-600 text-white rounded-md hover:bg-sky-700">Enviar
+                                        Mensaje</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ACTIVIDAD 5 -->
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg" id="actividad5">
+                    <div class="prose prose-invert max-w-none">
+                        <h3>Actividad 5: Botón Personalizado</h3>
+                        <p><strong>Consigna:</strong> Crea un botón de peligro con borde y un ícono.</p>
+                    </div>
+                    <button class="mt-4 px-3 py-1 bg-sky-600 text-white text-sm rounded-md hover:bg-sky-700"
+                        data-target="solucion5-tw">Ver Solución</button>
+                    <div class="solution-content pl-4 mt-4 hidden" id="solucion5-tw">
+                        <h4 class="text-lg font-semibold mt-4">Código:</h4>
+                        <pre class="bg-gray-900 p-4 rounded-md overflow-x-auto"><code class="text-sm">&lt;div class="bg-gray-800 p-6 rounded-md flex justify-center"&gt;
+    &lt;button class="inline-flex items-center space-x-2 border border-red-500 text-red-500 px-4 py-2 rounded-md hover:bg-red-500 hover:text-white transition-colors"&gt;
+        &lt;i class="fas fa-trash"&gt;&lt;/i&gt;
+        &lt;span&gt;Eliminar&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                        <h4 class="text-lg font-semibold mt-4">Resultado:</h4>
+                        <div class="bg-gray-900/50 p-6 rounded-md mt-2 flex justify-center">
+                            <button
+                                class="inline-flex items-center space-x-2 border border-red-500 text-red-500 px-4 py-2 rounded-md hover:bg-red-500 hover:text-white transition-colors">
+                                <i class="fas fa-trash"></i>
+                                <span>Eliminar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+        </div>
+    </main>
 
-            <!-- Actividad 4 y 5 se construirían de forma similar, combinando las utilidades de Tailwind -->
-
-        </main>
-    </div>
-
-    <!-- JAVASCRIPT PARA LA INTERACTIVIDAD -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const toggleButtons = document.querySelectorAll('[data-target]');
-            toggleButtons.forEach(button => {
+            // Script para los botones de Ver/Ocultar Solución
+            document.querySelectorAll('[data-target]').forEach(button => {
                 button.addEventListener('click', () => {
-                    const targetId = button.dataset.target;
-                    const targetElement = document.getElementById(targetId);
-                    
-                    // Alterna la clase 'hidden' de Tailwind para mostrar u ocultar
+                    const targetElement = document.getElementById(button.dataset.target);
                     targetElement.classList.toggle('hidden');
-                    
-                    // Cambia el texto del botón
                     button.textContent = targetElement.classList.contains('hidden') ? 'Ver Solución' : 'Ocultar Solución';
                 });
             });
+
+            // Script para el menú burger de Tailwind
+            const burgerButton = document.getElementById('burger-tw');
+            const mobileMenu = document.getElementById('mobile-menu-tw');
+            if (burgerButton && mobileMenu) {
+                burgerButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Script para el burger del navbar en la solución de la actividad 3
+            const burgerButtonSol = document.getElementById('burger-tw-sol');
+            const mobileMenuSol = document.getElementById('mobile-menu-tw-sol');
+            if (burgerButtonSol && mobileMenuSol) {
+                burgerButtonSol.addEventListener('click', () => {
+                    mobileMenuSol.classList.toggle('hidden');
+                });
+            }
         });
     </script>
+
 </body>
+
 </html>

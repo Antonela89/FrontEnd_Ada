@@ -1,157 +1,198 @@
 <!DOCTYPE html>
-<html lang="es">
+<!-- data-bs-theme="dark" activa el modo oscuro nativo de Bootstrap 5. -->
+<html lang="es" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Soluciones con Bootstrap - Actividades Clase 9</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- 1. CDN de Bootstrap CSS. -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome para los íconos (Bootstrap Icons también es una opción) -->
+
+    <!-- 2. CDN de Font Awesome para los íconos. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
     <style>
-        /* Pequeño estilo para el contenido de la solución, similar al original */
+        /* Estilo personalizado que usa una variable CSS de Bootstrap para el color del borde. */
         .solution-content {
-            border-left: 4px solid #0d6efd; /* Color primario de Bootstrap */
-            padding-left: 20px;
-            margin-top: 20px;
+            border-left: 4px solid var(--bs-primary);
         }
     </style>
 </head>
 
-<body class="bg-body-tertiary">
+<body>
 
-    <!-- TÍTULO PRINCIPAL -->
-    <!-- Reemplazamos el 'hero' de Bulma por un div con padding (p-5), fondo y texto redondeado. -->
-    <div class="p-5 mb-4 bg-primary text-white">
-        <div class="container-fluid py-3">
-            <h1 class="display-5 fw-bold">Carrera Front End</h1>
-            <p class="fs-4">Soluciones a las Actividades de la Clase 9 (Versión Bootstrap)</p>
-        </div>
-    </div>
+    <!-- === HERO / BANNER PRINCIPAL === -->
+    <section class="p-5 bg-primary text-white text-center">
+        <h1 class="display-4">Carrera Front End</h1>
+        <p class="lead">Soluciones a las Actividades (Bootstrap)</p>
+    </section>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <!-- .container para centrar el contenido y .py-5 para padding vertical. -->
-    <div class="container py-5">
-        <!-- .row para iniciar el sistema de rejilla. -->
+    <!-- === CONTENIDO PRINCIPAL === -->
+    <main class="container py-5">
+        <!-- Grid de Bootstrap: una fila con dos columnas. -->
         <div class="row">
 
-            <!-- MENÚ LATERAL -->
-            <!-- .col-md-3 crea una columna que ocupa 3 de 12 espacios en pantallas medianas o más grandes. -->
-            <!-- .d-none .d-md-block oculta el menú en pantallas pequeñas (mobile-first). -->
-            <div class="col-md-3 d-none d-md-block">
-                <!-- Usamos un .list-group de Bootstrap para el menú lateral. -->
+            <!-- === COLUMNA 1: MENÚ LATERAL === -->
+            <!-- Se oculta en móvil (d-none) y se muestra en desktop (d-lg-block). -->
+            <aside class="col-lg-3 d-none d-lg-block">
+                <h5>ACTIVIDADES</h5>
+                <!-- Componente .list-group para el menú. -->
                 <div class="list-group">
-                    <h6 class="list-group-item bg-light">Actividades</h6>
                     <a href="#actividad1" class="list-group-item list-group-item-action">Actividad 1: Formulario</a>
                     <a href="#actividad2" class="list-group-item list-group-item-action">Actividad 2: Íconos</a>
                     <a href="#actividad3" class="list-group-item list-group-item-action">Actividad 3: Navbar</a>
-                    <a href="#actividad4" class="list-group-item list-group-item-action">Actividad 4: Página Completa</a>
+                    <a href="#actividad4" class="list-group-item list-group-item-action">Actividad 4: Página
+                        Completa</a>
                     <a href="#actividad5" class="list-group-item list-group-item-action">Actividad 5: Botón</a>
                 </div>
-            </div>
+            </aside>
 
-            <!-- CONSIGNAS Y SOLUCIONES -->
-            <!-- .col-md-9 para la columna principal, que ocupa el resto del espacio. -->
-            <div class="col-md-9">
+            <!-- === COLUMNA 2: CONTENIDO DE ACTIVIDADES === -->
+            <div class="col-lg-9">
 
-                <!-- Actividad 1 -->
-                <!-- El componente .card de Bootstrap reemplaza al .box de Bulma. .mb-4 añade margen inferior. -->
+                <!-- ACTIVIDAD 1 -->
                 <div class="card mb-4" id="actividad1">
                     <div class="card-body">
-                        <h3 class="card-title">Actividad 1: Creando un Formulario de Registro</h3>
+                        <h3 class="card-title">Actividad 1: Formulario de Registro</h3>
                         <p><strong>Consigna:</strong> Crea un formulario de registro de usuario con los siguientes
-                            campos: Nombre completo, Correo electrónico, Contraseña, Confirmar contraseña y un botón
-                            de envío.</p>
-                        <!-- Botón para mostrar/ocultar la solución. -->
-                        <button class="btn btn-primary btn-sm" data-target="solucion1">Ver Solución</button>
-                        <!-- La clase .d-none de Bootstrap oculta el elemento por defecto. -->
-                        <div class="solution-content d-none" id="solucion1">
-                            <h4 class="h5 mt-3">Código de la Solución:</h4>
-                            <!-- El código se muestra igual, pero el resultado de abajo usa clases de Bootstrap -->
-                            <pre><code>&lt;!-- Código HTML con clases de Bootstrap --&gt;</code></pre>
-                            <h4 class="h5 mt-4">Resultado:</h4>
-                            <!-- Formulario con clases de Bootstrap -->
-                            <form method="POST">
-                                <!-- Cada grupo de label/input se envuelve en un .mb-3 para espaciado. -->
-                                <div class="mb-3">
-                                    <label class="form-label" for="nombreBS">Nombre completo</label>
-                                    <input class="form-control" type="text" id="nombreBS" placeholder="Ej: Ada Lovelace">
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="emailBS">Correo electrónico</label>
-                                    <input class="form-control" type="email" id="emailBS" placeholder="Ej: ada@example.com">
-                                </div>
-                                <!-- ... otros campos del formulario ... -->
-                                <button type="submit" class="btn btn-success">Registrarse</button>
+                            campos: Nombre completo, Correo electrónico, Contraseña, Confirmar contraseña y un botón de
+                            envío.</p>
+                        <p><strong>Requisitos:</strong> Usa los componentes de formulario de Bootstrap y
+                            <code>method="POST"</code>.
+                        </p>
+                        <p>💡 <strong>Extra:</strong> Agrega un <code>&lt;textarea&gt;</code> para una descripción.</p>
+                        <button class="btn btn-sm btn-primary" data-target="solucion1-bs">Ver Solución</button>
+                        <div class="solution-content ps-3 mt-4 d-none" id="solucion1-bs">
+                            <h4 class="mt-4">Código:</h4>
+                            <pre class="bg-dark p-3 rounded"><code class="text-white small">&lt;form method="POST"&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="nombre-sol-1" class="form-label"&gt;Nombre completo&lt;/label&gt;
+        &lt;input type="text" class="form-control" id="nombre-sol-1" placeholder="Ej: Ada Lovelace"&gt;
+    &lt;/div&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="email-sol-1" class="form-label"&gt;Correo electrónico&lt;/label&gt;
+        &lt;input type="email" class="form-control" id="email-sol-1" placeholder="Ej: ada@example.com"&gt;
+    &lt;/div&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="password-sol-1" class="form-label"&gt;Contraseña&lt;/label&gt;
+        &lt;input type="password" class="form-control" id="password-sol-1"&gt;
+    &lt;/div&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="confirm-password-sol-1" class="form-label"&gt;Confirmar contraseña&lt;/label&gt;
+        &lt;input type="password" class="form-control" id="confirm-password-sol-1"&gt;
+    &lt;/div&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="descripcion-sol-1" class="form-label"&gt;Descripción&lt;/label&gt;
+        &lt;textarea class="form-control" id="descripcion-sol-1" placeholder="Escribe algo sobre ti..."&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" class="btn btn-primary"&gt;Registrarse&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                            <h4 class="mt-4">Resultado:</h4>
+                            <form method="POST" class="mt-2">
+                                <div class="mb-3"><label class="form-label">Nombre completo</label><input
+                                        class="form-control" type="text" placeholder="Ej: Ada Lovelace"></div>
+                                <div class="mb-3"><label class="form-label">Correo electrónico</label><input
+                                        class="form-control" type="email" placeholder="Ej: ada@example.com"></div>
+                                <div class="mb-3"><label class="form-label">Contraseña</label><input
+                                        class="form-control" type="password"></div>
+                                <div class="mb-3"><label class="form-label">Confirmar contraseña</label><input
+                                        class="form-control" type="password"></div>
+                                <div class="mb-3"><label class="form-label">Descripción</label><textarea
+                                        class="form-control" placeholder="Escribe algo sobre ti..."></textarea></div>
+                                <button class="btn btn-primary">Registrarse</button>
                             </form>
                         </div>
                     </div>
                 </div>
 
-                <!-- Actividad 2 -->
+                <!-- ACTIVIDAD 2 -->
                 <div class="card mb-4" id="actividad2">
                     <div class="card-body">
-                        <h3 class="card-title">Actividad 2: Mejorando el Formulario con Íconos</h3>
-                        <p><strong>Consigna:</strong> Toma el formulario anterior y agrégale íconos en los inputs.</p>
-                        <button class="btn btn-primary btn-sm" data-target="solucion2">Ver Solución</button>
-                        <div class="solution-content d-none" id="solucion2">
-                            <h4 class="h5 mt-4">Resultado:</h4>
-                            <!-- En Bootstrap, usamos .input-group para añadir íconos. -->
-                            <div class="card p-3">
-                                <div class="mb-3">
-                                    <label class="form-label">Correo Electrónico</label>
-                                    <div class="input-group">
-                                        <!-- .input-group-text para el contenedor del ícono. -->
-                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                        <input class="form-control" type="email" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Contraseña</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                        <input class="form-control" type="password" placeholder="Contraseña">
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary">Iniciar Sesión</button>
+                        <h3 class="card-title">Actividad 2: Formulario con Íconos</h3>
+                        <p class="card-text"><strong>Consigna:</strong> Toma el formulario anterior y agrégale íconos en
+                            los inputs usando el componente <code>.input-group</code>.</p>
+                        <button class="btn btn-sm btn-primary" data-target="solucion2-bs">Ver Solución</button>
+                        <div class="solution-content ps-3 mt-4 d-none" id="solucion2-bs">
+                            <h4 class="mt-4">Código:</h4>
+                            <pre class="bg-dark p-3 rounded"><code class="text-white small">&lt;form method="POST"&gt;
+    &lt;div class="input-group mb-3"&gt;
+        &lt;span class="input-group-text"&gt;
+            &lt;i class="fas fa-envelope"&gt;&lt;/i&gt;
+        &lt;/span&gt;
+        &lt;input type="email" class="form-control" placeholder="Email"&gt;
+    &lt;/div&gt;
+    &lt;div class="input-group mb-3"&gt;
+        &lt;span class="input-group-text"&gt;
+            &lt;i class="fas fa-lock"&gt;&lt;/i&gt;
+        &lt;/span&gt;
+        &lt;input type="password" class="form-control" placeholder="Contraseña"&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" class="btn btn-primary"&gt;Iniciar Sesión&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                            <h4 class="mt-4">Resultado:</h4>
+                            <div class="card card-body bg-dark mt-2">
+                                <form method="POST">
+                                    <div class="input-group mb-3"><span class="input-group-text"><i
+                                                class="fas fa-envelope"></i></span><input type="email"
+                                            class="form-control" placeholder="Email"></div>
+                                    <div class="input-group mb-3"><span class="input-group-text"><i
+                                                class="fas fa-lock"></i></span><input type="password"
+                                            class="form-control" placeholder="Contraseña"></div>
+                                    <button class="btn btn-primary">Iniciar Sesión</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Actividad 3 -->
+                <!-- ACTIVIDAD 3 -->
                 <div class="card mb-4" id="actividad3">
                     <div class="card-body">
-                        <h3 class="card-title">Actividad 3: Creando un Navbar Navegable</h3>
-                        <p>💡 <strong>Extra:</strong> Prueba cambiar el color del navbar a oscuro.</p>
-                        <button class="btn btn-primary btn-sm" data-target="solucion3">Ver Solución</button>
-                        <div class="solution-content d-none" id="solucion3">
-                            <h4 class="h5 mt-4">Resultado:</h4>
-                            <!-- Navbar de Bootstrap. .navbar-expand-lg lo hace responsivo. -->
-                            <!-- data-bs-theme="dark" y bg-dark para el tema oscuro. -->
-                            <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+                        <h3 class="card-title">Actividad 3: Navbar Navegable</h3>
+                        <p><strong>Consigna:</strong> Crea un navbar con un logo, tres enlaces y un botón de inicio de
+                            sesión.</p>
+                        <p><strong>Requisitos:</strong> Usa los componentes <code>.navbar</code>,
+                            <code>.navbar-toggler</code> y <code>.collapse.navbar-collapse</code> para la funcionalidad
+                            responsiva.
+                        </p>
+                        <p>💡 <strong>Extra:</strong> Prueba cambiar el color del navbar.</p>
+                        <button class="btn btn-sm btn-primary" data-target="solucion3-bs">Ver Solución</button>
+                        <div class="solution-content ps-3 mt-4 d-none" id="solucion3-bs">
+                            <h4 class="mt-4">Código:</h4>
+                            <pre class="bg-dark p-3 rounded"><code class="text-white small">&lt;nav class="navbar navbar-expand-lg bg-dark border border-secondary rounded" data-bs-theme="dark"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;a class="navbar-brand" href="#"&gt;MiLogo&lt;/a&gt;
+        &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavSol"&gt;
+            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class="collapse navbar-collapse" id="navbarNavSol"&gt;
+            &lt;ul class="navbar-nav me-auto mb-2 mb-lg-0"&gt;
+                &lt;li class="nav-item"&gt;&lt;a class="nav-link"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="nav-item"&gt;&lt;a class="nav-link"&gt;Acerca de&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="nav-item"&gt;&lt;a class="nav-link"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;a class="btn btn-primary"&gt;Iniciar Sesión&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+                            <h4 class="mt-4">Resultado:</h4>
+                            <nav class="navbar navbar-expand-lg bg-dark border border-secondary rounded mt-2"
+                                data-bs-theme="dark">
                                 <div class="container-fluid">
-                                    <a class="navbar-brand" href="#">
-                                        <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
-                                    </a>
-                                    <!-- Botón hamburguesa para móviles. -->
-                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavBS">
-                                        <span class="navbar-toggler-icon"></span>
-                                    </button>
-                                    <div class="collapse navbar-collapse" id="navbarNavBS">
-                                        <!-- .navbar-nav para la lista de enlaces. -->
+                                    <a class="navbar-brand" href="#">MiLogo</a>
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#navbarNavSolution" aria-controls="navbarNavSolution"
+                                        aria-expanded="false" aria-label="Toggle navigation"><span
+                                            class="navbar-toggler-icon"></span></button>
+                                    <div class="collapse navbar-collapse" id="navbarNavSolution">
                                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                            <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#">Acerca de</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                                            <li class="nav-item"><a class="nav-link">Inicio</a></li>
+                                            <li class="nav-item"><a class="nav-link">Acerca de</a></li>
+                                            <li class="nav-item"><a class="nav-link">Contacto</a></li>
                                         </ul>
-                                        <!-- Botones a la derecha. -->
-                                        <div class="d-flex">
-                                            <button class="btn btn-primary"><strong>Iniciar Sesión</strong></button>
-                                        </div>
+                                        <a class="btn btn-primary">Iniciar Sesión</a>
                                     </div>
                                 </div>
                             </nav>
@@ -159,27 +200,94 @@
                     </div>
                 </div>
 
-                <!-- Actividad 4 -->
+                <!-- ACTIVIDAD 4 -->
                 <div class="card mb-4" id="actividad4">
-                     <div class="card-body">
-                        <h3 class="card-title">Actividad 4: Creando una Página con Formulario y Navbar</h3>
-                        <button class="btn btn-primary btn-sm" data-target="solucion4">Ver Solución</button>
-                        <div class="solution-content d-none" id="solucion4">
-                             <h4 class="h5 mt-4">Resultado:</h4>
-                            <!-- .row .justify-content-center para centrar la columna. -->
-                            <div class="row justify-content-center">
-                                <!-- .col-lg-6 para que ocupe la mitad en pantallas grandes. -->
-                                <div class="col-lg-6">
-                                    <div class="card p-4">
-                                        <h2 class="h3 text-center mb-4">Contacto</h2>
-                                        <!-- Formulario de contacto... -->
-                                        <div class="mb-3">
-                                            <label class="form-label">Mensaje</label>
-                                            <textarea class="form-control"></textarea>
+                    <div class="card-body">
+                        <h3 class="card-title">Actividad 4: Página con Formulario y Navbar</h3>
+                        <p><strong>Consigna:</strong> Arma una página web que contenga un navbar y un formulario de
+                            contacto centrado.</p>
+                        <p><strong>Requisitos:</strong> Usa el sistema de grid de Bootstrap (<code>.container</code>,
+                            <code>.row</code>, <code>.col-*</code>) para centrar el contenido.
+                        </p>
+                        <button class="btn btn-sm btn-primary" data-target="solucion4-bs">Ver Solución</button>
+                        <div class="solution-content ps-3 mt-4 d-none" id="solucion4-bs">
+                            <h4 class="mt-4">Código:</h4>
+                            <pre class="bg-dark p-3 rounded"><code class="text-white small">&lt;nav class="navbar navbar-expand-lg bg-dark border border-secondary rounded" data-bs-theme="dark"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;a class="navbar-brand" href="#"&gt;MiLogo&lt;/a&gt;
+        &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavSol"&gt;
+            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class="collapse navbar-collapse" id="navbarNavSol"&gt;
+            &lt;ul class="navbar-nav me-auto mb-2 mb-lg-0"&gt;
+                &lt;li class="nav-item"&gt;&lt;a class="nav-link"&gt;Inicio&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="nav-item"&gt;&lt;a class="nav-link"&gt;Acerca de&lt;/a&gt;&lt;/li&gt;
+                &lt;li class="nav-item"&gt;&lt;a class="nav-link"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;a class="btn btn-primary"&gt;Iniciar Sesión&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+&lt;div class="container"&gt;
+    &lt;div class="row justify-content-center"&gt;
+        &lt;div class="col-md-8 col-lg-6"&gt;
+            &lt;div class="card"&gt;
+                &lt;div class="card-body"&gt;
+                    &lt;h2 class="card-title text-center mb-4"&gt;Contacto&lt;/h2&gt;
+                    &lt;form&gt;
+                        &lt;div class="mb-3"&gt;
+                            &lt;label class="form-label"&gt;Nombre&lt;/label&gt;
+                            &lt;input type="text" class="form-control"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="mb-3"&gt;
+                            &lt;label class="form-label"&gt;Email&lt;/label&gt;
+                            &lt;input type="email" class="form-control"&gt;
+                        &lt;/div&gt;
+                        &lt;div class="mb-3"&gt;
+                            &lt;label class="form-label"&gt;Mensaje&lt;/label&gt;
+                            &lt;textarea class="form-control"&gt;&lt;/textarea&gt;
+                        &lt;/div&gt;
+                        &lt;button type="submit" class="btn btn-primary w-100"&gt;Enviar Mensaje&lt;/button&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            <h4 class="mt-4">Resultado:</h4>
+                            <div class="row justify-content-center mt-2">
+                                <nav class="navbar navbar-expand-lg bg-dark border border-secondary rounded my-2"
+                                    data-bs-theme="dark">
+                                    <div class="container-fluid">
+                                        <a class="navbar-brand" href="#">MiLogo</a>
+                                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#navbarNavSolution" aria-controls="navbarNavSolution"
+                                            aria-expanded="false" aria-label="Toggle navigation"><span
+                                                class="navbar-toggler-icon"></span></button>
+                                        <div class="collapse navbar-collapse" id="navbarNavSolution">
+                                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                                <li class="nav-item"><a class="nav-link">Inicio</a></li>
+                                                <li class="nav-item"><a class="nav-link">Acerca de</a></li>
+                                                <li class="nav-item"><a class="nav-link">Contacto</a></li>
+                                            </ul>
+                                            <a class="btn btn-primary">Iniciar Sesión</a>
                                         </div>
-                                        <!-- .d-grid para que el botón ocupe todo el ancho. -->
-                                        <div class="d-grid">
-                                            <button class="btn btn-primary">Enviar Mensaje</button>
+                                    </div>
+                                </nav>
+                                <div class="col-md-10">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h2 class="card-title text-center mb-4">Contacto</h2>
+                                            <form>
+                                                <div class="mb-3"><label class="form-label">Nombre</label><input
+                                                        type="text" class="form-control"></div>
+                                                <div class="mb-3"><label class="form-label">Email</label><input
+                                                        type="email" class="form-control"></div>
+                                                <div class="mb-3"><label class="form-label">Mensaje</label><textarea
+                                                        class="form-control"></textarea></div>
+                                                <button type="submit" class="btn btn-primary w-100">Enviar
+                                                    Mensaje</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -188,19 +296,26 @@
                     </div>
                 </div>
 
-                <!-- Actividad 5 -->
+                <!-- ACTIVIDAD 5 -->
                 <div class="card mb-4" id="actividad5">
                     <div class="card-body">
-                        <h3 class="card-title">Actividad 5: Personalizando un Botón</h3>
-                         <button class="btn btn-primary btn-sm" data-target="solucion5">Ver Solución</button>
-                        <div class="solution-content d-none" id="solucion5">
-                            <h4 class="h5 mt-4">Resultado:</h4>
-                            <div class="card p-4 text-center">
-                                <!-- .btn-outline-danger para un botón de peligro con borde. -->
-                                <button class="btn btn-outline-danger">
-                                    <!-- El ícono se coloca directamente dentro del botón. -->
-                                    <i class="fas fa-trash"></i>
-                                    <span>Eliminar</span>
+                        <h3 class="card-title">Actividad 5: Botón Personalizado</h3>
+                        <p><strong>Consigna:</strong> Crea un botón de peligro con borde y un ícono.</p>
+                        <p><strong>Requisitos:</strong> Usa las clases <code>.btn</code> y
+                            <code>.btn-outline-danger</code>.
+                        </p>
+                        <button class="btn btn-sm btn-primary" data-target="solucion5-bs">Ver Solución</button>
+                        <div class="solution-content ps-3 mt-4 d-none" id="solucion5-bs">
+                            <h4 class="mt-4">Código:</h4>
+                            <pre class="bg-dark p-3 rounded"><code class="text-white small">&lt;div class="card card-body bg-dark text-center"&gt;
+    &lt;button type="button" class="btn btn-outline-danger"&gt;
+        &lt;i class="fas fa-trash me-2"&gt;&lt;/i&gt;Eliminar
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                            <h4 class="mt-4">Resultado:</h4>
+                            <div class="card card-body bg-dark mt-2 text-center">
+                                <button type="button" class="btn btn-outline-danger">
+                                    <i class="fas fa-trash me-2"></i>Eliminar
                                 </button>
                             </div>
                         </div>
@@ -209,22 +324,18 @@
 
             </div>
         </div>
-    </div>
+    </main>
 
-    <!-- JAVASCRIPT PARA LA INTERACTIVIDAD Y BOOTSTRAP -->
+    <!-- Bundle de JS de Bootstrap (necesario para el toggler del navbar). -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Nuestro script personalizado para los botones de solución. -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const toggleButtons = document.querySelectorAll('[data-target]');
-            toggleButtons.forEach(button => {
+            document.querySelectorAll('[data-target]').forEach(button => {
                 button.addEventListener('click', () => {
-                    const targetId = button.dataset.target;
-                    const targetElement = document.getElementById(targetId);
-                    
-                    // Alterna la clase '.d-none' de Bootstrap para mostrar u ocultar
+                    const targetElement = document.getElementById(button.dataset.target);
                     targetElement.classList.toggle('d-none');
-                    
-                    // Cambia el texto del botón
                     button.textContent = targetElement.classList.contains('d-none') ? 'Ver Solución' : 'Ocultar Solución';
                 });
             });
@@ -232,4 +343,5 @@
     </script>
 
 </body>
+
 </html>
