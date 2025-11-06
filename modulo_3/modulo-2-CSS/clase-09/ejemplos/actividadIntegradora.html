@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equipo FrontEnd 202504</title>
+
+  <!-- Bulma -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <h1 class="title has-text-centered">FrontEnd</h1>
+      <h2 class="subtitle has-text-centered">Integrantes del equipo de FrontEnd</h2>
+    </div>
+  </section>
+
+  <!-- CARDS -->
+  <section class="section">
+    <h2 class="title has-text-centered is-3">Nuestro Equipo</h2>
+
+    <div class="columns is-multiline">
+
+      <!-- CARD 1 -->
+      <div class="column is-4 is-flex">
+        <div class="card team-card">
+          <div class="card-content">
+            <p class="title is-5 team-title">Gabriela</p>
+            <p class="subtitle is-6">FrontEnd Developer</p>
+            <p>Una líder técnica experta en la arquitectura y desarrollo de soluciones front-end complejas y de alto
+              impacto. Con más de 12 años de experiencia, define la estrategia tecnológica, optimiza el rendimiento y
+              garantiza la calidad del código. Su rol también se centra en mentorizar a otros desarrolladores y
+              colaborar con los stakeholders para alinear los objetivos técnicos con la visión del producto.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="column is-4 is-flex">
+        <div class="card team-card">
+          <div class="card-content">
+            <p class="title is-5 team-title">Brisa</p>
+            <p class="subtitle is-6">FrontEnd Developer</p>
+            <p>Una desarrolladora entusiasta y motivada, especializada en transformar diseños en interfaces web
+              interactivas y atractivas. Con sólidos conocimientos en HTML, CSS y JavaScript, se enfoca en escribir
+              código limpio y responsivo. Su objetivo es aplicar sus habilidades, aprender de forma continua y
+              contribuir a crear experiencias de usuario memorables.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="column is-4 is-flex">
+        <div class="card team-card">
+          <div class="card-content">
+            <p class="title is-5 team-title">Antonela</p>
+            <p class="subtitle is-6">FrontEnd Developer</p>
+            <p>Una desarrolladora con experiencia en la creación y optimización de aplicaciones web modernas y
+              eficientes.Domina frameworks como React o Angular para construir componentes reutilizables y escalables.
+              Colabora de manera proactiva con equipos de diseño y back-end para integrar APIs y asegurar una
+              experiencia de usuario fluida y de alto rendimiento.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FORMULARIO -->
+  <section class="section">
+    <div class="container">
+
+      <h2 class="title has-text-centered is-3">Formulario de Registro</h2>
+
+      <div class="box">
+
+        <div class="field">
+          <label class="label" for="nombre">Nombre completo</label>
+          <input class="input" id="nombre" type="text" placeholder="Ingresa tu nombre completo">
+          <p class="help is-danger is-hidden" id="nombreError"></p>
+        </div>
+
+        <div class="field">
+          <label class="label" for="email">Correo electrónico</label>
+          <input class="input" id="email" type="email" placeholder="Ingresa tu correo electrónico">
+          <p class="help is-danger is-hidden" id="emailError"></p>
+        </div>
+
+        <div class="field">
+          <label class="label" for="mensaje">Mensaje</label>
+          <textarea class="textarea" id="mensaje" placeholder="Escribe un mensaje para nuestro equipo"></textarea>
+          <p class="help is-danger is-hidden" id="mensajeError"></p>
+        </div>
+
+        <!-- BOTÓN INTELIGENTE (ellas completan comportamiento con JS) -->
+        <button id="btnEnviar" class="button is-primary is-fullwidth">Enviar Mensaje</button>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div class="modal" id="modalExito">
+    <div class="modal-background"></div>
+
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Mensaje Enviado</p>
+        <button class="delete" id="cerrarModal"></button>
+      </header>
+
+      <section class="modal-card-body">
+        El mansaje ha sido enviado, nos pondremos en contacto pronto.
+      </section>
+
+      <footer class="modal-card-foot">
+        <button class="button is-primary is-fullwidth" id="cerrarModalFooter">Cerrar</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT A COMPLETAR POR ELLAS -->
+  <script>
+    // 1) Guardar los elementos en variables
+    const nombre = document.getElementById('nombre');
+    const email = document.getElementById('email');
+    const mensaje = document.getElementById('mensaje');
+
+    const nombreError = document.getElementById('nombreError');
+    const emailError = document.getElementById('emailError');
+    const mensajeError = document.getElementById('mensajeError');
+
+    const btnEnviar = document.getElementById('btnEnviar');
+    const modal = document.getElementById('modalExito');
+    const cerrarModal = document.getElementById('cerrarModal');
+    const cerrarModalFooter = document.getElementById('cerrarModalFooter');
+
+     // Objeto para mantener el estado de validación de cada campo
+    const validacion = {
+      nombre: false,
+      email: false,
+      mensaje: false
+    };
+
+    // --- FUNCIONES DE VALIDACIÓN ---
+
+    // 2) Validación en vivo para nombre: solo letras y espacios
+    nombre.addEventListener("input", () => {
+      const regex = /^[\p{L} ]+$/u;
+      if (nombre.value.trim().length > 2 && regex.test(nombre.value)) {
+        nombre.classList.add('is-success');
+        nombre.classList.remove('is-danger');
+        nombreError.classList.add('is-hidden');
+        validacion.nombre = true;
+      } else {
+        nombre.classList.add('is-danger');
+        nombre.classList.remove('is-success');
+        nombreError.textContent = 'Por favor, ingresa un nombre válido (solo letras y espacios).';
+        nombreError.classList.remove('is-hidden');
+        validacion.nombre = false;
+      }
+      actualizarBoton();
+    });
+
+    // 3) Validación en vivo email
+    email.addEventListener("input", () => {
+      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (regex.test(email.value)) {
+        email.classList.add('is-success');
+        email.classList.remove('is-danger');
+        emailError.classList.add('is-hidden');
+        validacion.email = true;
+      } else {
+        email.classList.add('is-danger');
+        email.classList.remove('is-success');
+        emailError.textContent = 'El formato del correo electrónico no es válido.';
+        emailError.classList.remove('is-hidden');
+        validacion.email = false;
+      }
+      actualizarBoton();
+    });
+
+    // 4) Validación en vivo mensaje
+    mensaje.addEventListener("input", () => {
+      // Mínimo 10 caracteres que no sean solo espacios
+      if (mensaje.value.trim().length >= 10) {
+        mensaje.classList.add('is-success');
+        mensaje.classList.remove('is-danger');
+        mensajeError.classList.add('is-hidden');
+        validacion.mensaje = true;
+      } else {
+        mensaje.classList.add('is-danger');
+        mensaje.classList.remove('is-success');
+        mensajeError.textContent = 'El mensaje debe tener al menos 10 caracteres.';
+        mensajeError.classList.remove('is-hidden');
+        validacion.mensaje = false;
+      }
+      actualizarBoton();
+    });
+
+    // 5) Botón inteligente (si todo es válido → cambiar color y texto)
+    function actualizarBoton() {
+      if (validacion.nombre && validacion.email && validacion.mensaje) {
+        btnEnviar.classList.remove('is-primary');
+        btnEnviar.classList.add('is-success');
+        btnEnviar.textContent = 'Enviar Formulario';
+        btnEnviar.disabled = false;
+      } else {
+        btnEnviar.classList.add('is-primary');
+        btnEnviar.classList.remove('is-success');
+        btnEnviar.textContent = 'Completa el formulario para enviar';
+        btnEnviar.disabled = true;
+      }
+    }
+    
+    // Inicializar el estado del botón al cargar la página
+    actualizarBoton();
+
+
+    // 6) Abrir modal solo cuando btnEnviar está en estado correcto
+    btnEnviar.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevenir el envío real del formulario
+      
+      if (validacion.nombre && validacion.email && validacion.mensaje) {
+        modal.classList.add('is-active');
+      }
+    });
+
+    // --- FUNCIONES DEL MODAL ---
+    
+    function closeModal() {
+        modal.classList.remove('is-active');
+        
+        // Limpiar formulario
+        nombre.value = '';
+        email.value = '';
+        mensaje.value = '';
+
+        // Resetear clases de validación
+        nombre.classList.remove('is-success', 'is-danger');
+        email.classList.remove('is-success', 'is-danger');
+        mensaje.classList.remove('is-success', 'is-danger');
+
+        // Resetear estado de validación
+        validacion.nombre = false;
+        validacion.email = false;
+        validacion.mensaje = false;
+
+        // Actualizar botón a su estado inicial
+        actualizarBoton();
+    }
+
+    // 7) Cerrar modal
+    cerrarModal.addEventListener("click", closeModal);
+    cerrarModalFooter.addEventListener("click", closeModal);
+    
+
+    // 8) HOVER EN CARDS (ya estaba completo y correcto)
+    document.querySelectorAll(".team-card").forEach(card => {
+      card.addEventListener("mouseenter", () => {
+        card.classList.add('has-background-info');
+        const paragraphs = card.querySelectorAll('p');
+        paragraphs.forEach(p => {
+          p.classList.add('has-text-dark');
+        });
+      });
+      card.addEventListener("mouseleave", () => {
+        card.classList.remove('has-background-info')
+        const paragraphs = card.querySelectorAll('p');
+        paragraphs.forEach(p => {
+          p.classList.remove('has-text-dark');
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
