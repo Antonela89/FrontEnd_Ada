@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soluciones con Tailwind - Actividades Clase 9</title>
+
+    <!-- Tailwind CSS (usando el CDN para demostración) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <style>
+        /* Pequeño estilo para el contenido de la solución, compatible con Tailwind */
+        .solution-content {
+            border-left: 4px solid #3b82f6; /* Un color azul de Tailwind */
+            padding-left: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<!-- bg-gray-100 para un fondo gris claro en toda la página -->
+<body class="bg-gray-100">
+
+    <!-- TÍTULO PRINCIPAL -->
+    <!-- Construimos el "hero" con utilidades: bg-blue-600 para el fondo, text-white, y p-8 para padding. -->
+    <section class="bg-blue-600 text-white p-8">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold">Carrera Front End</h1>
+            <p class="text-xl mt-2">Soluciones a las Actividades de la Clase 9 (Versión Tailwind)</p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <!-- container mx-auto para centrar, p-8 para padding y flex para el layout de columnas. -->
+    <div class="container mx-auto p-8 flex flex-col md:flex-row gap-8">
+
+        <!-- MENÚ LATERAL -->
+        <!-- w-full md:w-1/4: ocupa todo el ancho en móvil, y 1/4 en pantallas medianas o más. -->
+        <!-- hidden md:block: está oculto en móvil y visible a partir de 'md'. -->
+        <aside class="hidden md:block w-full md:w-1/4">
+            <div class="bg-white p-4 rounded-lg shadow">
+                <p class="font-bold text-gray-600 mb-2">
+                    Actividades
+                </p>
+                <!-- ul con clases para estilizar la lista y los enlaces del menú. -->
+                <ul class="space-y-1">
+                    <li><a href="#actividad1" class="block p-2 rounded hover:bg-gray-200">Actividad 1: Formulario</a></li>
+                    <li><a href="#actividad2" class="block p-2 rounded hover:bg-gray-200">Actividad 2: Íconos</a></li>
+                    <li><a href="#actividad3" class="block p-2 rounded hover:bg-gray-200">Actividad 3: Navbar</a></li>
+                    <li><a href="#actividad4" class="block p-2 rounded hover:bg-gray-200">Actividad 4: Página Completa</a></li>
+                    <li><a href="#actividad5" class="block p-2 rounded hover:bg-gray-200">Actividad 5: Botón</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- CONSIGNAS Y SOLUCIONES -->
+        <!-- flex-1 permite que esta columna ocupe el espacio restante. -->
+        <!-- space-y-8 añade espacio vertical entre los elementos hijos (las cajas de actividades). -->
+        <main class="flex-1 space-y-8">
+
+            <!-- Actividad 1 -->
+            <!-- La caja se crea con clases de fondo, padding, borde redondeado y sombra. -->
+            <div class="bg-white p-6 rounded-lg shadow-md" id="actividad1">
+                <div class="prose max-w-none"> <!-- .prose para estilizar texto genérico -->
+                    <h3 class="text-2xl font-semibold">Actividad 1: Creando un Formulario de Registro</h3>
+                    <p><strong>Consigna:</strong> Crea un formulario de registro...</p>
+                </div>
+                 <!-- Botón estilizado con utilidades de Tailwind -->
+                <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 text-sm rounded" data-target="solucion1">Ver Solución</button>
+                <!-- 'hidden' de Tailwind oculta el elemento por defecto. -->
+                <div class="solution-content hidden" id="solucion1">
+                    <h4 class="text-lg font-semibold mt-3">Resultado:</h4>
+                    <form method="POST" class="space-y-4">
+                        <div>
+                            <!-- Estilos para la etiqueta y el input. -->
+                            <label class="block text-sm font-medium text-gray-700" for="nombreTW">Nombre completo</label>
+                            <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" type="text" id="nombreTW">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700" for="emailTW">Correo electrónico</label>
+                            <input class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" type="email" id="emailTW">
+                        </div>
+                        <button class="bg-green-500 text-white py-2 px-4 rounded">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Actividad 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-md" id="actividad2">
+                <h3 class="text-2xl font-semibold">Actividad 2: Mejorando el Formulario con Íconos</h3>
+                <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 text-sm rounded" data-target="solucion2">Ver Solución</button>
+                <div class="solution-content hidden" id="solucion2">
+                    <h4 class="text-lg font-semibold mt-3">Resultado:</h4>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <!-- Para el ícono, usamos un div con 'relative'. El ícono se posiciona de forma 'absolute'. -->
+                        <div class="relative">
+                            <!-- El input necesita padding a la izquierda (pl-10) para no solaparse con el ícono. -->
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                                <i class="fas fa-envelope text-gray-400"></i>
+                            </span>
+                            <input class="w-full pl-10 pr-3 py-2 border rounded-md" type="email" placeholder="Email">
+                        </div>
+                        <div class="relative mt-4">
+                             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                                <i class="fas fa-lock text-gray-400"></i>
+                            </span>
+                            <input class="w-full pl-10 pr-3 py-2 border rounded-md" type="password" placeholder="Contraseña">
+                        </div>
+                        <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded">Iniciar Sesión</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Actividad 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-md" id="actividad3">
+                <h3 class="text-2xl font-semibold">Actividad 3: Creando un Navbar Navegable</h3>
+                 <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 text-sm rounded" data-target="solucion3">Ver Solución</button>
+                 <div class="solution-content hidden" id="solucion3">
+                    <h4 class="text-lg font-semibold mt-3">Resultado:</h4>
+                    <!-- Navbar construido con Flexbox. -->
+                    <nav class="bg-gray-800 text-white p-4 flex items-center justify-between">
+                       <!-- Logo -->
+                        <div class="font-bold text-lg">MiLogo</div>
+                        <!-- Enlaces de navegación (ocultos en móvil) -->
+                        <div class="hidden md:flex space-x-4">
+                           <a href="#" class="hover:text-gray-300">Inicio</a>
+                           <a href="#" class="hover:text-gray-300">Acerca de</a>
+                           <a href="#" class="hover:text-gray-300">Contacto</a>
+                        </div>
+                        <!-- Botón -->
+                        <button class="bg-blue-500 hover:bg-blue-600 font-bold py-2 px-4 rounded">Iniciar Sesión</button>
+                    </nav>
+                 </div>
+            </div>
+
+            <!-- Actividad 4 y 5 se construirían de forma similar, combinando las utilidades de Tailwind -->
+
+        </main>
+    </div>
+
+    <!-- JAVASCRIPT PARA LA INTERACTIVIDAD -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleButtons = document.querySelectorAll('[data-target]');
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.target;
+                    const targetElement = document.getElementById(targetId);
+                    
+                    // Alterna la clase 'hidden' de Tailwind para mostrar u ocultar
+                    targetElement.classList.toggle('hidden');
+                    
+                    // Cambia el texto del botón
+                    button.textContent = targetElement.classList.contains('hidden') ? 'Ver Solución' : 'Ocultar Solución';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
