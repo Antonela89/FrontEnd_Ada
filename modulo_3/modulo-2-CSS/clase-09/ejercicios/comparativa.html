@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparativa de Frameworks CSS: Tarjeta de Producto</title>
+
+    <!-- === CDNs DE LOS FRAMEWORKS Y LIBRERÍAS === -->
+    <!-- 1. Bootstrap CSS (con atributos para el tema oscuro) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 2. Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <!-- 3. Tailwind CSS (vía script para demo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 4. Font Awesome (para íconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <style>
+        /* ESTILOS GLOBALES Y DE AYUDA */
+        :root {
+            color-scheme: dark;
+        }
+
+        body {
+            background-color: #1a202c;
+            /* Un fondo oscuro base (de Tailwind) */
+            color: #e2e8f0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .framework-column {
+            background-color: #2d3748;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        pre code {
+            color: #e2e8f0 !important;
+        }
+
+        /* Ayudante para la etiqueta de Bulma */
+        .image.is-relative {
+            position: relative;
+        }
+
+        .tag.is-absolute {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+        }
+
+        /* Estilos para tarjetas interactivas */
+        .interactive-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .interactive-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .heart-icon.favorited,
+        .heart-icon-bulma.favorited {
+            color: #dc3545;
+            /* Rojo de Bootstrap */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- === HERO / BANNER PRINCIPAL === -->
+    <section class="text-center text-white p-5" style="background-color: #111827;">
+        <h1 class="display-4 fw-bold">Comparativa de Frameworks CSS</h1>
+        <p class="lead">Construyendo la misma Tarjeta de Producto con Bootstrap, Bulma y Tailwind</p>
+    </section>
+
+    <!-- === CONTENEDOR PRINCIPAL DE LAS COMPARATIVAS === -->
+    <main class="container-fluid py-5 px-4">
+
+        <!-- ========================================================================================= -->
+        <!-- PASO 1: LA ESTRUCTURA BASE DE LA TARJETA                                                    -->
+        <!-- ========================================================================================= -->
+        <div class="mb-5">
+            <h2 class="display-6 border-bottom pb-2 mb-4">Paso 1: Estructura Base (La Card)</h2>
+            <div class="comparison-grid">
+
+                <!-- Columna Bootstrap -->
+                <div class="framework-column">
+                    <h3 class="fw-bold mb-3">Bootstrap</h3>
+                    <p class="small text-light mb-3">Usa el componente <code>.card</code>. Rápido y directo. <br>
+                        Todo está predefinido.</p>
+                    <!-- Resultado Visual -->
+                    <article class="card bg-dark text-white">
+                        <img src="https://m.media-amazon.com/images/I/41sr5xq7HxL._AC_.jpg" class="card-img-top"
+                            alt="Producto">
+                        <div class="card-body">
+                            <h5 class="card-title">Zapatillas Deportivas</h5>
+                            <p class="card-text small">Unas zapatillas cómodas y con estilo.</p>
+                        </div>
+                    </article>
+                    <button class="btn btn-sm btn-outline-info w-100 mt-3" data-target="code-bs-1">Ver Código</button>
+                    <div class="d-none mt-3" id="code-bs-1">
+                        <pre class="bg-black p-3 rounded small"><code>&lt;div class="card bg-dark text-white"&gt;
+    &lt;img src="..." class="card-img-top" alt="Producto"&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;....título....&lt;/h5&gt;
+        &lt;p class="card-text small"&gt;...descripción...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Columna Bulma -->
+                <div class="framework-column">
+                    <h3 class="fw-bold mb-3">Bulma</h3>
+                    <p class="is-size-6 has-text-light mb-3">Similar a Bootstrap con el componente <code>.card</code>.
+                        <br>
+                        Estructura semántica clara.
+                    </p>
+                    <!-- Resultado Visual -->
+                    <article class="card has-background-dark has-text-light">
+                        <div class="card-image">
+                            <figure class="image"><img src="https://m.media-amazon.com/images/I/41sr5xq7HxL._AC_.jpg"
+                                    alt="Producto">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-5 mb-2 has-text-light">Zapatillas Deportivas</p>
+                            <p class="subtitle is-6 has-text-light">Unas zapatillas cómodas y con estilo.</p>
+                        </div>
+                    </article>
+                    <button class="button is-small is-info is-outlined is-fullwidth mt-3" data-target="code-bulma-1">Ver
+                        Código</button>
+                    <div class="is-hidden mt-3" id="code-bulma-1">
+                        <pre class="has-background-black p-3" style="border-radius: 6px;"><code class="small">&lt;div class="card has-background-dark has-text-light"&gt;
+    &lt;div class="card-image"&gt;
+        &lt;figure class="image"&gt;
+            &lt;img src="..." alt="Producto"&gt;
+        &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class="card-content"&gt;
+        &lt;p class="title is-5 mb-2 has-text-light"&gt;...&lt;/p&gt;
+        &lt;p class="subtitle is-6 has-text-light"&gt;...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Columna Tailwind -->
+                <div class="framework-column">
+                    <h3 class="fw-bold mb-3">Tailwind CSS</h3>
+                    <p class="text-sm text-gray-200 mb-3">Se construye desde cero con utilidades. <br>
+                        Control total sobre cada detalle.
+                    </p>
+                    <!-- Resultado Visual -->
+                    <article class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://m.media-amazon.com/images/I/41sr5xq7HxL._AC_.jpg" class="w-full h-auto"
+                            alt="Producto">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-white">Zapatillas Deportivas</h3>
+                            <p class="text-sm text-gray-200 mt-1">Unas zapatillas cómodas y con estilo.</p>
+                        </div>
+                    </article>
+                    <button
+                        class="w-full mt-3 text-sm border border-cyan-500 text-cyan-500 rounded-md py-1 hover:bg-cyan-500 hover:text-white"
+                        data-target="code-tw-1">Ver Código</button>
+                    <div class="hidden mt-3" id="code-tw-1">
+                        <pre class="bg-black p-3 rounded small"><code>&lt;div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden"&gt;
+    &lt;img src="..." class="w-full h-auto" alt="Producto"&gt;
+    &lt;div class="p-4"&gt;
+        &lt;h3 class="text-lg font-bold text-white"&gt;...&lt;/h3&gt;
+        &lt;p class="text-sm text-white mt-1"&gt;...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================================= -->
+        <!-- PASO 2: AÑADIR UN BADGE Y SELECTORES                                                       -->
+        <!-- ========================================================================================= -->
+        <div class="mb-5">
+            <h2 class="display-6 border-bottom pb-2 mb-4">Paso 2: Badge y Selectores (Colores y Tallas)</h2>
+            <div class="comparison-grid">
+
+                <!-- Columna Bootstrap -->
+                <div class="framework-column">
+                    <h3 class="fw-bold mb-3">Bootstrap</h3>
+                    <p class="small text-light mb-3">El badge es fácil con <code>.position-absolute</code>. Para los
+                        selectores, <code>.btn-group</code> es ideal. Los círculos de color requieren estilo manual.</p>
+                    <!-- Resultado Visual -->
+                    <article class="card bg-dark text-white position-relative">
+                        <span class="badge text-bg-danger position-absolute top-0 start-0 m-2">OFERTA</span>
+                        <img src="https://m.media-amazon.com/images/I/41sr5xq7HxL._AC_.jpg" class="card-img-top"
+                            alt="Producto">
+                        <div class="card-body">
+                            <h5 class="card-title">Zapatillas Deportivas</h5>
+                            <div class="d-flex gap-2 my-2">
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: red;"></div>
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: blue;"></div>
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: black;"></div>
+                            </div>
+                            <div class="btn-group btn-group-sm w-100 mt-2">
+                                <button type="button" class="btn btn-outline-light">S</button>
+                                <button type="button" class="btn btn-outline-light">M</button>
+                                <button type="button" class="btn btn-outline-light">L</button>
+                            </div>
+                        </div>
+                    </article>
+                    <button class="btn btn-sm btn-outline-info w-100 mt-3" data-target="code-bs-2">Ver Código</button>
+                    <div class="d-none mt-3" id="code-bs-2">
+                        <pre class="bg-black p-3 rounded small"><code>&lt;div class="card ... position-relative"&gt;
+    &lt;span class="badge text-bg-danger position-absolute top-0 start-0 m-2"&gt;OFERTA&lt;/span&gt;
+    &lt;!-- ... img ... --&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h5&gt;...&lt;/h5&gt;
+        &lt;!-- Círculos (con estilo inline o CSS) --&gt;
+        &lt;div class="d-flex gap-2 my-2"&gt;
+            &lt;div style="width:20px; ... background-color: red;"&gt;&lt;/div&gt;
+            &lt;div style="width:20px; ... background-color: blue;"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- Selector de Talla --&gt;
+        &lt;div class="btn-group w-100 mt-2"&gt;
+            &lt;button class="btn btn-outline-secondary"&gt;S&lt;/button&gt;
+            &lt;button class="btn btn-outline-secondary"&gt;M&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Columna Bulma -->
+                <div class="framework-column">
+                    <h3 class="fw-bold mb-3">Bulma</h3>
+                    <p class="is-size-6 has-text-light mb-3">El badge necesita un helper de CSS para posicionarlo.
+                        <code>.buttons.has-addons</code> es perfecto para los botones de talla.
+                    </p>
+                    <!-- Resultado Visual -->
+                    <article class="card has-background-dark has-text-light">
+                        <div class="card-image">
+                            <figure class="image  is-relative">
+                                <span class="tag is-danger is-absolute">OFERTA</span>
+                                <img src="https://m.media-amazon.com/images/I/41sr5xq7HxL._AC_.jpg" alt="Producto">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-5 has-text-light">Zapatillas Deportivas</p>
+                            <div class="is-flex" style="gap: 0.5rem; margin-bottom: 0.75rem;">
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: red;"></div>
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: blue;"></div>
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: black;"></div>
+                            </div>
+                            <div class="buttons has-addons">
+                                <button class="button is-outlined is-light is-expanded">S</button>
+                                <button class="button is-outlined is-light is-expanded">M</button>
+                                <button class="button is-outlined is-light is-expanded">L</button>
+                            </div>
+                        </div>
+                    </article>
+                    <button class="button is-small is-info is-outlined is-fullwidth mt-3" data-target="code-bulma-2">Ver
+                        Código</button>
+                    <div class="is-hidden mt-3" id="code-bulma-2">
+                        <pre class="has-background-black p-3" style="border-radius: 6px;"><code class="small">&lt;div class="card ..."&gt;
+    &lt;div class="card-image"&gt;
+        &lt;figure class="image is-4by3 is-relative"&gt;
+            &lt;!-- Requiere un helper CSS para 'is-relative' y 'is-absolute' --&gt;
+            &lt;span class="tag is-danger is-absolute"&gt;OFERTA&lt;/span&gt;
+            &lt;img src="..." alt="Producto"&gt;
+        &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class="card-content"&gt;
+        &lt;p&gt;...&lt;/p&gt;
+        &lt;!-- Círculos (con estilo inline o CSS) --&gt;
+        &lt;div class="is-flex" style="gap: 0.5rem;"&gt;
+            &lt;div style="width:20px; ... background-color: red;"&gt;&lt;/div&gt;
+            &lt;div style="width:20px; ... background-color: blue;"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- Selector de Talla --&gt;
+        &lt;div class="buttons has-addons is-fullwidth"&gt;
+            &lt;button class="button is-outlined is-light is-fullwidth"&gt;S&lt;/button&gt;
+            &lt;button class="button is-outlined is-light is-fullwidth"&gt;M&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Columna Tailwind -->
+                <div class="framework-column">
+                    <h3 class="fw-bold mb-3">Tailwind CSS</h3>
+                    <p class="text-sm text-gray-200 mb-3">Aquí brilla. El badge, los círculos (incluido el estado focus)
+                        y
+                        los botones se construyen con utilidades sin una línea de CSS.</p>
+                    <!-- Resultado Visual -->
+                    <article class="bg-gray-800 rounded-lg shadow-lg overflow-hidden relative">
+                        <span
+                            class="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">OFERTA</span>
+                        <img src="https://m.media-amazon.com/images/I/41sr5xq7HxL._AC_.jpg" class="w-full h-auto"
+                            alt="Producto">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-white">Zapatillas Deportivas</h3>
+                            <div class="flex space-x-2 my-2"><button
+                                    class="w-5 h-5 rounded-full bg-red-500 border-2 border-transparent focus:outline-none focus:border-white"></button><button
+                                    class="w-5 h-5 rounded-full bg-blue-500 border-2 border-transparent focus:outline-none focus:border-white"></button><button
+                                    class="w-5 h-5 rounded-full bg-black border-2 border-transparent focus:outline-none focus:border-white"></button>
+                            </div>
+                            <div class="flex"><button
+                                    class="flex-1 text-sm border border-gray-600 rounded-l py-1 hover:bg-gray-700">S</button><button
+                                    class="flex-1 text-sm border border-gray-600 py-1 hover:bg-gray-700">M</button><button
+                                    class="flex-1 text-sm border border-gray-600 rounded-r py-1 hover:bg-gray-700">L</button>
+                            </div>
+                        </div>
+                    </article>
+                    <button
+                        class="w-full mt-3 text-sm border border-cyan-500 text-cyan-500 rounded-md py-1 hover:bg-cyan-500 hover:text-white"
+                        data-target="code-tw-2">Ver Código</button>
+                    <div class="hidden mt-3" id="code-tw-2">
+                        <pre class="bg-black p-3 rounded small"><code>&lt;div class="... relative"&gt;
+    &lt;span class="absolute top-2 left-2 bg-red-600 ... rounded-full"&gt;OFERTA&lt;/span&gt;
+    &lt;!-- ... img ... --&gt;
+    &lt;div class="p-4"&gt;
+        &lt;h3&gt;...&lt;/h3&gt;
+        &lt;!-- Selector de Colores --&gt;
+        &lt;div class="flex space-x-2 my-2"&gt;
+            &lt;button class="w-5 h-5 rounded-full bg-red-500 ... focus:border-white"&gt;&lt;/button&gt;
+            &lt;button class="w-5 h-5 rounded-full bg-blue-500 ... focus:border-white"&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;!-- Selector de Talla --&gt;
+        &lt;div class="flex gap-2"&gt;
+            &lt;button class="flex-1 text-sm border ... hover:bg-gray-700"&gt;S&lt;/button&gt;
+            &lt;button class="flex-1 text-sm border ... hover:bg-gray-700"&gt;M&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ========================================================================================= -->
+        <!-- PASO 3: ACCIONES FINALES (PRECIO Y BOTONES)                                               -->
+        <!-- ========================================================================================= -->
+        <div class="mb-5">
+            <h2 class="display-6 border-bottom pb-2 mb-4">Paso 3: Precio y Botones de Acción</h2>
+            <div class="comparison-grid">
+
+                <!-- Columna Bootstrap -->
+                <div class="framework-column">
+                    <h3 class="fw-bold mb-3">Bootstrap</h3>
+                    <p class="small text-light mb-3">Finalizar la tarjeta es simple. Se usan utilidades de Flexbox
+                        (<code>.d-flex</code>, <code>.justify-content-between</code>) para alinear los elementos.</p>
+                    <!-- Resultado Visual -->
+                    <article class="card bg-dark text-white">
+                        <div class="card-body">
+                            <h5 class="card-title">Zapatillas Deportivas</h5>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h4 class="fw-bold mb-0">$99.99</h4>
+                                <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <button class="btn btn-primary w-100 mt-2"><i class="fas fa-shopping-cart me-2"></i>Añadir
+                                al Carrito</button>
+                        </div>
+                    </article>
+                    <button class="btn btn-sm btn-outline-info w-100 mt-3" data-target="code-bs-3">Ver Código</button>
+                    <div class="d-none mt-3" id="code-bs-3">
+                        <pre class="bg-black p-3 rounded small"><code>&lt;div class="card-body"&gt;
+    &lt;h5&gt;...&lt;/h5&gt;
+    &lt;div class="d-flex justify-content-between align-items-center mt-3"&gt;
+        &lt;h4 class="fw-bold mb-0"&gt;$99.99&lt;/h4&gt;
+        &lt;button class="btn btn-outline-secondary btn-sm"&gt;
+            &lt;i class="fas fa-heart"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;button class="btn btn-primary w-100 mt-2"&gt;
+        &lt;i class="fas fa-shopping-cart me-2"&gt;&lt;/i&gt;Añadir al Carrito
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Columna Bulma -->
+                <div class="framework-column">
+                    <h3 class="fw-bold mb-3">Bulma</h3>
+                    <p class="is-size-6 has-text-light mb-3">Bulma también usa helpers de Flexbox
+                        (<code>.is-flex</code>,
+                        <code>.is-justify-content-space-between</code>) para la alineación final.
+                    </p>
+                    <!-- Resultado Visual -->
+                    <article class="card has-background-dark has-text-light">
+                        <div class="card-content">
+                            <p class="title is-5 has-text-light">Zapatillas Deportivas</p>
+                            <div class="is-flex is-justify-content-space-between is-align-items-center mt-3">
+                                <p class="title is-4 has-text-light mb-0">$99.99</p>
+                                <button class="button is-outlined is-light is-small"><span class="icon"><i
+                                            class="fas fa-heart"></i></span></button>
+                            </div>
+                            <button class="button is-primary is-fullwidth mt-2">
+                                <span class="icon"><i class="fas fa-shopping-cart"></i></span>
+                                <span>Añadir al Carrito</span>
+                            </button>
+                        </div>
+                    </article>
+                    <button class="button is-small is-info is-outlined is-fullwidth mt-3" data-target="code-bulma-3">Ver
+                        Código</button>
+                    <div class="is-hidden mt-3" id="code-bulma-3">
+                        <pre class="has-background-black p-3" style="border-radius: 6px;"><code class="small">&lt;div class="card-content"&gt;
+    &lt;p&gt;...&lt;/p&gt;
+    &lt;div class="is-flex is-justify-content-space-between is-align-items-center mt-3"&gt;
+        &lt;p class="title is-4 has-text-light mb-0"&gt;$99.99&lt;/p&gt;
+        &lt;button class="button is-outlined is-light is-small"&gt;
+            &lt;span class="icon"&gt;&lt;i class="fas fa-heart"&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;button class="button is-primary is-fullwidth mt-2"&gt;
+        &lt;span class="icon"&gt;&lt;i class="fas fa-shopping-cart"&gt;&lt;/i&gt;&lt;/span&gt;
+        &lt;span&gt;Añadir al Carrito&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Columna Tailwind -->
+                <div class="framework-column">
+                    <h3 class="fw-bold mb-3">Tailwind CSS</h3>
+                    <p class="text-sm text-gray-200 mb-3">La alineación y el espaciado se definen explícitamente con
+                        utilidades, dando un control total sobre el resultado final.</p>
+                    <!-- Resultado Visual -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-white">Zapatillas Deportivas</h3>
+                            <div class="flex justify-between items-center mt-3">
+                                <h4 class="text-xl font-bold text-white">$99.99</h4>
+                                <button class="text-gray-400 hover:text-red-500"><i
+                                        class="fas fa-heart fa-lg"></i></button>
+                            </div>
+                            <button
+                                class="w-full mt-2 bg-sky-600 text-white flex items-center justify-center py-2 rounded-md hover:bg-sky-700"><i
+                                    class="fas fa-shopping-cart mr-2"></i>Añadir al Carrito</button>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full mt-3 text-sm border border-cyan-500 text-cyan-500 rounded-md py-1 hover:bg-cyan-500 hover:text-white"
+                        data-target="code-tw-3">Ver Código</button>
+                    <div class="hidden mt-3" id="code-tw-3">
+                        <pre class="bg-black p-3 rounded small"><code>&lt;div class="p-4"&gt;
+    &lt;h3&gt;...&lt;/h3&gt;
+    &lt;div class="flex justify-between items-center mt-3"&gt;
+        &lt;h4 class="text-xl font-bold text-white"&gt;$99.99&lt;/h4&gt;
+        &lt;button class="text-gray-400 hover:text-red-500"&gt;
+            &lt;i class="fas fa-heart fa-lg"&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;button class="w-full mt-2 bg-sky-600 ... flex items-center justify-center"&gt;
+        &lt;i class="fas fa-shopping-cart mr-2"&gt;&lt;/i&gt;
+        Añadir al Carrito
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================================= -->
+        <!-- PASO 4: RESULTADO FINAL COMPLETO                                                          -->
+        <!-- ========================================================================================= -->
+        <div class="mb-5">
+            <h2 class="display-6 border-bottom pb-2 mb-4">Paso 4: Resultado Final Completo (Estático)</h2>
+            <div class="comparison-grid">
+                <!-- Columna Bootstrap -->
+                <div class="framework-column">
+                    <h3 class="h4 fw-bold mb-3">Bootstrap</h3>
+                    <p class="small text-light mb-3">La tarjeta completa, ensamblada con todos los componentes y
+                        utilidades de Bootstrap.</p>
+                    <article class="card bg-dark text-white position-relative">
+                        <span class="badge text-bg-danger position-absolute top-0 start-0 m-2">OFERTA</span>
+                        <img src="https://m.media-amazon.com/images/I/41sr5xq7HxL._AC_.jpg" class="card-img-top"
+                            alt="Producto">
+                        <div class="card-body">
+                            <h5 class="card-title">Zapatillas Deportivas</h5>
+                            <p class="card-text small">Unas zapatillas cómodas y con estilo.</p>
+                            <div class="d-flex gap-2 my-2">
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: red;"></div>
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: blue;"></div>
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: black;"></div>
+                            </div>
+                            <div class="btn-group btn-group-sm w-100 mt-2"><button type="button"
+                                    class="btn btn-outline-light">S</button><button type="button"
+                                    class="btn btn-outline-light">M</button><button type="button"
+                                    class="btn btn-outline-light">L</button></div>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h4 class="fw-bold mb-0">$99.99</h4>
+                                <button class="btn btn-outline-secondary btn-sm"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <button class="btn btn-primary w-100 mt-2"><i class="fas fa-shopping-cart me-2"></i>Añadir
+                                al Carrito</button>
+                        </div>
+                    </article>
+                    <button class="btn btn-sm btn-outline-info w-100 mt-3" data-target="code-bs-4">Ver Código</button>
+                    <div class="d-none mt-3" id="code-bs-4">
+                        <pre class="bg-black p-3 rounded small"><code>&lt;div class="card bg-dark text-white position-relative"&gt;
+    &lt;span class="badge text-bg-danger position-absolute top-0 start-0 m-2"&gt;OFERTA&lt;/span&gt;
+    &lt;img src="..." class="card-img-top" alt="Producto"&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;Zapatillas Deportivas&lt;/h5&gt;
+        &lt;p class="card-text small"&gt;...descripción...&lt;/p&gt;
+        &lt;div class="d-flex gap-2 my-2"&gt;
+            &lt;div style="width:20px; height:20px; border-radius:50%; background-color: red;"&gt;&lt;/div&gt;
+            &lt;div style="width:20px; height:20px; border-radius:50%; background-color: blue;"&gt;&lt;/div&gt;
+            &lt;div style="width:20px; height:20px; border-radius:50%; background-color: black;"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="btn-group btn-group-sm w-100 mt-2"&gt;
+            &lt;button type="button" class="btn btn-outline-light"&gt;S&lt;/button&gt;
+            &lt;button type="button" class="btn btn-outline-light"&gt;M&lt;/button&gt;
+            &lt;button type="button" class="btn btn-outline-light"&gt;L&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="d-flex justify-content-between align-items-center mt-3"&gt;
+            &lt;h4 class="fw-bold mb-0"&gt;$99.99&lt;/h4&gt;
+            &lt;button class="btn btn-outline-secondary btn-sm"&gt;&lt;i class="fas fa-heart"&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;button class="btn btn-primary w-100 mt-2"&gt;
+            &lt;i class="fas fa-shopping-cart me-2"&gt;&lt;/i&gt;Añadir al Carrito
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Columna Bulma -->
+                <div class="framework-column">
+                    <h3 class="h4 fw-bold mb-3">Bulma</h3>
+                    <p class="is-size-6 has-text-light mb-3">La tarjeta ensamblada con los componentes y helpers de
+                        Bulma.</p>
+                    <article class="card has-background-dark has-text-light">
+                        <div class="card-image">
+                            <figure class="image is-relative">
+                                <span class="tag is-danger is-absolute">OFERTA</span>
+                                <img src="https://m.media-amazon.com/images/I/41sr5xq7HxL._AC_.jpg" alt="Producto">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-5 has-text-light">Zapatillas Deportivas</p>
+                            <p class="subtitle is-6 has-text-light">Unas zapatillas cómodas y con estilo</p>
+                            <div class="is-flex" style="gap: 0.5rem; margin-bottom: 0.75rem;">
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: red;"></div>
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: blue;"></div>
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: black;"></div>
+                            </div>
+                            <div class="buttons has-addons">
+                                <button class="button is-outlined is-light is-expanded">S</button>
+                                <button class="button is-outlined is-light is-expanded">M</button>
+                                <button class="button is-outlined is-light is-expanded">L</button>
+                            </div>
+                            <div class="is-flex is-justify-content-space-between is-align-items-center mt-3">
+                                <p class="title is-4 has-text-light mb-0">$99.99</p>
+                                <button class="button is-outlined is-light is-small"><span class="icon"><i
+                                            class="fas fa-heart"></i></span></button>
+                            </div>
+                            <button class="button is-primary is-fullwidth mt-2"><span class="icon"><i
+                                        class="fas fa-shopping-cart"></i></span><span>Añadir al Carrito</span></button>
+                        </div>
+                    </article>
+                    <button class="button is-small is-info is-outlined is-fullwidth mt-3" data-target="code-bulma-4">Ver
+                        Código</button>
+                    <div class="is-hidden mt-3" id="code-bulma-4">
+                        <pre class="has-background-black p-3" style="border-radius: 6px;"><code class="small">&lt;div class="card has-background-dark has-text-light"&gt;
+    &lt;div class="card-image"&gt;
+        &lt;figure class="image is-relative"&gt;
+            &lt;span class="tag is-danger is-absolute"&gt;OFERTA&lt;/span&gt;
+            &lt;img src="..." alt="Producto"&gt;
+        &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class="card-content"&gt;
+        &lt;p class="title is-5 has-text-light"&gt;...&lt;/p&gt;
+        &lt;p class="subtitle is-7 has-text-light"&gt;...&lt;/p&gt;
+        &lt;div class="is-flex" style="gap: 0.5rem; margin-bottom: 0.75rem;"&gt;
+            &lt;div style="width:20px;...background-color: red;"&gt;&lt;/div&gt;
+            &lt;div style="width:20px;...background-color: blue;"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="buttons has-addons"&gt;
+            &lt;button class="button is-outlined is-light is-expanded"&gt;S&lt;/button&gt;
+            &lt;button class="button is-outlined is-light is-expanded"&gt;M&lt;/button&gt;
+            &lt;button class="button is-outlined is-light is-expanded"&gt;L&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="is-flex is-justify-content-space-between is-align-items-center mt-3"&gt;
+            &lt;p class="title is-4 has-text-light mb-0"&gt;$99.99&lt;/p&gt;
+            &lt;button class="button is-outlined is-light is-small"&gt;
+                &lt;span class="icon"&gt;&lt;i class="fas fa-heart"&gt;&lt;/i&gt;&lt;/span&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;button class="button is-primary is-fullwidth mt-2"&gt;
+            &lt;span class="icon"&gt;&lt;i class="fas fa-shopping-cart"&gt;&lt;/i&gt;&lt;/span&gt;
+            &lt;span&gt;Añadir al Carrito&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+
+                <!-- Columna Tailwind -->
+                <div class="framework-column">
+                    <h3 class="h4 fw-bold mb-3">Tailwind CSS</h3>
+                    <p class="text-sm text-gray-200 mb-3">La tarjeta construida desde cero con todas las utilidades
+                        combinadas.</p>
+                    <article class="bg-gray-800 rounded-lg shadow-lg overflow-hidden relative">
+                        <span
+                            class="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">OFERTA</span>
+                        <img src="https://m.media-amazon.com/images/I/41sr5xq7HxL._AC_.jpg" class="w-full h-auto"
+                            alt="Producto">
+                        <div class="p-4">
+                            <h3 class="text-lg font-bold text-white">Zapatillas Deportivas</h3>
+                            <p class="text-sm text-gray-200 mt-1">Unas zapatillas cómodas y con estilo</p>
+                            <div class="flex space-x-2 my-2"><button
+                                    class="w-5 h-5 rounded-full bg-red-500 border-2 border-transparent focus:outline-none focus:border-white"></button><button
+                                    class="w-5 h-5 rounded-full bg-blue-500 border-2 border-transparent focus:outline-none focus:border-white"></button><button
+                                    class="w-5 h-5 rounded-full bg-black border-2 border-transparent focus:outline-none focus:border-white"></button>
+                            </div>
+                            <div class="flex">
+                                <button
+                                    class="flex-1 text-sm border border-gray-600 rounded-l py-1 hover:bg-gray-700">S</button><button
+                                    class="flex-1 text-sm border border-gray-600 py-1 hover:bg-gray-700">M</button><button
+                                    class="flex-1 text-sm border border-gray-600 rounded-r py-1 hover:bg-gray-700">L</button>
+                            </div>
+                            <div class="flex justify-between items-center mt-3">
+                                <h4 class="text-xl font-bold text-white">$99.99</h4>
+                                <button class="text-gray-400 hover:text-red-500"><i
+                                        class="fas fa-heart fa-lg"></i></button>
+                            </div>
+                            <button
+                                class="w-full mt-2 bg-sky-600 text-white flex items-center justify-center py-2 rounded-md hover:bg-sky-700"><i
+                                    class="fas fa-shopping-cart mr-2"></i>Añadir al Carrito</button>
+                        </div>
+                    </article>
+                    <button
+                        class="w-full mt-3 text-sm border border-cyan-500 text-cyan-500 rounded-md py-1 hover:bg-cyan-500 hover:text-white"
+                        data-target="code-tw-4">Ver Código</button>
+                    <div class="hidden mt-3" id="code-tw-4">
+                        <pre class="bg-black p-3 rounded small"><code>&lt;div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden relative"&gt;
+    &lt;span class="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full"&gt;OFERTA&lt;/span&gt;
+    &lt;img src="..." class="w-full h-auto" alt="Producto"&gt;
+    &lt;div class="p-4"&gt;
+        &lt;h3 class="text-lg font-bold text-white"&gt;Zapatillas Deportivas&lt;/h3&gt;
+        &lt;p class="text-sm text-white mt-1"&gt;...descripción...&lt;/p&gt;
+        &lt;div class="flex space-x-2 my-2"&gt;
+            &lt;button class="w-5 h-5 rounded-full bg-red-500 ... focus:border-white"&gt;&lt;/button&gt;
+            &lt;button class="w-5 h-5 rounded-full bg-blue-500 ... focus:border-white"&gt;&lt;/button&gt;
+            &lt;button class="w-5 h-5 rounded-full bg-black ... focus:border-white"&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="flex gap-2"&gt;
+            &lt;button class="flex-1 text-sm border ... rounded ... hover:bg-gray-700"&gt;S&lt;/button&gt;
+            &lt;button class="flex-1 text-sm border ... rounded ... hover:bg-gray-700"&gt;M&lt;/button&gt;
+            &lt;button class="flex-1 text-sm border ... rounded ... hover:bg-gray-700"&gt;L&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="flex justify-between items-center mt-3"&gt;
+            &lt;h4 class="text-xl font-bold text-white"&gt;$99.99&lt;/h4&gt;
+            &lt;button class="text-gray-400 hover:text-red-500"&gt;
+                &lt;i class="fas fa-heart fa-lg"&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;button class="w-full mt-2 bg-sky-600 text-white flex items-center justify-center py-2 rounded-md hover:bg-sky-700"&gt;
+            &lt;i class="fas fa-shopping-cart mr-2"&gt;&lt;/i&gt;Añadir al Carrito
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================================================= -->
+        <!-- PASO 5: ANIMACIONES E INTERACTIVIDAD                                                      -->
+        <!-- ========================================================================================= -->
+        <div class="mb-5">
+            <h2 class="display-6 border-bottom pb-2 mb-4">Paso Final: Tarjeta Interactiva</h2>
+            <div class="comparison-grid">
+                <!-- Columna Bootstrap -->
+                <div class="framework-column">
+                    <h3 class="h4 fw-bold mb-3">Bootstrap</h3>
+                    <p class="small text-white mb-3">Se añade CSS para la animación de <code>hover</code>. El corazón
+                        usa JS
+                        para cambiar de color.</p>
+                    <article class="card bg-dark text-white position-relative interactive-card">
+                        <span class="badge text-bg-danger position-absolute top-0 start-0 m-2">OFERTA</span>
+                        <img src="https://m.media-amazon.com/images/I/41sr5xq7HxL._AC_.jpg" class="card-img-top"
+                            alt="Producto">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title mb-0">Zapatillas Deportivas</h5>
+                                <button class="btn btn-dark btn-sm heart-icon"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <p class="card-text small mb-4">Unas zapatillas cómodas y con estilo.</p>
+                            <div class="d-flex gap-2 my-2">
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: red;"></div>
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: blue;"></div>
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: black;"></div>
+                            </div>
+                            <div class="btn-group btn-group-sm w-100">
+                                <button type="button" class="btn btn-outline-light">S</button><button type="button"
+                                    class="btn btn-outline-light">M</button><button type="button"
+                                    class="btn btn-outline-light">L</button>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <h4 class="fw-bold mb-0">$99.99</h4>
+                                <button class="btn btn-primary btn-sm"><i
+                                        class="fas fa-shopping-cart me-2"></i>Añadir</button>
+                            </div>
+                        </div>
+                    </article>
+                    <button class="btn btn-sm btn-outline-info w-100 mt-3" data-target="code-bs-5">Ver Código</button>
+                    <div class="d-none mt-3" id="code-bs-5">
+                        <pre class="bg-black p-3 rounded small"><code>&lt;!-- Requiere CSS adicional para el hover y el estado .favorited --&gt;
+&lt;div class="card bg-dark text-white position-relative interactive-card"&gt;
+    &lt;span class="badge text-bg-danger position-absolute top-0 start-0 m-2"&gt;OFERTA&lt;/span&gt;
+    &lt;img src="..." class="card-img-top" alt="Producto"&gt;
+    &lt;div class="card-body"&gt;
+        &lt;div class="d-flex justify-content-between align-items-center mb-2"&gt;
+            &lt;h5 class="card-title mb-0"&gt;Zapatillas Deportivas&lt;/h5&gt;
+            &lt;!-- El JS añade la clase .favorited --&gt;
+            &lt;button class="btn btn-dark btn-sm heart-icon"&gt;&lt;i class="fas fa-heart"&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="btn-group btn-group-sm w-100"&gt;
+            &lt;button type="button" class="btn btn-outline-light"&gt;S&lt;/button&gt;
+            &lt;button type="button" class="btn btn-outline-light"&gt;M&lt;/button&gt;
+            &lt;button type="button" class="btn btn-outline-light"&gt;L&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="d-flex justify-content-between align-items-center mt-3"&gt;
+            &lt;h4 class="fw-bold mb-0"&gt;$99.99&lt;/h4&gt;
+            &lt;button class="btn btn-primary btn-sm"&gt;
+                &lt;i class="fas fa-shopping-cart me-2"&gt;&lt;/i&gt;Añadir
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+                <!-- Columna Bulma -->
+                <div class="framework-column">
+                    <h3 class="h4 fw-bold mb-3">Bulma</h3>
+                    <p class="is-size-6 has-text-light mb-3">Requiere CSS para la animación de
+                        <code>hover</code>. Los
+                        botones tienen transición por defecto.
+                    </p>
+                    <article class="card has-background-dark has-text-light interactive-card">
+                        <div class="card-image">
+                            <figure class="image is-relative"><span class="tag is-danger is-absolute">OFERTA</span><img
+                                    src="https://m.media-amazon.com/images/I/41sr5xq7HxL._AC_.jpg" alt="Producto">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="is-flex is-justify-content-space-between is-align-items-center mb-2">
+                                <p class="title is-5 has-text-light mb-0">Zapatillas Deportivas</p>
+                                <button class="button is-dark is-small heart-icon-bulma"><span class="icon"><i
+                                            class="fas fa-heart"></i></span></button>
+                            </div>
+                            <p class="subtitle is-6 has-text-light">Unas zapatillas cómodas y con estilo</p>
+                            <div class="is-flex" style="gap: 0.5rem; margin-bottom: 0.75rem;">
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: red;"></div>
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: blue;"></div>
+                                <div style="width:20px; height:20px; border-radius:50%; background-color: black;"></div>
+                            </div>
+                            <div class="buttons has-addons">
+                                <button class="button is-outlined is-light is-expanded">S</button><button
+                                    class="button is-outlined is-light is-expanded">M</button><button
+                                    class="button is-outlined is-light is-expanded">L</button>
+                            </div>
+                            <div class="is-flex is-justify-content-space-between is-align-items-center mt-3">
+                                <p class="title is-4 has-text-light mb-0">$99.99</p>
+                                <button class="button is-primary is-small"><span class="icon"><i
+                                            class="fas fa-shopping-cart"></i></span><span>Añadir</span></button>
+                            </div>
+                        </div>
+                    </article>
+                    <button class="button is-small is-info is-outlined is-fullwidth mt-3" data-target="code-bulma-5">Ver
+                        Código</button>
+                    <div class="is-hidden mt-3" id="code-bulma-5">
+                        <pre class="has-background-black p-3" style="border-radius: 6px;"><code class="small">&lt;!-- Requiere CSS adicional para el hover y el estado .favorited --&gt;
+&lt;div class="card has-background-dark has-text-light interactive-card"&gt;
+    &lt;div class="card-image"&gt;
+        &lt;figure class="image is-relative"&gt;
+            &lt;span class="tag is-danger is-absolute"&gt;OFERTA&lt;/span&gt;
+            &lt;img src="..." alt="Producto"&gt;
+        &lt;/figure&gt;
+    &lt;/div&gt;
+    &lt;div class="card-content"&gt;
+        &lt;div class="is-flex is-justify-content-space-between is-align-items-center mb-2"&gt;
+            &lt;p class="title is-5 has-text-light mb-0"&gt;Zapatillas&lt;/p&gt;
+            &lt;!-- El JS añade la clase .favorited --&gt;
+            &lt;button class="button is-dark is-small heart-icon-bulma"&gt;
+                &lt;span class="icon"&gt;&lt;i class="fas fa-heart"&gt;&lt;/i&gt;&lt;/span&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="buttons has-addons"&gt;
+            &lt;button class="button is-outlined is-light is-expanded"&gt;S&lt;/button&gt;
+            &lt;button class="button is-outlined is-light is-expanded"&gt;M&lt;/button&gt;
+            &lt;button class="button is-outlined is-light is-expanded"&gt;L&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="is-flex is-justify-content-space-between is-align-items-center mt-3"&gt;
+            &lt;p class="title is-4 has-text-light mb-0"&gt;$99.99&lt;/p&gt;
+            &lt;button class="button is-primary is-small"&gt;
+                &lt;span class="icon"&gt;&lt;i class="fas fa-shopping-cart"&gt;&lt;/i&gt;&lt;/span&gt;
+                &lt;span&gt;Añadir&lt;/span&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+                <!-- Columna Tailwind -->
+                <div class="framework-column">
+                    <h3 class="h4 fw-bold mb-3">Tailwind CSS</h3>
+                    <p class="text-sm text-gray-200 mb-3">Las animaciones se aplican con utilidades
+                        <code>transition</code> y <code>hover:</code> en el HTML.
+                    </p>
+                    <article
+                        class="bg-gray-800 rounded-lg shadow-lg overflow-hidden relative transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                        <span
+                            class="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">OFERTA</span>
+                        <img src="https://m.media-amazon.com/images/I/41sr5xq7HxL._AC_.jpg" class="w-full h-auto"
+                            alt="Producto">
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-lg font-bold text-white">Zapatillas Deportivas</h3>
+                                <button class="text-gray-400 hover:text-red-500 transition-colors heart-icon-tw"><i
+                                        class="fas fa-heart fa-lg"></i></button>
+                            </div>
+                            <p class="text-sm text-gray-200 mt-1 mb-4">Unas zapatillas cómodas y con estilo</p>
+                            <div class="flex space-x-2 my-2"><button
+                                    class="w-5 h-5 rounded-full bg-red-500 border-2 border-transparent focus:outline-none focus:border-white"></button><button
+                                    class="w-5 h-5 rounded-full bg-blue-500 border-2 border-transparent focus:outline-none focus:border-white"></button><button
+                                    class="w-5 h-5 rounded-full bg-black border-2 border-transparent focus:outline-none focus:border-white"></button>
+                            </div>
+                            <div class="flex"><button
+                                    class="flex-1 text-sm border border-gray-600 rounded-l py-1 hover:bg-gray-700">S</button><button
+                                    class="flex-1 text-sm border border-gray-600 py-1 hover:bg-gray-700">M</button><button
+                                    class="flex-1 text-sm border border-gray-600 rounded-r py-1 hover:bg-gray-700">L</button>
+                            </div>
+                            <div class="flex justify-between items-center mt-3">
+                                <h4 class="text-xl font-bold text-white">$99.99</h4>
+                                <button
+                                    class="bg-sky-600 text-white text-sm flex items-center justify-center px-3 py-1 rounded-md hover:bg-sky-700 transition-colors"><i
+                                        class="fas fa-shopping-cart mr-2"></i>Añadir</button>
+                            </div>
+                        </div>
+                    </article>
+                    <button
+                        class="w-full mt-3 text-sm border border-cyan-500 text-cyan-500 rounded-md py-1 hover:bg-cyan-500 hover:text-white"
+                        data-target="code-tw-5">Ver Código</button>
+                    <div class="hidden mt-3" id="code-tw-5">
+                        <pre class="bg-black p-3 rounded small"><code>&lt;!-- El hover y las transiciones están en las clases. Sin CSS extra. --&gt;
+&lt;div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden relative transition-all duration-300 hover:scale-105 hover:shadow-2xl"&gt;
+    &lt;span class="absolute top-2 left-2 ... rounded-full"&gt;OFERTA&lt;/span&gt;
+    &lt;img src="..." class="w-full h-auto" alt="Producto"&gt;
+    &lt;div class="p-4"&gt;
+        &lt;div class="flex justify-between items-start mb-2"&gt;
+            &lt;h3 class="text-lg font-bold text-white"&gt;Zapatillas&lt;/h3&gt;
+            &lt;!-- El JS cambia la clase de color 'text-red-500' --&gt;
+            &lt;button class="text-gray-400 hover:text-red-500 transition-colors heart-icon-tw"&gt;
+                &lt;i class="fas fa-heart fa-lg"&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="flex"&gt;
+            &lt;button class="flex-1 text-sm border ... rounded-l ... hover:bg-gray-700"&gt;S&lt;/button&gt;
+            &lt;button class="flex-1 text-sm border-t border-b ... hover:bg-gray-700"&gt;M&lt;/button&gt;
+            &lt;button class="flex-1 text-sm border ... rounded-r ... hover:bg-gray-700"&gt;L&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="flex justify-between items-center mt-3"&gt;
+            &lt;h4 class="text-xl font-bold text-white"&gt;$99.99&lt;/h4&gt;
+            &lt;button class="bg-sky-600 ... flex items-center ... hover:bg-sky-700 transition-colors"&gt;
+                &lt;i class="fas fa-shopping-cart mr-2"&gt;&lt;/i&gt;Añadir
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bundle de JS de Bootstrap (necesario para componentes interactivos) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script personalizado para los botones -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const codeButtons = document.querySelectorAll('[data-target]');
+            const codeBlocks = document.querySelectorAll('[id^=code-]');
+
+            codeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.target;
+                    const targetElement = document.getElementById(targetId);
+
+                    // Comprobar si el bloque clickado ya estaba visible
+                    const isAlreadyVisible = !targetElement.classList.contains('d-none') &&
+                        !targetElement.classList.contains('is-hidden') &&
+                        !targetElement.classList.contains('hidden');
+
+                    // Primero, ocultar todos los bloques y resetear todos los botones
+                    codeBlocks.forEach(block => {
+                        block.classList.add('d-none', 'is-hidden', 'hidden');
+                    });
+                    codeButtons.forEach(btn => {
+                        btn.textContent = 'Ver Código';
+                    });
+
+                    // Si no estaba visible, mostrarlo y actualizar el texto del botón
+                    if (!isAlreadyVisible) {
+                        targetElement.classList.remove('d-none', 'is-hidden', 'hidden');
+                        button.textContent = 'Ocultar Código';
+                    }
+                });
+            });
+
+            // Lógica para los corazones interactivos
+            document.querySelectorAll('.heart-icon, .heart-icon-bulma').forEach(icon => {
+                icon.addEventListener('click', () => icon.classList.toggle('favorited'));
+            });
+
+            document.querySelectorAll('.heart-icon-tw').forEach(icon => {
+                icon.addEventListener('click', () => {
+                    icon.classList.toggle('text-red-500');
+                    icon.classList.toggle('text-gray-400');
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
