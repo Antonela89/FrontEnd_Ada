@@ -19,7 +19,7 @@ Para validar todo lo aprendido en este modulo, se realizara un desafio del tipo 
 
 ## Módulos
 
-### MÓDULO: DOM y Eventos de Formulario
+### MÓDULO 1: DOM y Eventos de Formulario
 
 | Clase | Fecha | Temario |
 | :--- | :--- | :--- |
@@ -30,7 +30,7 @@ Para validar todo lo aprendido en este modulo, se realizara un desafio del tipo 
 | **Clase 5** | mié, 22 oct 2025 | **Componentes:** Introducción a los Componentes en Desarrollo Web, Collapse, Sidebar, Modal, Toggle. |
 | **Clase 6** | lun, 27 oct 2025 | **Clase Integradora de contenidos:** Actividad integradora para aplicar lo visto en las primeras 4 clases. |
 
-### MÓDULO: CSS
+### MÓDULO 2: CSS
 
 | Clase | Fecha | Temario |
 | :--- | :--- | :--- |
@@ -39,20 +39,20 @@ Para validar todo lo aprendido en este modulo, se realizara un desafio del tipo 
 | **Clase 9** | mié, 5 nov 2025 | **CSS Frameworks: Formularios y Componentes:** Formulario, Inputs, Labels, Botones, Componentes principales. |
 | **Clase 10** | lun, 10 nov 2025 | **Repaso de CSS:** Demostración práctica del profesor y actividades en grupo. |
 
-### MÓDULO: Estructuras de Datos
+### MÓDULO 3: Estructuras de Datos
 
 | Clase | Fecha | Temario |
 | :--- | :--- | :--- |
 | **Clase 11** | mié, 12 nov 2025 | **Desestructuración y operador spread:** Asignación por desestructuración, Desestructuración anidada, Objetos como parámetros, Operador spread, Operador rest, Inmutabilidad, Pasaje por valor vs pasaje por referencia, Shallow copy vs deep copy. |
 
-### MÓDULO: ASINCRONÍA
+### MÓDULO 4: ASINCRONÍA
 
 | Clase | Fecha | Temario |
 | :--- | :--- | :--- |
 | **Clase 12** | lun, 17 nov 2025 | **Introducción a la asincronía:** Concepto, Importancia en el Front end, Operaciones síncronas vs asíncronas, El Event Loop, Web API del navegador, Promesas, Async/await. |
 | **Clase 13** | mié, 19 nov 2025 | **Cors - fetch, then y catch:** Concepto de CORS, Aplicaciones en el front end, ejemplos en código, fetch, then, catch. |
 
-### MÓDULO: API REST
+### MÓDULO 5: API REST
 
 | Clase | Fecha | Temario |
 | :--- | :--- | :--- |
@@ -61,7 +61,7 @@ Para validar todo lo aprendido en este modulo, se realizara un desafio del tipo 
 | **Clase 16** | mié, 3 dic 2025 | **API REST: Final:** Obteniendo datos de una colección, Obteniendo datos de un recurso, Objeto URL y propiedad searchParams, Usos comunes de parámetros de búsqueda. |
 | **Clase 17**| mié, 10 dic 2025 | **Practicamos todo lo visto hasta ahora!:** Demostración del profesor y actividades en grupo. |
 
-### MÓDULO: Desafío final
+### MÓDULO 6: Desafío final
 
 | Clase | Fecha | Temario |
 | :--- | :--- | :--- |
