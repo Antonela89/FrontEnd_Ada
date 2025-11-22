@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de Event Loop</title>
+    <!-- Script de Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<!-- 
+    clases del body:
+    - bg-slate-100: Color de fondo gris claro (pizarra).
+    - flex: Activa el modelo Flexbox.
+    - flex-col: Organiza los elementos hijos en una columna vertical.
+    - items-center: Centra los elementos horizontalmente (eje transversal).
+    - justify-center: Centra los elementos verticalmente (eje principal).
+    - h-screen: Forza al body a medir el 100% de la altura de la ventana.
+    - font-sans: Aplica la tipografía sans-serif por defecto.
+-->
+
+<body class="bg-slate-100 flex flex-col items-center justify-center h-screen font-sans">
+    <!-- clases del div 
+    - text-center: Alinea todo el texto interno al centro.
+    - space-y-6: Añade margen vertical entre los elementos hijos (separación).
+    - p-8: Añade padding (relleno interno) de 2rem en todos los lados.
+    - bg-white: Color de fondo blanco.
+    - rounded-2xl: Bordes muy redondeados (radio de 1rem).
+    - shadow-xl: Sombra exterior extra grande para dar efecto de elevación.
+    - border: Añade un borde sólido de 1px.
+    - border-slate-200: Define el color del borde como un gris muy suave.
+    -->
+    <div class="text-center space-y-6 p-8 bg-white rounded-2xl shadow-xl border border-slate-200">
+        <!-- clases del h1 
+        - text-2xl: Tamaño de fuente grande (aprox 24px).
+        - font-bold: Peso de la fuente en negrita (700).
+        - text-slate-800: Color de texto gris oscuro (casi negro).
+        -->
+        <h1 class="text-2xl font-bold text-slate-800">
+            Event Loop Demo
+        </h1>
+        <!-- clases del p
+        - text-slate-500: Color de texto gris medio (para menor jerarquía).
+        - text-sm: Tamaño de fuente pequeño (14px).
+        - mb-4: Margen inferior (espacio debajo del texto antes del botón).
+        -->
+        <p class="text-slate-500 text-sm mb-4">
+            Abre la consola (F12) para ver el resultado
+        </p>
+        <!-- 
+            clases del botón:
+            - bg-indigo-600: Color de fondo violeta/azul.
+            - text-white: Texto blanco.
+            - px-6 py-3: Padding (relleno) horizontal y vertical.
+            - rounded-lg: Bordes redondeados.
+            - shadow-lg: Sombra grande.
+            - font-semibold: Letra seminegrita.
+            - transition-all duration-300: Animación suave.
+            - hover:bg-indigo-700: Cambio de color al pasar el mouse.
+            - hover:-translate-y-1: Se mueve un poquito hacia arriba al pasar el mouse.
+            - active:scale-95: Se achica un poco al hacer clic (efecto de presión).
+            - cursor-pointer: Muestra la manito.
+        -->
+        <button id="btn"
+            class="cursor-pointer bg-indigo-600 text-white px-6 py-3 rounded-lg shadow-lg font-semibold transition-all duration-300 hover:bg-indigo-700 hover:-translate-y-1 active:scale-95 active:shadow-sm">
+            Click Me!
+        </button>
+    </div>
+    <script src="./main.js"></script>
+</body>
+
+</html>
