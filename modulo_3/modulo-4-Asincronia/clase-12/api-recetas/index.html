@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Search | Premium</title>
+
+    <!-- Fuentes -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+    </style>
+    <!-- Tailwind CSS v3 (Estable) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        gold: '#d4af37', /* Color dorado personalizado */
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-900 min-h-screen font-sans text-slate-200">
+
+    <!-- Header Fijo -->
+    <header
+        class="fixed top-0 w-full z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 shadow-xl transition-all duration-300"
+        id="main-header">
+        <div class="container mx-auto px-6 py-3 flex flex-col md:flex-row items-center justify-between gap-4">
+
+            <!-- Logo (Click para resetear) -->
+            <h1 class="text-2xl font-serif font-bold text-white flex items-center gap-2 cursor-pointer select-none"
+                onclick="resetHome()">
+                <span class="text-amber-500 text-3xl">G</span>ourmet
+            </h1>
+
+            <!-- Buscador -->
+            <div class="flex w-full md:w-auto gap-2 relative">
+                <input type="text" id="search-input" placeholder="Buscar ingrediente (ej: Chicken)..."
+                    class="w-full md:w-64 pl-4 pr-10 py-2 rounded-full bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all placeholder:text-slate-500 text-sm">
+                <button id="search-btn"
+                    class="bg-amber-500 text-slate-900 px-5 py-2 rounded-full font-bold text-sm hover:bg-amber-400 transition transform active:scale-95 cursor-pointer shadow-lg shadow-amber-500/20">
+                    Buscar
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO BANNER (Sección Inicial) -->
+    <!-- Agregamos id="hero-banner" y clases flex para centrar -->
+    <section id="hero-banner"
+        class="fixed inset-0 z-40 bg-slate-900 flex flex-col items-center justify-center pt-20 transition-opacity duration-500">
+        <!-- Imagen Fondo -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?q=80&w=2000&auto=format&fit=crop"
+                class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/80"></div>
+        </div>
+
+        <!-- Texto Hero -->
+        <div class="relative z-10 text-center px-4 max-w-3xl">
+            <h2 class="text-5xl md:text-7xl font-serif font-bold text-white mb-4 drop-shadow-2xl">
+                Alta Cocina <br> <span class="text-amber-500 italic">en tu hogar</span>
+            </h2>
+            <p class="text-xl text-slate-300 font-light mb-8">
+                Busca ingredientes en inglés y obtén recetas de clase mundial traducidas al español.
+            </p>
+            <!-- Botón Random Grande -->
+            <button id="random-btn-hero"
+                class="bg-transparent border-2 border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-slate-900 px-8 py-3 rounded-full font-bold transition duration-300 cursor-pointer text-lg">
+                🎲 Sorpréndeme con una receta
+            </button>
+        </div>
+    </section>
+
+    <!-- CONTENEDOR DE RESULTADOS (Oculto al inicio) -->
+    <!-- pt-24 para compensar el header fijo -->
+    <main id="results-container" class="container mx-auto px-4 py-8 pt-24 min-h-screen hidden">
+
+        <!-- Loader -->
+        <div id="loader" class="hidden flex flex-col items-center justify-center py-20">
+            <div class="w-12 h-12 border-4 border-slate-700 border-t-amber-500 rounded-full animate-spin"></div>
+            <p class="mt-4 text-amber-500 font-serif animate-pulse">Consultando recetas...</p>
+        </div>
+
+        <!-- Encabezado de Resultados (Feedback) -->
+        <div id="results-header" class="mb-8 border-b border-slate-700 pb-4 hidden animate-fade-in-down">
+            <h3 class="text-3xl font-serif text-white">
+                Resultados para: <span id="search-term-display" class="text-amber-500 italic">...</span>
+            </h3>
+            <p class="text-slate-400 text-sm mt-1" id="results-count">Se encontraron recetas deliciosas.</p>
+        </div>
+
+        <!-- Grid de Tarjetas -->
+        <div id="meals-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- JS Inyecta aquí -->
+        </div>
+
+        <!-- Botón para volver al inicio si hay pocos resultados -->
+        <div class="text-center mt-12">
+            <button onclick="resetHome()" class="text-slate-500 hover:text-amber-500 text-sm underline cursor-pointer">
+                Volver al inicio
+            </button>
+        </div>
+    </main>
+
+    <!-- MODAL (Mismo código anterior, resumido aquí para no ocupar espacio extra) -->
+    <div id="recipe-modal" class="fixed inset-0 z-50 hidden">
+        <div class="fixed inset-0 bg-black/90 backdrop-blur-sm" id="modal-backdrop"></div>
+        <div class="fixed inset-0 z-10 overflow-y-auto flex items-center justify-center p-4">
+            <div
+                class="bg-slate-800 rounded-xl shadow-2xl w-full max-w-4xl overflow-hidden relative border border-slate-700 flex flex-col max-h-[90vh]">
+                <!-- Header Modal -->
+                <div
+                    class="bg-gradient-to-r from-amber-600 to-amber-700 p-4 flex justify-between items-center shrink-0">
+                    <h3 class="text-xl font-serif font-bold text-white truncate w-3/4" id="modal-title">...</h3>
+                    <button id="close-modal"
+                        class="text-white text-3xl hover:text-slate-200 cursor-pointer">&times;</button>
+                </div>
+                <!-- Tabs -->
+                <div class="flex bg-slate-900 border-b border-slate-700 shrink-0">
+                    <button id="btn-tab-es"
+                        class="flex-1 py-3 font-bold text-amber-500 border-b-2 border-amber-500 bg-slate-800">🇪🇸
+                        ESPAÑOL</button>
+                    <button id="btn-tab-en"
+                        class="flex-1 py-3 font-bold text-slate-500 border-b-2 border-transparent hover:bg-slate-800">🇬🇧
+                        ENGLISH</button>
+                </div>
+                <!-- Body -->
+                <div class="p-6 overflow-y-auto custom-scrollbar bg-slate-800">
+                    <div id="content-es"></div>
+                    <div id="content-en" class="hidden"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
