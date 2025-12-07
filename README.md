@@ -6,8 +6,6 @@
 
 ## Punto de Partida: Tu Recorrido
 
-Elige tu recorrido especializándote en el desarrollo Frontend.
-
 ---
 
 ### Curso 1: Introducción a la Programación con JavaScript
