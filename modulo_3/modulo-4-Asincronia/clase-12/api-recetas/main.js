@@ -149,7 +149,7 @@ function renderGrid(meals) {
 	});
 }
 
-// --- MODAL Y TRADUCCIÓN (Copiamos lógica anterior adaptada) ---
+// --- MODAL Y TRADUCCIÓN ---
 
 // Control de Tabs
 btnTabEs.addEventListener('click', () => switchTab('es'));
