@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda GitHub</title>
+    <!-- tailwindcss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- configuracion para modo oscuro -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class', 
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
+</head>
+
+
+<!-- clases dark para el fondo: dark:bg-slate-900 dark:text-white -->
+<body
+    class="bg-gray-100 dark:bg-slate-900 transition-colors duration-300 flex flex-col justify-center items-center gap-8 min-h-screen p-4 font-sans relative">
+
+    <!-- BOTÓN TOGGLE DARK MODE (Posicionado arriba a la derecha) -->
+    <button id="theme-toggle"
+        class="absolute top-4 right-4 p-2 rounded-full bg-white dark:bg-slate-800 text-gray-800 dark:text-yellow-400 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <!-- Icono Sol (se muestra en dark mode) -->
+        <svg id="icon-sun" class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+            </path>
+        </svg>
+        <!-- Icono Luna (se muestra en light mode) -->
+        <svg id="icon-moon" class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+    </button>
+
+    <!-- Titulo -->
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white transition-colors">GitHub <span
+            class="text-indigo-600 dark:text-indigo-400">Finder</span></h1>
+
+    <!-- formulario de busqueda -->
+    <form id="search" autocomplete="off" class="relative w-full max-w-md group z-10">
+        <div
+            class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400 group-focus-within:text-indigo-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+        </div>
+
+        <!-- Input con soporte dark mode -->
+        <input id="inputName" type="text"
+            class="block w-full p-4 pl-12 pr-24 text-sm text-gray-900 bg-white border-0 rounded-full shadow-lg ring-1 ring-gray-200 placeholder:text-gray-400 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition-all dark:bg-slate-800 dark:text-white dark:ring-slate-700 dark:placeholder:text-gray-500"
+            placeholder="Buscar usuario..." required />
+
+        <button type="submit"
+            class="absolute right-2 top-2 bottom-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-full text-sm px-5 py-2 transition-all shadow-md hover:shadow-lg focus:ring-4 focus:ring-indigo-300 dark:focus:ring-indigo-800">
+            Buscar
+        </button>
+    </form>
+
+    <!-- CARD CONTAINER con soporte dark mode -->
+    <article
+        class="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 dark:bg-slate-800 dark:shadow-slate-900/50"
+        id="card">
+
+        <!-- Loader oscuro -->
+        <div id="loading"
+            class="hidden absolute inset-0 bg-white/80 dark:bg-slate-800/90 z-20 flex items-center justify-center backdrop-blur-sm">
+            <div class="flex flex-col items-center gap-3">
+                <div
+                    class="animate-spin rounded-full h-10 w-10 border-[3px] border-indigo-100 dark:border-slate-600 border-t-indigo-600 dark:border-t-indigo-400">
+                </div>
+                <p class="text-indigo-600 dark:text-indigo-400 font-semibold text-sm animate-pulse">Buscando...</p>
+            </div>
+        </div>
+
+        <div id="user" class="min-h-[150px] flex items-center justify-center">
+            <p class="text-gray-400 dark:text-gray-500 text-sm">Los resultados aparecerán aquí</p>
+        </div>
+
+    </article>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
