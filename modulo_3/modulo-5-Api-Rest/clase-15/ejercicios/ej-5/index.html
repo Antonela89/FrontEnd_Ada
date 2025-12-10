@@ -1,0 +1,69 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Dashboard</title>
+    <!-- Tailwind CSS vía CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans p-6">
+
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6 text-indigo-700">Top 10 Criptomonedas</h1>
+
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="table-auto w-full text-left">
+                    <thead class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                        <tr>
+                            <th class="py-3 px-6">#</th>
+                            <th class="py-3 px-6">Moneda</th>
+                            <th class="py-3 px-6 text-right">Precio (USD)</th>
+                            <th class="py-3 px-6 text-right">Cambio 24h</th>
+                            <th class="py-3 px-6 text-right">Volumen Total</th>
+                        </tr>
+                    </thead>
+                    
+                    <!-- SKELETON LOADING (Se muestra mientras carga) -->
+                    <tbody id="skeleton-body" class="divide-y divide-gray-200">
+                        <!-- filas falsas para simular carga -->
+                        <!-- Fila 1 -->
+                        <tr class="animate-pulse">
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-4"></div></td>
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-24"></div></td>
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-20 ml-auto"></div></td>
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-12 ml-auto"></div></td>
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-24 ml-auto"></div></td>
+                        </tr>
+                        <!-- Fila 2 -->
+                        <tr class="animate-pulse">
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-4"></div></td>
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-24"></div></td>
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-20 ml-auto"></div></td>
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-12 ml-auto"></div></td>
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-24 ml-auto"></div></td>
+                        </tr>
+                        <!-- Fila 3 -->
+                        <tr class="animate-pulse">
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-4"></div></td>
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-24"></div></td>
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-20 ml-auto"></div></td>
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-12 ml-auto"></div></td>
+                            <td class="py-4 px-6"><div class="h-4 bg-gray-300 rounded w-24 ml-auto"></div></td>
+                        </tr>
+                    </tbody>
+
+                    <!-- DATOS REALES (Se inyectan con JS) -->
+                    <tbody id="crypto-body" class="text-gray-600 text-sm font-light divide-y divide-gray-200 hidden">
+                        <!-- JS llenará esto -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <p class="mt-4 text-xs text-gray-500 text-center">Datos provistos por CoinGecko API</p>
+    </div>
+    
+    <script src="./main.js"></script>
+</body>
+</html>
