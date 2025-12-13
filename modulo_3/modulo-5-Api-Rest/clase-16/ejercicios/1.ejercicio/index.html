@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consigna 1 - Análisis API Completo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-100 text-slate-800 font-sans p-10">
+
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Encabezado -->
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-extrabold text-indigo-700 mb-2">Consigna 1: Análisis de API</h1>
+            <p class="text-xl text-slate-600">Documentación analizada: <a href="https://fakeapi.platzi.com/"
+                    target="_blank" class="text-indigo-500 underline decoration-indigo-300 hover:text-indigo-700">Platzi
+                    Fake Store API</a></p>
+        </header>
+
+        <!-- Contenedor de la Tabla -->
+        <div class="bg-white shadow-2xl rounded-xl overflow-hidden border border-slate-200">
+
+            <div class="p-6 bg-slate-50 border-b border-slate-200 flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800">Tabla Resumen de Endpoints</h2>
+                    <p class="text-sm text-slate-500 mt-1">Recursos, métodos soportados y parámetros de filtrado.</p>
+                </div>
+                <div class="text-xs font-mono bg-white px-3 py-2 rounded border border-slate-300 shadow-sm">
+                    <span class="block mb-1"><span
+                            class="w-2 h-2 inline-block rounded-full bg-green-500 mr-1"></span>GET: Obtener</span>
+                    <span class="block mb-1"><span
+                            class="w-2 h-2 inline-block rounded-full bg-yellow-500 mr-1"></span>POST: Crear</span>
+                    <span class="block mb-1"><span
+                            class="w-2 h-2 inline-block rounded-full bg-blue-500 mr-1"></span>PUT: Editar</span>
+                    <span class="block"><span class="w-2 h-2 inline-block rounded-full bg-red-500 mr-1"></span>DELETE:
+                        Eliminar</span>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr
+                            class="bg-slate-100 text-slate-600 uppercase text-xs tracking-wider border-b border-slate-200">
+                            <th class="p-4 font-bold border-r border-slate-200 w-1/4">Recurso / Endpoint</th>
+                            <th class="p-4 font-bold border-r border-slate-200 w-1/4">Métodos HTTP Soportados</th>
+                            <th class="p-4 font-bold border-r border-slate-200 w-1/4">Búsqueda y Filtros</th>
+                            <th class="p-4 font-bold w-1/4">Observaciones Extra</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+
+                        <!-- Productos -->
+                        <tr class="hover:bg-indigo-50 transition-colors group">
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <span class="font-bold text-indigo-700 text-lg group-hover:underline">Products</span>
+                                <br>
+                                <code
+                                    class="bg-slate-200 text-slate-700 px-2 py-1 rounded text-xs mt-1 inline-block font-mono">/products</code>
+                                <br>
+                                <code
+                                    class="bg-slate-200 text-slate-700 px-2 py-1 rounded text-xs mt-1 inline-block font-mono">/products/:id</code>
+                            </td>
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <div class="flex gap-1 flex-wrap">
+                                    <span
+                                        class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded border border-green-200">GET</span>
+                                    <span
+                                        class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded border border-yellow-200">POST</span>
+                                    <span
+                                        class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded border border-blue-200">PUT</span>
+                                    <span
+                                        class="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded border border-red-200">DELETE</span>
+                                </div>
+                            </td>
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <ul class="text-sm text-slate-600 space-y-1 list-disc list-inside">
+                                    <li><code class="text-indigo-600 font-mono text-xs">title</code> (Nombre)</li>
+                                    <li><code class="text-indigo-600 font-mono text-xs">price</code> (Precio exacto)
+                                    </li>
+                                    <li><code class="text-indigo-600 font-mono text-xs">price_min</code> / <code
+                                            class="text-indigo-600 font-mono text-xs">max</code> (Rango de precios)</li>
+                                    <li><code class="text-indigo-600 font-mono text-xs">categoryId o categorySlug</code>
+                                    </li>
+                                    <li><code class="text-indigo-600 font-mono text-xs">slug</code> (Búsqueda semántica)
+                                    </li>
+                                    <li><code class="text-indigo-600 font-mono text-xs">limit</code> / <code
+                                            class="text-indigo-600 font-mono text-xs">offset</code> (Paginado)</li>
+                                </ul>
+                            </td>
+                            <td class="p-4 align-top text-sm text-slate-600">
+                                Permite <strong>editar</strong> y <strong>eliminar</strong> productos existentes por ID.
+                                <br>
+                                <span class="text-xs text-indigo-500 font-semibold">Extra:</span> Permite lógica para
+                                obtener productos relacionados.
+                            </td>
+                        </tr>
+
+                        <!-- Usuarios -->
+                        <tr class="hover:bg-indigo-50 transition-colors">
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <span class="font-bold text-slate-800 text-lg">Users</span>
+                                <br>
+                                <code
+                                    class="bg-slate-200 text-slate-700 px-2 py-1 rounded text-xs mt-1 inline-block font-mono">/users</code>
+                                <br>
+                                <code
+                                    class="bg-slate-200 text-slate-700 px-2 py-1 rounded text-xs mt-1 inline-block font-mono">/users/:id</code>
+                            </td>
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <div class="flex gap-1 flex-wrap">
+                                    <span
+                                        class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded border border-green-200">GET</span>
+                                    <span
+                                        class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded border border-yellow-200">POST</span>
+                                    <span
+                                        class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded border border-blue-200">PUT</span>
+                                </div>
+                            </td>
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <div class="text-sm text-slate-600">
+                                    <p class="mb-1"><span class="font-semibold">Paginado:</span> Sí</p>
+                                    <div class="flex gap-1">
+                                        <code class="bg-slate-100 border px-1 rounded text-xs">limit</code>
+                                        <code class="bg-slate-100 border px-1 rounded text-xs">offset</code>
+                                    </div>
+                                    <p class="mt-2 text-xs text-slate-400">Verifica disponibilidad de email (lógica
+                                        interna).</p>
+                                </div>
+                            </td>
+                            <td class="p-4 align-top text-sm text-slate-600">
+                                Gestión de usuarios. Importante para administrar perfiles.
+                            </td>
+                        </tr>
+
+                        <!-- Categorías -->
+                        <tr class="hover:bg-indigo-50 transition-colors">
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <span class="font-bold text-slate-800 text-lg">Categories</span>
+                                <br>
+                                <code
+                                    class="bg-slate-200 text-slate-700 px-2 py-1 rounded text-xs mt-1 inline-block font-mono">/categories</code>
+                                <br>
+                                <code
+                                    class="bg-slate-200 text-slate-700 px-2 py-1 rounded text-xs mt-1 inline-block font-mono">/categories/:id</code>
+                            </td>
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <div class="flex gap-1 flex-wrap">
+                                    <span
+                                        class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded border border-green-200">GET</span>
+                                    <span
+                                        class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded border border-yellow-200">POST</span>
+                                    <span
+                                        class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded border border-blue-200">PUT</span>
+                                    <span
+                                        class="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded border border-red-200">DELETE</span>
+                                </div>
+                            </td>
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <div class="text-sm text-slate-600">
+                                    <span class="font-semibold">Paginado:</span> Sí (limit/offset).
+                                </div>
+                            </td>
+                            <td class="p-4 align-top text-sm text-slate-600">
+                                Permite obtener productos relacionados a una categoría específica:
+                                <code
+                                    class="block mt-1 bg-slate-100 p-1 rounded text-xs">/categories/:id/products</code>
+                            </td>
+                        </tr>
+
+                        <!-- Otros Recursos (Auth, Files, Location) -->
+                        <tr class="bg-slate-50">
+                            <td colspan="4"
+                                class="p-2 text-xs font-bold text-slate-500 uppercase tracking-widest text-center border-t border-b border-slate-200">
+                                Servicios Adicionales
+                            </td>
+                        </tr>
+
+                        <!-- Authentication -->
+                        <tr class="hover:bg-indigo-50 transition-colors">
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <span class="font-bold text-slate-800">Authentication</span>
+                                <br>
+                                <code class="text-xs text-slate-500">/auth/login</code>
+                                <code class="text-xs text-slate-500">/auth/profile</code>
+                            </td>
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <div class="flex gap-1">
+                                    <span
+                                        class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded border border-green-200">GET</span>
+                                    <span
+                                        class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded border border-yellow-200">POST</span>
+                                </div>
+                            </td>
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <span class="text-xs text-slate-500">Requiere body con email/password o Header con
+                                    Token.</span>
+                            </td>
+                            <td class="p-4 align-top text-sm text-slate-600">
+                                Manejo de <strong>JWT</strong> (Tokens de acceso y refresco).
+                            </td>
+                        </tr>
+
+                        <!-- Files -->
+                        <tr class="hover:bg-indigo-50 transition-colors">
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <span class="font-bold text-slate-800">Files</span>
+                                <br>
+                                <code class="text-xs text-slate-500">/files/upload</code>
+                                <code class="text-xs text-slate-500">/files/:name</code>
+                            </td>
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <div class="flex gap-1">
+                                    <span
+                                        class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded border border-green-200">GET</span>
+                                    <span
+                                        class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded border border-yellow-200">POST</span>
+                                </div>
+                            </td>
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <span class="text-xs text-slate-500">Una vez cargados los archivos, se pueden
+                                    referenciar en otros recursos.</span>
+                            </td>
+                            <td class="p-4 align-top text-sm text-slate-600">
+                                Subida y recuperación de imágenes/archivos.
+                            </td>
+                        </tr>
+
+                        <!-- Locations -->
+                        <tr class="hover:bg-indigo-50 transition-colors border-b-0">
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <span class="font-bold text-slate-800">Locations</span>
+                                <br>
+                                <code class="text-xs text-slate-500">/locations</code>
+                            </td>
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <span
+                                    class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded border border-green-200">GET</span>
+                                <span
+                                    class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded border border-yellow-200">POST</span>
+                            </td>
+                            <td class="p-4 align-top border-r border-slate-100">
+                                <span class="block font-semibold text-xs text-indigo-600 mb-1">Filtrado
+                                    Geoespacial:</span>
+                                <ul class="text-sm text-slate-600 space-y-1 list-disc list-inside">
+                                    <li><code class="text-indigo-600 font-mono text-xs">radius</code> (Radio en km)</li>
+                                    <li><code class="text-indigo-600 font-mono text-xs">lat</code> (Latitud)</li>
+                                    <li><code class="text-indigo-600 font-mono text-xs">lng</code> (Longitud)</li>
+                                    <li><code class="text-indigo-600 font-mono text-xs">limit</code> / <code
+                                            class="text-indigo-600 font-mono text-xs">offset</code> (Paginado)</li>
+                                </ul>
+                            </td>
+                            <td class="p-4 align-top text-sm text-slate-600">
+                                Recurso para gestión de ubicaciones geográficas.
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div
+                class="bg-slate-50 p-4 border-t border-slate-200 text-xs text-slate-500 flex justify-between items-center">
+                <span>Análisis basado en la versión v1 de la API.</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
