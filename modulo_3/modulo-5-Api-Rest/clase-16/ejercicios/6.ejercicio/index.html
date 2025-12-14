@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 6: Metadatos de API</title>
+    <!-- Script Tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-900 font-sans text-gray-100 p-6">
+    <!-- Encabezado -->
+    <header class="text-center mb-8">
+        <h1 class="text-4xl font-extrabold text-green-400 mb-2 font-mono">Rick and Morty API</h1>
+        <p class="text-gray-400">Visualización de respuestas enriquecidas (Metadatos)</p>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="max-w-6xl mx-auto">
+        <!-- PANEL DE METADATOS -->
+        <section aria-labelledby="meta-heading"
+            class="bg-gray-800 border border-green-500/30 rounded-xl p-6 mb-8 shadow-lg shadow-green-900/20">
+            <h2 id="meta-heading"
+                class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-4 border-b border-gray-700 pb-2">
+                <i aria-hidden="true" class="fas fa-server"></i> Respuesta del Servidor (Metadatos)
+            </h2>
+
+            <!-- aria-live="polite" indica a los lectores de pantalla que anuncien los cambios cuando el usuario deje de interactuar -->
+            <div aria-live="polite" class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <!-- Dato 1: Total de registros -->
+                <article class="bg-gray-900 p-3 rounded-lg">
+                    <!-- aria-label ayuda a entender el número si el contexto visual no es suficiente -->
+                    <span class="block text-2xl font-bold text-white" id="meta-count"
+                        aria-label="Total de personajes">0</span>
+                    <span class="text-xs text-gray-500 uppercase">Personajes Totales</span>
+                </article>
+
+                <!-- Dato 2: Total de páginas -->
+                <article class="bg-gray-900 p-3 rounded-lg">
+                    <span class="block text-2xl font-bold text-white" id="meta-pages"
+                        aria-label="Total de páginas">0</span>
+                    <span class="text-xs text-gray-500 uppercase">Páginas Totales</span>
+                </article>
+
+                <!-- Dato 3: Página actual (Calculado) -->
+                <article class="bg-gray-900 p-3 rounded-lg">
+                    <span class="block text-2xl font-bold text-green-400" id="meta-current"
+                        aria-label="Página actual">1</span>
+                    <span class="text-xs text-gray-500 uppercase">Página Actual</span>
+                </article>
+
+                <!-- Dato 4: Estado de conexión -->
+                <article class="bg-gray-900 p-3 rounded-lg flex items-center justify-center gap-2">
+                    <!-- role="status" indica que esto es información de estado -->
+                    <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse" aria-hidden="true"></div>
+                    <span class="text-sm font-bold text-gray-300" role="status">200 OK</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- RESULTADOS -->
+        <!-- aria-live="polite" aquí es vital: el lector de pantalla sabrá cuando se carguen nuevos personajes -->
+        <!-- aria-busy se pone en true via JS cuando se está cargando -->
+        <section id="results-container" aria-label="Lista de personajes" aria-live="polite" aria-busy="false"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Las cards se inyectan aquí -->
+        </section>
+
+        <!-- Paginación usando URLs de la metadata -->
+        <nav aria-label="Navegación de páginas" class="flex justify-center gap-6">
+            <button id="btn-prev" aria-label="Ir a la página anterior"
+                class="bg-gray-700 hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-full font-bold transition flex items-center gap-2 focus:ring-2 focus:ring-green-500 focus:outline-none">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i> Anterior
+            </button>
+
+            <button id="btn-next" aria-label="Ir a la página siguiente"
+                class="bg-green-600 hover:bg-green-500 disabled:opacity-50 disabled:cursor-not-allowed text-black px-6 py-3 rounded-full font-bold transition flex items-center gap-2 focus:ring-2 focus:ring-green-300 focus:outline-none">
+                Siguiente <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </button>
+        </nav>
+
+    </main>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
