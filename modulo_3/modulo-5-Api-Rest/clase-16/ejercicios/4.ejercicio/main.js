@@ -66,15 +66,15 @@
                 image = image.replace(/["\[\]]/g, ''); 
 
                 const card = document.createElement('div');
-                card.className = "bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden border border-slate-100 flex flex-col";
+                card.className = "bg-gray-800 overflow-hidden rounded-lg shadow border border-gray-700 flex flex-col text-white";
                 card.innerHTML = `
                     <div class="h-48 bg-slate-200 relative">
                         <img src="${image}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400?text=No+Image'">
-                        <span class="absolute bottom-2 right-2 bg-slate-900/80 text-white px-2 py-1 rounded text-xs font-bold">$${product.price}</span>
+                        <span class="absolute bottom-2 right-2 bg-indigo-400/80 text-white px-2 py-1 rounded text-xs font-bold">$${product.price}</span>
                     </div>
                     <div class="p-4 flex-1">
-                        <h3 class="font-bold text-slate-800 text-sm mb-1 line-clamp-1">${product.title}</h3>
-                        <p class="text-xs text-slate-500 mb-2">${product.category.name}</p>
+                        <h3 class="font-bold text-gray-400 text-sm mb-1 line-clamp-1">${product.title}</h3>
+                        <p class="text-xs text-gray-400 mb-2">${product.category.name}</p>
                     </div>
                 `;
                 productsGrid.appendChild(card);

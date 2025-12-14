@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5: Paginado </title>
+    <!-- script tailwindcss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <!-- link font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-gray-900 font-sans text-gray-100 p-10 min-h-screen max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <header class="mb-8 text-center">
+        <h1 class="text-3xl font-extrabold text-indigo-400">Explorador de Productos</h1>
+        <p class="text-gray-400">Simulación de Paginado en el Cliente (Slice)</p>
+    </header>
+
+    <!-- Botones de paginado (Arriba) -->
+    <div class="w-full flex items-center justify-end gap-4 mb-4 text-sm text-gray-400">
+        <span id="info-paginado">Cargando...</span>
+    </div>
+
+    <!-- contenedor de resultados -->
+    <main id="results-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+        <!-- Loader inicial -->
+        <div class="col-span-full flex justify-center items-center h-40">
+            <i class="fas fa-spinner fa-spin text-4xl text-indigo-700"></i>
+        </div>
+
+        <!-- Aqui se inyectan las cards -->
+    </main>
+
+    <!-- Botones de paginado -->
+    <footer class="w-full flex items-center justify-center flex gap-4 pt-6">
+        <button id="left-button"
+            class="bg-indigo-400 shadow-[0_0_15px_rgba(99,102,241,0.5)] hover:shadow-[0_0_25px_rgba(99,102,241,0.8)] text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="bg-gray-700 px-4 py-2 rounded-lg shadow border border-gray-100 font-mono font-bold text-indigo-400">
+            Página <span id="pagina">1</span>
+        </div>
+
+
+        <button id="right-button"
+            class="bg-indigo-400 shadow-[0_0_15px_rgba(99,102,241,0.5)] hover:shadow-[0_0_25px_rgba(99,102,241,0.8)] text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:-translate-y-1">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </footer>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

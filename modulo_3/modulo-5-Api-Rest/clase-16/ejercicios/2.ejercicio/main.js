@@ -72,6 +72,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	// Ejecutamos el recurso único con un ID dinámico
 	// Cambia este número (ej: 25, 40, 100) y verás que el título del HTML cambia solo
-	const idDinamico = 167;
+	const idDinamico = 22;
 	await fetchProduct(idDinamico);
 });

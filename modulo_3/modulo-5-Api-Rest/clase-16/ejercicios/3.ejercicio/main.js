@@ -27,8 +27,8 @@ const searchProducts = async () => {
 	// Feedback de carga
 	resultsContainer.innerHTML = `
                 <div class="col-span-full text-center py-10">
-                    <i class="fas fa-spinner fa-spin text-4xl text-indigo-500"></i>
-                    <p class="mt-2 text-gray-500">Buscando en la API...</p>
+                    <i class="fas fa-spinner fa-spin text-4xl text-indigo-400"></i>
+                    <p class="mt-2 text-white">Buscando en la API...</p>
                 </div>
             `;
 
@@ -66,7 +66,7 @@ const renderResults = (products) => {
     // si la lista no tiene productos
 	if (products.length === 0) {
 		resultsContainer.innerHTML = `
-                    <div class="col-span-full text-center text-gray-500 py-10 bg-white rounded-lg shadow">
+                    <div class="col-span-full text-center text-white py-10 bg-gray-800 rounded-lg shadow">
                         <i class="fas fa-box-open text-4xl mb-2"></i>
                         <p>No se encontraron productos con ese nombre.</p>
                     </div>
@@ -78,7 +78,7 @@ const renderResults = (products) => {
 	products.forEach((product) => {
 		const card = document.createElement('article');
 		card.className =
-			'bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden border border-gray-100 flex flex-col';
+			'bg-gray-800 overflow-hidden rounded-lg shadow border border-gray-700 flex flex-col text-white';
 
 		// Intentar usar la imagen, si falla poner un placeholder
 		const image =
@@ -91,13 +91,13 @@ const renderResults = (products) => {
 
         // inyectar el contenido obtenido dentro de la card
 		card.innerHTML = `
-                    <div class="h-48 overflow-hidden bg-gray-200 relative group">
+                    <div class="h-48 bg-gray-200 relative group">
                         <img src="${cleanImage}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" onerror="this.src='https://placehold.co/600x400?text=No+Image'">
-                        <span class="absolute top-2 right-2 bg-white px-2 py-1 text-xs font-bold rounded shadow text-indigo-600">$${product.price}</span>
+                        <span class="absolute top-2 right-2 px-2 py-1 text-xs font-bold rounded shadow bg-indigo-600 text-white">$${product.price}</span>
                     </div>
                     <div class="p-4 flex-1 flex flex-col justify-between">
                         <div>
-                            <h3 class="font-bold text-gray-800 text-sm mb-1">${product.title}</h3>
+                            <h3 class="font-bold  text-sm mb-1">${product.title}</h3>
                             <span class="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">${product.category.name}</span>
                         </div>
                     </div>

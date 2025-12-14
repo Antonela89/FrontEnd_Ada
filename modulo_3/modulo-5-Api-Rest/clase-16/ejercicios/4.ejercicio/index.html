@@ -5,96 +5,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actividad 4: Filtros Múltiples</title>
+    <!-- Script Tailwind css -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link css -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- Link Font-Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="bg-slate-100 font-sans text-slate-800 p-6">
+<body class="bg-gray-900 font-sans text-gray-100 p-10 min-h-screen">
 
-    <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <header class="mb-8 text-center">
+        <h1 class="text-3xl font-bold text-indigo-400 mb-2">Explorador de Productos</h1>
+        <p class="text-gray-400">Aplicación de filtros múltiples con <code>URLSearchParams</code></p>
+    </header>
 
-        <!-- Header -->
-        <div class="mb-8">
-            <h1 class="text-3xl font-extrabold text-indigo-700">Explorador de Productos</h1>
-            <p class="text-slate-500">Aplicación de filtros múltiples con <code>URLSearchParams</code></p>
-        </div>
+    <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-6">
 
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <!-- SIDEBAR DE FILTROS -->
+        <aside class="bg-gray-800 p-6 rounded-xl shadow-md border border-gray-700 h-fit lg:sticky lg:top-6">
+            <h2 class="font-bold text-lg mb-4 text-indigo-400 items-center gap-2">
+                <i class="fas fa-filter text-indigo-400"></i> Filtros
+            </h2>
 
-            <!-- SIDEBAR DE FILTROS -->
-            <aside class="bg-white p-6 rounded-xl shadow-md border border-slate-200 h-fit lg:sticky lg:top-6">
-                <h2 class="font-bold text-lg mb-4 flex items-center gap-2">
-                    <i class="fas fa-filter text-indigo-600"></i> Filtros
-                </h2>
+            <form id="filterForm" class="space-y-4">
 
-                <form id="filterForm" class="space-y-4">
-
-                    <!-- Filtro: Título -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Nombre</label>
-                        <input type="text" id="titleInput" placeholder="Ej: Shirt..."
-                            class="w-full p-2 border border-slate-300 rounded focus:ring-2 focus:ring-indigo-500 outline-none text-sm">
-                    </div>
-
-                    <!-- Filtro: Categoría (Dinámico) -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Categoría</label>
-                        <select id="categorySelect"
-                            class="w-full p-2 border border-slate-300 rounded focus:ring-2 focus:ring-indigo-500 outline-none text-sm bg-white">
-                            <option value="">Todas las categorías</option>
-                            <!-- Se llenará con JS -->
-                        </select>
-                    </div>
-
-                    <!-- Filtro: Rango de Precio -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Precio</label>
-                        <div class="flex gap-2">
-                            <input type="number" id="minPrice" placeholder="Min"
-                                class="w-1/2 p-2 border border-slate-300 rounded text-sm">
-                            <input type="number" id="maxPrice" placeholder="Max"
-                                class="w-1/2 p-2 border border-slate-300 rounded text-sm">
-                        </div>
-                    </div>
-
-                    <!-- Botones -->
-                    <div class="pt-4 flex flex-col gap-2">
-                        <button type="submit"
-                            class="bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition font-medium text-sm">
-                            Aplicar Filtros
-                        </button>
-                        <button type="button" id="clearBtn"
-                            class="text-slate-500 py-2 rounded hover:bg-slate-100 transition text-sm">
-                            Limpiar
-                        </button>
-                    </div>
-
-                </form>
-
-                <!-- Debug URL -->
-                <div class="mt-6 pt-4 border-t border-slate-100">
-                    <p class="text-xs text-slate-400 mb-1">URL generada:</p>
-                    <code id="urlDebug"
-                        class="block bg-slate-800 text-green-400 text-xs p-2 rounded break-all">...</code>
-                </div>
-            </aside>
-
-            <!-- RESULTADOS -->
-            <main class="lg:col-span-3">
-
-                <!-- Estado -->
-                <div id="statusMsg" class="mb-4 text-sm text-slate-500 hidden">
-                    Mostrando resultados...
+                <!-- Filtro: Título -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Nombre</label>
+                    <input type="text" id="titleInput" placeholder="Ej: Shirt..."
+                        class="w-full p-2 border border-slate-300 rounded focus:ring-2 focus:ring-indigo-600 outline-none text-sm bg-gray-900">
                 </div>
 
-                <!-- Grid de Productos -->
-                <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    <!-- Cards inyectadas por JS -->
+                <!-- Filtro: Categoría (Dinámico) -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Categoría</label>
+                    <select id="categorySelect"
+                        class="w-full p-2 border border-slate-300 rounded focus:ring-2 focus:ring-indigo-600 outline-none text-sm bg-gray-900">
+                        <option value="">Todas las categorías</option>
+                        <!-- Se llenará con JS -->
+                    </select>
                 </div>
-            </main>
 
-        </div>
-    </div>
+                <!-- Filtro: Rango de Precio -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Precio</label>
+                    <div class="flex gap-2">
+                        <input type="number" id="minPrice" placeholder="Min"
+                            class="w-1/2 p-2 border border-slate-300 rounded text-sm bg-gray-900">
+                        <input type="number" id="maxPrice" placeholder="Max"
+                            class="w-1/2 p-2 border border-slate-300 rounded text-sm bg-gray-900">
+                    </div>
+                </div>
+
+                <!-- Botones -->
+                <div class="pt-4 flex flex-col gap-2">
+                    <button type="submit"
+                        class="bg-indigo-400 text-white py-2 rounded hover:bg-indigo-700 transition font-medium text-sm">
+                        Aplicar Filtros
+                    </button>
+                    <button type="button" id="clearBtn"
+                        class="text-gray-400 py-2 rounded hover:bg-slate-100 transition text-sm">
+                        Limpiar
+                    </button>
+                </div>
+
+            </form>
+
+            <!-- Debug URL -->
+            <div class="mt-6 pt-4 border-t-2 border-gray-700">
+                <p class="text-xs text-slate-400 mb-1">URL generada:</p>
+                <code id="urlDebug" class="block bg-slate-800 text-indigo-400 text-xs p-2 rounded break-all">...</code>
+            </div>
+        </aside>
+
+        <!-- RESULTADOS -->
+        <section class="lg:col-span-3">
+
+            <!-- Estado -->
+            <div id="statusMsg" class="mb-4 text-sm text-gray-400 hidden">
+                Mostrando resultados...
+            </div>
+
+            <!-- Grid de Productos -->
+            <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Cards inyectadas por JS -->
+            </div>
+        </section>
+
+    </main>
 
     <script src="./main.js"></script>
 </body>
