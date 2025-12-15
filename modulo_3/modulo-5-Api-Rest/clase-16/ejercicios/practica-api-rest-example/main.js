@@ -7,20 +7,37 @@ let currentProducts = [];
 let currentUsers = [];
 
 // --- NODOS DEL DOM ---
-const $inventoryValueEl = document.getElementById('inventory-value');
-const $lowStockEl = document.getElementById('low-stock');
+const $html = document.documentElement;
 const $productsContainer = document.getElementById('products-container');
 const $usersContainer = document.getElementById('users-container');
+
+// Estadísticas
+const $inventoryValueEl = document.getElementById('inventory-value');
+const $lowStockEl = document.getElementById('low-stock');
 const $totalProductsEl = document.getElementById('total-products');
 const $totalUsersEl = document.getElementById('total-users');
 
+// Filtros
+const $filterForm = document.getElementById('filterForm');
+const $categorySelect = document.getElementById('categorySelect');
+const $clearBtn = document.getElementById('clearBtn');
+const $titleInput = document.getElementById('titleInput');
+const $minPriceInput = document.getElementById('minPrice');
+const $maxPriceInput = document.getElementById('maxPrice');
+
+// Botones UI
+const $backToTopBtn = document.getElementById('back-to-top');
+const $themeToggleBtn = document.getElementById('theme-toggle');
+const $themeIcon = document.getElementById('theme-icon');
+
+// Titulos 
+const $sectionTitle = document.querySelector('h2'); // Título de la sección productos
+
 // --- LÓGICA DE PRODUCTOS ---
-
 // --- FUNCIONES DE RENDERIZADO ---
-
 // RENDERIZAR TARJETAS (Vista Normal)
 const renderProducts = (productsList) => {
-	// segurar que el contenedor tenga estilo de GRID (Rejilla)
+	// Restaurar el estilo de Grid
 	$productsContainer.className =
 		'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6';
 	$productsContainer.innerHTML = '';
@@ -39,6 +56,7 @@ const renderProducts = (productsList) => {
 		const card = document.createElement('article');
 		card.className =
 			'bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700 flex flex-col';
+		// mongoDB usa _id, pero también vericar id
 		const id = product._id || product.id;
 
 		card.innerHTML = `
@@ -100,6 +118,7 @@ window.renderInventoryReport = () => {
 		style: 'currency',
 		currency: 'USD',
 	});
+	// variable para suma de precios
 	let grandTotal = 0;
 
 	// Construir filas de la tabla
@@ -166,6 +185,7 @@ window.renderInventoryReport = () => {
     `;
 };
 
+// Resetear el dashboard a estado original.
 const originalResetProductFilter = window.resetProductFilter; // (Si existía)
 window.resetProductFilter = () => {
 	// Restaurar título original
@@ -179,8 +199,12 @@ const loadProducts = async () => {
 	try {
 		const response = await fetch(API_URL_PRODUCTS);
 		const data = await response.json();
-		const products = data.data;
+		// Verificar si es un array
+		const products = Array.isArray(data) ? data : data.data || [];
 		currentProducts = products; // Guardamos la lista original
+
+		// Agregar las categorias
+		populateCategories(products);
 
 		// --- CÁLCULOS ESTADÍSTICOS ---
 
@@ -192,6 +216,7 @@ const loadProducts = async () => {
 			(acc, p) => acc + p.price * p.stock,
 			0
 		);
+
 		$inventoryValueEl.innerText = new Intl.NumberFormat('en-US', {
 			style: 'currency',
 			currency: 'USD',
@@ -206,7 +231,7 @@ const loadProducts = async () => {
 			$lowStockEl.classList.add('text-red-600', 'dark:text-red-400');
 		}
 
-		// Pintar TODOS los productos al inicio
+		// Renderizar TODOS los productos al inicio
 		renderProducts(currentProducts);
 	} catch (error) {
 		console.error('Error productos:', error);
@@ -238,16 +263,16 @@ window.resetProductFilter = () => {
 
 // Abrir Modal Producto (Crear o Editar)
 window.openProductModal = (id = null) => {
-	const modal = document.getElementById('product-modal');
-	const title = document.getElementById('modal-product-title');
-	const form = document.getElementById('product-form');
+	const $modal = document.getElementById('product-modal');
+	const $title = document.getElementById('modal-product-title');
+	const $form = document.getElementById('product-form');
 
-	modal.classList.remove('hidden');
+	$modal.classList.remove('hidden');
 
 	if (id) {
 		// Modo Edición: Llenar datos
 		const product = currentProducts.find((p) => (p._id || p.id) === id);
-		title.innerText = 'Editar Producto';
+		$title.innerText = 'Editar Producto';
 		document.getElementById('prod-id').value = id;
 		document.getElementById('prod-name').value = product.name;
 		document.getElementById('prod-price').value = product.price;
@@ -257,8 +282,8 @@ window.openProductModal = (id = null) => {
 		document.getElementById('prod-desc').value = product.description;
 	} else {
 		// Modo Creación: Limpiar
-		title.innerText = 'Nuevo Producto';
-		form.reset();
+		$title.innerText = 'Nuevo Producto';
+		$form.reset();
 		document.getElementById('prod-id').value = '';
 	}
 };
@@ -338,7 +363,8 @@ const loadUsers = async () => {
 	try {
 		const response = await fetch(API_URL_USERS);
 		const data = await response.json();
-		const users = data.data;
+		// Verificación de si hay array
+		const users = Array.isArray(data) ? data : data.data || [];
 		currentUsers = users;
 		$totalUsersEl.innerText = users.length;
 		$usersContainer.innerHTML = '';
@@ -388,17 +414,17 @@ const loadUsers = async () => {
 	}
 };
 
-// Abrir Modal Usuario
+// Abrir modal Usuario
 window.openUserModal = (id = null) => {
-	const modal = document.getElementById('user-modal');
-	const title = document.getElementById('modal-user-title');
-	const form = document.getElementById('user-form');
+	const $modal = document.getElementById('user-modal');
+	const $title = document.getElementById('modal-user-title');
+	const $form = document.getElementById('user-form');
 
-	modal.classList.remove('hidden');
+	$modal.classList.remove('hidden');
 
 	if (id) {
 		const user = currentUsers.find((u) => (u._id || u.id) === id);
-		title.innerText = 'Editar Usuario';
+		$title.innerText = 'Editar Usuario';
 		document.getElementById('user-id').value = id;
 		document.getElementById('user-name').value = user.name;
 		document.getElementById('user-email').value = user.email;
@@ -407,8 +433,8 @@ window.openUserModal = (id = null) => {
 			'Dejar vacío para mantener actual';
 		document.getElementById('user-pass').required = false;
 	} else {
-		title.innerText = 'Nuevo Usuario';
-		form.reset();
+		$title.innerText = 'Nuevo Usuario';
+		$form.reset();
 		document.getElementById('user-id').value = '';
 		document.getElementById('user-pass').placeholder =
 			'Contraseña requerida';
@@ -416,6 +442,7 @@ window.openUserModal = (id = null) => {
 	}
 };
 
+// Cerrar modal Usuario
 window.closeUserModal = () => {
 	document.getElementById('user-modal').classList.add('hidden');
 };
@@ -425,7 +452,7 @@ document.getElementById('user-form').addEventListener('submit', async (e) => {
 	e.preventDefault();
 
 	const id = document.getElementById('user-id').value;
-	const pass = document.getElementById('user-pass').value;
+	const $pass = document.getElementById('user-pass').value;
 
 	const data = {
 		name: document.getElementById('user-name').value,
@@ -434,8 +461,8 @@ document.getElementById('user-form').addEventListener('submit', async (e) => {
 	};
 
 	// Solo se envia password si es nuevo o si el usuario escribió una nueva
-	if (pass) {
-		data.password = pass;
+	if ($pass) {
+		data.password = $pass;
 	}
 
 	try {
@@ -481,6 +508,82 @@ window.deleteUser = async (id) => {
 	}
 };
 
+// LÓGICA DE FILTROS AVANZADOS
+
+// Función para poblar el Select de Categorías
+// Se ejecuta cada vez que se cargan los productos (dentro de loadProducts)
+const populateCategories = (products) => {
+	// Extraer categorías únicas
+	const categories = [...new Set(products.map((p) => p.category))];
+
+	// Guardar la selección actual si existe
+	const currentSelection = $categorySelect.value;
+
+	// Limpiar opciones (manteniendo la primera)
+	$categorySelect.innerHTML =
+		'<option value="">Todas las categorías</option>';
+
+	categories.forEach((cat) => {
+		const option = document.createElement('option');
+		option.value = cat;
+		option.textContent = cat;
+		$categorySelect.appendChild(option);
+	});
+
+	// Restaurar selección si aun existe esa categoría
+	if (categories.includes(currentSelection)) {
+		$categorySelect.value = currentSelection;
+	}
+};
+
+// Aplicar Filtros
+$filterForm.addEventListener('submit', (e) => {
+	e.preventDefault();
+
+	const $titleTerm = document
+		.getElementById('titleInput')
+		.value.toLowerCase();
+	const $categoryTerm = $categorySelect.value;
+	const $minPrice = document.getElementById('minPrice').value;
+	const $maxPrice = document.getElementById('maxPrice').value;
+
+	// Filtramos sobre la lista ORIGINAL (currentProducts)
+	const filteredProducts = currentProducts.filter((product) => {
+		// Filtro Nombre
+		const matchTitle = product.name.toLowerCase().includes($titleTerm);
+
+		// Filtro Categoría
+		const matchCategory =
+			$categoryTerm === '' || product.category === $categoryTerm;
+
+		// Filtro Precio
+		const price = parseFloat(product.price);
+		const matchMin = $minPrice === '' || price >= parseFloat($minPrice);
+		const matchMax = $maxPrice === '' || price <= parseFloat($maxPrice);
+
+		return matchTitle && matchCategory && matchMin && matchMax;
+	});
+
+	// Renderizar resultados filtrados
+	renderProducts(filteredProducts);
+
+	// Feedback visual en el título
+	const titleEl = document.querySelector('h2'); // El título de la sección productos
+	if (titleEl) {
+		if (filteredProducts.length !== currentProducts.length) {
+			titleEl.textContent = `🔍 Resultados: ${filteredProducts.length}`;
+		} else {
+			titleEl.textContent = `📦 Productos Recientes`;
+		}
+	}
+});
+
+// Limpiar Filtros
+$clearBtn.addEventListener('click', () => {
+	$filterForm.reset();
+	resetProductFilter(); // Usa la función que ya tenías para restaurar todo
+});
+
 // Scroll suave a la tabla de usuarios
 window.scrollToUsers = () => {
 	const $section = document.getElementById('users-section');
@@ -490,7 +593,6 @@ window.scrollToUsers = () => {
 };
 
 // --- BOTÓN VOLVER ARRIBA ---
-
 document.addEventListener('DOMContentLoaded', () => {
 	const $backToTopBtn = document.getElementById('back-to-top');
 
@@ -502,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		// Si bajamos más de 300px
 		if (window.scrollY > 300) {
 			$backToTopBtn.classList.remove('hidden');
-			$backToTopBtn.classList.add('flex'); // Usamos flex para mostrarlo y centrar icono
+			$backToTopBtn.classList.add('flex');
 		} else {
 			$backToTopBtn.classList.add('hidden');
 			$backToTopBtn.classList.remove('flex');
@@ -519,19 +621,26 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- INICIALIZACIÓN Y DARK MODE ---
-const $themeToggleBtn = document.getElementById('theme-toggle');
-const html = document.documentElement;
+const updateThemeIcon = (isDark) => {
+	$themeIcon.innerHTML = isDark
+		? `<i class="fa-solid fa-sun text-indigo-400"></i>`
+		: `<i class="fa-solid fa-moon text-indigo-700"></i>`;
+};
 
+// Verificar preferencia guardada
 if (localStorage.getItem('theme') === 'dark') {
-	html.classList.add('dark');
+	$html.classList.add('dark');
 }
 
 $themeToggleBtn.addEventListener('click', () => {
-	html.classList.toggle('dark');
-	localStorage.setItem(
-		'theme',
-		html.classList.contains('dark') ? 'dark' : 'light'
-	);
+	$html.classList.toggle('dark');
+	const isDark = $html.classList.contains('dark');
+
+	// Guardar preferencia
+	localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+	// Actualizar icono
+	updateThemeIcon(isDark);
 });
 
 document.addEventListener('DOMContentLoaded', () => {
