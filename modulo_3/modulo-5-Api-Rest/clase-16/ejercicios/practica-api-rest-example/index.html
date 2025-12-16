@@ -29,12 +29,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center">
-                    <span class="text-2xl font-bold text-indigo-600 dark:text-indigo-400" aria-hidden="true">🚀 Mi
+                    <span class="text-2xl font-bold text-indigo-600 dark:text-indigo-400" aria-hidden="true">Mi
                         Dashboard</span>
                 </div>
                 <!-- Botón Dark Mode -->
                 <button id="theme-toggle" aria-label="Cambiar modo oscuro/claro"
-                    class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none">
+                    class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none">
                     <span id="theme-icon" aria-hidden="true" class="flex justify-center items-center w-6 h-6">
                         <i class="fa-solid fa-moon text-indigo-600"></i>
                     </span>
@@ -48,7 +48,7 @@
         class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-24 pb-10 grid grid-cols-1 lg:grid-cols-4 gap-6 flex-grow">
 
         <!-- SIDEBAR DE FILTROS -->
-        <aside class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 h-fit lg:sticky lg:top-24 z-10">
+        <aside class="bg-white dark:bg-gray-800 p-6 rounded-md shadow-md border border-gray-200 dark:border-gray-700 h-fit lg:sticky lg:top-24 z-10">
             <h2 class="font-bold text-lg mb-4 text-indigo-600 dark:text-indigo-400 items-center gap-2">
                 <i class="fas fa-filter text-indigo-600 dark:text-indigo-400" aria-hidden="true"></i> Filtros
             </h2>
@@ -106,7 +106,7 @@
 
                 <!-- Total Productos (BOTÓN PARA RESETEAR / VER TODOS) -->
                 <div onclick="resetProductFilter()"
-                    class="cursor-pointer bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-b-4 border-indigo-500 transition-transform hover:scale-105 active:scale-95 group">
+                    class="cursor-pointer bg-white dark:bg-gray-800 p-6 rounded-md shadow-lg border border-b-4 border-indigo-500 transition-transform hover:scale-105 active:scale-95 group">
                     <div class="flex items-center justify-between">
                         <div>
                             <p
@@ -115,14 +115,14 @@
                             <p class="text-3xl font-bold text-gray-800 dark:text-white" id="total-products">0</p>
                         </div>
                         <div class="p-3 bg-indigo-100 dark:bg-indigo-900 rounded-full">
-                            <i class="w-6 h-6 flex justify-center items-center fa-solid fa-box-open text-indigo-600 dark:text-indigo-300 text-xl"></i>
+                            <i class="w-6 h-6 flex justify-center items-center fa-solid fa-boxes-packing text-indigo-600 dark:text-indigo-300 text-xl"></i>
                         </div>
                     </div>
                 </div>
 
                 <!-- Valor del Inventario (VER REPORTE EN TABLA) -->
                 <div onclick="renderInventoryReport()"
-                    class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-b-4 border-green-500 transition-transform hover:scale-105 group">
+                    class="cursor-pointer bg-white dark:bg-gray-800 p-6 rounded-md shadow-lg border border-b-4 border-green-500 transition-transform hover:scale-105 group">
                     <div class="flex items-center justify-between">
                         <div>
                             <p
@@ -138,7 +138,7 @@
 
                 <!-- Alerta Stock Bajo (BOTÓN PARA FILTRAR) -->
                 <div onclick="filterLowStock()"
-                    class="cursor-pointer bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-b-4 border-red-500 transition-transform hover:scale-105 active:scale-95 group">
+                    class="cursor-pointer bg-white dark:bg-gray-800 p-6 rounded-md shadow-lg border border-b-4 border-red-500 transition-transform hover:scale-105 active:scale-95 group">
                     <div class="flex items-center justify-between">
                         <div>
                             <p
@@ -147,14 +147,14 @@
                             <p class="text-3xl font-bold text-gray-800 dark:text-white" id="low-stock">0</p>
                         </div>
                         <div class="p-3 bg-red-100 dark:bg-red-900 rounded-full">
-                            <i class="w-6 h-6 flex justify-center items-center fa-solid fa-triangle-exclamation text-red-600 dark:text-red-300 text-xl"></i>
+                            <i class="w-6 h-6 flex justify-center items-center fa-solid fa-circle-exclamation text-red-600 dark:text-red-300 text-xl"></i>
                         </div>
                     </div>
                 </div>
 
                 <!-- Total Usuarios (REDIRECCIÓN A SECCIÓN USUARIOS) -->
                 <div onclick="scrollToUsers()"
-                    class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-b-4 border-purple-500 transition-transform hover:scale-105 group">
+                    class="cursor-pointer bg-white dark:bg-gray-800 p-6 rounded-md shadow-lg border border-b-4 border-purple-500 transition-transform hover:scale-105 group">
                     <div class="flex items-center justify-between">
                         <div>
                             <p
@@ -173,10 +173,13 @@
             <!-- Sección PRODUCTOS -->
             <section class="mb-12">
                 <div class="flex justify-between items-center mb-6 border-b border-gray-300 dark:border-gray-700 pb-2">
-                    <h2 class="text-2xl font-bold">📦 Productos Recientes</h2>
+                    <h2 class="text-2xl font-bold">
+                        <i class="fa-solid fa-boxes-packing"></i>
+                        Productos Recientes
+                    </h2>
                     <!-- Botón Crear Producto -->
                     <button onclick="openProductModal()"
-                        class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
+                        class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md flex items-center gap-2 transition-colors">
                         <i class="fa-solid fa-plus"></i> Nuevo Producto
                     </button>
                 </div>
@@ -187,20 +190,23 @@
 
 
                     <!-- Skeleton de carga-->
-                    <div class="animate-pulse bg-gray-300 dark:bg-gray-700 h-48 rounded-lg"></div>
-                    <div class="animate-pulse bg-gray-300 dark:bg-gray-700 h-48 rounded-lg"></div>
-                    <div class="animate-pulse bg-gray-300 dark:bg-gray-700 h-48 rounded-lg"></div>
-                    <div class="animate-pulse bg-gray-300 dark:bg-gray-700 h-48 rounded-lg"></div>
+                    <div class="animate-pulse bg-gray-300 dark:bg-gray-700 h-48 rounded-md"></div>
+                    <div class="animate-pulse bg-gray-300 dark:bg-gray-700 h-48 rounded-md"></div>
+                    <div class="animate-pulse bg-gray-300 dark:bg-gray-700 h-48 rounded-md"></div>
+                    <div class="animate-pulse bg-gray-300 dark:bg-gray-700 h-48 rounded-md"></div>
                 </div>
             </section>
 
             <!-- Sección USUARIOS -->
             <section id="users-section" class="scroll-mt-24">
                 <div class="flex justify-between items-center mb-6 border-b border-gray-300 dark:border-gray-700 pb-2">
-                    <h2 id="users-title" class="text-2xl font-bold">👥 Usuarios del Sistema</h2>
+                    <h2 id="users-title" class="text-2xl font-bold">
+                        <i class="fa-solid fa-users"></i>
+                        Usuarios del Sistema
+                    </h2>
                     <!-- Botón Crear Usuario -->
                     <button onclick="openUserModal()"
-                        class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
+                        class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md flex items-center gap-2 transition-colors">
                         <i class="fa-solid fa-plus"></i> Nuevo Usuario
                     </button>
                 </div>
@@ -251,7 +257,7 @@
 
     <!-- MODAL PRODUCTO (Oculto por defecto) -->
     <div id="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-product-title" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg w-full max-w-md shadow-2xl transform transition-all">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-md w-full max-w-md shadow-2xl transform transition-all">
             <h3 id="modal-product-title" class="text-2xl font-bold mb-4 dark:text-white">Nuevo Producto</h3>
             <form id="product-form" class="space-y-4">
                 <input type="hidden" id="prod-id">
@@ -301,7 +307,7 @@
 
     <!-- MODAL USUARIO (Oculto por defecto) -->
     <div id="user-modal" role="dialog" aria-modal="true" aria-labelledby="modal-user-title"  class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg w-full max-w-md shadow-2xl">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-md w-full max-w-md shadow-2xl">
             <h3 id="modal-user-title" class="text-2xl font-bold mb-4 dark:text-white">Nuevo Usuario</h3>
             <form id="user-form" class="space-y-4">
                 <input type="hidden" id="user-id">
@@ -352,7 +358,7 @@
 
                 <!-- Columna 1: Backend -->
                 <div>
-                    <h4 class="text-lg font-bold text-indigo-600 dark:text-indigo-400 mb-2">Backend 🛠️</h4>
+                    <h4 class="text-lg font-bold text-indigo-600 dark:text-indigo-400 mb-2">Backend <i class="fa-solid fa-screwdriver-wrench"></i></h4>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">Node.js + Express</p>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">MongoDB Atlas (Cloud)</p>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">Mongoose ODM</p>
@@ -360,7 +366,7 @@
 
                 <!-- Columna 2: Frontend -->
                 <div>
-                    <h4 class="text-lg font-bold text-green-600 dark:text-green-400 mb-2">Frontend 🎨</h4>
+                    <h4 class="text-lg font-bold text-green-600 dark:text-green-400 mb-2">Frontend <i class="fa-solid fa-palette"></i></h4>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">HTML5 Semántico</p>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">Tailwind CSS (Dark Mode)</p>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">Vanilla JavaScript (ES6+)</p>
@@ -368,7 +374,7 @@
 
                 <!-- Columna 3: Contexto -->
                 <div>
-                    <h4 class="text-lg font-bold text-purple-600 dark:text-purple-400 mb-2">Proyecto 🎓</h4>
+                    <h4 class="text-lg font-bold text-purple-600 dark:text-purple-400 mb-2">Proyecto <i class="fa-solid fa-graduation-cap"></i></h4>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">FrontEnd ADA ITW - 202504</p>
                     <p class="text-gray-600 dark:text-gray-400 text-sm">Módulo 3: API REST</p>
                     <p class="text-gray-500 dark:text-gray-500 text-xs mt-2">© 2025 - Práctica de integración</p>

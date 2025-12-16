@@ -45,7 +45,7 @@ const renderProducts = (productsList) => {
 	if (productsList.length === 0) {
 		$productsContainer.innerHTML = `
             <div class="col-span-full text-center py-10 text-gray-500 dark:text-gray-400">
-                <i class="fa-solid fa-box-open text-4xl mb-3"></i>
+                <i class="fa-solid fa-boxes-packing text-4xl mb-3"></i>
                 <p>No se encontraron productos.</p>
             </div>
         `;
@@ -55,7 +55,7 @@ const renderProducts = (productsList) => {
 	productsList.forEach((product) => {
 		const card = document.createElement('article');
 		card.className =
-			'bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700 flex flex-col';
+			'bg-white dark:bg-gray-800 rounded-md shadow-lg hover:shadow-xl transition-all border border-gray-100 dark:border-gray-700 flex flex-col';
 		// mongoDB usa _id, pero también vericar id
 		const id = product._id || product.id;
 
@@ -94,8 +94,8 @@ const renderProducts = (productsList) => {
                     </span>
                 </div>
                 <div class="flex gap-2">
-                    <button onclick="openProductModal('${id}')" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-1.5 rounded transition-colors text-sm"><i class="fa-solid fa-pen"></i> Editar</button>
-                    <button onclick="deleteProduct('${id}')" class="flex-1 bg-red-500 hover:bg-red-600 text-white py-1.5 rounded transition-colors text-sm"><i class="fa-solid fa-trash"></i></button>
+                    <button onclick="openProductModal('${id}')" class="cursor-pointer flex-1 bg-blue-500 hover:bg-blue-600 text-white py-1.5 rounded transition-colors text-sm"><i class="fa-solid fa-pen"></i> Editar</button>
+                    <button onclick="deleteProduct('${id}')" class="cursor-pointer flex-1 bg-red-500 hover:bg-red-600 text-white py-1.5 rounded transition-colors text-sm"><i class="fa-solid fa-trash"></i></button>
                 </div>
             </div>
         `;
@@ -111,7 +111,7 @@ window.renderInventoryReport = () => {
 
 	// Cambiar estilos del contenedor: Quitar GRID, poner estilo de TABLA
 	$productsContainer.className =
-		'bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700';
+		'bg-white dark:bg-gray-800 shadow-md rounded-md overflow-hidden border border-gray-200 dark:border-gray-700';
 
 	// Preparar formateador de dinero
 	const formatter = new Intl.NumberFormat('en-US', {
@@ -399,10 +399,10 @@ const loadUsers = async () => {
                     </span>
                 </td>
                 <td class="px-5 py-4 text-sm text-center">
-                    <button onclick="openUserModal('${id}')" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-200 mr-3">
+                    <button onclick="openUserModal('${id}')" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-200 mr-3 cursor-pointer">
                         <i class="fa-solid fa-pen"></i>
                     </button>
-                    <button onclick="deleteUser('${id}')" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-200">
+                    <button onclick="deleteUser('${id}')" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-200 cursor-pointer">
                         <i class="fa-solid fa-trash"></i>
                     </button>
                 </td>
@@ -571,9 +571,9 @@ $filterForm.addEventListener('submit', (e) => {
 	const titleEl = document.querySelector('h2'); // El título de la sección productos
 	if (titleEl) {
 		if (filteredProducts.length !== currentProducts.length) {
-			titleEl.textContent = `🔍 Resultados: ${filteredProducts.length}`;
+			titleEl.textContent = `<i class="fa-solid fa-magnifying-glass"></i> Resultados: ${filteredProducts.length}`;
 		} else {
-			titleEl.textContent = `📦 Productos Recientes`;
+			titleEl.textContent = `<i>fa-solid fa-boxes-packing</i> Productos Recientes`;
 		}
 	}
 });
