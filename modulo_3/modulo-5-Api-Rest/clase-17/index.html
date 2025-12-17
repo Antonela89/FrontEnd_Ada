@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="styles.css">
+  <title>Rick and Morty API</title>
+</head>
+
+<body class="min-h-screen flex flex-col">
+
+  <!-- Hero con Título Superpuesto -->
+  <div class="relative">
+    <section class="hero-section w-full"></section>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <h1 class="text-5xl md:text-7xl font-bold text-white drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)] text-center px-4">
+        Rick and <span class="sunset-text">Morty</span> API
+      </h1>
+    </div>
+  </div>
+
+  <!-- Sección de Filtros -->
+  <section class="px-6 -mt-10 relative z-10 mb-10">
+    <div class="max-w-4xl mx-auto glass-panel p-6 rounded-2xl shadow-2xl">
+      <h2 class="text-center font-bold text-xl mb-6 text-cyan-300 uppercase tracking-widest">Búsqueda Interdimensional
+      </h2>
+
+      <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+        <input type="text"
+          class="w-full md:w-auto flex-1 bg-slate-800 border border-slate-600 text-white py-3 px-4 rounded-xl focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 placeholder-slate-400 transition-colors"
+          id="name-input" placeholder="Buscar por nombre..." />
+
+        <select
+          class="w-full md:w-auto bg-slate-800 border border-slate-600 text-white py-3 px-4 rounded-xl focus:outline-none focus:border-cyan-400 cursor-pointer"
+          id="status-filter">
+          <option value="">Estado (Todos)</option>
+          <option value="alive">🟢 Vivo</option>
+          <option value="dead">🔴 Muerto</option>
+          <option value="unknown">⚪ Desconocido</option>
+        </select>
+
+        <select
+          class="w-full md:w-auto bg-slate-800 border border-slate-600 text-white py-3 px-4 rounded-xl focus:outline-none focus:border-cyan-400 cursor-pointer"
+          id="species-filter">
+          <option value="">Especie (Todas)</option>
+          <option value="human">Humano</option>
+          <option value="alien">Alien</option>
+          <option value="robot">Robot</option>
+          <option value="unknown">Desconocido</option>
+        </select>
+
+        <button
+          class="w-full md:w-auto sunset-btn text-white font-bold py-3 px-8 rounded-xl cursor-pointer shadow-lg transform active:scale-95 transition-all"
+          id="search-button">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal de Detalles (Oculto por defecto) -->
+  <section id="details"
+    class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-opacity">
+  </section>
+
+  <!-- Grid de Resultados -->
+  <section
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-6 max-w-7xl mx-auto w-full min-h-[50vh]"
+    id="results"></section>
+
+  <!-- Paginación -->
+  <section class="flex gap-4 justify-center items-center py-12 mt-auto" id="pagination">
+    <button class="bg-slate-800 border border-slate-600 text-cyan-400 font-bold py-2 px-6 rounded-lg transition-all 
+    hover:border-cyan-400 hover:text-cyan-300 
+    disabled:opacity-50 disabled:cursor-not-allowed 
+    disabled:hover:border-slate-600 disabled:hover:text-cyan-400" id="prev-btn">
+      ← Anterior
+    </button>
+
+    <span class="py-2 px-6 bg-slate-800 rounded-lg text-white font-bold border border-slate-700 shadow-inner">
+      Página <span id="page-num" class="text-pink-500">1</span>
+    </span>
+
+    <button class="bg-slate-800 border border-slate-600 text-cyan-400 font-bold py-2 px-6 rounded-lg transition-all 
+    hover:border-cyan-400 hover:text-cyan-300 
+    disabled:opacity-50 disabled:cursor-not-allowed 
+    disabled:hover:border-slate-600 disabled:hover:text-cyan-400" id="next-btn">
+      Siguiente →
+    </button>
+  </section>
+
+  <footer class="text-center py-6 text-slate-500 text-sm">
+    Hecho con CSS Grid, Tailwind y mucho Portal Fluid.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
