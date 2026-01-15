@@ -1,21 +1,27 @@
-import ListaTareas from './ListaTareas';
-import Saludo from './Saludo';
+import Actividad01 from './Actividad-1';
+import Actividad02 from './Actividad-2';
+import Actividad03 from './Actividad-3';
+import Actividad04 from './Actividad-4';
+
 
 const Clase02 = () => {
 	return (
 		<div>
-			<h1>Resolución Clase 2</h1>
-			<section>
-				<h2>Actividad 1</h2>
-				<ListaTareas/>
-			</section>
+			<div className="activity-block">
+				<Actividad01/>
+			</div>
 
-			<hr />
+			<div className="activity-block">
+				<Actividad02 />
+			</div>
 
-			<section>
-				<h2>Actividad 2</h2>
-				<Saludo />
-			</section>
+			<div className="activity-block">
+				<Actividad03 />
+			</div>
+
+			<div className="activity-block">
+				<Actividad04 />				
+			</div>
 		</div>
 	);
 };
