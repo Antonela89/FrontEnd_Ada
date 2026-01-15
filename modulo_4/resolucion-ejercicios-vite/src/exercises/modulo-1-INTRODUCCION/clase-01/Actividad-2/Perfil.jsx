@@ -1,4 +1,3 @@
-import React from 'react';
 import Titulo from './Titulo';
 import Descripcion from './Descripcion';
 import Boton from './Boton';
