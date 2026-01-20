@@ -181,10 +181,10 @@
 }
 
 .activity-block {
-    margin-bottom: 60px; 
+    margin-bottom: 60px;
     display: flex;
     flex-direction: column;
-    gap: 20px; 
+    gap: 20px;
 }
 
 .activity-block p {
@@ -245,3 +245,17 @@
     color: #f8fafc;
 }
 
+/* Boton */
+.btn-custom {
+    background: #3b82f6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-custom:hover {
+    background: #2563eb;
+}
