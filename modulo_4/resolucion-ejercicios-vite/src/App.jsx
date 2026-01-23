@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import Proximamente from './components/Proximamente/Proximamente';
 import Home from './components/Home/Home';
-import { Clase01, Clase02, Clase03 } from './exercises';
+import { Clase01, Clase02, Clase03, Clase04 } from './exercises';
 
 function App() {
 	// Lista de  clases YA están terminadas
@@ -10,7 +10,7 @@ function App() {
 		'clase-01': <Clase01 />,
 		'clase-02': <Clase02 />,  
 		'clase-03': <Clase03 />,
-		// 'clase-04': <Clase04 />, 
+		'clase-04': <Clase04 />, 
 		// 'clase-05': <Clase05 />,
 		// 'clase-06': <Clase06 />,
 		// 'clase-07': <Clase07 />,

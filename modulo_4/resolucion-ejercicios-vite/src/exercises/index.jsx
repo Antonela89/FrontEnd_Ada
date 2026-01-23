@@ -3,7 +3,7 @@ export { default as Clase01 } from './modulo-1-INTRODUCCION/clase-01';
 export { default as Clase02 } from './modulo-1-INTRODUCCION/clase-02';
 export { default as Clase03 } from './modulo-1-INTRODUCCION/clase-03';
 // Modulo 2: Renderizado Condicional
-
+export { default as Clase04 } from './modulo-2-RENDERIZADO-CONDICIONAL/clase-04';
 // Modulo 3: Estados
 
 // Modulo 4: CSS
