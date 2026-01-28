@@ -3,7 +3,7 @@ import EstadoCarga from './EstadoCarga';
 
 const Actividad03 = () => {
 	return (
-		<div>
+		<div className='activity-block'>
 			<HeaderActividad>
 				Actividad 03: Operador ternario = condición ? true : false
 			</HeaderActividad>

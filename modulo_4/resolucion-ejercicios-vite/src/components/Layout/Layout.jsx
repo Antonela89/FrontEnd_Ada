@@ -1,6 +1,8 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { menuConfig } from './menu.js';
-import './Layout.css';
+import './css/theme.css';
+import './css/components.css';
+import './css/Layout.css';
 
 const Layout = () => {
     return (
@@ -31,7 +33,7 @@ const Layout = () => {
             </nav>
 
             <main className='content'>
-                <div className='card'>
+                <div className='card-content'>
                     {/* El Outlet mostrará el contenido de cada ejercicio */}
                     <Outlet />
                 </div>

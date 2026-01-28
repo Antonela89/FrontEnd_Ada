@@ -20,7 +20,7 @@ const Actividad04 = () => {
 		},
 	];
 	return (
-		<div>
+		<div className='activity-block'>
 			<HeaderActividad>Actividad 04: Operador &&</HeaderActividad>
 			<h4 className="qa-question">hayMensajes: true</h4>
 			<Mensaje hayMensajes />

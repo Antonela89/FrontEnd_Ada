@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Subtitulo = () => {
 	return <h2>Esta es mi primera práctica con componentes</h2>;
 };

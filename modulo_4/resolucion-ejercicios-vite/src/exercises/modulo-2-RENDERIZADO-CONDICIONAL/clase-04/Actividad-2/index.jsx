@@ -16,7 +16,7 @@ const Actividad02 = () => {
 	];
 
 	return (
-		<div>
+		<div className='activity-block'>
 			<HeaderActividad>Actividad 02: null</HeaderActividad>
 			<h4 className="qa-question">
 				Caso con Notificaciones (cantidad={2}):

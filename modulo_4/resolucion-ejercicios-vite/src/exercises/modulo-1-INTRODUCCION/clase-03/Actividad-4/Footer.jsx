@@ -1,16 +1,5 @@
-const Footer = ({content}) => {
-	return (
-		<footer
-			style={{
-				padding: '10px',
-				background: '#0f172a',
-				fontSize: '0.8rem',
-				textAlign: 'center',
-			}}
-		>
-			{content}
-		</footer>
-	);
+const Footer = ({ content }) => {
+	return <footer className="slot-footer">{content}</footer>;
 };
 
 export default Footer;

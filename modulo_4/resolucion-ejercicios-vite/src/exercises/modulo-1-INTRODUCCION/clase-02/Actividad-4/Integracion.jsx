@@ -1,13 +1,12 @@
-import './Integracion.css';
-
 const Integracion = ({ usuario, temasAprendidos, mostrarAlerta }) => {
 	return (
 		// Uso de Fragment (<> es lo mismo que <React.Fragment>)
 		<>
-			<div className="integracion-card">
+			<div className="integracion-container">
 				{/* Saludo con JSX */}
 				<h3 className="user-greeting">
-					¡Bienvenid@ de nuevo, {usuario}!
+					¡Bienvenid@ de nuevo,{' '}
+					<span className="text-white">{usuario}</span>!
 				</h3>
 
 				<p className="qa-answer">
@@ -17,15 +16,18 @@ const Integracion = ({ usuario, temasAprendidos, mostrarAlerta }) => {
 				{/* Renderizar lista con map() */}
 				<ul className="feature-list">
 					{temasAprendidos.map((tema, index) => (
-						<li key={index}>🔹 {tema}</li>
+						<li key={index}>
+							<span className="text-(--accent)">🔹</span>
+							{tema}
+						</li>
 					))}
 				</ul>
 
 				{/* Condicional con && */}
 				{mostrarAlerta && (
-					<div className="alert-box">
-						Tienes ejercicios pendientes por revisar en el Módulo
-						4.
+					<div className="alert-warning">
+						<span className="text-lg">⚠️</span>
+						Tienes ejercicios pendientes por revisar en el Módulo 4.
 					</div>
 				)}
 			</div>

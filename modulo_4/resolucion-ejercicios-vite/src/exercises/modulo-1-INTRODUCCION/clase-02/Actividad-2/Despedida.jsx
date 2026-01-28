@@ -1,4 +1,4 @@
-import './Mensajes.css';
+// import './Mensajes.css';
 
 // Export default: NO requiere llaves al importar
 const Despedida = ({ mostrar }) => (

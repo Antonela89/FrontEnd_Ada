@@ -4,7 +4,7 @@ import LoginStatus from "./LoginStatus";
 
 const Actividad01 = () => {
 	return (
-		<div>
+		<div className='activity-block'>
 			<HeaderActividad>
 				{'Actividad 01: if/else = if (condición) {true} else {false}'}
 			</HeaderActividad>

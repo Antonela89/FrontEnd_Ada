@@ -2,20 +2,16 @@ import Footer from './Footer';
 import Header from './Header';
 import Main from './Main';
 
-const ContenedorLayout = ({children}) => {
+const ContenedorLayout = ({ children, customHeader, customFooter }) => {
 	return (
-		<div
-			style={{
-				border: '1px solid #334155',
-				borderRadius: '10px',
-				overflow: 'hidden',
-			}}
-		>
-			<Header content={<strong>Mi Encabezado Pro</strong>} />
-			<Main>
-                {children}
-            </Main>
-			<Footer content={<span>© 2024 - Curso de React</span>} />
+		<div className="slot-container">
+			<Header
+				content={customHeader || <strong>Mi Encabezado Pro</strong>}
+			/>
+			<Main>{children}</Main>
+			<Footer
+				content={customFooter || <span>© 2026 - Curso de React</span>}
+			/>
 		</div>
 	);
 };

@@ -1,4 +1,4 @@
-import './Mensajes.css';
+// import './Mensajes.css';
 
 // Export nombrado: requiere llaves { } al importar
 export const Saludo = ({nombre, mostrar}) => (

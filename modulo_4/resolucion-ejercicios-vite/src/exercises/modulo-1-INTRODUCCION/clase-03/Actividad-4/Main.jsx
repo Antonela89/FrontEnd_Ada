@@ -1,9 +1,5 @@
 const Main = ({ children }) => {
-	return (
-		<main style={{ padding: '20px', background: '#1e293b' }}>
-			{children}
-		</main>
-	);
+	return <main className="slot-main">{children}</main>;
 };
 
 export default Main;
