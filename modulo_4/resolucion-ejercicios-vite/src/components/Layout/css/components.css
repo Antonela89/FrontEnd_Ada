@@ -1,0 +1,95 @@
+@reference "./theme.css";
+
+/* Actividades */
+.main-activity-title {
+    color: var(--accent);
+    @apply border-b border-border pb-2 mb-8 text-2xl font-bold;
+}
+
+.activity-block {
+    @apply mb-16 flex flex-col gap-5;
+}
+
+.activity-block p {
+    @apply text-(--text-muted) mb-4;
+}
+
+/* Teoría */
+.theory-container-custom {
+    @apply p-5 leading-relaxed;
+}
+
+.theory-subtitle {
+    @apply text-text-muted text-[1.1rem] uppercase tracking-widest mb-6;
+}
+
+.qa-group {
+    @apply mb-5 pl-4 border-l-2 border-(--accent);
+}
+
+.qa-question {
+    @apply text-(--text-main) font-semibold mb-1 text-base;
+}
+
+.qa-answer {
+    @apply text-(--text-muted) text-[0.95rem];
+}
+
+/* Elementos Reutilizables*/
+.item-row {
+    @apply flex justify-between items-center p-4 mb-2 rounded-xl border border-border transition-all hover:translate-x-1;
+    background-color: var(--bg-sidebar);
+}
+
+.item-row.success {
+    border-color: color-mix(in srgb, var(--success) 30%, transparent);
+    background-color: color-mix(in srgb, var(--success) 5%, transparent);
+    color: var(--success);
+}
+
+.item-row.danger {
+    border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+    background-color: color-mix(in srgb, var(--danger) 5%, transparent);
+    color: var(--danger);
+}
+
+/* Botones */
+.btn-primary {
+    @apply font-medium text-white px-5 py-2 border-none cursor-pointer;
+    background-color: var(--accent);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-speed);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Mensajes y Alertas */
+.mensaje-box {
+    @apply inline-block px-5 py-3 font-medium my-2 border border-white/10;
+    border-radius: var(--radius-md);
+}
+
+.mensaje-box.saludo {
+    background-color: color-mix(in srgb, var(--success) 10%, transparent);
+    color: var(--success);
+}
+
+.mensaje-box.despedida {
+    background-color: color-mix(in srgb, var(--danger) 10%, transparent);
+    color: var(--danger);
+}
+
+/* Nota Extra (Caja Amarilla) */
+.extra-info-box {
+    @apply mt-5 p-4 border border-(--warning) bg-(--bg-sidebar) rounded-(--radius-sm);
+}
+
+.extra-info-box h4 {
+    @apply text-(--warning) m-0 mb-2 font-bold;
+}
+
+.extra-info-box p {
+    @apply m-0 text-sm text-(--text-main);
+}
