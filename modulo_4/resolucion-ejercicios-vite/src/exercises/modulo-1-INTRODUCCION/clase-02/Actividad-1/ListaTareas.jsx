@@ -2,7 +2,7 @@ const ListaTareas = ({ tareas }) => {
 	// Si no hay tareas
 	if (tareas.length === 0) {
 		return (
-			<div className="empty-tasks">
+			<div className="list-empty">
 				<span className="block text-2xl mb-2">🎉</span>
 				No hay tareas pendientes.
 			</div>
@@ -11,23 +11,17 @@ const ListaTareas = ({ tareas }) => {
 
 	// Renderizado de la lista
 	return (
-		<ul className="flex flex-col gap-2 p-0 m-0 list-none">
+		<ul className="list-container">
 			{tareas.map((tarea) => (
 				<li
 					key={tarea.id}
-					className={`item-row ${tarea.completada ? 'success' : ''}`}
+					className={`list-item ${tarea.completada ? 'success' : ''}`}
 				>
 					<div className="flex items-center">
-						<span className="task-icon">
+						<span className="list-item-icon">
 							{tarea.completada ? '✅' : '⏳'}
 						</span>
-						<span
-							className={
-								tarea.completada
-									? 'task-text-completed'
-									: 'task-text'
-							}
-						>
+						<span>
 							{tarea.texto}
 						</span>
 					</div>

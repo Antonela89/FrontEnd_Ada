@@ -25,11 +25,11 @@ const Tareas = () => {
 		<ul className="list-disc">
 			{listaTareas.map((tarea) => (
 				tarea.completada ? (
-					<li key={tarea.id} className="item-row success">
+					<li key={tarea.id} className="list-item success">
 						{tarea.descripcion}
 					</li>
 				) : (
-					<li key={tarea.id} className="item-row danger">
+					<li key={tarea.id} className="list-item danger">
 						{tarea.descripcion}
 					</li>
 				)

@@ -45,7 +45,9 @@
     --color-text-main: var(--text-main);
     --color-text-muted: var(--text-muted);
     --color-accent: var(--accent);
+    --color-accent-hover: var(--accent-hover);
     --color-border: var(--border);
     --color-success: var(--success);
     --color-danger: var(--danger);
+    --color-warning: var(--warning);
 }

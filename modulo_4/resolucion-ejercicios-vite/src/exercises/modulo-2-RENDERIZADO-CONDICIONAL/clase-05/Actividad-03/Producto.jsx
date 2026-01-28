@@ -1,10 +1,10 @@
 const Producto = ({ nombre, precio }) => {
     return (
         <div className="list-item">
-            <div className="item-info">
-                <span className="item-title">{nombre}</span>
+            <div className="list-item-info">
+                <span className="list-item-title">{nombre}</span>
             </div>
-            <span className="font-bold text-(--accent)">${precio}</span>
+            <span className="font-bold text-accent">${precio}</span>
         </div>
     );
 };

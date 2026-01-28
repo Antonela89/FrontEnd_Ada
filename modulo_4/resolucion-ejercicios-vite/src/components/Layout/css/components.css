@@ -1,6 +1,9 @@
 @reference "./theme.css";
 
-/* Actividades */
+/*------------------------------------------------------------------------------
+    ESTRUCTURA DE ACTIVIDADES Y TEORÍA
+  ------------------------------------------------------------------------------ */
+
 .main-activity-title {
     color: var(--accent);
     @apply border-b border-border pb-2 mb-8 text-2xl font-bold;
@@ -11,20 +14,16 @@
 }
 
 .activity-block p {
-    @apply text-(--text-muted) mb-4;
+    @apply text-text-muted mb-4;
 }
 
-/* Resetear margen para bloques anidados */
-.activity-block .activity-block {
-    margin-bottom: 0;
-}
-
-/* el último elemento de cualquier bloque no sume margen extra al contenedor padre */
+/* Manejo de espacios en anidamiento */
+.activity-block .activity-block,
 .activity-block>*:last-child {
-    margin-bottom: 0;
+    @apply mb-0;
 }
 
-/* Teoría */
+/* Teoría  */
 .theory-container-custom {
     @apply p-5 leading-relaxed;
 }
@@ -34,146 +33,165 @@
 }
 
 .qa-group {
-    @apply mb-5 pl-4 border-l-2 border-(--accent);
+    @apply mb-5 pl-4 border-l-2 border-accent;
 }
 
 .qa-question {
-    @apply text-(--text-main) font-semibold mb-1 text-base;
+    @apply text-text-main font-semibold mb-1 text-base;
 }
 
 .qa-answer {
-    @apply text-(--text-muted) text-[0.95rem];
+    @apply text-text-muted text-[0.95rem];
 }
 
-/* Elementos Reutilizables*/
-.item-row {
-    @apply flex justify-between items-center p-4 mb-2 rounded-xl border border-border transition-all hover:translate-x-1;
-    background-color: var(--bg-sidebar);
-}
+/*------------------------------------------------------------------------------
+    PATRÓN DE LISTAS Y FILAS (Universal)
+  ------------------------------------------------------------------------------ */
 
-.item-row.success {
-    border-color: color-mix(in srgb, var(--success) 30%, transparent);
-    background-color: color-mix(in srgb, var(--success) 5%, transparent);
-    color: var(--success);
+/* Contenedor de lista con bordes redondeados */
+.list-container {
+    @apply bg-bg-sidebar rounded-xl border border-border mt-4 overflow-hidden;
 }
-
-.item-row.danger {
-    border-color: color-mix(in srgb, var(--danger) 30%, transparent);
-    background-color: color-mix(in srgb, var(--danger) 5%, transparent);
-    color: var(--danger);
-}
-
-/* --- Estilos para Lista de Tareas --- */
 
 /* Contenedor de lista vacía */
-.empty-tasks {
-    @apply p-10 text-center rounded-(--radius-md) border-2 border-dashed;
-    border-color: var(--border);
+.list-empty {
+    @apply p-10 text-center rounded-(--radius-md) border-2 border-dashed border-border text-text-muted;
     background-color: color-mix(in srgb, var(--bg-sidebar) 40%, transparent);
-    color: var(--text-muted);
     font-weight: 500;
 }
 
-.task-text {
-    @apply text-base font-medium;
-    color: var(--text-main);
+/* Fila genérica para cualquier lista (Usuarios, Productos, Tareas) */
+.list-item {
+    @apply flex justify-between items-center p-4 border-b border-border transition-colors;
 }
 
-.task-text-completed {
-    @apply line-through italic;
-    color: var(--text-muted);
-    opacity: 0.7;
+.list-item:last-child {
+    @apply border-b-0;
 }
 
-.task-icon {
-    @apply mr-4 text-lg;
+.list-item:hover {
+    @apply bg-white/5;
 }
 
-/* Cards */
-.card {
-    @apply mx-auto my-5 p-5 text-center transition-all duration-300;
-    background-color: var(--bg-sidebar);
-    /* Adaptado al modo oscuro */
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    /* Sombra más profunda para modo oscuro */
-    max-width: 300px;
-    border: 1px solid var(--border);
+/* Variantes de estado para filas (ej: Tareas completadas) */
+.list-item.success {
+    @apply text-success;
+    border-color: color-mix(in srgb, var(--success) 30%, transparent);
+    background-color: color-mix(in srgb, var(--success) 5%, transparent);
 }
 
-/* Estilos internos para los componentes del Perfil */
-.card-title {
-    @apply text-xl font-bold mb-2;
-    color: var(--accent);
+.list-item.danger {
+    @apply text-danger;
+    border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+    background-color: color-mix(in srgb, var(--danger) 5%, transparent);
 }
 
-.card-description {
-    @apply text-sm leading-relaxed mb-4;
-    color: var(--text-muted);
+.list-item:last-child {
+    @apply border-b-0;
 }
 
-/* Botones */
+/* Tipografía de los elementos */
+.list-item-text {
+    @apply text-base font-medium text-text-main;
+}
+
+/* Variante para texto secundario o completado */
+.list-item-text.muted {
+    @apply line-through italic text-text-muted opacity-70;
+}
+
+.list-item-icon {
+    @apply mr-4 text-lg flex-shrink-0;
+}
+
+/* Contenedor de info dentro de la fila */
+.list-item-info {
+    @apply flex flex-col;
+}
+
+.list-item-title {
+    @apply font-medium text-text-main;
+}
+
+.list-item-subtitle {
+    @apply text-xs text-text-muted;
+}
+
+/*------------------------------------------------------------------------------
+    BOTONES Y ACCIONES
+  ------------------------------------------------------------------------------ */
+
 .btn-primary {
-    @apply font-medium text-white px-5 py-2 border-none cursor-pointer;
-    background-color: var(--accent);
-    border-radius: var(--radius-sm);
-    transition: var(--transition-speed);
+    @apply font-medium text-white px-5 py-2 border-none cursor-pointer transition-all bg-accent rounded-(--radius-sm);
 }
 
 .btn-primary:hover {
-    background-color: var(--accent-hover);
+    @apply scale-105 bg-accent-hover;
 }
 
 .btn-danger {
-    @apply px-3 py-1 rounded-md text-xs font-bold transition-all border border-(--danger) text-(--danger) bg-(--danger)/10 hover:bg-(--danger) hover:text-white cursor-pointer;
+    @apply px-3 py-1 rounded-md text-xs font-bold transition-all border border-danger text-danger bg-danger/10 hover:bg-danger hover:text-white cursor-pointer;
 }
 
-/* Mensajes y Alertas */
+/*------------------------------------------------------------------------------
+    MENSAJES, ALERTAS Y CAJAS
+  ------------------------------------------------------------------------------ */
+
 .mensaje-box {
-    @apply inline-block px-5 py-3 font-medium my-2 border border-white/10;
-    border-radius: var(--radius-md);
+    @apply inline-block px-5 py-3 font-medium my-2 border border-white/10 rounded-(--radius-md);
 }
 
 .mensaje-box.saludo {
+    @apply text-success;
     background-color: color-mix(in srgb, var(--success) 10%, transparent);
-    color: var(--success);
 }
 
 .mensaje-box.despedida {
+    @apply text-danger;
     background-color: color-mix(in srgb, var(--danger) 10%, transparent);
-    color: var(--danger);
 }
 
-/* Nota Extra (Caja Amarilla) */
 .extra-info-box {
-    @apply mt-5 p-4 border border-(--warning) bg-(--bg-sidebar) rounded-(--radius-sm);
+    @apply mt-5 p-4 border border-warning bg-bg-sidebar rounded-(--radius-sm);
 }
 
 .extra-info-box h4 {
-    @apply text-(--warning) m-0 mb-2 font-bold;
+    @apply text-warning m-0 mb-2 font-bold;
 }
 
 .extra-info-box p {
-    @apply m-0 text-sm text-(--text-main);
+    @apply m-0 text-sm text-text-main;
 }
 
-/* --- Estilos para Tablas --- */
+.caja-wrapper {
+    @apply p-6 my-4 border-2 border-dashed border-border transition-colors duration-300 rounded-(--radius-md);
+    background-color: color-mix(in srgb, var(--bg-sidebar) 30%, transparent);
+}
+
+.caja-wrapper:hover {
+    @apply border-accent bg-white/5;
+}
+
+/*------------------------------------------------------------------------------
+    COMPONENTES COMPLEJOS (Tablas, Cards, Slots)
+  ------------------------------------------------------------------------------ */
+
+.card {
+    @apply max-w-(--sidebar-width) mx-auto my-5 p-6 text-center rounded-[1rem] transition-all duration-300 bg-bg-sidebar border border-border;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
 .table-custom {
-    @apply w-full border-collapse overflow-hidden border border-(--border);
-    background-color: var(--bg-sidebar);
-    border-radius: var(--radius-md);
+    @apply w-full border-collapse overflow-hidden border border-border bg-bg-sidebar rounded-(--radius-md);
 }
 
 .table-custom th {
-    @apply p-4 text-left text-xs uppercase tracking-wider font-bold;
+    @apply p-4 text-left text-xs uppercase tracking-wider font-bold border-b border-border text-accent;
     background-color: rgba(0, 0, 0, 0.2);
-    color: var(--accent);
-    border-bottom: 2px solid var(--border);
 }
 
 .table-custom td {
-    @apply p-4 text-sm border-b border-(--border);
-    color: var(--text-main);
+    @apply p-4 text-sm border-b border-border text-text-main;
 }
 
 .table-custom tr:last-child td {
@@ -184,100 +202,34 @@
     @apply bg-white/5 transition-colors;
 }
 
-/* --- Precios --- */
-.price-text {
-    @apply font-mono font-bold;
-    color: var(--success);
-}
-
 /* --- Etiquetas (Badges) --- */
 .badge {
     @apply inline-block px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tight;
 }
 
 .badge-premium {
-    @apply bg-(--warning) text-slate-900;
+    @apply bg-warning text-slate-900;
 }
 
 .badge-standard {
-    @apply border border-(--border) text-(--text-muted);
+    @apply border border-border text-text-muted;
 }
-
-/* Contenedor con un leve gradiente para que resalte */
-.integracion-container {
-    @apply p-8 rounded-(--radius-lg) border border-(--border) shadow-xl;
-    background: linear-gradient(145deg, var(--bg-sidebar), var(--bg-main));
-}
-
-.user-greeting {
-    @apply text-xl font-bold mb-4;
-    color: var(--accent);
-}
-
-/* Lista de características/temas */
-.feature-list {
-    @apply list-none p-0 my-5 flex flex-col gap-2;
-}
-
-.feature-list li {
-    @apply flex items-center gap-3 text-(--text-muted) text-sm;
-}
-
-/* Alerta de temas pendientes */
-.alert-warning {
-    @apply mt-6 p-4 rounded-(--radius-sm) border flex items-center gap-3 text-sm font-medium;
-    border-color: var(--warning);
-    background-color: color-mix(in srgb, var(--warning) 10%, transparent);
-    color: var(--warning);
-}
-
-/* --- Estilos para el Componente Caja --- */
-.caja-wrapper {
-    @apply p-6 my-4 border-2 border-dashed transition-colors duration-300;
-    border-color: var(--border);
-    background-color: color-mix(in srgb, var(--bg-sidebar) 30%, transparent);
-    border-radius: var(--radius-md);
-}
-
-/* Efecto hover opcional para que se vea interactiva */
-.caja-wrapper:hover {
-    border-color: var(--accent);
-    background-color: color-mix(in srgb, var(--bg-sidebar) 50%, transparent);
-}
-
-.caja-title {
-    @apply text-lg font-bold m-0;
-    color: var(--text-main);
-}
-
-.caja-description {
-    @apply mt-3 text-sm leading-relaxed;
-    color: var(--text-muted);
-}
-
-/* --- Estilos para el Layout con Slots --- */
 
 .slot-container {
-    @apply border border-(--border) rounded-(--radius-md) overflow-hidden flex flex-col;
+    @apply border border-border rounded-(--radius-md) overflow-hidden flex flex-col;
 }
 
 .slot-header {
-    @apply p-4 font-bold;
+    @apply p-4 font-bold text-accent;
     background-color: color-mix(in srgb, var(--bg-sidebar) 80%, white 5%);
-    color: var(--accent);
 }
 
 .slot-main {
-    @apply p-6;
-    background-color: var(--bg-sidebar);
-    color: var(--text-main);
+    @apply p-6 bg-bg-sidebar text-text-main;
 }
 
 .slot-footer {
-    @apply p-3 text-center text-xs;
-    background-color: var(--bg-main);
-    color: var(--text-muted);
-    border-top: 1px solid var(--border);
+    @apply p-3 text-center text-xs bg-bg-main text-text-muted border-t-border;
 }
 
 /* Espaciado para el párrafo dentro del main del slot */
@@ -285,28 +237,30 @@
     @apply mb-4 text-sm leading-relaxed;
 }
 
-/* Una fila genérica para cualquier lista  */
-.list-item {
-    @apply flex justify-between items-center p-3 border-b border-(--border) transition-colors;
-}
-.list-item:hover {
-    @apply bg-white/5;
+/*------------------------------------------------------------------------------
+    COMPONENTES DE INTEGRACIÓN Y NOTIFICACIÓN
+  ------------------------------------------------------------------------------ */
+
+.integracion-container {
+    @apply p-8 rounded-(--radius-lg) border border-border shadow-xl;
+    background: linear-gradient(145deg, var(--bg-sidebar), var(--bg-main));
 }
 
-/* Contenedor de información  */
-.item-info {
-    @apply flex flex-col;
+.user-greeting {
+    @apply text-xl font-bold mb-4 text-accent;
 }
 
-/* Títulos y subtítulos dentro de filas */
-.item-title {
-    @apply font-medium text-(--text-main);
-}
-.item-subtitle {
-    @apply text-xs text-(--text-muted);
+/* Lista de ítems con iconos (usado en integración) */
+.feature-list {
+    @apply list-none p-0 my-5 flex flex-col gap-2;
 }
 
-/* Contenedor de lista (bordes redondeados) */
-.list-container {
-    @apply bg-(--bg-sidebar) rounded-xl border border-(--border) mt-4 overflow-hidden;
+.feature-list li {
+    @apply flex items-center gap-3 text-text-muted text-sm;
+}
+
+/* Alerta de advertencia / Notificación */
+.alert-warning {
+    @apply mt-6 p-4 rounded-(--radius-sm) border border-warning text-warning flex items-center gap-3 text-sm font-medium;
+    background-color: color-mix(in srgb, var(--warning) 10%, transparent);
 }
