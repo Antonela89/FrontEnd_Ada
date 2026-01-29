@@ -141,14 +141,21 @@
     @apply inline-block px-5 py-3 font-medium my-2 border border-white/10 rounded-(--radius-md);
 }
 
-.mensaje-box.saludo {
+.mensaje-box.saludo,
+.mensaje-box.success {
     @apply text-success;
     background-color: color-mix(in srgb, var(--success) 10%, transparent);
 }
 
-.mensaje-box.despedida {
+.mensaje-box.despedida,
+.mensaje-box.danger {
     @apply text-danger;
     background-color: color-mix(in srgb, var(--danger) 10%, transparent);
+}
+
+.mensaje-box.warning {
+    @apply text-warning;
+    background-color: color-mix(in srgb, var(--warning) 10%, transparent);
 }
 
 .extra-info-box {
@@ -175,10 +182,18 @@
 /*------------------------------------------------------------------------------
     COMPONENTES COMPLEJOS (Tablas, Cards, Slots)
   ------------------------------------------------------------------------------ */
+.card-container {
+    @apply flex flex-wrap;
+}
 
 .card {
     @apply max-w-(--sidebar-width) mx-auto my-5 p-6 text-center rounded-[1rem] transition-all duration-300 bg-bg-sidebar border border-border;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover {
+    @apply scale-105 border-accent translate-y-2;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
 }
 
 .table-custom {
