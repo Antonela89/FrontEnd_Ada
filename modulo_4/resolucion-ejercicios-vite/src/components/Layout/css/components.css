@@ -101,7 +101,7 @@
 }
 
 .list-item-icon {
-    @apply mr-4 text-lg flex-shrink-0;
+    @apply mr-4 text-lg shrink-0;
 }
 
 /* Contenedor de info dentro de la fila */
