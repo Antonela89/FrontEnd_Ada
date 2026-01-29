@@ -5,6 +5,7 @@ export { default as Clase03 } from './modulo-1-INTRODUCCION/clase-03';
 // Modulo 2: Renderizado Condicional
 export { default as Clase04 } from './modulo-2-RENDERIZADO-CONDICIONAL/clase-04';
 export { default as Clase05 } from './modulo-2-RENDERIZADO-CONDICIONAL/clase-05';
+export { default as Clase06 } from './modulo-2-RENDERIZADO-CONDICIONAL/clase-06';
 // Modulo 3: Estados
 
 // Modulo 4: CSS
