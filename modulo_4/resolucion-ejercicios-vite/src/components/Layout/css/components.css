@@ -1,12 +1,15 @@
 @reference "./theme.css";
 
-/*------------------------------------------------------------------------------
-    ESTRUCTURA DE ACTIVIDADES Y TEORÍA
-  ------------------------------------------------------------------------------ */
+/* 
+================================================================================
+    ESTRUCTURA DE CABECERAS (HEADER CLASE)
+    Utilizado al inicio de cada clase para identificar el número y nombre del tema.
+================================================================================ 
+*/
 
-/* --- Componente: Header General de Clase --- */
 .class-header-wrapper {
     @apply flex flex-col items-center justify-center mb-16 py-8 relative;
+    /* Efecto de iluminación central */
     background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
 }
 
@@ -28,7 +31,14 @@
     background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
-/* Actividades */
+
+/* 
+================================================================================
+    BLOQUES DE ACTIVIDAD Y DOCUMENTACIÓN (TEORÍA)
+    Usado para separar cada ejercicio y para los componentes de explicación teórica.
+================================================================================ 
+*/
+
 .main-activity-title {
     color: var(--accent);
     @apply border-b border-border pb-2 mb-8 text-2xl font-bold;
@@ -42,13 +52,13 @@
     @apply text-text-muted mb-4;
 }
 
-/* Manejo de espacios en anidamiento */
+/* Evita acumulación de márgenes en bloques anidados */
 .activity-block .activity-block,
 .activity-block>*:last-child {
     @apply mb-0;
 }
 
-/* Teoría  */
+/* Contenedor de explicaciones teóricas */
 .theory-container-custom {
     @apply p-5 leading-relaxed;
 }
@@ -57,6 +67,7 @@
     @apply text-text-muted text-[1.1rem] uppercase tracking-widest mb-6;
 }
 
+/* Grupo de Pregunta/Respuesta */
 .qa-group {
     @apply mb-5 pl-4 border-l-2 border-accent;
 }
@@ -69,23 +80,24 @@
     @apply text-text-muted text-[0.95rem];
 }
 
-/*------------------------------------------------------------------------------
-    PATRÓN DE LISTAS Y FILAS (Universal)
-  ------------------------------------------------------------------------------ */
 
-/* Contenedor de lista con bordes redondeados */
+/* 
+================================================================================
+    PATRÓN UNIVERSAL DE LISTAS
+    Ideal para Tareas, Usuarios, Alumnas, etc. Mantiene filas alineadas.
+================================================================================ 
+*/
+
 .list-container {
     @apply bg-bg-sidebar rounded-xl border border-border mt-4 overflow-hidden;
 }
 
-/* Contenedor de lista vacía */
 .list-empty {
-    @apply p-10 text-center rounded-(--radius-md) border-2 border-dashed border-border text-text-muted;
+    @apply p-10 text-center rounded-md border-2 border-dashed border-border text-text-muted;
     background-color: color-mix(in srgb, var(--bg-sidebar) 40%, transparent);
     font-weight: 500;
 }
 
-/* Fila genérica para cualquier lista (Usuarios, Productos, Tareas) */
 .list-item {
     @apply flex justify-between items-center p-4 border-b border-border transition-colors;
 }
@@ -98,7 +110,7 @@
     @apply bg-white/5;
 }
 
-/* Variantes de estado para filas (ej: Tareas completadas) */
+/* Estados de fila */
 .list-item.success {
     @apply text-success;
     border-color: color-mix(in srgb, var(--success) 30%, transparent);
@@ -111,16 +123,11 @@
     background-color: color-mix(in srgb, var(--danger) 5%, transparent);
 }
 
-.list-item:last-child {
-    @apply border-b-0;
-}
-
-/* Tipografía de los elementos */
+/* Tipografía y elementos internos de lista */
 .list-item-text {
     @apply text-base font-medium text-text-main;
 }
 
-/* Variante para texto secundario o completado */
 .list-item-text.muted {
     @apply line-through italic text-text-muted opacity-70;
 }
@@ -129,7 +136,6 @@
     @apply mr-4 text-lg shrink-0;
 }
 
-/* Contenedor de info dentro de la fila */
 .list-item-info {
     @apply flex flex-col;
 }
@@ -142,12 +148,15 @@
     @apply text-xs text-text-muted;
 }
 
-/*------------------------------------------------------------------------------
+
+/* 
+================================================================================
     BOTONES Y ACCIONES
-  ------------------------------------------------------------------------------ */
+================================================================================ 
+*/
 
 .btn-primary {
-    @apply font-medium text-white px-5 py-2 border-none cursor-pointer transition-all bg-accent rounded-(--radius-sm);
+    @apply font-medium text-white px-5 py-2 border-none cursor-pointer transition-all bg-accent rounded-sm;
 }
 
 .btn-primary:hover {
@@ -158,22 +167,25 @@
     @apply px-3 py-1 rounded-md text-xs font-bold transition-all border border-danger text-danger bg-danger/10 hover:bg-danger hover:text-white cursor-pointer;
 }
 
-/*------------------------------------------------------------------------------
-    MENSAJES, ALERTAS Y CAJAS
-  ------------------------------------------------------------------------------ */
+
+/* 
+================================================================================
+    MENSAJES, ALERTAS Y CONTENEDORES ESPECIALES
+================================================================================ 
+*/
 
 .mensaje-box {
-    @apply inline-block px-5 py-3 font-medium my-2 border border-white/10 rounded-(--radius-md);
+    @apply inline-block px-5 py-3 font-medium my-2 border border-white/10 rounded-md;
 }
 
-.mensaje-box.saludo,
-.mensaje-box.success {
+.mensaje-box.success,
+.mensaje-box.saludo {
     @apply text-success;
     background-color: color-mix(in srgb, var(--success) 10%, transparent);
 }
 
-.mensaje-box.despedida,
-.mensaje-box.danger {
+.mensaje-box.danger,
+.mensaje-box.despedida {
     @apply text-danger;
     background-color: color-mix(in srgb, var(--danger) 10%, transparent);
 }
@@ -183,8 +195,9 @@
     background-color: color-mix(in srgb, var(--warning) 10%, transparent);
 }
 
+/* Caja amarilla de "Nota Extra" */
 .extra-info-box {
-    @apply mt-5 p-4 border border-warning bg-bg-sidebar rounded-(--radius-sm);
+    @apply mt-5 p-4 border border-warning bg-bg-sidebar rounded-sm;
 }
 
 .extra-info-box h4 {
@@ -195,8 +208,9 @@
     @apply m-0 text-sm text-text-main;
 }
 
+/* Contenedor punteado (Uso de Children) */
 .caja-wrapper {
-    @apply p-6 my-4 border-2 border-dashed border-border transition-colors duration-300 rounded-(--radius-md);
+    @apply p-6 my-4 border-2 border-dashed border-border transition-colors duration-300 rounded-md;
     background-color: color-mix(in srgb, var(--bg-sidebar) 30%, transparent);
 }
 
@@ -204,37 +218,35 @@
     @apply border-accent bg-white/5;
 }
 
-/*------------------------------------------------------------------------------
-    COMPONENTES COMPLEJOS (Tablas, Cards, Slots)
-  ------------------------------------------------------------------------------ */
-/* Contenedor en grilla para las cards */
+
+/* 
+================================================================================
+    COMPONENTES VISUALES (CARDS, GRIDS Y TABLAS)
+================================================================================ 
+*/
+
 .grid-container {
     @apply grid gap-6;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .card {
-    @apply flex flex-col p-6 rounded-(--radius-lg) border border-border bg-bg-sidebar transition-all duration-300 hover:shadow-2xl hover:border-accent/50 hover:-translate-y-1;
+    @apply flex flex-col p-6 rounded-lg border border-border bg-bg-sidebar transition-all duration-300;
     min-height: 200px;
 }
 
 .card:hover {
-    @apply scale-105 border-accent translate-y-2;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+    @apply border-accent -translate-y-2 shadow-2xl;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+/* Área para alinear títulos aunque no haya badge */
 .card-badge-area {
     @apply h-8 mb-2 flex items-center justify-center;
 }
 
 .card-title {
-    @apply text-xl font-bold mb-3 text-center;
-    color: var(--accent);
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    @apply text-xl font-bold mb-3 text-center text-accent line-clamp-1 overflow-hidden;
 }
 
 .card-description {
@@ -245,28 +257,36 @@
     @apply mt-auto pt-4 border-t border-border flex flex-col items-center;
 }
 
-.price-label {
-    @apply text-xs uppercase tracking-widest text-text-muted mb-1;
-}
-
+/* Precios y Badges de oferta */
 .price-value {
     @apply text-2xl font-black text-success;
 }
 
 .badge-offer {
-    @apply px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter;
-    background-color: var(--success);
-    color: var(--bg-main);
+    @apply px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter bg-success text-bg-main;
     box-shadow: 0 0 15px color-mix(in srgb, var(--success) 40%, transparent);
 }
 
+/* --- Etiquetas (Badges) --- */
+.badge {
+@apply inline-block px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tight;
+}
+
+.badge-premium {
+@apply bg-warning text-slate-900;
+}
+
+.badge-standard {
+@apply border border-border text-text-muted;
+}
+
+/* Tablas */
 .table-custom {
-    @apply w-full border-collapse overflow-hidden border border-border bg-bg-sidebar rounded-(--radius-md);
+    @apply w-full border-collapse overflow-hidden border border-border bg-bg-sidebar rounded-md;
 }
 
 .table-custom th {
-    @apply p-4 text-left text-xs uppercase tracking-wider font-bold border-b border-border text-accent;
-    background-color: rgba(0, 0, 0, 0.2);
+    @apply p-4 text-left text-xs uppercase tracking-wider font-bold border-b border-border text-accent bg-black/20;
 }
 
 .table-custom td {
@@ -281,21 +301,15 @@
     @apply bg-white/5 transition-colors;
 }
 
-/* --- Etiquetas (Badges) --- */
-.badge {
-    @apply inline-block px-2 py-1 rounded text-[10px] font-bold uppercase tracking-tight;
-}
 
-.badge-premium {
-    @apply bg-warning text-slate-900;
-}
-
-.badge-standard {
-    @apply border border-border text-text-muted;
-}
+/* 
+================================================================================
+    COMPONENTES DE ARQUITECTURA (SLOTS / LAYOUT)
+================================================================================ 
+*/
 
 .slot-container {
-    @apply border border-border rounded-(--radius-md) overflow-hidden flex flex-col;
+    @apply border border-border rounded-md overflow-hidden flex flex-col;
 }
 
 .slot-header {
@@ -308,20 +322,18 @@
 }
 
 .slot-footer {
-    @apply p-3 text-center text-xs bg-bg-main text-text-muted border-t-border;
+    @apply p-3 text-center text-xs bg-bg-main text-text-muted border-t border-border;
 }
 
-/* Espaciado para el párrafo dentro del main del slot */
-.slot-main p {
-    @apply mb-4 text-sm leading-relaxed;
-}
 
-/*------------------------------------------------------------------------------
-    COMPONENTES DE INTEGRACIÓN Y NOTIFICACIÓN
-  ------------------------------------------------------------------------------ */
+/* 
+================================================================================
+    INTEGRACIÓN Y NOTIFICACIONES
+================================================================================ 
+*/
 
 .integracion-container {
-    @apply p-8 rounded-(--radius-lg) border border-border shadow-xl;
+    @apply p-8 rounded-lg border border-border shadow-xl;
     background: linear-gradient(145deg, var(--bg-sidebar), var(--bg-main));
 }
 
@@ -329,7 +341,6 @@
     @apply text-xl font-bold mb-4 text-accent;
 }
 
-/* Lista de ítems con iconos (usado en integración) */
 .feature-list {
     @apply list-none p-0 my-5 flex flex-col gap-2;
 }
@@ -338,8 +349,7 @@
     @apply flex items-center gap-3 text-text-muted text-sm;
 }
 
-/* Alerta de advertencia / Notificación */
 .alert-warning {
-    @apply mt-6 p-4 rounded-(--radius-sm) border border-warning text-warning flex items-center gap-3 text-sm font-medium;
+    @apply mt-6 p-4 rounded-sm border border-warning text-warning flex items-center gap-3 text-sm font-medium;
     background-color: color-mix(in srgb, var(--warning) 10%, transparent);
 }

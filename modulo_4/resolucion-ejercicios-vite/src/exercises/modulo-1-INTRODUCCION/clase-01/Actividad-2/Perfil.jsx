@@ -4,11 +4,13 @@ import Boton from './Boton';
 
 const Perfil = () => {
 	return (
-		<article className='card'>
-			<Titulo />
-			<Descripcion />
-			<Boton />
-		</article>
+		<div className='grid-container'>
+			<article className="card">
+				<Titulo />
+				<Descripcion />
+				<Boton />
+			</article>
+		</div>
 	);
 };
 
