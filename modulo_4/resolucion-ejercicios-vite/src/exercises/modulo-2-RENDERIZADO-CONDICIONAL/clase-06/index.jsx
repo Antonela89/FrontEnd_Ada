@@ -1,4 +1,3 @@
-import { HeaderActividad } from '../../../components/common/HeaderActividad';
 import HeaderClase from '../../../components/HeaderClase';
 import Actividad01 from './Actividad-01';
 import Actividad02 from './Actividad-02';
