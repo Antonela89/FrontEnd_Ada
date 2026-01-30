@@ -2,6 +2,7 @@ import Actividad01 from './Actividad-1';
 import Perfil from './Actividad-2/Perfil';
 import { HeaderActividad } from '../../../components/common/HeaderActividad';
 import { SeccionTeoria } from '../../../components/common/SeccionTeoria';
+import HeaderClase from '../../../components/HeaderClase';
 
 const Clase01 = () => {
 	const infoTeoriaClase01 = [
@@ -55,7 +56,11 @@ const Clase01 = () => {
 	);
 
 	return (
-		<div>
+		<>
+			<HeaderClase
+				numero="01"
+				titulo="Introducción a React - Parte 1"
+			/>
 			<div className="activity-block">
 				<HeaderActividad>Actividad 1: ¡Tu primer componente!</HeaderActividad>
 				<Actividad01 />
@@ -73,7 +78,7 @@ const Clase01 = () => {
 					notaExtra={notaExtraClase01}
 				/>
 			</div>
-		</div>
+		</>
 	);
 };
 

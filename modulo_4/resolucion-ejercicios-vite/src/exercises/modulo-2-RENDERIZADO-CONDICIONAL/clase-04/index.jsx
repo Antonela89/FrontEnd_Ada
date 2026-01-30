@@ -3,6 +3,7 @@ import Actividad02 from './Actividad-2';
 import Actividad03 from './Actividad-3';
 import Actividad04 from './Actividad-4';
 import { SeccionTeoria } from '../../../components/common/SeccionTeoria';
+import HeaderClase from '../../../components/HeaderClase';
 
 const teoriaCondicionales = [
 	{
@@ -27,7 +28,11 @@ const teoriaCondicionales = [
 
 const Clase04 = () => {
 	return (
-		<div>
+		<>
+		<HeaderClase
+				numero="04"
+				titulo="Renderizado condicional - Parte 1"
+			/>
 			<div className="activity-block">
 				<Actividad01 />
 			</div>
@@ -44,7 +49,7 @@ const Clase04 = () => {
 				titulo="Más sobre null y &&"
 				secciones={teoriaCondicionales}
 			/>
-		</div>
+		</>
 	);
 };
 

@@ -3,7 +3,33 @@
 /*------------------------------------------------------------------------------
     ESTRUCTURA DE ACTIVIDADES Y TEORÍA
   ------------------------------------------------------------------------------ */
+@reference "./theme.css";
 
+/* --- Componente: Header General de Clase --- */
+.class-header-wrapper {
+    @apply flex flex-col items-center justify-center mb-16 py-8 relative;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+}
+
+.class-header-badge {
+    @apply text-[10px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-full mb-3;
+    background-color: color-mix(in srgb, var(--accent) 15%, transparent);
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.class-header-title {
+    @apply text-4xl font-black text-center max-w-2xl leading-tight;
+    color: var(--text-main);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.class-header-line {
+    @apply h-1 w-24 mt-6 rounded-full;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+/* Actividades */
 .main-activity-title {
     color: var(--accent);
     @apply border-b border-border pb-2 mb-8 text-2xl font-bold;

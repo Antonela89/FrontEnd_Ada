@@ -1,4 +1,5 @@
 import { HeaderActividad } from '../../../components/common/HeaderActividad';
+import HeaderClase from '../../../components/HeaderClase';
 import Actividad01 from './Actividad-01';
 import Actividad02 from './Actividad-02';
 import Actividad03 from './Actividad-03';
@@ -7,7 +8,10 @@ import Actividad04 from './Actividad-04';
 const Clase06 = () => {
 	return (
 		<>
-			<HeaderActividad>Clase 06 - Práctica de componentes</HeaderActividad>
+			<HeaderClase
+				numero="06"
+				titulo="Práctica de Componentes y Renderizado"
+			/>
 			<div className="activity-block">
 				<Actividad01 />
 			</div>
