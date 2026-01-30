@@ -6,7 +6,7 @@ const Actividad02 = () => {
 	return (
 		<div className="activity-block">
 			<HeaderActividad>Actividad 02: Perfil de Usuarios</HeaderActividad>
-			<div className="card-container">
+			<div className="grid-container">
 				{usuarios.map((usuario, index) => (
 					<User key={index} usuario={usuario} />
 				))}

@@ -7,9 +7,10 @@ const Tasks = ({ tareas }) => {
 				<p className="list-empty">No hay tareas pendientes 🎉🎉</p>
 			) : (
 				<div className="list-container">
-					{estaCompleta.map((tarea, index) => (
-						<div key={index} className="list-item">
+					{estaCompleta.map((tarea, id) => (
+						<div key={id} className="list-item">
 							<h3>{tarea.titulo}</h3>
+							<span className="badge badge-standard">Pendiente</span>
 						</div>
 					))}
 				</div>
