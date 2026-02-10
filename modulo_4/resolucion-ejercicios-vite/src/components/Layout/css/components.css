@@ -167,6 +167,14 @@
     @apply px-3 py-1 rounded-md text-xs font-bold transition-all border border-danger text-danger bg-danger/10 hover:bg-danger hover:text-white cursor-pointer;
 }
 
+.btn-success {
+    @apply px-3 py-1 rounded-md text-xs font-bold transition-all border border-success text-success bg-success/10 hover:bg-success hover:text-white cursor-pointer;
+}
+
+.btn-warning {
+    @apply px-3 py-1 rounded-md text-xs font-bold transition-all border border-warning text-warning bg-warning/10 hover:bg-warning hover:text-white cursor-pointer;
+}
+
 
 /* 
 ================================================================================
@@ -193,6 +201,11 @@
 .mensaje-box.warning {
     @apply text-warning;
     background-color: color-mix(in srgb, var(--warning) 10%, transparent);
+}
+
+.mensaje-box.primary {
+    @apply text-accent;
+    background-color: color-mix(in srgb, var(--accent) 10%, transparent);
 }
 
 /* Caja amarilla de "Nota Extra" */

@@ -1,11 +1,13 @@
+import { HeaderActividad } from '@/components/common/HeaderActividad';
+import Contador from './Contador';
 
-
-const Acividad02 = () => {
+const Actividad02 = () => {
   return (
-    <div>
-      
+    <div className="activity-block">
+      <HeaderActividad>{'Actividad 2: Contador con múltiples acciones'}</HeaderActividad>
+      <Contador />
     </div>
   )
 }
 
-export default Acividad02
+export default Actividad02

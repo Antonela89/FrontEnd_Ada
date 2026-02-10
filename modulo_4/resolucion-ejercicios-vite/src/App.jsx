@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home, Layout, Proximamente } from './components';
-import { Clase01, Clase02, Clase03, Clase04, Clase05, Clase06, Clase07, Clase08 } from './exercises';
+import { Clase01, Clase02, Clase03, Clase04, Clase05, Clase06, Clase07, Clase08, Clase09 } from './exercises';
 
 function App() {
 	// Lista de  clases YA están terminadas
@@ -13,7 +13,7 @@ function App() {
 		'clase-06': <Clase06 />,
 		'clase-07': <Clase07 />,
 		'clase-08': <Clase08 />,
-		// 'clase-09': <Clase09 />,
+		'clase-09': <Clase09 />,
 		// 'clase-10': <Clase10 />, 
 		// 'clase-11': <Clase11 />,
 		// 'clase-12': <Clase12 />, 
