@@ -1,4 +1,4 @@
-import { HeaderActividad } from '../../../../components/common/HeaderActividad.jsx';
+import { HeaderActividad } from '@/components/common/HeaderActividad.jsx';
 import Productos from './Productos';
 
 const Actividad03 = () => {

@@ -1,5 +1,5 @@
-import { HeaderActividad } from '../../../../components/common/HeaderActividad.jsx';
-import { SeccionTeoria } from '../../../../components/common/SeccionTeoria'
+import { HeaderActividad } from '@/components/common/HeaderActividad.jsx';
+import { SeccionTeoria } from '@/components/common/SeccionTeoria'
 import { Saludo } from './Saludo'; // Con llaves (Nombrado)
 import Despedida from './Despedida'; // Sin llaves (Default)
 

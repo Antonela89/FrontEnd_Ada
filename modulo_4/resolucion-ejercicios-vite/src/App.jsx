@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout/Layout';
-import Proximamente from './components/Proximamente/Proximamente';
-import Home from './components/Home/Home';
+import { Home, Layout, Proximamente } from './components';
 import { Clase01, Clase02, Clase03, Clase04, Clase05, Clase06, Clase07, Clase08 } from './exercises';
 
 function App() {

@@ -1,5 +1,5 @@
 import ListaTareas from "./ListaTareas";
-import { HeaderActividad } from '../../../../components/common/HeaderActividad'; 
+import { HeaderActividad } from '@/components/common/HeaderActividad'; 
 
 const misTareas = [
 	{ id: 1, texto: 'Instalar dependencias de Vite', completada: true },
@@ -8,7 +8,7 @@ const misTareas = [
 	{ id: 4, texto: 'Estilizar el dashboard con CSS', completada: false },
 ];
 
-const index = () => {
+const Actividad01 = () => {
 	return (
 		<>
 			<HeaderActividad>Actividad 1: Lista de Tareas</HeaderActividad>
@@ -20,4 +20,4 @@ const index = () => {
 	);
 };
 
-export default index;
+export default Actividad01;

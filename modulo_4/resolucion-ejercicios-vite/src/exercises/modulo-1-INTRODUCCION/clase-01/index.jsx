@@ -1,8 +1,8 @@
 import Actividad01 from './Actividad-1';
 import Perfil from './Actividad-2/Perfil';
-import { HeaderActividad } from '../../../components/common/HeaderActividad';
-import { SeccionTeoria } from '../../../components/common/SeccionTeoria';
-import HeaderClase from '../../../components/HeaderClase';
+import { HeaderActividad } from '@/components/common/HeaderActividad';
+import { SeccionTeoria } from '@/components/common/SeccionTeoria';
+import HeaderClase from '@/components/HeaderClase';
 
 const Clase01 = () => {
 	const infoTeoriaClase01 = [

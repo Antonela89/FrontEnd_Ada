@@ -1,4 +1,4 @@
-import { HeaderActividad } from '../../../../components/common/HeaderActividad';
+import { HeaderActividad } from '@/components/common/HeaderActividad';
 import { tareas } from './tareas.js'
 import Tasks from './Tasks';
 

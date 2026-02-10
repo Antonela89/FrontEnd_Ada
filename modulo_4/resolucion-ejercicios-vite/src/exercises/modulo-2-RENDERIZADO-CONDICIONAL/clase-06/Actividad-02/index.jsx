@@ -1,4 +1,4 @@
-import { HeaderActividad } from '../../../../components/common/HeaderActividad';
+import { HeaderActividad } from '@/components/common/HeaderActividad';
 import User from './User.jsx';
 import { usuarios } from './usuario.js';
 

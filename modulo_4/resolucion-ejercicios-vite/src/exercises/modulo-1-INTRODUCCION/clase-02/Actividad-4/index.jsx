@@ -1,7 +1,5 @@
-// Actividad-4/index.jsx
-import { HeaderActividad } from '../../../../components/common/HeaderActividad';
+import { HeaderActividad } from '@/components/common/HeaderActividad';
 import Integracion from './Integracion';
-
 // IMPORTACIÓN DE OTRO ARCHIVO (Actividad 2)
 import { Saludo } from '../Actividad-2/Saludo';
 import  Despedida  from '../Actividad-2/Despedida';

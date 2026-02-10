@@ -1,4 +1,4 @@
-import { HeaderActividad } from '../../../../components/common/HeaderActividad';
+import { HeaderActividad } from '@/components/common/HeaderActividad';
 import ListaAlumnas from './ListaAlumnas';
 import { alumnas } from './alumnas.js';
 

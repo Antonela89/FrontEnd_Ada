@@ -1,5 +1,5 @@
-import { HeaderActividad } from '../../../../components/common/HeaderActividad';
-import { SeccionTeoria } from '../../../../components/common/SeccionTeoria';
+import { HeaderActividad } from '@/components/common/HeaderActividad';
+import { SeccionTeoria } from '@/components/common/SeccionTeoria';
 import Notificacion from './Notificacion';
 
 const Actividad02 = () => {

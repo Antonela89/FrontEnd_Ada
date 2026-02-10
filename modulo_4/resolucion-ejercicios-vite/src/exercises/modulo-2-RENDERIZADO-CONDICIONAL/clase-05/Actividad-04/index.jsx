@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Usuario from './Usuario';
-import { HeaderActividad } from '../../../../components/common/HeaderActividad'
+import { HeaderActividad } from '@/components/common/HeaderActividad'
 
 const Actividad04 = () => {
     const [usuarios, setUsuarios] = useState([

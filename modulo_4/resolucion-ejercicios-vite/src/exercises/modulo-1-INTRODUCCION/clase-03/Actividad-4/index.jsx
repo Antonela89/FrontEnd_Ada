@@ -1,4 +1,4 @@
-import { HeaderActividad } from '../../../../components/common/HeaderActividad';
+import { HeaderActividad } from '@/components/common/HeaderActividad';
 import ContenedorLayout from './ContenedorLayout';
 import Boton from '../Actividad-2/Boton';
 

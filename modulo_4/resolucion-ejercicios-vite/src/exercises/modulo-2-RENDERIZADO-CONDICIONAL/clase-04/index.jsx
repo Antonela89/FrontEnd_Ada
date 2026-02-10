@@ -2,8 +2,8 @@ import Actividad01 from './Actividad-1';
 import Actividad02 from './Actividad-2';
 import Actividad03 from './Actividad-3';
 import Actividad04 from './Actividad-4';
-import { SeccionTeoria } from '../../../components/common/SeccionTeoria';
-import HeaderClase from '../../../components/HeaderClase';
+import { SeccionTeoria } from '@/components/common/SeccionTeoria';
+import HeaderClase from '@/components/HeaderClase';
 
 const teoriaCondicionales = [
 	{

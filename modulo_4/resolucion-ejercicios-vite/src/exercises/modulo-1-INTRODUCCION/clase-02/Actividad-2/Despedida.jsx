@@ -1,6 +1,3 @@
-// import './Mensajes.css';
-
-// Export default: NO requiere llaves al importar
 const Despedida = ({ mostrar }) => (
 	<div className="mensaje-box despedida">
 		¡Adiós!
@@ -8,4 +5,5 @@ const Despedida = ({ mostrar }) => (
 	</div>
 );
 
+// Export default: NO requiere llaves al importar
 export default Despedida;

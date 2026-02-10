@@ -1,4 +1,4 @@
-import HeaderClase from '../../../components/HeaderClase';
+import HeaderClase from '@/components/HeaderClase';
 import Actividad01 from './Actividad-01';
 import Actividad02 from './Actividad-02';
 import Actividad03 from './Actividad-03';
