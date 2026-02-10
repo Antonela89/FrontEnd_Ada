@@ -7,6 +7,7 @@ const InputNoControlado = () => {
   const handleValorAMostrar = (e) => {
     e.preventDefault();
     setValorAMostrar(valorInput.current.value);
+    valorInput.current.value = "";
   }
 
   return (
