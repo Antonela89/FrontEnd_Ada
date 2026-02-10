@@ -3,10 +3,14 @@ import Actividad01 from './Actividad01';
 import Actividad02 from './Actividad02';
 import Actividad03 from './Actividad03';
 
-const Clase08 = () => {
+const Clase09 = () => {
 	return (
 		<>
-			<HeaderClase numero="08" titulo="Formularios controlados vs no controlados" />
+			<HeaderClase
+				numero="10"
+				titulo=""
+			/>
+
 			<div className="activity-block">
 				<Actividad01 />
 			</div>
@@ -20,4 +24,4 @@ const Clase08 = () => {
 	);
 };
 
-export default Clase08;
+export default Clase09;
