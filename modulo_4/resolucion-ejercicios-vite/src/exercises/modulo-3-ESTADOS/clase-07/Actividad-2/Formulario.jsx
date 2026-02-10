@@ -1,26 +1,44 @@
-import {useState } from 'react';
+import { useState } from 'react';
 
 const Formulario = () => {
-    const [nombre, setNombre] = useState('');
-    const [apellido, setApellido] = useState('');
-    
-	return (
-        <>
-		<form className='activity-block'>
-			<label className='flex gap-4'>
-				Nombre: 
-                <input className="form-control outline rounded p-2 w-full" type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-			</label>
-			<label className='flex gap-4'>
-				Apellido: 
-                <input className="form-control outline rounded p-2 w-full" type="text" value={apellido} onChange={(e) => setApellido(e.target.value)} />
-			</label>
-		</form>
+	const [nombre, setNombre] = useState('');
+	const [apellido, setApellido] = useState('');
 
-        <div className='extra-info-box text-center h-16 flex items-center justify-center'>
-            <p>{nombre} {apellido}</p>
-        </div>
-        </>
+	return (
+		<>
+			<form className="form">
+				<div className="form-group">
+					<label className="form-label" htmlFor="nombre">
+						Nombre:
+						</label>
+						<input
+							className="form-input"
+							type="text"
+							value={nombre}
+							id="nombre"
+							onChange={(e) => setNombre(e.target.value)}
+						/>
+				</div>
+				<div className="form-group">
+					<label className="form-label" htmlFor="apellido">
+						Apellido:
+					</label>
+					<input
+						className="form-input"
+						type="text"
+						id="apellido"
+						value={apellido}
+						onChange={(e) => setApellido(e.target.value)}
+					/>
+				</div>
+			</form>
+
+			<div className="form-message info">
+				<p>
+					{nombre} {apellido}
+				</p>
+			</div>
+		</>
 	);
 };
 

@@ -12,12 +12,12 @@ const ListaTareas = () => {
 	return (
 		<div className="activity-block">
 			<form
-				className="flex flex-col gap-2 items-center"
+				className="form"
 				onSubmit={(e) => e.preventDefault()}
 			>
-				<ul className='w-full'>
+				<ul className='list-container w-full'>
 					{tareas.map((tarea) => (
-						<li className="flex justify-between items-center pb-2" key={tarea.id}>
+						<li className="list-item" key={tarea.id}>
 							<span
 								style={{
 									textDecoration: tarea.completada
@@ -42,7 +42,7 @@ const ListaTareas = () => {
 				</ul>
 
 				<input
-					className="form-control outline rounded p-2 w-full"
+					className="form-input my-4"
 					type="text"
 					placeholder="Agregar nueva tarea"
 					value={nuevaTarea}
