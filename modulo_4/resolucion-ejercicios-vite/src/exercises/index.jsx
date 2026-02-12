@@ -10,6 +10,7 @@ export { default as Clase06 } from './modulo-2-RENDERIZADO-CONDICIONAL/clase-06'
 export { default as Clase07 } from './modulo-3-ESTADOS/clase-07';
 export { default as Clase08 } from './modulo-3-ESTADOS/clase-08';
 export { default as Clase09 } from './modulo-3-ESTADOS/clase-09';
+export { default as Clase10 } from './modulo-3-ESTADOS/clase-10';
 // Modulo 4: CSS
 
 // Modulo 5: Repaso
