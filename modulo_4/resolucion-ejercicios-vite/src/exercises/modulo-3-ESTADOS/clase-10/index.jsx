@@ -3,7 +3,7 @@ import Actividad01 from './Actividad01';
 import Actividad02 from './Actividad02';
 import Actividad03 from './Actividad03';
 
-const Clase09 = () => {
+const Clase10 = () => {
 	return (
 		<>
 			<HeaderClase
@@ -24,4 +24,4 @@ const Clase09 = () => {
 	);
 };
 
-export default Clase09;
+export default Clase10;
