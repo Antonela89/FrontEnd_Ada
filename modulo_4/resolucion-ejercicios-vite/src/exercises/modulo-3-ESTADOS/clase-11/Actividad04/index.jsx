@@ -1,12 +1,12 @@
 import { HeaderActividad } from '@/components/common/HeaderActividad';
 
-const Acividad02 = () => {
+const Acividad04 = () => {
   return (
     <div className="activity-block">
-      <HeaderActividad>{'Actividad 2: Lista de tareas compartida'}</HeaderActividad>
+      <HeaderActividad>{'Actividad 4: Encuesta interactiva'}</HeaderActividad>
       
     </div>
   )
 }
 
-export default Acividad02
+export default Acividad04
