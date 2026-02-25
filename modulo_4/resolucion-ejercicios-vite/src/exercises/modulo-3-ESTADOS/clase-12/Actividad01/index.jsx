@@ -1,11 +1,15 @@
+import { HeaderActividad } from '@/components/common/HeaderActividad';
+import HandleBackground from './HandleBackground';
 
+const index = () => {
+	return (
+		<div className="activity-block">
+			<HeaderActividad>
+				{'Actividad 1: Cambiar color de fondo'}
+			</HeaderActividad>
+            <HandleBackground />
+		</div>
+	);
+};
 
-const Acividad01 = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default Acividad01
+export default index;

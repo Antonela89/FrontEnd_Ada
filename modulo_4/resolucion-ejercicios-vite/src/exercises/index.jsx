@@ -12,6 +12,7 @@ export { default as Clase08 } from './modulo-3-ESTADOS/clase-08';
 export { default as Clase09 } from './modulo-3-ESTADOS/clase-09';
 export { default as Clase10 } from './modulo-3-ESTADOS/clase-10';
 export { default as Clase11 } from './modulo-3-ESTADOS/clase-11';
+export { default as Clase12 } from './modulo-3-ESTADOS/clase-12';
 // Modulo 4: CSS
 
 // Modulo 5: Repaso

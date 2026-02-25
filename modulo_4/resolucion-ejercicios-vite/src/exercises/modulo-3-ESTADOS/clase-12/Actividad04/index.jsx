@@ -1,15 +1,15 @@
 import { HeaderActividad } from '@/components/common/HeaderActividad';
-import Carrousel from './Carrousel';
+import Carrito from './Carrito';
 
-const Acividad03 = () => {
+const Actividad04 = () => {
 	return (
 		<div className="activity-block">
 			<HeaderActividad>
-				{'Actividad 3: Carrousel de Imágenes'}
+				{'Actividad 4: Carrito de Compras'}
 			</HeaderActividad>
-			<Carrousel />
+      <Carrito/>
 		</div>
 	);
 };
 
-export default Acividad03;
+export default Actividad04;
