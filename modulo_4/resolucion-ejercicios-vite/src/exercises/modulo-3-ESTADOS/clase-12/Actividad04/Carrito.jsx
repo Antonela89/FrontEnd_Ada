@@ -5,23 +5,37 @@ const Carrito = () => {
 
 	return (
 		<>
-			<h2>Carrito de Compras</h2>
-			<button
-				onClick={() =>
-					setCarrito([...carrito, 'Producto ' + (carrito.length + 1)])
-				}
-			>
-				Agregar Producto
-			</button>
+			<div className="flex gap-2">
+				<button
+					className="btn-primary"
+					onClick={() =>
+						setCarrito([
+							...carrito,
+							'Producto ' + (carrito.length + 1),
+						])
+					}
+				>
+					Agregar Producto
+				</button>
+				<button className="btn-danger" onClick={() => setCarrito([])}>
+					Vaciar Carrito
+				</button>
+			</div>
 			{carrito.length === 0 ? (
-				<p>El carrito está vacío</p>
+				<p className="mensaje-box danger">El carrito está vacío</p>
 			) : (
-				<ul>
-					{carrito.map((item, index) => (
-						<li key={index}>{item}</li>
-					))}
-                <p>Total de productos: {carrito.length}</p>
-				</ul>
+				<>
+					<ul className="list-container">
+						{carrito.map((item, index) => (
+							<li className="list-item" key={index}>
+								{item}
+							</li>
+						))}
+					</ul>
+					<p className="mensaje-box">
+						Total de productos: {carrito.length}
+					</p>
+				</>
 			)}
 		</>
 	);
