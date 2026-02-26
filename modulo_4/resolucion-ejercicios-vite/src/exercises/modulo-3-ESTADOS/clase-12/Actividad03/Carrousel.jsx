@@ -9,14 +9,15 @@ const Carrousel = () => {
 
 	const [currentIndex, setCurrentIndex] = useState(0);
 	return (
-		<div>
+		<div className='div-container-row justify-center'>
 			<img
 				src={images[currentIndex]}
 				alt={`Image ${currentIndex + 1}`}
-                style={{ width: '200px', aspectRatio: '1/2', objectFit: 'cover' }}
+                style={{ width: '200px', aspectRatio: '1/1', objectFit: 'cover' }}
 			/>
 			<div>
 				<button
+					className='btn'
 					onClick={() =>
 						setCurrentIndex((currentIndex + 1) % images.length)
 					}
