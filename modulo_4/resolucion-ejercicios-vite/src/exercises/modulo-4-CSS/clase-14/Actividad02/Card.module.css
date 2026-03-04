@@ -1,0 +1,14 @@
+@reference '@/components/Layout/css/theme.css';
+
+.card {
+    @apply border-2 border-accent p-5 m-2.5 rounded-md w-1/2;
+}
+
+.alert {
+    @apply bg-warning border-warning;
+}
+
+.destacado {
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}

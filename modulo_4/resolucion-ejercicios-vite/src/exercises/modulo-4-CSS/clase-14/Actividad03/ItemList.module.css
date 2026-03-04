@@ -1,0 +1,13 @@
+@reference '@/components/Layout/css/theme.css';
+
+.item {
+    @apply p-2 border-b-white font-sans;
+}
+
+.error {
+    @apply text-danger border-l border-danger;
+}
+
+.success {
+    @apply text-success border-l border-success;
+}

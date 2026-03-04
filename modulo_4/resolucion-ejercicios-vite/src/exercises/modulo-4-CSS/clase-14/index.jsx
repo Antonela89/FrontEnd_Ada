@@ -8,7 +8,7 @@ const Clase14 = () => {
 		<>
 			<HeaderClase
 				numero="14"
-				titulo=""
+				titulo="Módulo CSS II"
 			/>
 
 			<div className="activity-block">
