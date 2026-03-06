@@ -15,7 +15,7 @@ import {
 	Clase12,
 	Clase13,
 	Clase14,
-	// Clase15,
+	Clase15,
 	// Clase16,
 	// Clase17
 } from './exercises';
@@ -37,7 +37,7 @@ function App() {
 		'clase-12': <Clase12 />,
 		'clase-13': <Clase13 />,
 		'clase-14': <Clase14 />,
-		// 'clase-15': <Clase15 />,
+		'clase-15': <Clase15 />,
 		// 'clase-16': <Clase16 />,
 		// 'clase-17': <Clase17 />
 	};
