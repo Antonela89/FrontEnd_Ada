@@ -17,5 +17,5 @@ export { default as Clase12 } from './modulo-3-ESTADOS/clase-12';
 export { default as Clase13 } from './modulo-4-CSS/clase-13';
 export { default as Clase14 } from './modulo-4-CSS/clase-14';
 export { default as Clase15 } from './modulo-4-CSS/clase-15';
-// export { default as Clase15 } from './modulo-4-CSS/clase-15';
 // Modulo 5: Repaso
+export { default as Clase16 } from './modulo-5-REPASO/clase-16';

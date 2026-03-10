@@ -1,6 +1,6 @@
 
 
-const Acividad02 = () => {
+const Actividad02 = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Acividad02 = () => {
   )
 }
 
-export default Acividad02
+export default Actividad02
