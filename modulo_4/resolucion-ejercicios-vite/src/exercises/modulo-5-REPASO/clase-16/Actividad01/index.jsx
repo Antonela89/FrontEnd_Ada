@@ -5,9 +5,9 @@ const Actividad01 = () => {
 	return (
 		<div className="activity-block">
 			<HeaderActividad>
-				{'Actividad 1:  Lista de Películas Favoritas'}
+				{'Actividad 1: Lista de Películas Favoritas'}
 			</HeaderActividad>
-      <ListMovies/>
+			<ListMovies />
 		</div>
 	);
 };
