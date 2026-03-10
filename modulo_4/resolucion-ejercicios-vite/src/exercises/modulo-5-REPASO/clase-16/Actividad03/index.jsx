@@ -1,11 +1,13 @@
 import { HeaderActividad } from '@/components/common/HeaderActividad';
+import ListProduct from './ListProduct/ListProduct';
 
 const Actividad03 = () => {
   return (
     <div className="activity-block">
 			<HeaderActividad>
-				{'Actividad 1: Lista de Películas Favoritas'}
+				{'Actividad 3: Carrito de Compras Dinámicos'}
 			</HeaderActividad>
+      <ListProduct/>
     </div>
   )
 }
